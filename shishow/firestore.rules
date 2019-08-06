@@ -1,0 +1,36 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+  	match /{allChildren=**}{
+  		allow read, write:if request.auth.token.email == "root@shishow.com";
+  	}
+    match /USER/{userid=**} {
+      allow read, write;
+    }
+    match /Image/{imageid=**}{
+    	allow read;
+    }
+		match /GameCollection/{gameid=**}{
+    	allow read, write;
+    }
+    match /PrivateChat/{chatid}{
+    
+    	function getChat(){
+        	return get(/databases/$(database)/documents/PrivateChat/$(chatid));
+      }
+      
+    	allow read,update,delete:if request.auth.token.email == resource.data.email1;
+      allow read,update,delete:if request.auth.token.email == resource.data.email2;
+      
+    	allow create:if request.auth.token.email == request.resource.data.email1;
+      allow create:if request.auth.token.email == request.resource.data.email2;
+                    
+      
+      
+      match /contents/{allChildren=**}{
+      	
+      	allow read,write:if request.auth.token.email == getChat().data.email1;
+        allow read,write:if request.auth.token.email == getChat().data.email2;
+      }
+    }
+  }
+}
