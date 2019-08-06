@@ -63,10 +63,23 @@ module.exports = {
 }
 
 module.exports = {
-  modules: ['@nuxtjs/style-resources'],
+  modules: [
+    '@nuxtjs/style-resources',
+    'nuxt-fontawesome'
+  ],
+
   styleResources: {
    scss: [
     '~/assets/scss/palette.scss',
+    ]
+  },
+
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas']
+      }
     ]
   }
 }
