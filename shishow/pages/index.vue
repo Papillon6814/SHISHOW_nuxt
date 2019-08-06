@@ -6,7 +6,7 @@
 
     <nuxt-link to="/home">
         <div class="enterButton">
-      アカウントを作成
+      SHISHOWをはじめる
       </div>
     </nuxt-link>
 

@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
 const state = () => ({
   searchWord: "",
@@ -12,14 +13,17 @@ const mutations = {
     onSearchWordInput(state, word) {
       state.searchWord = word
     },
+    
     onAuthStateChanged(state, user) {
       state.user = user;
       // firebaseが返したユーザー情報
     },
+
     onUserStatusChanged(state, status) {
       state.status = status;
       // ログインしているかどうか
     },
+
     onOpeningChatArea(state, userData) {
       state.id_list = {};
       state.user_name_list = {};
