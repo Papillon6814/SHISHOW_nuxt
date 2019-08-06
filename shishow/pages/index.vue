@@ -4,11 +4,10 @@
       SHISHOW
     </div>
 
-    <nuxt-link to="/home">
-        <div class="enterButton">
-      SHISHOWをはじめる
+
+      <div class="enterButton" @click="checkUser()">
+      アカウントを作成
       </div>
-    </nuxt-link>
 
     <nuxt-link to="/signin">
       <div class="loginButton">
@@ -21,9 +20,23 @@
 </template>
 
 <script>
+import firebase from "../plugins/firestore";
+import "firebase/firestore";
 
 export default {
-  name: 'prehome'
+  name: 'prehome',
+  methods:{
+    checkUser(){
+      firebase.auth().onAuthStateChanged(user=>{
+        if(user){
+          $nuxt.$router.push("/home")
+        }else{
+          $nuxt.$router.push("/signin")
+        }
+      })
+    }
+  }
+
 }
 
 </script>
