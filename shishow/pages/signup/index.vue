@@ -9,8 +9,8 @@
 
 <script>
 // @ is an alias to /sonBar.vue'
-import navi from '../components/NavigationBar.vue'
-import signupBanner from '../components/SignupBanner.vue'
+import navi from '~/components/NavigationBar.vue'
+import signupBanner from '~/components/SignupBanner.vue'
 export default {
   name: 'signup',
   components: {
