@@ -1,0 +1,165 @@
+
+/* font settings */
+// @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
+/* --- */
+
+/* basic color */
+
+$header_color: #00bcd4;
+$dark_color: #fafafa;
+$footer_color: #161e34;
+$banner_color: #b2ebf2;
+$banner_flame: #fff;
+$window_flame: #002858;
+// TODO: must be deleted successfully.
+$pulldown_color: #97fff1;
+
+$dark_primary_color: #0097A7;
+$light_primary_color: #b2ebf2;
+$primary_color: #00bcd4;
+$text_icons: #fff;
+$accent_color: #ff4081;
+$primary_text: #212121;
+$secondary_text: #757575;
+$divider_color: #bdbdbd;
+
+$n_banner_color: #abbffb;
+$n_banner_flame: #202f5a;
+$n_window_flame: #3f4c7c;
+
+$g_banner_color: #d5beff;
+$g_banner_flame: #3f3453;
+$g_window_flame: #3f2c63;
+
+$su_banner_color: #bcfffa;
+$su_banner_flame: #0e4646;
+$su_window_flame: #0e4644;
+
+$si_banner_color: #c7ffc7;
+$si_banner_flame: #007c74;
+$si_window_flame: #1c5652;
+
+//$g_banner_color: #c7ffc7;
+//$g_banner_flame: #007c74;
+//$g_window_flame: #1c5652;
+
+$header_height: 100px;
+$footer_height: 100px;
+$logo_sentence_color: #e0ffff;
+
+/* --- */
+/* around myBanner */
+
+$banner_width: 100%;
+// $banner_height: calc(100% - 100px);
+
+$icon_width: 130px;
+$icon_height: $icon_width;
+
+$achievement_width: 47px;
+$achievement_height: 29px;
+$root_twelve: 13.5516911px;
+$a_half_width: 23.47px;
+
+$user_width: 55%;
+$user_height: 70px;
+
+$deshi_width: $user_width*0.275;
+$deshi_height: 50px;
+
+$id_width: 55%;
+$id_height: 30px;
+
+$profile_width: 100%;
+$profile_height: 130px;
+
+$su_user_width: 70%;
+$su_user_height: 35px;
+$su_pass_width: 45%;
+$su_pass_height: 30px;
+
+/* --- */
+/* around normalBanner */
+
+$n_icon_width: 100px;
+$n_icon_height: $n_icon_width;
+
+$n_banner_width: 55vw;
+$n_banner_height: $n_banner_width / 4.5;
+
+$n_achievement_width: 32.3125px;
+$n_achievement_height: 15.8125px;
+$n_root_twelve: 9.3278px;
+$n_a_half_width: 16.15625px;
+
+$n_user_height: 54.375px;
+
+$n_id_height: 20.625px;
+
+$n_profile_height: 83.75px;
+
+ /* --- */
+ /* menubuttons */
+
+ $button_width: 80px;
+ $button_height: 80px;
+
+ /* --- */
+ /* around direct message page */
+
+ $theme_color_dm: #ddddff;
+ $dm_icon_width: 90px;
+ $dm_banner_color: #FFF;
+ $dm_banner_color_hover : rgb(230, 236, 240);
+ $selected_dm_banner_color: #555;
+
+ /* --- */
+ /* around notification page */
+
+ $not_banner_color: #d5d5d5;
+ $not_banner_flane: #222;
+
+ $not_banner_width: 90%;
+ $not_banner_height: 140px;
+
+ /* --- */
+
+ /*around nav */
+
+ $secondary-color: rgba(255, 255, 255, 0.87);
+ $searchbar_width: 400px;
+
+/* --- */
+/* text color */
+
+  $main_text_color: rgba(0, 0, 0, 0.87);
+  $sub_text_color: rgba(0, 0, 0, 0.54);
+  $invisible_text_color: rgba(0, 0, 0, 0.38);
+
+/* --- */
+
+/* friend banner */
+
+$f_banner_width: 86%;
+$f_banner_height: 130px;
+
+/* --- */
+
+/* scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+}
+
+/*スクロールバーの軌道*/
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+}
+
+/*スクロールバーの動く部分*/
+::-webkit-scrollbar-thumb {
+  background-color:#ccc;
+  border-radius: 10px;
+  box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
+}
+/* --- */

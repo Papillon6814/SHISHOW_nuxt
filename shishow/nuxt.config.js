@@ -61,3 +61,12 @@ module.exports = {
     }
   }
 }
+
+module.exports = {
+  modules: ['@nuxtjs/style-resources'],
+  styleResources: {
+   scss: [
+    '~/assets/scss/palette.scss',
+    ]
+  }
+}

@@ -1,72 +1,112 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        shishow
-      </h1>
-      <h2 class="subtitle">
-        for ssr
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div id="prehome">
+    <div class="logo">
+      SHISHOW
     </div>
+
+    <nuxt-link to="/home">
+        <div class="enterButton">
+      アカウントを作成
+      </div>
+    </nuxt-link>
+
+    <nuxt-link to="/signin">
+      <div class="loginButton">
+        ログイン
+      </div>
+    </nuxt-link>
+
+    <div class="footer"></div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 
 export default {
-  components: {
-    Logo
-  }
+  name: 'prehome'
 }
+
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+<style lang="scss" scoped>
+#prehome {
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+  .logo {
+    position: absolute;
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+    top: 35%;
+    left: 50%;
 
-.links {
-  padding-top: 15px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    color: $primary_text;
+    font-size: 10vh;
+  }
+
+  .enterButton {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    width: 60vh;
+    height: 65px;
+
+    background-color: $primary_color;
+
+    text-align: center;
+    color: $primary_text;
+    font-size: 40px;
+
+    line-height: 65px;
+
+    cursor: pointer;
+  }
+
+  .loginButton {
+    position: absolute;
+
+    left: 50%;
+    top: 62%;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    width: 60vh;
+    height: 65px;
+
+    background-color: #fff;
+
+    text-align: center;
+    color: $primary_text;
+    font-size: 40px;
+
+    line-height: 65px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: $divider_color;
+
+    cursor: pointer;
+  }
+
+  .footer {
+    position: absolute;
+
+    width: 100%;
+    height: 60px;
+
+    background-color: $dark_primary_color;
+
+    bottom: 0;
+    left: 0;
+  }
 }
 </style>
