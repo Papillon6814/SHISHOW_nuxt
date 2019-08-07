@@ -66,8 +66,8 @@ export default {
     onAuth: function() {
       firebase.auth().onAuthStateChanged(user => {
         user = user ? user : {};
-        store.commit("onAuthStateChanged", user);
-        store.commit("onUserStatusChanged", user.uid ? true : false);
+        this.$store.commit("onAuthStateChanged", user);
+        this.$store.commit("onUserStatusChanged", user.uid ? true : false);
       });
     },
 
@@ -82,8 +82,6 @@ export default {
     },
 
     sendFriendReq: function(gameId) {
-      
-
         db.collection("USER")
           .doc(this.signuser.email)
           .collection("outgoing")
@@ -127,7 +125,7 @@ export default {
             date: new Date()
           })
           this.relation = 2;
-      
+
     },
 
     delete_db: function() {

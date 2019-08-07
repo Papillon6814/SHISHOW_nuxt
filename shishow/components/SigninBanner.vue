@@ -36,11 +36,14 @@ import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
 import store from "../store";
+
 export default {
   name: "Signin",
+  
   created: function() {
     this.onAuth();
   },
+
   data: function() {
     return {
       username: "",
@@ -48,6 +51,7 @@ export default {
       e_mail: ""
     };
   },
+
   computed: {
     user() {
       return this.$store.getters.user;
@@ -57,6 +61,7 @@ export default {
       return this.$store.getters.isSignedIn;
     }
   },
+
   methods: {
     login: function() {
       firebase

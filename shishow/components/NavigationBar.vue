@@ -18,7 +18,7 @@
           <label for="search">Search...</label>
           <div class="bar"></div>
           <!-- <img class="sch" src="../assets/search-button.png" @click="onChangeInput"> -->
-          <nuxt-link to="search">
+          <nuxt-link to="/search">
             <font-awesome-icon icon="search"
              @click="onChangeInput()" class="sch" />
           </nuxt-link>
@@ -257,22 +257,19 @@ export default {
     }
   }
 }
-// デバッグのために一時的に変えてます
-@media (min-width: 1050px) {
-  #header {
-    top: 0px;
-  }
-  .logoSentence2 {
-    position: absolute;
-    font-family: "Pangolin", cursive;
-    font-size: 60px;
-    top: 10px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    -webkit-transform: translate(-50%, 0);
-    color: white;
-    text-shadow: 2px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
-      -1px 1px 0 #000, 1px 1px 0 #000;
-  }
+#header {
+  top: 0px;
+}
+.logoSentence2 {
+  position: absolute;
+  font-family: "Pangolin", cursive;
+  font-size: 60px;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  color: white;
+  text-shadow: 2px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 }
 </style>
