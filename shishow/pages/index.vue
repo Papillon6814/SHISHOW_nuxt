@@ -22,6 +22,7 @@
 <script>
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
+import "@firebase/auth";
 
 export default {
   name: 'prehome',
@@ -35,6 +36,9 @@ export default {
         }
       })
     }
+  },
+
+  created:function(){
   }
 
 }

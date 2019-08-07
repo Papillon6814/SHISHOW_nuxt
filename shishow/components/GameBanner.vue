@@ -60,7 +60,7 @@ export default {
     },
 
     subscribe: function() {
-      if (store.state.status) {
+     
         db.collection("USER")
           .doc(this.signuser.email)
           .collection("GAMES")
@@ -69,7 +69,7 @@ export default {
             gamename: this.game.data().gamename
           })
         this.isSubscribed = true;
-      }
+      
     },
 
     remove: function() {

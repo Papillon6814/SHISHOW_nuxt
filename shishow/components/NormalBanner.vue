@@ -82,7 +82,7 @@ export default {
     },
 
     sendFriendReq: function(gameId) {
-      if (store.state.status) {
+      
 
         db.collection("USER")
           .doc(this.signuser.email)
@@ -127,7 +127,7 @@ export default {
             date: new Date()
           })
           this.relation = 2;
-      }
+      
     },
 
     delete_db: function() {

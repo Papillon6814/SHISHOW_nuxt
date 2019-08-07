@@ -30,6 +30,7 @@
         <div id="moving">
 
           <transition appear name="v3">
+            
           <div id="gameBannerPosition">
             <div v-for="N in games.length"
               :key="N" v-bind:class="'g'+N">
@@ -74,6 +75,7 @@
     <div class="selectModal">
       <div class="closeBtn" @click="fadeOut()">
         <i class="fas fa-times"></i>
+        aaaaaaa
       </div>
       <div class="selectedBannerPosition">
         <div v-for="N in hisGames.length" :key="N"

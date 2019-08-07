@@ -1,0 +1,7 @@
+dm関連のファイルを格納するディレクトリdm
+
+DirectMessageField: InputArea, leftArea, rightAreaの3つのコンポーネントをまとめているコンポーネント
+leftArea: dmBannerを並べて表示するためのコンポーネント
+rightArea: チャット内容を表示するためのコンポーネント
+InputArea: チャットを入力するためのコンポーネント
+dmBanner: チャット相手のフレンドを表示するためのコンポーネント
