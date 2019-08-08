@@ -60,7 +60,7 @@ export default {
     },
 
     subscribe: function() {
-     
+
         db.collection("USER")
           .doc(this.signuser.email)
           .collection("GAMES")
@@ -69,7 +69,7 @@ export default {
             gamename: this.game.data().gamename
           })
         this.isSubscribed = true;
-      
+
     },
 
     remove: function() {
@@ -125,7 +125,7 @@ export default {
     transition: 0.3s;
 
     border-radius: 3px;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 
     .iconPicPosition {
@@ -199,7 +199,7 @@ export default {
   }
 
   .gamebanner:hover{
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
   }
 
 </style>
