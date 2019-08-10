@@ -38,9 +38,6 @@ import "@firebase/auth";
 import store from "../store";
 export default {
   name: "Signin",
-  created: function() {
-    this.onAuth();
-  },
   data: function() {
     return {
       username: "",
@@ -77,13 +74,6 @@ export default {
         signinButton[0].style.color= "#fff";
         this.$forceUpdate();
     },
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit("onAuthStateChanged", user);
-        this.$store.commit("onUserStatusChanged", user.uid ? true : false);
-      });
-    }
   }
 };
 </script>

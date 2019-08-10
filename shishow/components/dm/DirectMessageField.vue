@@ -62,7 +62,7 @@ import GameRequestBanner from '../GameRequestBanner.vue'
 import firebase from "../../plugins/firestore";
 import 'firebase/firestore'
 import '@firebase/auth'
-import store from '../../store'
+
 
 
 let db = firebase.firestore();
@@ -210,8 +210,8 @@ export default {
     onAuth: function() {
       firebase.auth().onAuthStateChanged(user => {
         user = user ? user : {};
-        store.commit('onAuthStateChanged', user);
-        store.commit('onUserStatusChanged', user.uid ? true : false);
+        this.$store.commit('onAuthStateChanged', user);
+        this.$store.commit('onUserStatusChanged', user.uid ? true : false);
       })
     },
 

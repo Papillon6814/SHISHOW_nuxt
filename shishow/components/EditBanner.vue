@@ -25,7 +25,7 @@
 
     <div class="bioPosition">
       <textarea v-model="userBio" :rows="rows"
-        maxlength="50">{{ userBio }}</textarea>
+        maxlength="50"></textarea>
     </div>
 
     <div class="applyChangeButton" @click="apply()">
@@ -47,7 +47,7 @@
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
-import store from '../store'
+
 const db = firebase.firestore();
 let currentUser;
 export default {
@@ -55,7 +55,7 @@ export default {
   data: function() {
     return {
       username: '',
-      userBio: '',
+      userBio: ' ',
       enumGames: '',
       favoriteGame: '',
       value: '',
@@ -91,13 +91,6 @@ export default {
       };
       // 読み込み開始
       reader.readAsDataURL(file);
-    },
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit('onAuthStateChanged', user);
-        this.$store.commit('onUserStatusChanged', user.uid ? true : false);
-      })
     },
     close: function() {
       this.$emit("close");
@@ -146,10 +139,9 @@ export default {
     }
   },
   created: function () {
-    this.onAuth();
     currentUser = firebase.auth().currentUser;
     if (currentUser == null) {
-      currentUser = this.$store.getters.user;
+      currentUser = this.$store.state.user.user;
     }
     // ユーザーネーム取得
     db.collection("USER")

@@ -4,6 +4,19 @@
   </div>
 </template>
 
+<script>
+
+import firebase from "../plugins/firestore";
+import "firebase/firestore";
+import "@firebase/auth";
+
+export default {
+  
+  middleware:"auth",
+}
+</script>
+
+
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

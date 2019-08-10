@@ -58,7 +58,7 @@ import dmGameBanner from "./dmGameBanner.vue";
 import firebase from '../../plugins/firestore';
 import 'firebase/firestore'
 import '@firebase/auth'
-import store from '../../store'
+
 
 import draggable from 'vuedraggable';
 
@@ -117,8 +117,8 @@ export default {
     onAuth: function() {
       firebase.auth().onAuthStateChanged(user => {
         user = user ? user : {};
-        store.commit('onAuthStateChanged', user);
-        store.commit('onUserStatusChanged', user.uid ? true : false);
+        this.$store.commit('onAuthStateChanged', user);
+        this.$store.commit('onUserStatusChanged', user.uid ? true : false);
       })
     },
 

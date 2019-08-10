@@ -15,6 +15,7 @@
       </div>
     </nuxt-link>
 
+  <button @click="aa">aaa</button>
     <div class="footer"></div>
   </div>
 </template>
@@ -23,26 +24,80 @@
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
+import { Promise } from 'q';
+
 
 export default {
+  
   name: 'prehome',
+  data:function(){
+    return{
+      users:{},
+    }
+  },
   methods:{
     checkUser(){
-      firebase.auth().onAuthStateChanged(user=>{
-        if(user){
-          $nuxt.$router.push("/home")
-        }else{
-          $nuxt.$router.push("/signin")
-        }
-      })
+      if(firebase.auth().currentUser){
+        $nuxt.$router.push("/home")
+      }else{
+        $nuxt.$router.push("/signin")
+      }
+    },
+
+    aa(){
+      console.log(this.users)
+      console.log(firebase.auth().currentUser)
+      console.log(this.$store.state.user.user)
     }
   },
 
+
+
   created:function(){
+    /*
+    Promise((res,rej)=>{
+    firebase.auth().onAuthStateChanged(user => {
+    if(user){
+     this.$store.commit("user/onAuthStateChanged", user.email,user.displayName,user.uid);
+     res()
+     
+    }else{
+      
+    }
+   });
+    }).then(()=>{
+   console.log(this.$store.state.user.user)
+   })*/
+   console.log(this.$store.state.user.user)
+   firebase.auth().onAuthStateChanged(user => {
+     console.log(user)
+   })
+  },
+
+  asyncData({ params }){
+    return Promise((res,rej)=>{
+      firebase.auth().onAuthStateChanged(user => {
+      res(user)
+    })
+
+  }).then(user=>{
+    return {users:user}
+  })
   }
 
-}
+/*
 
+  fetch({ store, params }){
+    firebase.auth().onAuthStateChanged(user => {
+    if(user){
+     store.commit("user/onAuthStateChanged", user.email,user.displayName,user.uid);
+     store.commit("user/onUserStatusChanged_t");
+    }else{
+      store.commit("user/onUserStatusChanged_f");
+    }
+   });
+  }, */
+}
 </script>
 
 <style lang="scss" scoped>

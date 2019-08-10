@@ -49,7 +49,6 @@ export default {
   ],
 
   created:function(){
-    this.onAuth();
     this.relation = this.relations;
   },
 
@@ -63,13 +62,6 @@ export default {
   },
 
   methods: {
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        store.commit("onAuthStateChanged", user);
-        store.commit("onUserStatusChanged", user.uid ? true : false);
-      });
-    },
 
     click: function() {
       this.$emit("clickNB");

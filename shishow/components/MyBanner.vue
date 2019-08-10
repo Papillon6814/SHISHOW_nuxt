@@ -87,14 +87,6 @@ export default {
 
   methods: {
 
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit("onAuthStateChanged", user);
-        this.$store.commit("onUserStatusChanged", user.uid ? true : false);
-      });
-    },
-
     logout: function() {
       firebase
         .auth()
@@ -116,7 +108,6 @@ export default {
     var email;
     var shishowBox = 0;
     var deshiBox = 0;
-    this.onAuth();
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         email = user.email;
