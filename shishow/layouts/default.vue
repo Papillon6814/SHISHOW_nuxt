@@ -5,16 +5,11 @@
 </template>
 
 <script>
-
-import firebase from "../plugins/firestore";
-import "firebase/firestore";
-import "@firebase/auth";
-
 export default {
-  
-  middleware:"auth",
+  middleware:"auth"
 }
 </script>
+
 
 
 <style>

@@ -69,13 +69,13 @@ export default {
       isA: true,
       isB: false,
       isC: false,
-      sign: "",
-      icon: "",
-      bio: "",
-      username:"",
-      friendDocID: "",
-      shishow: "",
-      deshi: ""
+      sign: " ",
+      icon: " ",
+      bio: " ",
+      username:" ",
+      friendDocID: " ",
+      shishow: " ",
+      deshi: " "
     };
   },
 
@@ -93,7 +93,10 @@ export default {
         .signOut()
         .then(function() {
           alert("Signed out.");
-          router.push("/");
+          sessionStorage.removeItem("shishow_user_email")
+          sessionStorage.removeItem("shishow_user_name")
+          sessionStorage.removeItem("shishow_user_uid")
+          $nuxt.$router.push("/")
         })
         .catch(() => {
         });

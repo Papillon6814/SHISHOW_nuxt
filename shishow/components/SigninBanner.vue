@@ -60,9 +60,14 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.e_mail, this.password)
         .then(function(req) {
+          sessionStorage.setItem("shishow_user_email",req.user.email)
+          sessionStorage.setItem("shishow_user_name",req.user.displayName)
+          sessionStorage.setItem("shishow_user_uid",req.user.uid)
+
           req.user.getIdToken().then(token=>{
             console.log(token.toString())
           })
+          
           alert("Signed in.");
           $nuxt.$router.push("/home");
         })

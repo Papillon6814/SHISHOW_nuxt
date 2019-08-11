@@ -15,7 +15,6 @@
       </div>
     </nuxt-link>
 
-  <button @click="aa">aaa</button>
     <div class="footer"></div>
   </div>
 </template>
@@ -43,60 +42,10 @@ export default {
         $nuxt.$router.push("/signin")
       }
     },
-
-    aa(){
-      console.log(this.users)
-      console.log(firebase.auth().currentUser)
-      console.log(this.$store.state.user.user)
-    }
   },
-
-
-
   created:function(){
-    /*
-    Promise((res,rej)=>{
-    firebase.auth().onAuthStateChanged(user => {
-    if(user){
-     this.$store.commit("user/onAuthStateChanged", user.email,user.displayName,user.uid);
-     res()
-     
-    }else{
-      
-    }
-   });
-    }).then(()=>{
-   console.log(this.$store.state.user.user)
-   })*/
-   console.log(this.$store.state.user.user)
-   firebase.auth().onAuthStateChanged(user => {
-     console.log(user)
-   })
-  },
-
-  asyncData({ params }){
-    return Promise((res,rej)=>{
-      firebase.auth().onAuthStateChanged(user => {
-      res(user)
-    })
-
-  }).then(user=>{
-    return {users:user}
-  })
+    console.log(this.$store.state.user.status)
   }
-
-/*
-
-  fetch({ store, params }){
-    firebase.auth().onAuthStateChanged(user => {
-    if(user){
-     store.commit("user/onAuthStateChanged", user.email,user.displayName,user.uid);
-     store.commit("user/onUserStatusChanged_t");
-    }else{
-      store.commit("user/onUserStatusChanged_f");
-    }
-   });
-  }, */
 }
 </script>
 

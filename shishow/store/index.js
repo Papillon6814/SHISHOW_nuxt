@@ -17,8 +17,16 @@ export const getters = {
 }
 
 export const actions = {
-  nuxtServerInit({dispatch}){
-    dispatch("user/setUser");
+  nuxtClientInit({commit,state}){
+    
+    const email = sessionStorage.getItem("shishow_user_email")
+    if(email){
+      const name = sessionStorage.getItem("shishow_user_name")
+      const uid = sessionStorage.getItem("shishow_user_uid")
+      commit("user/onAuthStateChanged",{email:email,username:name,uid:uid});
+    }else{
+      commit("user/onUserLogout");
+    }
   }
 }
 

@@ -63,6 +63,7 @@ module.exports = {
 }
 
 module.exports = {
+  plugins: [{ src: '~/plugins/nuxt-client-init.js', ssr: false }],
   modules: [
     '@nuxtjs/style-resources',
     'nuxt-fontawesome'

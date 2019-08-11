@@ -11,17 +11,16 @@ export const state = () => ({
   
   export const mutations = {
       
-      onAuthStateChanged(state, email,name,uid) {
-        state.user = {email:email,displayName:name,uid:uid};
+      onAuthStateChanged(state, user) {
+        state.user = user;
+        state.status = true;
         // firebaseが返したユーザー情報
       },
   
-      onUserStatusChanged_t(state) {
-        state.status = true;
-        // ログインしているかどうか
-      },
+      
 
-      onUserStatusChanged_f(state) {
+      onUserLogout(state) {
+        state.user = {}
         state.status = false;
         // ログインしているかどうか
       },
@@ -34,8 +33,8 @@ export const state = () => ({
         state.user_name_list = userData.user_name_list;
       },
 
-      aaa(state,user){
-        state.user = user
+      aaa(state,email){
+        state.user = email
       }
   }
   
@@ -51,10 +50,8 @@ export const state = () => ({
       },
 
       setUser({commit}){
-        firebase.auth().onAuthStateChanged(user => {
-           commit("aaa",user);
-      })
-    }
+          commit("aaa")
+      }
     
   }
   
