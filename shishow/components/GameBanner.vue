@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import store from "../store";
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
@@ -51,13 +50,7 @@ export default {
 */
 
   methods: {
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        store.commit("onAuthStateChanged", user);
-        store.commit("onUserStatusChanged", user.uid ? true : false);
-      });
-    },
+    
 
     subscribe: function() {
 
@@ -103,7 +96,7 @@ export default {
   },
 
   created: function() {
-    this.onAuth();
+
   },
 
   mounted: function() {

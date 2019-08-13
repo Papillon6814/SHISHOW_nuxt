@@ -39,10 +39,6 @@ import store from "../store";
 
 export default {
   name: "Signin",
-  
-  created: function() {
-    this.onAuth();
-  },
 
   data: function() {
     return {
@@ -68,9 +64,14 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.e_mail, this.password)
         .then(function(req) {
+          sessionStorage.setItem("shishow_user_email",req.user.email)
+          sessionStorage.setItem("shishow_user_name",req.user.displayName)
+          sessionStorage.setItem("shishow_user_uid",req.user.uid)
+
           req.user.getIdToken().then(token=>{
             console.log(token.toString())
           })
+          
           alert("Signed in.");
           $nuxt.$router.push("/home");
         })
@@ -82,13 +83,6 @@ export default {
         signinButton[0].style.color= "#fff";
         this.$forceUpdate();
     },
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit("onAuthStateChanged", user);
-        this.$store.commit("onUserStatusChanged", user.uid ? true : false);
-      });
-    }
   }
 };
 </script>

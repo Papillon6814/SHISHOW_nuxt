@@ -11,22 +11,24 @@
       </div>
     </div>
 
-    <div id="wrap">
+    <tbody id="wrap">
+
       <header>
         <navi @search="getSearchWord"></navi>
       </header>
+
 
         <transition appear name="v">
           <div id="myBannerPosition">
             <myBanner
               v-if="userStatus"
               :loginedUser="getCurrentUserName"
-              @callEditBanner="showEditBanner()">
+              @callEditBanner="showEditBanner()"
+              :user='user'>
             </myBanner>
-            <BlurBanner v-else></BlurBanner>
           </div>
         </transition>
-
+  
         <div id="moving">
 
           <transition appear name="v3">
@@ -36,7 +38,7 @@
               :key="N" v-bind:class="'g'+N">
               <gameBanner
                 :game="games[N-1]"
-                :signuser="signuser"
+                :signuser="user"
                 :count="N-1">
               </gameBanner>
             </div>
@@ -61,7 +63,7 @@
 
         </div>
 
-    </div>
+    </tbody>
 
     <div class="NBModal">
       <div class="modalPosition">
@@ -78,28 +80,30 @@
         aaaaaaa
       </div>
       <div class="selectedBannerPosition">
+        <tbody>
         <div v-for="N in hisGames.length" :key="N"
         v-bind:class="'GameLoops'">
         <div @click="select(hisGames[N-1])">
           <gameBanner
             :game="hisGames[N-1]"
-            :signuser="signuser"
+            :signuser="user"
             :count="N-1">
           </gameBanner>
         </div>
         </div>
+        </tbody>
       </div>
     </div>
 
     <div class="editModal">
       <div class="editBannerPosition">
-        <EditBanner @close="fadeOut()"
+        <editBanner @close="fadeOut()"
         @filechange="prepare"
-        :roundimg='croppedimg'>
-        </EditBanner>
+        :roundimg='croppedimg'
+        :user='user'>
+        </editBanner>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -109,13 +113,13 @@ import navi from "../components/NavigationBar.vue";
 import myBanner from "../components/MyBanner.vue";
 import normalBanner from "../components/NormalBanner.vue";
 import gameBanner from "../components/GameBanner.vue";
-import EditBanner from "../components/EditBanner.vue";
+import editBanner from "../components/EditBanner.vue";
 import popupNormalBanner from "../components/PopupNormalBanner.vue";
 
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
-import store from "../store";
+
 
 const db = firebase.firestore();
 let NBPosition;
@@ -130,17 +134,17 @@ export default {
   data: function() {
     return {
       users: [],
-      searchWord: "",
+      searchWord: " ",
       filteredUser: [],
       games: [],
       hisGames: [],
-      currentUser: "",
-      signuser: '',
+      currentUser: " ",
+      signuser: ' ',
       relation: [],
-      popupUser: '',
-      userId:'',
-      croppedimg:"",
-      uploadedImage:'',
+      popupUser: ' ',
+      userId:' ',
+      croppedimg:" ",
+      uploadedImage:' ',
     };
   },
 
@@ -149,23 +153,23 @@ export default {
     myBanner,
     normalBanner,
     gameBanner,
-    EditBanner,
+    editBanner,
     popupNormalBanner
   },
 
   computed: {
     user() {
-      return this.$store.getters.user;
+      return this.$store.state.user.user;
     },
     userStatus() {
-      return this.$store.getters.isSignedIn;
+      return this.$store.state.user.status;
     },
     getCurrentUserName: function() {
-      return this.$store.getters.user.displayName;
+      return this.$store.state.user.user.username;
     },
 
     getCurrentUserId: function() {
-      return this.$store.getters.user.uid;
+      return this.$store.state.user.user.uid;
     },
   },
 
@@ -249,14 +253,7 @@ export default {
 
     getSearchWord(word) {
       $nuxt.$router.push("/home");
-    },
 
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit("onAuthStateChanged", user);
-        this.$store.commit("onUserStatusChanged", user.uid ? true : false);
-      });
     },
 
     NBclick: function(userinfo) {
@@ -300,11 +297,11 @@ export default {
           while(i<5 && i<query.docs.length){
 
             let num = Math.floor(Math.random()*query.docs.length);
-            console.log(num)
+ 
             for(j=0;j<i&&this.games[j].id != query.docs[num].id ;j++);
             if(j==i){
               this.games.push(query.docs[num]);
-              console.log(this.games[0].id);
+            
               i++
             }
 
@@ -337,22 +334,14 @@ export default {
       selectModal[0].style.display = "none";
       editModal[0].style.display = "none";
       this.$forceUpdate();
-    }
-  },
+    },
 
-  mounted: function() {
-    modal = document.getElementById("modal");
-    this.onAuth();
-    this.placeNB();
+    setOtherUser:function(){
+       const sign_db = db.collection("USER")
+                      .doc(""+this.user.email);
 
-    NBModal = document.getElementsByClassName("NBModal");
-    selectModal = document.getElementsByClassName("selectModal");
-    editModal = document.getElementsByClassName("editModal");
-
-    const sign_db = db.collection("USER")
-                      .doc(this.user.email);
-
-    sign_db.collection("relation")
+    
+      sign_db.collection("relation")
            .get()
            .then(docs_r=>{
            db.collection("USER")
@@ -380,12 +369,27 @@ export default {
            });
 
     db.collection("USER")
-      .doc(this.user.email)
+      .doc(""+this.user.email)
       .get()
       .then(doc =>{
         this.signuser = doc.data();
       });
-  }
+    }
+  },
+  created:function(){
+    this.setOtherUser();
+    console.log(this.signuser)
+  },
+  mounted: function() {
+    modal = document.getElementById("modal");
+    this.placeNB();
+    
+    NBModal = document.getElementsByClassName("NBModal");
+    selectModal = document.getElementsByClassName("selectModal");
+    editModal = document.getElementsByClassName("editModal");
+   
+  },
+
 };
 
 </script>

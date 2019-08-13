@@ -31,7 +31,7 @@
 import firebase from "../../plugins/firestore";
 import 'firebase/firestore'
 import '@firebase/auth'
-import store from '../../store'
+
 
 const db = firebase.firestore();
 let currentUserEmail;
@@ -56,8 +56,8 @@ export default {
     onAuth: function() {
       firebase.auth().onAuthStateChanged(user => {
         user = user ? user : {};
-        store.commit('onAuthStateChanged', user);
-        store.commit('onUserStatusChanged', user.uid ? true : false);
+        this.$store.commit('onAuthStateChanged', user);
+        this.$store.commit('onUserStatusChanged', user.uid ? true : false);
       })
     },
 

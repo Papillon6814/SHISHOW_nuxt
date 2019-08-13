@@ -25,7 +25,7 @@
 
     <div class="bioPosition">
       <textarea v-model="userBio" :rows="rows"
-        maxlength="50">{{ userBio }}</textarea>
+        maxlength="50"></textarea>
     </div>
 
     <div class="applyChangeButton" @click="apply()">
@@ -47,23 +47,24 @@
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
-import store from '../store'
+
 const db = firebase.firestore();
 let currentUser;
 export default {
   name: "EditBanner",
   data: function() {
     return {
-      username: '',
-      userBio: '',
-      enumGames: '',
-      favoriteGame: '',
-      value: '',
-      uploadedImage: ''
+      username: ' ',
+      userBio: ' ',
+      enumGames: ' ',
+      favoriteGame: ' ',
+      value: ' ',
+      uploadedImage: ' '
     }
   },
   props:[
-    'roundimg'
+    'roundimg',
+    'user'
   ],
   computed: {
     rows: function() {
@@ -91,13 +92,6 @@ export default {
       };
       // 読み込み開始
       reader.readAsDataURL(file);
-    },
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit('onAuthStateChanged', user);
-        this.$store.commit('onUserStatusChanged', user.uid ? true : false);
-      })
     },
     close: function() {
       this.$emit("close");
@@ -145,15 +139,16 @@ export default {
       }
     }
   },
-  created: function () {
-    this.onAuth();
+
+  created:function(){
     currentUser = firebase.auth().currentUser;
     if (currentUser == null) {
-      currentUser = this.$store.getters.user;
+      currentUser = this.$store.state.user.user;
     }
+
     // ユーザーネーム取得
     db.collection("USER")
-      .doc(currentUser.email)
+      .doc(""+currentUser.email)
       .get()
       .then(doc1 => {
         this.username = doc1.data().username;
@@ -161,9 +156,11 @@ export default {
         this.favoriteGame = doc1.data().favoriteGame;
     })
   },
+  
   mounted: function(){
     this.modal = document.getElementById("modal");
     this.loadGames();
+    
   },
 }
 </script>

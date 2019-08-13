@@ -38,7 +38,7 @@ export default {
 
   data: function() {
     return {
-      enumGames: '',
+      enumGames: ' ',
       maxChar:16
     }
   },

@@ -51,7 +51,7 @@ import "firebase/firestore";
 const db = firebase.firestore();
 export default {
   name: "navi",
-  data() {
+  data:function() {
     return {
       word: "",
       notice: []
@@ -73,7 +73,7 @@ export default {
     }
   },
   created: function() {
-    if(this.user.email != null) {
+    if(this.user != null) {
       db.collection("USER")
         .doc(this.user.email)
         .collection("notice")

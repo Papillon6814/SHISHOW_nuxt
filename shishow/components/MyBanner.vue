@@ -69,13 +69,13 @@ export default {
       isA: true,
       isB: false,
       isC: false,
-      sign: "",
-      icon: "",
-      bio: "",
-      username:"",
-      friendDocID: "",
-      shishow: "",
-      deshi: ""
+      sign: " ",
+      icon: " ",
+      bio: " ",
+      username:" ",
+      friendDocID: " ",
+      shishow: " ",
+      deshi: " "
     };
   },
 
@@ -87,21 +87,16 @@ export default {
 
   methods: {
 
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit("onAuthStateChanged", user);
-        this.$store.commit("onUserStatusChanged", user.uid ? true : false);
-      });
-    },
-
     logout: function() {
       firebase
         .auth()
         .signOut()
         .then(function() {
           alert("Signed out.");
-          router.push("/");
+          sessionStorage.removeItem("shishow_user_email")
+          sessionStorage.removeItem("shishow_user_name")
+          sessionStorage.removeItem("shishow_user_uid")
+          $nuxt.$router.push("/")
         })
         .catch(() => {
         });
@@ -116,7 +111,6 @@ export default {
     var email;
     var shishowBox = 0;
     var deshiBox = 0;
-    this.onAuth();
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         email = user.email;

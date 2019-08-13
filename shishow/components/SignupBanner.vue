@@ -99,7 +99,10 @@ export default {
               firebase
                 .auth()
                 .createUserWithEmailAndPassword(this.email, this.password)
-                .then(() => {
+                .then((req) => {
+                  sessionStorage.setItem("shishow_user_email",req.user.email)
+                  sessionStorage.setItem("shishow_user_name",req.user.displayName)
+                  sessionStorage.setItem("shishow_user_uid",req.user.uid)
                   var User = firebase.auth().currentUser;
                   var email;
                   User.updateProfile({

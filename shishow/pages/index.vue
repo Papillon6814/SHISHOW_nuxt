@@ -23,26 +23,30 @@
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
+import { Promise } from 'q';
+
 
 export default {
+  
   name: 'prehome',
-  methods:{
-    checkUser(){
-      firebase.auth().onAuthStateChanged(user=>{
-        if(user){
-          $nuxt.$router.push("/home")
-        }else{
-          $nuxt.$router.push("/signin")
-        }
-      })
+  data:function(){
+    return{
+      users:{},
     }
   },
-
+  methods:{
+    checkUser(){
+      if(firebase.auth().currentUser){
+        $nuxt.$router.push("/home")
+      }else{
+        $nuxt.$router.push("/signin")
+      }
+    },
+  },
   created:function(){
+    console.log(this.$store.state.user.status)
   }
-
 }
-
 </script>
 
 <style lang="scss" scoped>
