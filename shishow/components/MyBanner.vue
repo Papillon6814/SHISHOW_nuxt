@@ -3,7 +3,7 @@
     <span class="iconPicPosition">
       <div class="iconPic">
         <img id="image" v-show="icon"
-         :src="icon" width="130" height="130">
+         :src="user.image" width="130" height="130">
 
       </div>
     </span>
@@ -32,7 +32,7 @@
 
     <div class="profilePosition">
       <div class="profile">
-        {{this.bio}}
+        {{bio}}
       </div>
       <div class="separateLine"></div>
     </div>
@@ -61,7 +61,7 @@ export default {
 
   props: [
     "loginedUser",
-    "getCurrentUserName"
+    "user"
   ],
 
   data: function() {

@@ -24,7 +24,7 @@
               v-if="userStatus"
               :loginedUser="getCurrentUserName"
               @callEditBanner="showEditBanner()"
-              :user='user'>
+              :user='signuser'>
             </myBanner>
           </div>
         </transition>
