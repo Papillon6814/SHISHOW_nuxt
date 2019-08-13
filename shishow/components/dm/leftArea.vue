@@ -173,7 +173,7 @@ export default {
 
     click_g: function(game,N) {
       this.$parent.idFromLeftArea = game;
-      
+
       let gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
       gameBan.style.background = "#FFF"
       this.id = N;
@@ -261,8 +261,10 @@ export default {
         width: 50%;
         height: 90px;
 
-        font-size: 40px;
+        font-size: 2.5vw;
         line-height: 90px;
+
+        text-align: center;
 
         cursor: pointer;
       }
@@ -278,8 +280,10 @@ export default {
 
         right: 0;
 
-        font-size: 40px;
+        font-size: 2.5vw;
         line-height: 90px;
+
+        text-align: center;
 
         cursor: pointer;
       }

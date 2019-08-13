@@ -9,7 +9,7 @@
 
 <script>
 // @ is an alias to /src
-import navi from '~/components/NavigationBar.vue'
+import navi from '~/components/EmptyNavigationBar.vue'
 import signinBanner from '~/components/SigninBanner.vue'
 
 export default {

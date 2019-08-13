@@ -2,7 +2,7 @@
   <div id="inputBar">
     <input v-model="msg" type="text" class="inputText" @keydown.enter="sendMsg" />
     <div class="checkEmojiPlace">
-      <i class="fas fa-check" @click="sendMsg"></i>
+      <font-awesome-icon icon="check" />
     </div>
   </div>
 </template>
@@ -142,6 +142,7 @@ export default {
     top: 3px;
 
     font-size: 50px;
+    color: $primary_text;
 
     cursor: pointer;
   }

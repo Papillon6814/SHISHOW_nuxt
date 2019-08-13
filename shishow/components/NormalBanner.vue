@@ -63,6 +63,7 @@ export default {
 
   methods: {
 
+
     click: function() {
       this.$emit("clickNB");
     },
@@ -74,8 +75,6 @@ export default {
     },
 
     sendFriendReq: function(gameId) {
-      
-
         db.collection("USER")
           .doc(this.signuser.email)
           .collection("outgoing")
@@ -119,7 +118,7 @@ export default {
             date: new Date()
           })
           this.relation = 2;
-      
+
     },
 
     delete_db: function() {
@@ -262,12 +261,12 @@ export default {
 
   cursor: pointer;
 
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-  transition: 0.3s;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
 }
 
 .normalBanner:hover {
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
 }
 
 .iconPicPosition {

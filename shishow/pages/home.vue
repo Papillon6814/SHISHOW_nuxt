@@ -32,7 +32,7 @@
         <div id="moving">
 
           <transition appear name="v3">
-            
+
           <div id="gameBannerPosition">
             <div v-for="N in games.length"
               :key="N" v-bind:class="'g'+N">
@@ -253,6 +253,7 @@ export default {
 
     getSearchWord(word) {
       $nuxt.$router.push("/home");
+
     },
 
     NBclick: function(userinfo) {
