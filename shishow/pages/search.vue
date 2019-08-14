@@ -89,7 +89,7 @@ export default {
 
   computed: {
     getSearchWordFromStore() {
-      return this.$store.getters.getSearchWord;
+      return this.$store.getters["user/getSearchWord"];
     }
   },
 
@@ -101,7 +101,7 @@ export default {
       let relat;
       if (word) {
         this.searchResults = [];
-        db.collection("USER").doc(this.$store.getters.user.email).collection("relation").get().then(docs=>{
+        db.collection("USER").doc(""+this.$store.getters["user/user"].email).collection("relation").get().then(docs=>{
         for (users_i in this.users) {
           //ユーザーネームの走査
           if (this.users[users_i].data().username.indexOf(word) !== -1) {
@@ -195,8 +195,8 @@ export default {
       });
 
     currentUser = firebase.auth().currentUser;
-    this.signuser = {"username":this.$store.getters.user.displayName,
-                     "email":this.$store.getters.user.email}
+    this.signuser = {"username":this.$store.getters["user/user"].username,
+                     "email":this.$store.getters["user/user"].email}
 
   },
 
