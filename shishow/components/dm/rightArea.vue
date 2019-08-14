@@ -1,7 +1,7 @@
 <template>
   <div class="rightArea">
     <div class="nameSpace"></div>
-    {{ friendDocID }}
+    <!-- {{ friendDocID }} -->
     <div v-for="N in msgList.length" v-bind:key="N">
 
       <div v-show="isMine(msgList[N-1])" class="myChatBalloonPosition">

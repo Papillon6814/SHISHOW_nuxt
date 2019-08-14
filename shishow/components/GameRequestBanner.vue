@@ -10,7 +10,7 @@
     </span>
 
     <div class="closeBtn" @click="fade()">
-      <i class="fas fa-times"></i>
+      <font-awesome-icon icon="times" />
     </div>
 
     <div class="GamenamePosition">

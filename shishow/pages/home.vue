@@ -28,7 +28,7 @@
             </myBanner>
           </div>
         </transition>
-  
+
         <div id="moving">
 
           <transition appear name="v3">
@@ -76,8 +76,8 @@
 
     <div class="selectModal">
       <div class="closeBtn" @click="fadeOut()">
+        <font-awesome-icon icon="times" />
         <i class="fas fa-times"></i>
-        aaaaaaa
       </div>
       <div class="selectedBannerPosition">
         <tbody>
@@ -297,11 +297,11 @@ export default {
           while(i<5 && i<query.docs.length){
 
             let num = Math.floor(Math.random()*query.docs.length);
- 
+
             for(j=0;j<i&&this.games[j].id != query.docs[num].id ;j++);
             if(j==i){
               this.games.push(query.docs[num]);
-            
+
               i++
             }
 
@@ -340,7 +340,7 @@ export default {
        const sign_db = db.collection("USER")
                       .doc(""+this.user.email);
 
-    
+
       sign_db.collection("relation")
            .get()
            .then(docs_r=>{
@@ -383,11 +383,11 @@ export default {
   mounted: function() {
     modal = document.getElementById("modal");
     this.placeNB();
-    
+
     NBModal = document.getElementsByClassName("NBModal");
     selectModal = document.getElementsByClassName("selectModal");
     editModal = document.getElementsByClassName("editModal");
-   
+
   },
 
 };
