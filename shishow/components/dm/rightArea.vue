@@ -53,13 +53,6 @@ export default {
   ],
 
   methods: {
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit('onAuthStateChanged', user);
-        this.$store.commit('onUserStatusChanged', user.uid ? true : false);
-      })
-    },
 
     isMine: function(msg) {
       return (msg.sender == currentUserEmail);
@@ -71,7 +64,7 @@ export default {
 
     chatScroll: function() {
       let scrollArea = document.getElementsByClassName('rightArea');
-      scrollArea[0].scrollBy(0, 300000000);
+      scrollArea[0].scrollTo(0, 300000000);
     }
   },
 
@@ -122,9 +115,12 @@ export default {
   },
 
   created: function() {
-    this.onAuth();
+    let currentUser = firebase.auth().currentUser;
+    if(currentUser == null){
+      currentUser = this.$store.getters["user/user"]
+    }
 
-    currentUserEmail = firebase.auth().currentUser.email;
+    currentUserEmail = currentUser.email
   },
 
   mounted: function() {

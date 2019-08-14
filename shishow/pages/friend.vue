@@ -51,7 +51,7 @@ import navi from "../components/NavigationBar.vue";
 import incoming from "../components/incoming.vue";
 import outgoing from "../components/outgoing.vue";
 import friends from "../components/friends.vue";
-import store from "../store";
+
 
 const db = firebase.firestore();
 
@@ -81,7 +81,7 @@ export default {
 
   computed: {
     user() {
-      return this.$store.getters.user;
+      return this.$store.state.user.user;
     },
     userStatus() {
       return this.$store.getters.isSignedIn;
@@ -141,17 +141,9 @@ export default {
       this.$forceUpdate();
     },
 
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        store.commit("onAuthStateChanged", user);
-        store.commit("onUserStatusChanged", user.uid ? true : false);
-      });
-    },
-
     getDeshiData() {
       db.collection("USER")
-        .doc(this.user.email)
+        .doc(""+this.user.email)
         .collection("friends")
         .onSnapshot(querySnapshot => {
           querySnapshot.forEach(doc => {
@@ -163,7 +155,7 @@ export default {
     },
     getIncomingData() {
       db.collection("USER")
-        .doc(this.user.email)
+        .doc(""+this.user.email)
         .collection("incoming")
         .onSnapshot(doc => {
           this.income = doc.docs;
@@ -171,7 +163,7 @@ export default {
     },
     getOutgoingData() {
       db.collection("USER")
-        .doc(this.user.email)
+        .doc(""+this.user.email)
         .collection("outgoing")
         .onSnapshot(doc => {
           this.outgo = doc.docs;
@@ -179,7 +171,7 @@ export default {
     },
     getFriendsData() {
       db.collection("USER")
-        .doc(this.user.email)
+        .doc(""+this.user.email)
         .collection("friends")
         .onSnapshot(querySnapshot => {
           querySnapshot.forEach(doc => {
@@ -192,13 +184,12 @@ export default {
   },
 
   created: function() {
-    this.onAuth();
     this.getIncomingData();
     this.getOutgoingData();
     this.getFriendsData();
 
     db.collection("USER")
-      .doc(this.user.email)
+      .doc(""+this.user.email)
       .get()
       .then(doc => {
         this.signuser = doc.data();

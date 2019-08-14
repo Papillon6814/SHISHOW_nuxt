@@ -114,19 +114,11 @@ export default {
   },
 
   methods: {
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit('onAuthStateChanged', user);
-        this.$store.commit('onUserStatusChanged', user.uid ? true : false);
-      })
-    },
-
     // 最後にメッセージが送信された日時とその内容を取得する
     // TODO: returnできるようにする
     loadLastMsgAndDate: function() {
       db.collection("USER")
-        .doc(currentUserEmail)
+        .doc(""+currentUserEmail)
         .collection('friends')
         .orderBy('lastChatDate', 'desc')
         .get()
@@ -211,14 +203,18 @@ export default {
   },
 
   created: function() {
-    this.onAuth();
     console.log("leftarea created");
-    currentUserEmail = firebase.auth().currentUser.email;
+    let currentUser = firebase.auth().currentUser;
+    if(currentUser == null){
+      currentUser = this.$store.getters["user/user"]
+    }
+
+    currentUserEmail = currentUser.email
     this.loadLastMsgAndDate();
     for(let i=0;i<this.friendsDocID.length;i++){this.target.push(false)}
 
     db.collection("USER")
-        .doc(currentUserEmail)
+        .doc(""+currentUserEmail)
         .collection("GAMES")
         .get()
         .then(querySnapshot => {

@@ -207,13 +207,6 @@ export default {
         result.appendChild(roundedImage);
       };
     },
-    onAuth: function() {
-      firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
-        this.$store.commit('onAuthStateChanged', user);
-        this.$store.commit('onUserStatusChanged', user.uid ? true : false);
-      })
-    },
 
     callScroll: function() {
       this.$refs.rightArea.chatScroll();
@@ -223,7 +216,7 @@ export default {
       friendsDocID = [];
 
       db.collection("USER")
-        .doc(currentUser.email)
+        .doc(""+currentUser.email)
         .collection("friends")
         .orderBy("lastChatDate", "desc")
         .get()
@@ -246,13 +239,15 @@ export default {
   },
 
   created: function() {
-    this.onAuth();
     currentUser = firebase.auth().currentUser;
+    if(currentUser == null){
+      currentUser = this.$store.getters["user/user"]
+    }
     this.loadFriendID();
     this.leftAreaData = friendsDocID;
 
     db.collection("USER")
-      .doc(currentUser.email)
+      .doc(""+currentUser.email)
       .collection('friends')
       .limit(1)
       .get()

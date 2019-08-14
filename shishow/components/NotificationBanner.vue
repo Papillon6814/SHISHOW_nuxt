@@ -2,8 +2,8 @@
   <div id = "notificationBanner">
     <div class="userinfo">
       <!-- <i class = "fas fa-user human"></i> -->
-      <img class = "iconPic" :src="user.image">
-      <span class="name">{{user.username}}</span>
+      <img class = "iconPic" :src="notiUser.image">
+      <span class="name">{{notiUser.username}}</span>
     </div>
 
     <div class = "messageInfo">
@@ -14,10 +14,26 @@
 </template>
 
 <script>
+import firebase from '../plugins/firestore'
+import 'firebase/firestore'
+
+const db = firebase.firestore()
 
 export default {
+  
   name: 'notBanner',
   props:["user","notice"],
+  data:function(){
+    return{
+      notiUser:{}
+    }
+  },
+
+  created:function(){
+    db.collection("USER").doc(this.user).get().then(doc=>{
+      this.notiUser = doc.data()
+    })
+  }
 }
 
 </script>

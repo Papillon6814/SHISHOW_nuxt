@@ -32,10 +32,6 @@ export const state = () => ({
         state.id_list = userData.id_list;
         state.user_name_list = userData.user_name_list;
       },
-
-      aaa(state,email){
-        state.user = email
-      }
   }
   
   export const actions = {
@@ -48,10 +44,6 @@ export const state = () => ({
         };
         commit('onOpeningChatArea', userData)
       },
-
-      setUser({commit}){
-          commit("aaa")
-      }
     
   }
   

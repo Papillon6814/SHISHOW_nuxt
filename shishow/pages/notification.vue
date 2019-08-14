@@ -10,10 +10,9 @@
       <div v-for="N in notice.length"
       :key="N"
       v-bind:class="'not'+N">
-
         <notificationBanner
-        :user="users[N-1]"
-        :notice="notice[N-1]">
+        :user="notice[N-1].id"
+        :notice="notice[N-1].data()">
         </notificationBanner>
       </div>
       </div>
@@ -43,25 +42,23 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.getters.user;
+      return this.$store.getters["user/user"];
     },
     userStatus() {
       // ログインするとtrue
-      return this.$store.getters.isSignedIn;
+      return this.$store.getters["user/isSignedIn"];
     }
   },
   created:function(){
-    db.collection("USER").doc(this.user.email).collection("notice").orderBy("date").get().then(querydocs=>{
+    db.collection("USER").doc(""+this.user.email).collection("notice").orderBy("date").get().then(querydocs=>{
       querydocs.forEach(docu=>{
-        this.notice.push(docu.data());
-        db.collection("USER").doc(docu.id).get().then(doc=>{
-          this.users.push(doc.data());
-        })
-        db.collection("USER").doc(this.user.email).collection("notice").doc(docu.id).delete();
+        this.notice.push(docu);
+
+        //db.collection("USER").doc(""+this.user.email).collection("notice").doc(docu.id).delete();
       })
     })
 
-  }
+  },
 }
 </script>
 
