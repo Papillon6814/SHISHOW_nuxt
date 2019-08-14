@@ -1,13 +1,13 @@
 import firebase from 'firebase'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD2D42pBXU_nXpo2wTd_IFs-4hogXE8Dq0",
-  authDomain: "shishow-7cc37.firebaseapp.com",
-  databaseURL: "https://shishow-7cc37.firebaseio.com",
-  projectId: "shishow-7cc37",
-  storageBucket: "shishow-7cc37.appspot.com",
-  messagingSenderId: "476890822571",
-  appId: "1:476890822571:web:508b49508a91c0d3"
+  apiKey: "AIzaSyAtWLW-jbfj5fDf8MnpUf691Ha2uOuugmQ",
+  authDomain: "shishow-product.firebaseapp.com",
+  databaseURL: "https://shishow-product.firebaseio.com",
+  projectId: "shishow-product",
+  storageBucket: "",
+  messagingSenderId: "445065927151",
+  appId: "1:445065927151:web:7f8bb88704787289"
 };
 
 if(!firebase.apps.length) {
