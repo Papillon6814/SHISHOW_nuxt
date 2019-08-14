@@ -23,7 +23,6 @@
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
-import { Promise } from 'q';
 
 
 export default {
@@ -45,6 +44,7 @@ export default {
   },
   created:function(){
     console.log(this.$store.state.user.status)
+    //console.log(sessionStorage.getItem("shishow_user_email"))
   }
 }
 </script>

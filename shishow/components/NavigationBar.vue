@@ -59,7 +59,7 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.getters.user;
+      return this.$store.getters["user/user"];
     }
   },
   methods: {
@@ -75,7 +75,7 @@ export default {
   created: function() {
     if(this.user != null) {
       db.collection("USER")
-        .doc(this.user.email)
+        .doc(""+this.user.email)
         .collection("notice")
         .get()
         .then(doc => {

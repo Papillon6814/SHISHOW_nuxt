@@ -2,14 +2,14 @@
   <div class="banner">
     <span class="iconPicPosition">
       <div class="iconPic">
-        <img id="image" v-show="icon"
+        <img id="image" v-show="user.image"
          :src="user.image" width="130" height="130">
 
       </div>
     </span>
 
     <div class="username">
-      {{username}}
+      {{user.username}}
     </div>
 
     <div class="shishowPosition">
@@ -32,7 +32,7 @@
 
     <div class="profilePosition">
       <div class="profile">
-        {{bio}}
+        {{user.bio}}
       </div>
       <div class="separateLine"></div>
     </div>
@@ -52,7 +52,6 @@
 import firebase from "../plugins/firestore";
 import "@firebase/auth";
 import "firebase/firestore";
-import store from "../store";
 
 const db = firebase.firestore();
 
@@ -70,9 +69,6 @@ export default {
       isB: false,
       isC: false,
       sign: " ",
-      icon: " ",
-      bio: " ",
-      username:" ",
       friendDocID: " ",
       shishow: " ",
       deshi: " "
@@ -88,6 +84,7 @@ export default {
   methods: {
 
     logout: function() {
+      this.$store.commit("user/onUserLogout")
       firebase
         .auth()
         .signOut()
@@ -96,6 +93,7 @@ export default {
           sessionStorage.removeItem("shishow_user_email")
           sessionStorage.removeItem("shishow_user_name")
           sessionStorage.removeItem("shishow_user_uid")
+          
           $nuxt.$router.push("/")
         })
         .catch(() => {
@@ -108,21 +106,10 @@ export default {
   },
 
   created:function(){
-    var email;
+    var email = this.$store.state.user.user.email;
     var shishowBox = 0;
     var deshiBox = 0;
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        email = user.email;
-        db.collection("USER")
-          .doc(email)
-          .get()
-          .then(doc => {
-            this.username = doc.data()["username"];
-            this.icon = doc.data()["image"];
-            this.bio = doc.data()["bio"];
-          });
-
+    console.log(this.$store.state.user.user.email)
         db.collection("USER")
           .doc(email)
           .collection("friends")
@@ -147,11 +134,6 @@ export default {
               console.log("Error getting documents: ", error);
           });
 
-      } else {
-
-      }
-
-    });
 
   }
 };

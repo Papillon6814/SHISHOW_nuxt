@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import store from "../store";
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";

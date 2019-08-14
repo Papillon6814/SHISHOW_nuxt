@@ -35,7 +35,7 @@
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
-import store from "../store";
+
 
 export default {
   name: "Signin",

@@ -80,7 +80,6 @@
         aaaaaaa
       </div>
       <div class="selectedBannerPosition">
-        <tbody>
         <div v-for="N in hisGames.length" :key="N"
         v-bind:class="'GameLoops'">
         <div @click="select(hisGames[N-1])">
@@ -91,7 +90,6 @@
           </gameBanner>
         </div>
         </div>
-        </tbody>
       </div>
     </div>
 
@@ -378,7 +376,6 @@ export default {
   },
   created:function(){
     this.setOtherUser();
-    console.log(this.signuser)
   },
   mounted: function() {
     modal = document.getElementById("modal");
