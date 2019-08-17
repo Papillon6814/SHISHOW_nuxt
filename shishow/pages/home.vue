@@ -5,6 +5,20 @@
       <div class="modal-content">
         <div class="modal-body">
           <img id="image" v-show="uploadedImage" :src="uploadedImage">
+          <VueCropper
+            ref="cropper"
+            :img="option.img"
+            :outputSize="option.size"
+            :outputType="option.outputType"
+            :autoCrop="option.autoCrop"
+            :autoCropWidth="option.autoCropWidth"
+            :autoCropHeight="option.autoCropHeight"
+            :centerBox="option.centerBox"
+            :fixedBox="option.fixedBox"
+          ></VueCropper>
+          <div @click="TEST()">
+            <button id ="Croptest" type="button" >TEST</button>
+          </div>
           <button id ="button" type="button">Confirm</button>
           <input type="button" id="closeBtn" value="close">
         </div>
@@ -107,16 +121,28 @@
 
 <script>
 // @ is an alias to /src
+import Vue from 'vue';
 import navi from "../components/NavigationBar.vue";
 import myBanner from "../components/MyBanner.vue";
 import normalBanner from "../components/NormalBanner.vue";
 import gameBanner from "../components/GameBanner.vue";
 import editBanner from "../components/EditBanner.vue";
 import popupNormalBanner from "../components/PopupNormalBanner.vue";
-
+import Cropper from "cropperjs";
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
+
+var VueCropper ;
+
+if (process.browser) {
+  VueCropper = require('vue-cropper');
+  Vue.use(VueCropper.default)
+  Vue.component("VueCropper",VueCropper);
+}
+
+
+
 
 
 const db = firebase.firestore();
@@ -131,6 +157,16 @@ export default {
 
   data: function() {
     return {
+      option: {
+        img: "",
+        size: 1,
+        outputType: "jpeg",
+        autoCrop: true,
+        autoCropWidth: 400,
+        autoCropHeight: 400,
+        centerBox: true,
+        fixedBox: true
+      },
       users: [],
       searchWord: " ",
       filteredUser: [],
@@ -152,7 +188,8 @@ export default {
     normalBanner,
     gameBanner,
     editBanner,
-    popupNormalBanner
+    popupNormalBanner,
+    VueCropper
   },
 
   computed: {
@@ -176,10 +213,25 @@ export default {
     prepare(img){
 
       this.uploadedImage = img;
+      this.option.img = img;
       modal.style.display = "block";
-      setTimeout(this.crop,1);
+      //setTimeout(this.crop,1000);
 
     },
+    TEST(){
+      var croppable = false;
+
+      var testImage = document.getElementById("image");
+      var cropper = new Cropper(testImage, {
+        aspectRatio: 1,
+        viewMode: 1,
+
+        ready: function() {
+          croppable = true;
+        }
+      });
+    },
+
     crop(){
       //変数定義
       var root = this;
