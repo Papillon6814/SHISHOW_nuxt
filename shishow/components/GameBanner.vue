@@ -50,7 +50,7 @@ export default {
 */
 
   methods: {
-    
+
 
     subscribe: function() {
 
@@ -145,6 +145,9 @@ export default {
 
     .gamenamePosition{
       position: absolute;
+
+      width: $user_width;
+      height: $user_height;
 
       top: 30px;
       left: 140px;

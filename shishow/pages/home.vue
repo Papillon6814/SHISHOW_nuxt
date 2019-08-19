@@ -77,7 +77,6 @@
     <div class="selectModal">
       <div class="closeBtn" @click="fadeOut()">
         <font-awesome-icon icon="times" />
-        <i class="fas fa-times"></i>
       </div>
       <div class="selectedBannerPosition">
         <div v-for="N in hisGames.length" :key="N"
