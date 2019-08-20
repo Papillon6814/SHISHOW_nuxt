@@ -35,7 +35,8 @@
           <font-awesome-icon icon="gamepad" class="game" />
         </nuxt-link>
         <nuxt-link to="/notification">
-          <font-awesome-icon icon="bell" class="bell" />
+          <font-awesome-icon icon="bell" class="bell" @click="notdelete()"/>
+           <dev class="notification" v-show="notice.length">{{notice.length}}</dev>
         </nuxt-link>
         <nuxt-link to="/home">
           <font-awesome-icon icon="home" class="home" />
@@ -70,7 +71,10 @@ export default {
       //this.$emit("input", newValue);
       this.$emit("search", newValue);
       this.$store.commit("onSearchWordInput", newValue);
-    }
+    },
+    notdelete(){
+      
+      }
   },
   created: function() {
     if(this.user != null) {
@@ -223,7 +227,7 @@ export default {
       position: absolute;
       height: 20px;
       width: 20px;
-      left: 20px;
+      left: 249px;
       color: white;
       border-radius: 20%;
       background-color: red;
