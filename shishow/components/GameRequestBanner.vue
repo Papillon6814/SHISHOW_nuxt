@@ -67,7 +67,17 @@ export default{
       reader.onload = event => {
         // htmlにファイルを反映
         this.uploadedImage = event.target.result;
+        if(!this.uploadedImage){
+          db.collection("Image")
+            .doc("SampleImage2")
+            .get()
+            .then(doc =>{
+              url = doc.data()["image"];
+            })
+            this.uploadedImage = url;
+        } else {
         this.$emit('filechange',this.uploadedImage);
+        }
       };
       // 読み込み開始
       reader.readAsDataURL(file);
@@ -75,7 +85,7 @@ export default{
 
 
    gameCollection: function(){
-     if(this.Gamename == ""){
+    if(this.Gamename == ""){
        alert('Fill in your Display Gamename!');
     } else {
       this.addToDatabase(this.Gamename, this.cropped);
