@@ -2,6 +2,7 @@
   <div id="r">
 
     <div id="modal" class="modal">
+      <div class="cropperPosition">
         <vue-cropper
             ref='cropper'
             :guides="true"
@@ -15,11 +16,13 @@
             :rotatable="true"
             :src="uploadedImage"
             alt="Source Image"
-            :img-style="{ 'width': '672px', 'height': '168px' }">
+            :img-style="{ 'width': '672px', 'height': '450px' }">
         </vue-cropper>
+      </div>
 
-        <div class="cropBtn" @click="cropImage()">
-        </div>
+      <div class="cropBtn" @click="cropImage()">
+        Crop
+      </div>
     </div>
 
     <div id="directMessageField">
@@ -223,15 +226,44 @@ export default {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
+
+  .cropperPosition {
+    position: absolute;
+
+    height: auto;
+    width: auto;
+
+    top: 150px;
+    left: 50vw;
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
 
   .cropBtn {
     position: absolute;
 
-    width: 150px;
+    width: 120px;
     height: 40px;
 
+    bottom: 10vh;
+    left: 50vw;
+
+    color: $primary_text;
+
+    border-radius: 15px;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
     background-color: $accent_color;
+
+    line-height: 40px;
+
+    text-align: center;
 
     cursor: pointer;
   }

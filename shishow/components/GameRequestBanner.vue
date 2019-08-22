@@ -225,6 +225,8 @@ export default{
     border-radius: 3px;
     transition: .4s;
 
+    text-align: center;
+
     cursor: pointer;
   }
 
