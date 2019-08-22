@@ -61,6 +61,9 @@
             </div>
           </transition>
 
+          <div class="adPosition">
+          </div>
+
         </div>
 
     </tbody>
@@ -506,6 +509,16 @@ body {
 
       background-color: rgba(0, 0, 0, 0);
     }
+  }
+
+  .adPosition {
+    position: absolute;
+
+    right: 2vw;
+    top: 100px;
+
+    width: 160px;
+    height: 600px;
   }
 }
 

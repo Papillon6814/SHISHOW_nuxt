@@ -69,6 +69,7 @@ let lastMsgDate = [];
 
 let privateDM, globalDM;
 let privateTab, globalTab;
+let gameBan, dmBan;
 
 export default {
 
@@ -154,7 +155,6 @@ export default {
     click_f: function(friend,N) {
       this.$parent.idFromLeftArea = friend;
 
-      let dmBan = document.getElementsByClassName("dmBanner")[this.id]
       dmBan.style.background = "#FFF"
       this.id = N;
       dmBan = document.getElementsByClassName("dmBanner")[N]
@@ -166,7 +166,6 @@ export default {
     click_g: function(game,N) {
       this.$parent.idFromLeftArea = game;
 
-      let gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
       gameBan.style.background = "#FFF"
       this.id = N;
       gameBan = document.getElementsByClassName("dmGameBanner")[N]
@@ -182,7 +181,7 @@ export default {
       privateTab[0].style.background = "#b2ebf2";
       globalTab[0].style.background = "#fff";
 
-      let dmBan = document.getElementsByClassName("dmBanner")[this.id]
+      dmBan = document.getElementsByClassName("dmBanner")[this.id]
       dmBan.style.background = "#FFF"
     },
 
@@ -193,7 +192,7 @@ export default {
       privateTab[0].style.background = "#fff";
       globalTab[0].style.background = "#b2ebf2"
 
-      let gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
+      gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
       gameBan.style.background = "#FFF"
     },
 
@@ -230,6 +229,9 @@ export default {
     globalDM = document.getElementsByClassName("globalDM");
     privateTab = document.getElementsByClassName("private");
     globalTab = document.getElementsByClassName("global");
+
+    gameBan = document.getElementsByClassName("dmGameBanner")[this.id];
+    dmBan = document.getElementsByClassName("dmBanner")[this.id]
   }
 }
 

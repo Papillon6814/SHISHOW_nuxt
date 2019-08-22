@@ -63,7 +63,16 @@ module.exports = {
 }
 
 module.exports = {
-  plugins: [{ src: '~/plugins/nuxt-client-init.js', ssr: false }],
+  plugins: [
+    {
+      src: '~/plugins/vue-cropper.js',
+      ssr: false
+    },
+    {
+     src: '~/plugins/nuxt-client-init.js',
+     ssr: false
+   }
+  ],
   modules: [
     '@nuxtjs/style-resources',
     'nuxt-fontawesome'

@@ -3,8 +3,9 @@
     <span class="iconCirclePosition">
       <label>
         <div class="iconCircle">
-          <div id="result"></div>
-          <input hidden class="iconFile" type="file" @change="onFileChange">
+          <img :src="croppedimg" class="gameIcon">
+          <input hidden class="iconFile" type="file"
+          @change="setImage" accept="image/*" name="image">
         </div>
       </label>
     </span>
@@ -39,7 +40,7 @@ export default{
       Gamename: "",
       type: "",
       uploadedImage: "",
-      roundimg: "",
+      croppedimg: ""
     }
   },
 
@@ -48,14 +49,25 @@ export default{
   ],
 
   methods: {
-    onFileChange(event) {
+    setImage: function(e) {
+      const file = e.target.files[0];
 
-      //file変数定義
-      let files = event.target.files || event.dataTransfer.files;
-      if (files[0].type.match(/image/)) {
+      if(!file.type.includes('image/')) {
+        alert('Invalid file type!');
+        return;
+      }
 
-        this.showImage(files[0])
+      if (typeof FileReader == 'function') {
+        const reader = new FileReader();
 
+        reader.onload = (event) => {
+          this.$parent.uploadedImage = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+
+      } else {
+        alert('Your browser does not support FileReader.');
       }
     },
 
@@ -78,7 +90,7 @@ export default{
      if(this.Gamename == ""){
        alert('Fill in your Display Gamename!');
     } else {
-      this.addToDatabase(this.Gamename, this.cropped);
+      this.addToDatabase(this.Gamename, this.croppedimg);
       alert("Added a game.");
       this.fade();
     }
@@ -114,16 +126,18 @@ export default{
 
   background-color: #fff;
 
+  border-radius: 15px 15px 0 0;
+
   z-index: 2;
 
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 
   .iconCirclePosition {
     position: absolute;
-    left: 40px;
-    top: 40px;
-    width: 140px;
-    height: 140px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 168px;
 
     .iconCircle {
       width: 100%;
@@ -131,15 +145,11 @@ export default{
 
       background-color: #fff;
 
-      border-radius: 15px;
+      border-radius: 15px 15px 0 0;
       border-style: solid;
       border-width: 1px;
 
       cursor: pointer;
-
-      #result {
-        z-index: 7;
-      }
 
       .iconFile {
         height: 100%;
@@ -147,6 +157,13 @@ export default{
         opacity: 0;
 
         cursor: pointer;
+      }
+
+      .gameIcon {
+        height: 100%;
+        width: 100%;
+
+        border-radius: 15px 15px 0 0;
       }
     }
   }
