@@ -71,21 +71,6 @@ export default{
       }
     },
 
-   showImage(file) {
-      // FileReaderオブジェクトの変数を定義file、外部ファイルを読み込むのに使用
-      let reader = new FileReader();
-      // ファイルが読み込まれたとき、eventを引数とするアロー関数作動
-      let place = this;
-      reader.onload = event => {
-        // htmlにファイルを反映
-        this.uploadedImage = event.target.result;
-        this.$emit('filechange',this.uploadedImage);
-      };
-      // 読み込み開始
-      reader.readAsDataURL(file);
-    },
-
-
    gameCollection: function(){
      if(this.Gamename == ""){
        alert('Fill in your Display Gamename!');

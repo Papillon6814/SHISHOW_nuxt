@@ -6,7 +6,7 @@
 
 
       <div class="enterButton" @click="checkUser()">
-      アカウントを作成
+      はじめる
       </div>
 
     <nuxt-link to="/signin">
@@ -26,7 +26,7 @@ import "@firebase/auth";
 
 
 export default {
-  
+
   name: 'prehome',
   data:function(){
     return{

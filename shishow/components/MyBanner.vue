@@ -93,7 +93,7 @@ export default {
           sessionStorage.removeItem("shishow_user_email")
           sessionStorage.removeItem("shishow_user_name")
           sessionStorage.removeItem("shishow_user_uid")
-          
+
           $nuxt.$router.push("/")
         })
         .catch(() => {
@@ -198,6 +198,10 @@ export default {
       // temporary color
       background-color: #fff;
       border-radius: 50%;
+
+      #image {
+        border-radius: 50%;
+      }
     }
   }
 

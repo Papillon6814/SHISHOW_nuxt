@@ -1,11 +1,12 @@
 <template>
   <div class="editBanner">
 
-      <span class="iconCirclePosition">
+    <span class="iconCirclePosition">
       <label>
         <div class="iconCircle">
-          <div id="result"></div>
-          <input hidden class="iconFile" type="file" @change="onFileChange">
+          <img :src="croppedimg" class="gameIcon">
+          <input hidden class="iconFile" type="file"
+          @change="setImage" accept="image/*" name="image">
         </div>
       </label>
     </span>
@@ -32,13 +33,13 @@
       Apply
     </div>
 
-    <router-link to="/terms">
+    <nuxt-link to="/terms">
       <div class="terms">!</div>
-    </router-link>
+    </nuxt-link>
 
-    <router-link to="/privacypolicy">
+    <nuxt-link to="/privacypolicy">
       <div class="privacyPolicy">?</div>
-    </router-link>
+    </nuxt-link>
 
   </div>
 </template>
@@ -52,50 +53,56 @@ const db = firebase.firestore();
 let currentUser;
 export default {
   name: "EditBanner",
+
   data: function() {
     return {
-      username: ' ',
-      userBio: ' ',
-      enumGames: ' ',
-      favoriteGame: ' ',
-      value: ' ',
-      uploadedImage: ' '
+      username: '',
+      userBio: '',
+      enumGames: '',
+      favoriteGame: '',
+      value: '',
+      croppedimg: ''
     }
   },
+
   props:[
-    'roundimg',
     'user'
   ],
+
   computed: {
     rows: function() {
       var num = this.value.split("\n").length;
       return (num > 3) ? 3 : num;
     }
   },
+
   methods: {
-    onFileChange(event) {
-      //file変数定義
-      let files = event.target.files || event.dataTransfer.files;
-      if (files[0].type.match(/image/)) {
-        this.showImage(files[0])
+    setImage: function(e) {
+      const file = e.target.files[0];
+
+      if(!file.type.includes('image/')) {
+        alert('Invalid file type!');
+        return;
+      }
+
+      if (typeof FileReader == 'function') {
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+          this.$parent.uploadedImage = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+
+      } else {
+        alert('Your browser does not support FileReader.');
       }
     },
-    showImage(file) {
-      // FileReaderオブジェクトの変数を定義file、外部ファイルを読み込むのに使用
-      let reader = new FileReader();
-      // ファイルが読み込まれたとき、eventを引数とするアロー関数作動
-      let place = this;
-      reader.onload = event => {
-        // htmlにファイルを反映
-        this.uploadedImage = event.target.result;
-        this.$emit('filechange',this.uploadedImage);
-      };
-      // 読み込み開始
-      reader.readAsDataURL(file);
-    },
+
     close: function() {
       this.$emit("close");
     },
+
     loadGames: function() {
       db.collection("USER")
         .doc(currentUser.email)
@@ -108,8 +115,9 @@ export default {
           this.enumGames = this.enumGames.slice(0, -2);
         })
     },
+
     apply: function() {
-      if(this.uploadedImage == '') {
+      if(this.croppedimg == '') {
         db.collection("USER")
           .doc(currentUser.email)
           .update({
@@ -129,12 +137,10 @@ export default {
             username: this.username,
             bio: this.userBio,
             favoriteGame: this.favoriteGame,
-            image: this.roundimg
+            image: this.croppedimg
           })
           .then(() => {
-            router.go({
-              path: this.$router.currentRoute.path, force: true
-            });
+            location.reload();
           })
       }
     }
@@ -156,11 +162,11 @@ export default {
         this.favoriteGame = doc1.data().favoriteGame;
     })
   },
-  
+
   mounted: function(){
     this.modal = document.getElementById("modal");
     this.loadGames();
-    
+
   },
 }
 </script>
@@ -172,6 +178,7 @@ export default {
     top: 5%;
     width: 140px;
     height: 140px;
+
     .iconCircle {
       width: 100%;
       height: 100%;
@@ -180,14 +187,19 @@ export default {
       border-style: solid;
       border-width: 1px;
       cursor: pointer;
-      #result {
-        z-index: 8;
-      }
+
       .iconFile {
         height: 100%;
         width: 100%;
         opacity: 0;
         cursor: pointer;
+      }
+
+      .gameIcon {
+        height: 100%;
+        width: 100%;
+
+        border-radius: 50%;
       }
     }
   }
