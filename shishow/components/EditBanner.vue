@@ -15,7 +15,7 @@
     </div>
 
     <input class="favoriteGame" type="text"
-      maxlength="30" v-model="favoriteGame" />
+      maxlength="30" v-model="favoriteGame"/>
 
     <input class="username" type="text"
       maxlength="12" v-model="username"/>
@@ -54,10 +54,10 @@ export default {
   name: "EditBanner",
   data: function() {
     return {
-      username: ' ',
-      userBio: ' ',
+      username: this.user.username,
+      userBio: this.user.bio,
       enumGames: ' ',
-      favoriteGame: ' ',
+      favoriteGame: 'aaa',
       value: ' ',
       uploadedImage: ' '
     }
@@ -94,6 +94,7 @@ export default {
       reader.readAsDataURL(file);
     },
     close: function() {
+      console.log(this.username)
       this.$emit("close");
     },
     loadGames: function() {
@@ -137,6 +138,12 @@ export default {
             });
           })
       }
+    },
+
+    setUser(){
+      this.username = this.user.username;
+      this.userBio = this.user.bio;
+      this.favoriteGame = this.user.favoriteGame;
     }
   },
 
@@ -147,20 +154,11 @@ export default {
     }
 
     // ユーザーネーム取得
-    db.collection("USER")
-      .doc(""+currentUser.email)
-      .get()
-      .then(doc1 => {
-        this.username = doc1.data().username;
-        this.userBio = doc1.data().bio;
-        this.favoriteGame = doc1.data().favoriteGame;
-    })
+    
   },
-  
   mounted: function(){
     this.modal = document.getElementById("modal");
     this.loadGames();
-    
   },
 }
 </script>

@@ -61,6 +61,10 @@ let whiteLine;
 export default {
   name: "friend",
 
+  head:{
+    title:"friend",
+  },
+
   data: function() {
     return {
       IOSD: 0,

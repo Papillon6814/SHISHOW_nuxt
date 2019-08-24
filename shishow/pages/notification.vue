@@ -30,6 +30,11 @@ const db = firebase.firestore();
 
 export default {
   name: 'home',
+
+  head:{
+    title:"notification",
+  },
+
   components: {
     navi,
     notificationBanner

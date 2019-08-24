@@ -14,6 +14,11 @@ import signinBanner from '~/components/SigninBanner.vue'
 
 export default {
   name: 'signin',
+
+  head:{
+    title:"signin",
+  },
+
   components: {
     navi,
     signinBanner

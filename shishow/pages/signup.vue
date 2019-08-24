@@ -13,6 +13,11 @@ import navi from '~/components/NavigationBar.vue'
 import signupBanner from '~/components/SignupBanner.vue'
 export default {
   name: 'signup',
+
+  head:{
+    title:"signout",
+  },
+
   components: {
     navi,
     signupBanner

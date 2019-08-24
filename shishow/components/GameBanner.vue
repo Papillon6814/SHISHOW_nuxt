@@ -29,7 +29,6 @@ export default {
 
   data: function() {
     return {
-      gamename: "",
       isSubscribed: false
     }
   },
@@ -95,10 +94,6 @@ export default {
     }
   },
 
-  created: function() {
-
-  },
-
   mounted: function() {
     subscribeButton = document.getElementsByClassName("subscribeButton");
     this.checkSubscription();
@@ -148,6 +143,7 @@ export default {
 
       top: 30px;
       left: 140px;
+      width:100%;
 
       .gamename{
         position: absolute;

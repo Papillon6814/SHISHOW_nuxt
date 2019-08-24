@@ -48,7 +48,7 @@ export default {
   ],
 
   watch: {
-    userInfo: function(newval) {
+    userInfo: function(newval){
       console.log(newval);
       this.enumGames = '';
       this.loadGames();
@@ -180,6 +180,7 @@ export default {
     border-radius: 15px;
 
     .bioText{
+      width: 100%;
       font-size:40px;
       padding-bottom: 5px;
     }
