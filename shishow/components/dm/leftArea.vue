@@ -70,6 +70,7 @@ let lastMsgDate = [];
 let privateDM, globalDM;
 let privateTab, globalTab;
 let gameBan, dmBan;
+let leftArea;
 
 export default {
 
@@ -109,6 +110,8 @@ export default {
           this.dmImages.unshift(icon);
           this.target.unshift(true);
         }
+
+
     }
   },
 
@@ -139,8 +142,8 @@ export default {
               .orderBy('date')
               .limit(1)
               .get()
-              .then(contentsSnapshot => {
-                contentsSnapshot.forEach(doc2 => {
+              .then(contentSnapshot => {
+                contentSnapshot.forEach(doc2 => {
                   this.lastMsg.push(doc2.data().msg);
                   lastMsgDate.push(doc2.data().date);
                 })
@@ -219,6 +222,7 @@ export default {
           querySnapshot.forEach(doc1 => {
             this.games.push(doc1.id);
           })
+          leftArea.style.display = 'block';
         })
   },
 
@@ -229,7 +233,9 @@ export default {
     globalTab = document.getElementsByClassName("global");
 
     gameBan = document.getElementsByClassName("dmGameBanner")[this.id];
-    dmBan = document.getElementsByClassName("dmBanner")[this.id]
+    dmBan = document.getElementsByClassName("dmBanner")[this.id];
+
+    leftArea = document.getElementById('leftArea')
   }
 }
 
@@ -246,6 +252,8 @@ export default {
     width: 40%;
 
     background-color: #b2ebf2;
+
+    display: none;
 
     .switchTab {
       .private {
