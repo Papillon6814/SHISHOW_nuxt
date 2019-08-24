@@ -110,8 +110,6 @@ export default {
           this.dmImages.unshift(icon);
           this.target.unshift(true);
         }
-
-
     }
   },
 
@@ -153,23 +151,27 @@ export default {
     },
 
 
-    click_f: function(friend,N) {
+    click_f: function(friend, N) {
       this.$parent.idFromLeftArea = friend;
 
-      dmBan.style.background = "#FFF"
+      if (this.id) {
+        dmBan.style.background = "#FFF"
+      }
       this.id = N;
-      dmBan = document.getElementsByClassName("dmBanner")[N]
+      dmBan = document.getElementsByClassName("dmBanner")[this.id]
       dmBan.style.background = "red"
 
       this.$parent.isGame = false;
     },
 
-    click_g: function(game,N) {
+    click_g: function(game, N) {
       this.$parent.idFromLeftArea = game;
 
-      gameBan.style.background = "#FFF"
+      if (this.id != 0) {
+        gameBan.style.background = "#FFF";
+      }
       this.id = N;
-      gameBan = document.getElementsByClassName("dmGameBanner")[N]
+      gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
       gameBan.style.background = "red";
 
       this.$parent.isGame = true;
@@ -182,8 +184,10 @@ export default {
       privateTab[0].style.background = "#b2ebf2";
       globalTab[0].style.background = "#fff";
 
-      dmBan = document.getElementsByClassName("dmBanner")[this.id]
-      dmBan.style.background = "#FFF"
+      if (this.id != 0) {
+        dmBan = document.getElementsByClassName("dmBanner")[this.id]
+        dmBan.style.background = "#FFF"
+      }
     },
 
     switchGlobal: function() {
@@ -193,8 +197,10 @@ export default {
       privateTab[0].style.background = "#fff";
       globalTab[0].style.background = "#b2ebf2"
 
-      gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
-      gameBan.style.background = "#FFF"
+      if (this.id != 0) {
+        gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
+        gameBan.style.background = "#FFF"
+      }
     },
 
     showPopup: function() {

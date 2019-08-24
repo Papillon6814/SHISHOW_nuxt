@@ -5,14 +5,16 @@
       <img class="iconPic" :src="game.data().image" />
     </span>
 
-    <div class="gamenamePosition">
-      <div class="gamename">
-        {{ game.data().gamename }}
+    <!--
+      <div class="gamenamePosition">
+        <div class="gamename">
+          {{ game.data().gamename }}
+        </div>
       </div>
-    </div>
+    -->
 
-    <div v-if="isSubscribed" class="subscribeButton" @click="remove()">登録済み</div>
-    <div v-else class="subscribeButton" @click="subscribe()">登録</div>
+    <!-- <div v-if="isSubscribed" class="subscribeButton" @click="remove()">登録済み</div>
+    <div v-else class="subscribeButton" @click="subscribe()">登録</div> -->
   </div>
 </template>
 
@@ -117,18 +119,18 @@ export default {
 
     transition: 0.3s;
 
-    border-radius: 3px;
+    border-radius: 15px;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 
     .iconPicPosition {
       position: absolute;
 
-      width: $n_icon_width;
-      height: $n_icon_height;
+      width: 100%;
+      height: 100%;
 
-      top: 10px;
-      left: 20px;
+      top: 0;
+      left: 0;
 
       .iconPic {
         width: 100%;
