@@ -2,7 +2,9 @@
   <div id="header">
 
     <div>
-      <img class="logo" src="../assets/image/logoShishow.png" />
+      <nuxt-link to="/home">
+        <img class="logo" src="../assets/image/logoShishow.png" />
+      </nuxt-link>
     </div>
 
     <div class="centered">

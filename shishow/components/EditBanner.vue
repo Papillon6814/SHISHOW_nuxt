@@ -16,7 +16,8 @@
     </div>
 
     <input class="favoriteGame" type="text"
-      maxlength="30" v-model="favoriteGame" />
+      maxlength="30" v-model="favoriteGame"
+      placeholder="favorite game" />
 
     <input class="username" type="text"
       maxlength="12" v-model="username"/>
@@ -25,7 +26,7 @@
       v-model="enumGames" readonly="readonly" />
 
     <div class="bioPosition">
-      <textarea v-model="userBio" :rows="rows"
+      <textarea v-model="userBio" :rows="userBio.split('\n').length"
         maxlength="50"></textarea>
     </div>
 
@@ -69,6 +70,7 @@ export default {
     'user'
   ],
 
+  // NOTE: もしかしたらnuxt以降の時に何か不具合が生まれたかも
   computed: {
     rows: function() {
       var num = this.value.split("\n").length;
@@ -161,6 +163,14 @@ export default {
         this.userBio = doc1.data().bio;
         this.favoriteGame = doc1.data().favoriteGame;
     })
+
+    // アイコンをcroppedimgに格納
+    db.collection("USER")
+      .doc(""+currentUser.email)
+      .get()
+      .then(doc1 => {
+        this.croppedimg = doc1.data().image;
+      })
   },
 
   mounted: function(){
@@ -312,6 +322,8 @@ export default {
     color: white;
     border-radius: 50%;
     background-color: #212121;
+
+    text-align: center;
   }
 
   .terms {
@@ -324,6 +336,8 @@ export default {
     color: white;
     border-radius: 50%;
     background-color: #212121;
+
+    text-align: center;
   }
 }
 </style>
