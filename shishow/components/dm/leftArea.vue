@@ -179,8 +179,8 @@ export default {
       privateTab[0].style.background = "#b2ebf2";
       globalTab[0].style.background = "#fff";
 
-      //dmBan = document.getElementsByClassName("dmBanner")[this.id]
-      //dmBan.style.background = "#FFF"
+      dmBan = document.getElementsByClassName("dmBanner")[this.id]
+      dmBan.style.background = "#FFF"
     },
 
     switchGlobal: function() {
@@ -190,8 +190,8 @@ export default {
       privateTab[0].style.background = "#fff";
       globalTab[0].style.background = "#b2ebf2"
 
-      //gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
-      //gameBan.style.background = "#FFF"
+      gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
+      gameBan.style.background = "#FFF"
     },
 
     showPopup: function() {
