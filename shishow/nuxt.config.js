@@ -73,6 +73,7 @@ module.exports = {
      ssr: false
    }
   ],
+  
   modules: [
     '@nuxtjs/style-resources',
     'nuxt-fontawesome'

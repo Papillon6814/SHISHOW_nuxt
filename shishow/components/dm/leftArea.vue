@@ -83,7 +83,7 @@ export default {
       dmImages: [],
       isPrivate: true,
       target:[],
-      id:0,
+      id: 0,
       games: []
     }
   },
@@ -109,8 +109,6 @@ export default {
           this.dmImages.unshift(icon);
           this.target.unshift(true);
         }
-
-
     }
   },
 
@@ -181,8 +179,8 @@ export default {
       privateTab[0].style.background = "#b2ebf2";
       globalTab[0].style.background = "#fff";
 
-      dmBan = document.getElementsByClassName("dmBanner")[this.id]
-      dmBan.style.background = "#FFF"
+      //dmBan = document.getElementsByClassName("dmBanner")[this.id]
+      //dmBan.style.background = "#FFF"
     },
 
     switchGlobal: function() {
@@ -192,8 +190,8 @@ export default {
       privateTab[0].style.background = "#fff";
       globalTab[0].style.background = "#b2ebf2"
 
-      gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
-      gameBan.style.background = "#FFF"
+      //gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
+      //gameBan.style.background = "#FFF"
     },
 
     showPopup: function() {
