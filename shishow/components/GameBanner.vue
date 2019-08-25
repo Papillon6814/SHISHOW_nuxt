@@ -1,6 +1,5 @@
 <template>
   <div class="gamebanner">
-
     <span class="iconPicPosition">
       <img class="iconPic" :src="game.data().image" />
     </span>
@@ -52,8 +51,6 @@ export default {
 */
 
   methods: {
-
-
     subscribe: function() {
 
         db.collection("USER")

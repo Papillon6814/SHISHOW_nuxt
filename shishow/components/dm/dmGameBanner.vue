@@ -36,6 +36,7 @@ export default {
       .get()
       .then(doc1 => {
         this.gamename = doc1.data().gamename;
+        this.iconPic = doc1.data().image
       })
   }
 }
@@ -63,6 +64,9 @@ export default {
     display: none;
 
     position: absolute;
+
+    width: 100%;
+    height: 100%;
   }
 }
 
