@@ -1,30 +1,5 @@
 <template>
   <div id="root">
-
-    <div id="modal" class="modal">
-      <div class="cropperPosition">
-        <vue-cropper
-          ref="cropper"
-          :guides="true"
-          :view-mode="2"
-          drag-mode="crop"
-          :aspectRatio="1 / 1"
-          :auto-crop-area="0.5"
-          :min-container-width="250"
-          :min-container-height="180"
-          :background="true"
-          :rotatable="true"
-          :src="uploadedImage"
-          alt="Source Image"
-          :img-style="{ 'width': '672px', 'height': '450px' }">
-        </vue-cropper>
-      </div>
-
-      <div class="cropBtn" @click="cropImage()">
-        Crop
-      </div>
-    </div>
-
     <tbody id="wrap">
 
       <header>
@@ -50,11 +25,13 @@
           <div id="gameBannerPosition">
             <div v-for="N in games.length"
               :key="N" v-bind:class="'g'+N">
-              <gameBanner
-                :game="games[N-1]"
-                :signuser="user"
-                :count="N-1">
-              </gameBanner>
+              <div @click="showGBModal(games[N-1])">
+                <gameBanner
+                  :game="games[N-1]"
+                  :signuser="user"
+                  :count="N-1">
+                </gameBanner>
+              </div>
             </div>
           </div>
           </transition>
@@ -79,8 +56,35 @@
           </div>
 
         </div>
-
     </tbody>
+
+    <!-- cropperのときのmodal -->
+
+    <div id="modal" class="modal">
+      <div class="cropperPosition">
+        <vue-cropper
+          ref="cropper"
+          :guides="true"
+          :view-mode="2"
+          drag-mode="crop"
+          :aspectRatio="1 / 1"
+          :auto-crop-area="0.5"
+          :min-container-width="250"
+          :min-container-height="180"
+          :background="true"
+          :rotatable="true"
+          :src="uploadedImage"
+          alt="Source Image"
+          :img-style="{ 'width': '672px', 'height': '450px' }">
+        </vue-cropper>
+      </div>
+
+      <div class="cropBtn" @click="cropImage()">
+        Crop
+      </div>
+    </div>
+
+    <!-- normalBannerを表示するときのmodal -->
 
     <div class="NBModal">
       <div class="modalPosition">
@@ -90,6 +94,19 @@
         </popupNormalBanner>
       </div>
     </div>
+
+    <!-- gameBannerを表示するときのmodal -->
+
+    <div class="GBModal">
+      <div class="modalPosition">
+        <popupGameBanner
+         :gameInfo="popupGame"
+         @callFade="fadeOut()">
+        </popupGameBanner>
+      </div>
+    </div>
+
+    <!-- フレンド申請を行うときのmodal -->
 
     <div class="selectModal">
       <div class="closeBtn" @click="fadeOut()">
@@ -109,6 +126,8 @@
       </div>
     </div>
 
+    <!-- プロフィール編集を行うときのmodal -->
+
     <div class="editModal">
       <div class="editBannerPosition">
         <editBanner @close="fadeOut()"
@@ -117,6 +136,7 @@
         </editBanner>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -128,15 +148,16 @@ import normalBanner from "../components/NormalBanner.vue";
 import gameBanner from "../components/GameBanner.vue";
 import editBanner from "../components/EditBanner.vue";
 import popupNormalBanner from "../components/PopupNormalBanner.vue";
+import popupGameBanner from "../components/PopupGameBanner.vue";
 
 import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
 
-
 const db = firebase.firestore();
 let NBPosition;
 let NBModal;
+let GBModal;
 let selectModal;
 let editModal;
 let modal;
@@ -155,6 +176,7 @@ export default {
       signuser: '',
       relation: [],
       popupUser: '',
+      popupGame: '',
       userId:'',
       croppedimg:"",
       uploadedImage:'',
@@ -167,7 +189,8 @@ export default {
     normalBanner,
     gameBanner,
     editBanner,
-    popupNormalBanner
+    popupNormalBanner,
+    popupGameBanner
   },
 
   watch: {
@@ -243,7 +266,7 @@ export default {
           let i=0
           let j;
 
-          while(i<5 && i<query.docs.length){
+          while(i<3 && i<query.docs.length){
 
             let num = Math.floor(Math.random()*query.docs.length);
 
@@ -267,6 +290,11 @@ export default {
       this.$forceUpdate();
     },
 
+    showGBModal: function(game) {
+      GBModal[0].style.display = "block";
+      this.$forceUpdate();
+    },
+
     showSelectModal: function() {
       selectModal[0].style.display = "block";
       this.$forceUpdate();
@@ -280,6 +308,7 @@ export default {
 
     fadeOut: function() {
       NBModal[0].style.display = "none";
+      GBModal[0].style.display = "none";
       selectModal[0].style.display = "none";
       editModal[0].style.display = "none";
       this.$forceUpdate();
@@ -335,9 +364,9 @@ export default {
     this.placeNB();
 
     NBModal = document.getElementsByClassName("NBModal");
+    GBModal = document.getElementsByClassName("GBModal");
     selectModal = document.getElementsByClassName("selectModal");
     editModal = document.getElementsByClassName("editModal");
-
   },
 
 };
@@ -565,6 +594,36 @@ footer {
 }
 
 .NBModal {
+  display: none;
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.3);
+
+  z-index: 10000;
+
+  .modalPosition {
+    position: absolute;
+
+    top: 300px;
+    left: 50%;
+
+    width: 65%;
+    height: 100%;
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
+.GBModal {
   display: none;
 
   position: absolute;
