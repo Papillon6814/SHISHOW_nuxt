@@ -635,7 +635,10 @@ footer {
     -ms-transform: translate(-50%, 0);
 
     width: $n_banner_width;
-    height: auto;
+    height: calc(100% - 300px);
+
+    overflow-x: hidden;
+    overflow-y: scroll;
 
     z-index: 10002;
 

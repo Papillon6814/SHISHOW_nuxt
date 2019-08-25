@@ -19,6 +19,19 @@
         v-model="Gamename" required>
     </div>
 
+    <div class="GameCategoryPosition">
+      <select v-model="selected">
+        <option selected disabled value="">カテゴリ...</option>
+        <option v-for="category in categories" :value="category.type">
+          {{ category.name }}
+        </option>
+      </select>
+
+      <div class="arrow">
+        <font-awesome-icon icon="angle-down" />
+      </div>
+    </div>
+
     <div @click="gameCollection()" class="create_button">
       Create
     </div>
@@ -40,7 +53,21 @@ export default{
       Gamename: "",
       type: "",
       uploadedImage: "",
-      croppedimg: ""
+      croppedimg: "",
+
+      categories: [
+        {id: 1, name: 'MMO',            type: 'mmo'},
+        {id: 2, name: 'RPG',            type: 'rpg'},
+        {id: 3, name: 'アクション',       type: 'action'},
+        {id: 4, name: 'アドベンチャー',    type: 'adventure'},
+        {id: 5, name: 'カジュアル',       type: 'casual'},
+        {id: 6, name: 'シミュレーション',  type: 'simulation'},
+        {id: 7, name: 'ストラテジー',     type: 'strategy'},
+        {id: 8, name: 'スポーツ',         type: 'sport'},
+        {id: 9, name: 'レース',          type: 'race'},
+      ],
+
+      selected: ''
     }
   },
 
@@ -86,8 +113,12 @@ export default{
       .doc()
       .set({
         gamename: Gamename,
+        category: this.selected,
         image: image,
         lastChatDate: ''
+     })
+     .catch(e => {
+       alert(e)
      })
    },
 
@@ -103,6 +134,24 @@ export default{
 </script>
 
 <style lang="scss" scoped>
+
+select {
+  outline: none;
+
+  width: 100%;
+  height: 100%;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border:1px solid #ddd;
+
+  option {
+    background-color: #fff;
+  }
+}
+
 .GameRequestBanner {
   position: absolute;
 
@@ -169,10 +218,34 @@ export default{
     cursor: pointer;
   }
 
+  .GameCategoryPosition {
+    position: absolute;
+
+    top: 220px;
+    left: 50%;
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+
+    width: 65%;
+    height: $su_user_height;
+
+    .arrow {
+      position: absolute;
+
+      top: 5px;
+      right: 3%;
+
+      font-size: 25px;
+      color: $primary_text;
+    }
+  }
+
   .GamenamePosition {
     position: absolute;
 
-    top: 250px;
+    top: 280px;
     left: 50%;
 
     -webkit-transform: translate(-50%, 0);
@@ -191,7 +264,7 @@ export default{
   .create_button {
     position: absolute;
 
-    top: 330px;
+    top: 340px;
     left: 50%;
 
     background: #fff;
@@ -232,6 +305,5 @@ export default{
     background-color: #fafafa;
   }
 }
-
 
 </style>

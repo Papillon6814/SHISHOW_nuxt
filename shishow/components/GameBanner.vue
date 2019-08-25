@@ -13,8 +13,8 @@
       </div>
     -->
 
-    <!-- <div v-if="isSubscribed" class="subscribeButton" @click="remove()">登録済み</div>
-    <div v-else class="subscribeButton" @click="subscribe()">登録</div> -->
+    <div v-if="isSubscribed" class="subscribeButton" @click="remove()">登録済み</div>
+    <div v-else class="subscribeButton" @click="subscribe()">登録</div>
   </div>
 </template>
 

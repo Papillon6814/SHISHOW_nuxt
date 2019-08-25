@@ -157,6 +157,7 @@ export default {
       if (this.id) {
         dmBan.style.background = "#FFF"
       }
+
       this.id = N;
       dmBan = document.getElementsByClassName("dmBanner")[this.id]
       dmBan.style.background = "red"
@@ -170,6 +171,7 @@ export default {
       if (this.id != 0) {
         gameBan.style.background = "#FFF";
       }
+      
       this.id = N;
       gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
       gameBan.style.background = "red";
