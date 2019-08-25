@@ -186,10 +186,12 @@ export default {
       privateTab[0].style.background = "#b2ebf2";
       globalTab[0].style.background = "#fff";
 
-      if (this.id != 0) {
-        dmBan = document.getElementsByClassName("dmBanner")[this.id]
-        dmBan.style.background = "#FFF"
+
+      if(this.games.length != 0){
+        let dmBan = document.getElementsByClassName("dmGameBanner")[this.id];
+        dmBan.style.background = "#FFF";
       }
+      this.id = 0;
     },
 
     switchGlobal: function() {
@@ -199,10 +201,11 @@ export default {
       privateTab[0].style.background = "#fff";
       globalTab[0].style.background = "#b2ebf2"
 
-      if (this.id != 0) {
-        gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
-        gameBan.style.background = "#FFF"
+      if(this.friendsDocID.length != 0){
+        let gameBan = document.getElementsByClassName("dmBanner")[this.id];
+        gameBan.style.background = "#FFF";
       }
+      this.id = 0;
     },
 
     showPopup: function() {

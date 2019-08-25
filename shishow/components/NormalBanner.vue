@@ -53,9 +53,6 @@ export default {
 
   data: function() {
     return {
-      isA: true,
-      isB: false,
-      arrowUp: false,
       relation: 0,
     };
   },

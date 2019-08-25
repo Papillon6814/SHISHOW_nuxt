@@ -13,7 +13,9 @@
               v-if="userStatus"
               :loginedUser="getCurrentUserName"
               @callEditBanner="showEditBanner()"
-              :user='signuser'>
+              :user='signuser'
+              :shishow='shishow'
+              :deshi='deshi'>
             </myBanner>
           </div>
         </transition>
@@ -131,8 +133,10 @@
     <div class="editModal">
       <div class="editBannerPosition">
         <editBanner @close="fadeOut()"
-        :user='user'
-        ref="EBanner">
+        ref="EBanner"
+        @filechange="prepare"
+        :roundimg='croppedimg'
+        :user='signuser'>
         </editBanner>
       </div>
     </div>
@@ -165,6 +169,10 @@ let modal;
 export default {
   name: "home",
 
+  head:{
+    title:"home",
+  },
+
   data: function() {
     return {
       users: [],
@@ -175,11 +183,12 @@ export default {
       currentUser: "",
       signuser: '',
       relation: [],
-      popupUser: '',
-      popupGame: '',
-      userId:'',
-      croppedimg:"",
-      uploadedImage:'',
+      popupUser: ' ',
+      userId:' ',
+      croppedimg:" ",
+      uploadedImage:' ',
+      shishow:0,
+      deshi:0
     };
   },
 
@@ -249,6 +258,7 @@ export default {
             this.hisGames.push(doc1);
           })
         })
+      
         this.userId = N;
     },
 
@@ -259,7 +269,6 @@ export default {
 
     placeNB: function() {
       NBPosition = document.getElementsByClassName("normalBannerPosition");
-
       db.collection("GameCollection")
         .get()
         .then(query => {
@@ -283,6 +292,7 @@ export default {
 
           this.$forceUpdate();
         })
+n
     },
 
     showNBModal: function() {
@@ -303,6 +313,7 @@ export default {
     showEditBanner: function() {
       editModal[0].style.display = "block";
       console.log("showEditBanner");
+      this.$refs.edit.setUser()
       this.$forceUpdate();
     },
 
@@ -345,23 +356,76 @@ export default {
                })
              })
            });
+    },
 
-    db.collection("USER")
+    getUser(){
+      db.collection("USER")
       .doc(""+this.user.email)
       .get()
       .then(doc =>{
         this.signuser = doc.data();
       });
+    },
+
+    myBanner_created(){
+      var email = this.$store.state.user.user.email;
+      var shishowBox = 0;
+      var deshiBox = 0;
+    
+          return db.collection("USER")
+            .doc(""+email)
+            .collection("friends")
+            .get()
+            .then(querySnapshot => {
+                querySnapshot.forEach(doc =>{
+                    // doc.data() is never undefined for query doc snapshots
+                    if(doc.data()["isSHISHOW"]){
+                      shishowBox += 1;
+                    }
+                    else {
+                      deshiBox += 1;
+                    }
+                });
+                this.shishow = shishowBox;
+                this.deshi = deshiBox;
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
+            });
+    },
+
+    gameBanner_created(){
+      db.collection("GameCollection")
+        .get()
+        .then(query => {
+          let i=0
+          let j;
+
+          while(i<5 && i<query.docs.length){
+
+            let num = Math.floor(Math.random()*query.docs.length);
+
+            for(j=0;j<i&&this.games[j].id != query.docs[num].id ;j++);
+            if(j==i){
+              this.games.push(query.docs[num]);
+
+              i++
+            }
+
+          }
+        })
     }
   },
 
   created:function(){
+    this.getUser();
     this.setOtherUser();
+    this.myBanner_created();
+    this.gameBanner_created();
   },
 
   mounted: function() {
     modal = document.getElementById("modal");
-    this.placeNB();
 
     NBModal = document.getElementsByClassName("NBModal");
     GBModal = document.getElementsByClassName("GBModal");
@@ -460,13 +524,14 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
 
+  $g: 1;
+
   #gameBannerPosition {
     position: absolute;
 
     width: 100%;
     height: auto;
 
-    $g: 1;
 
     @while $g <= 5 {
       .g#{$g} {
@@ -485,16 +550,18 @@ body {
     }
   }
 
+  $i: 0;
+
   .normalBannerPosition {
     position: absolute;
 
-    top: 100%;
+    top: ((55vw / 4) * 6);
     left: 0;
 
     width: 100%;
     height: 100%;
 
-    $i: 1;
+    
 
     @while $i <= 30 {
 
@@ -513,6 +580,7 @@ body {
       }
 
       $i: $i + 1;
+
     }
 
     .alphaSpace {

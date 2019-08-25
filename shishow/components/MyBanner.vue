@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import firebase from "../plugins/firestore";
+import firebase from "~/plugins/firestore";
 import "@firebase/auth";
 import "firebase/firestore";
 
@@ -60,20 +60,10 @@ export default {
 
   props: [
     "loginedUser",
-    "user"
+    "user",
+    "shishow",
+    "deshi"
   ],
-
-  data: function() {
-    return {
-      isA: true,
-      isB: false,
-      isC: false,
-      sign: " ",
-      friendDocID: " ",
-      shishow: " ",
-      deshi: " "
-    };
-  },
 
   watch: {
     loginedUser: function() {
@@ -104,38 +94,6 @@ export default {
       this.$emit("callEditBanner");
     }
   },
-
-  created:function(){
-    var email = this.$store.state.user.user.email;
-    var shishowBox = 0;
-    var deshiBox = 0;
-    console.log(this.$store.state.user.user.email)
-        db.collection("USER")
-          .doc(email)
-          .collection("friends")
-          .get()
-          .then(querySnapshot => {
-              querySnapshot.forEach(doc =>{
-                  // doc.data() is never undefined for query doc snapshots
-                  console.log(doc.id, " => ", doc.data());
-                  if(doc.data()["isSHISHOW"] === true){
-                    shishowBox += 1;
-                    console.log(shishowBox);
-                  }
-                  else if(doc.data()["isSHISHOW"] === false){
-                    deshiBox += 1;
-                    console.log(deshiBox);
-                  }
-              });
-              this.shishow = shishowBox;
-              this.deshi = deshiBox;
-          })
-          .catch(function(error) {
-              console.log("Error getting documents: ", error);
-          });
-
-
-  }
 };
 
 </script>

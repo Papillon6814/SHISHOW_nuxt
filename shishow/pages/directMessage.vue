@@ -13,6 +13,11 @@ import dmField from '../components/dm/DirectMessageField.vue'
 
 export default {
   name: 'directMessage',
+
+  head:{
+    title:"message",
+  },
+
   components: {
     navi,
     dmField

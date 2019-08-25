@@ -19,6 +19,7 @@
       maxlength="30" v-model="favoriteGame"
       placeholder="favorite game" />
 
+
     <input class="username" type="text"
       maxlength="12" v-model="username"/>
 
@@ -57,12 +58,14 @@ export default {
 
   data: function() {
     return {
-      username: '',
-      userBio: '',
-      enumGames: '',
+
+      croppedimg: '',
+      username: this.user.username,
+      userBio: this.user.bio,
+      enumGames: ' ',
       favoriteGame: '',
-      value: '',
-      croppedimg: ''
+      value: ' ',
+      uploadedImage: ' '
     }
   },
 
@@ -102,6 +105,7 @@ export default {
     },
 
     close: function() {
+      console.log(this.username)
       this.$emit("close");
     },
 
@@ -145,6 +149,12 @@ export default {
             location.reload();
           })
       }
+    },
+
+    setUser(){
+      this.username = this.user.username;
+      this.userBio = this.user.bio;
+      this.favoriteGame = this.user.favoriteGame;
     }
   },
 
