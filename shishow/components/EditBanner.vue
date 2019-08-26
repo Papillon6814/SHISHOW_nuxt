@@ -27,7 +27,7 @@
       v-model="enumGames" readonly="readonly" />
 
     <div class="bioPosition">
-      <textarea v-model="userBio" :rows="userBio.split('\n').length > 3 ? 3 : userBio.split('\n').length"
+      <textarea v-model="userBio" :rows="rows()"
         maxlength="50"></textarea>
     </div>
 
@@ -58,12 +58,11 @@ export default {
 
   data: function() {
     return {
-
       croppedimg: '',
-      username: this.user.username,
-      userBio: this.user.bio,
+      username: '' + this.user.username,
+      userBio: '' + this.user.bio,
       enumGames: ' ',
-      favoriteGame: '',
+      favoriteGame: ' ',
       value: ' ',
       uploadedImage: ' '
     }
@@ -73,15 +72,12 @@ export default {
     'user'
   ],
 
-  // NOTE: もしかしたらnuxt以降の時に何か不具合が生まれたかも
-  computed: {
-    rows: function() {
-      var num = this.value.split("\n").length;
-      return (num > 3) ? 3 : num;
-    }
-  },
-
   methods: {
+    rows: function() {
+      var num = this.userBio.split("\n").length;
+      return (num > 3) ? 3 : num;
+    },
+
     setImage: function(e) {
       const file = e.target.files[0];
 

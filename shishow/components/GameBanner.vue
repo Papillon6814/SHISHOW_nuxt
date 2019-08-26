@@ -60,7 +60,6 @@ export default {
             gamename: this.game.data().gamename
           })
         this.isSubscribed = true;
-
     },
 
     remove: function() {
@@ -105,8 +104,16 @@ export default {
   .gamebanner {
     position: absolute;
 
-    width: $n_banner_width;
-    height: $n_banner_height;
+    @media screen and (max-width: 800px) {
+      width: 85vw;
+      height: calc(85vw / 4);
+    }
+
+    @media screen and (min-width: 801px) {
+      width: $n_banner_width;
+      height: $n_banner_height;
+    }
+
     background-color: #fff;
 
     transition: 0.3s;

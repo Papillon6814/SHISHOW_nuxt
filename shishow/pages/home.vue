@@ -134,7 +134,6 @@
       <div class="editBannerPosition">
         <editBanner @close="fadeOut()"
         ref="EBanner"
-        @filechange="prepare"
         :roundimg='croppedimg'
         :user='signuser'>
         </editBanner>
@@ -258,7 +257,7 @@ export default {
             this.hisGames.push(doc1);
           })
         })
-      
+
         this.userId = N;
     },
 
@@ -292,7 +291,6 @@ export default {
 
           this.$forceUpdate();
         })
-n
     },
 
     showNBModal: function() {
@@ -313,7 +311,7 @@ n
     showEditBanner: function() {
       editModal[0].style.display = "block";
       console.log("showEditBanner");
-      this.$refs.edit.setUser()
+      this.$refs.EBanner.setUser()
       this.$forceUpdate();
     },
 
@@ -371,7 +369,7 @@ n
       var email = this.$store.state.user.user.email;
       var shishowBox = 0;
       var deshiBox = 0;
-    
+
           return db.collection("USER")
             .doc(""+email)
             .collection("friends")
@@ -440,7 +438,7 @@ n
 <style lang="scss">
 .modal {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 20000;
   left: 0;
   top: 0;
@@ -502,12 +500,22 @@ body {
 }
 
 #myBannerPosition {
-  position: fixed;
-  top: 100px;
-  left: 0;
 
-  width: 23%;
-  height: calc(100% - 100px);
+  @media screen and (max-width: 800px) {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    height: 400px;
+  }
+
+  @media screen and (min-width: 800px) {
+    position: fixed;
+    top: 100px;
+    width: 23%;
+    height: calc(100% - 100px);
+  }
+
+  left: 0;
 
   z-index: 1;
 }
@@ -515,14 +523,18 @@ body {
 #moving {
   position: absolute;
 
-  top: -30px;
-  left: 27%;
+  @media screen and (max-width: 800px) {
+    top: 400px;
+    left: 7.5vw;
+  }
+
+  @media screen and (min-width: 800px) {
+    top: -30px;
+    left: 27%;
+  }
 
   width: 100%;
   height: 100%;
-
-  overflow-x: hidden;
-  overflow-y: scroll;
 
   $g: 1;
 
@@ -532,12 +544,18 @@ body {
     width: 100%;
     height: auto;
 
-
     @while $g <= 5 {
       .g#{$g} {
         position: absolute;
 
-        top: (55vw / 4) * $g;
+        @media screen and (max-width: 800px){
+          top: (85vw / 3.5) * $g;
+        }
+
+        @media screen and (min-width: 800px) {
+          top: (55vw / 4) * $g;
+        }
+
         left: 0;
 
         width: 100%;
@@ -555,26 +573,36 @@ body {
   .normalBannerPosition {
     position: absolute;
 
-    top: ((55vw / 4) * 6);
+    @media screen and (max-width: 800px) {
+      top: ((85vw / 3.5) * 6);
+    }
+
+    @media screen and (min-width: 800px) {
+      top: ((55vw / 4) * 6);
+    }
     left: 0;
 
     width: 100%;
     height: 100%;
 
-    
-
     @while $i <= 30 {
-
-      $temporary_top: ((55vw / 4) * $i) !global;
 
       .n#{$i} {
         position: absolute;
 
-        top: $temporary_top;
         left: 0;
 
         width: 100%;
-        height: $n_banner_height;
+
+        @media screen and (max-width: 800px) {
+          top: ((85vw / 4) * $i);
+          height: calc(85vw / 4.5);
+        }
+
+        @media screen and (min-width: 800px) {
+          top: ((55vw / 4) * $i);
+          height: $n_banner_height;
+        }
 
         transition: 0.1s;
       }
@@ -587,12 +615,19 @@ body {
       position: absolute;
 
       left: 0;
-      top: 180px * 20;
+
+      @media screen and (max-width: 800px) {
+        top: ((85vw / 4) * 31);
+      }
+
+      @media screen and (min-width: 800px) {
+        top: ((55vw / 4) * 31);
+      }
 
       height: 140px;
       width: 100%;
 
-      background-color: rgba(0, 0, 0, 0);
+      background-color: #000;//rgba(0, 0, 0, 0);
     }
   }
 
@@ -664,7 +699,7 @@ footer {
 .NBModal {
   display: none;
 
-  position: absolute;
+  position: fixed;
 
   top: 0;
   left: 0;
@@ -694,7 +729,7 @@ footer {
 .GBModal {
   display: none;
 
-  position: absolute;
+  position: fixed;
 
   top: 0;
   left: 0;
@@ -724,7 +759,7 @@ footer {
 .selectModal {
   display: none;
 
-  position: absolute;
+  position: fixed;
 
   top: 0;
   left: 0;
@@ -783,7 +818,7 @@ footer {
 .editModal {
   display: none;
 
-  position: absolute;
+  position: fixed;
 
   top: 0;
   left: 0;

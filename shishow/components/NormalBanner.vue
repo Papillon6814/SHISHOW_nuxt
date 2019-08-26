@@ -58,8 +58,6 @@ export default {
   },
 
   methods: {
-
-
     click: function() {
       this.$emit("clickNB");
     },
@@ -241,24 +239,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.normalBanner {
-  position: absolute;
 
-  overflow-y: hidden;
+@media screen and (max-width: 800px) {
+  .normalBanner {
+    position: absolute;
 
-  width: $n_banner_width;
-  height: $n_banner_height;
+    width: 85vw;
+    height: calc(85vw / 4.5);
 
-  background-color: white;
+    background-color: #fff;
 
-  border-radius: 3px;
+    border-radius: 3px;
 
-  z-index: 2;
+    z-index: 2;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
-  transition: 0.2s;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+    transition: 0.2s;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .normalBanner {
+    position: absolute;
+
+    overflow-y: hidden;
+
+    width: $n_banner_width;
+    height: $n_banner_height;
+
+    background-color: white;
+
+    border-radius: 3px;
+
+    z-index: 2;
+
+    cursor: pointer;
+
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+    transition: 0.2s;
+  }
 }
 
 .normalBanner:hover {
@@ -267,6 +288,16 @@ export default {
 
 .iconPicPosition {
   position: absolute;
+
+  @media screen and (max-width: 800px) {
+    width: 10vw;
+    height: 10vw;
+  }
+
+  @media screen and (min-width: 800px) {
+    width: 8vw;
+    height: 8vw;
+  }
 
   top: 15px;
   left: 20px;
@@ -277,8 +308,8 @@ export default {
     top: 0px;
     left: 6px;
 
-    width: $n_icon_width;
-    height: $n_icon_height;
+    width: 100%;
+    height: 100%;
 
     display: inline-block;
 
@@ -290,62 +321,6 @@ export default {
 
     z-index: -1;
   }
-}
-
-.achievement {
-  position: relative;
-
-  width: $n_achievement_width;
-  height: $n_achievement_height; //√3
-
-  background-color: #ffffff;
-  margin: $n_root_twelve 0;
-}
-
-.achievement:before,
-.achievement:after {
-  content: "";
-  position: absolute;
-
-  left: 0;
-
-  width: 0;
-
-  border-left: $n_a_half_width solid transparent;
-  border-right: $n_a_half_width dashed transparent;
-}
-
-.achievement:before {
-  bottom: 100%;
-  border-bottom: $n_root_twelve solid #fff;
-}
-
-.achievement:after {
-  top: 100%;
-
-  width: 0;
-  border-top: $n_root_twelve solid #fff;
-}
-
-.achievementPosition1 {
-  position: absolute;
-
-  top: 100.6875px;
-  left: 23.11076388px;
-}
-
-.achievementPosition2 {
-  position: absolute;
-
-  top: 115px;
-  left: 65.392px;
-}
-
-.achievementPosition3 {
-  position: absolute;
-
-  top: 100.6875px;
-  left: 106.673px;
 }
 
 .username {
@@ -428,30 +403,19 @@ export default {
   color: white;
 }
 
-.reverse {
-  transform: rotateX(180deg);
-}
-
-.nextend {
-  position: absolute;
-
-  width: $n_banner_width;
-  height: $n_banner_height * 2;
-
-  background-color: $n_banner_color;
-
-  transition: 0.3s;
-}
-
-.nreverse {
-  transform: rotateX(180deg);
-}
-
 .icon {
   position: absolute;
 
-  width: $n_icon_width;
-  height: $n_icon_height;
+  @media screen and (max-width: 800px) {
+    width: 10vw;
+    height: 10vw;
+  }
+
+  @media screen and (min-width: 800px){
+    width: 8vw;
+    height: 8vw;
+  }
+
   left: 7%;
 }
 
