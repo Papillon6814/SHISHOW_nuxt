@@ -186,7 +186,6 @@ export default {
       privateTab[0].style.background = "#b2ebf2";
       globalTab[0].style.background = "#fff";
 
-
       if(this.games.length != 0){
         let dmBan = document.getElementsByClassName("dmGameBanner")[this.id];
         dmBan.style.background = "#FFF";

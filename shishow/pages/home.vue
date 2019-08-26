@@ -292,7 +292,6 @@ export default {
 
           this.$forceUpdate();
         })
-n
     },
 
     showNBModal: function() {

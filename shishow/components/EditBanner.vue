@@ -58,7 +58,6 @@ export default {
 
   data: function() {
     return {
-
       croppedimg: '',
       username: this.user.username,
       userBio: this.user.bio,
@@ -186,6 +185,7 @@ export default {
   mounted: function(){
     this.modal = document.getElementById("modal");
     this.loadGames();
+
 
   },
 }

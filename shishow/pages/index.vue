@@ -27,7 +27,6 @@ import "@firebase/auth";
 
 export default {
 
-
   head:{
     title:"top",
   },
