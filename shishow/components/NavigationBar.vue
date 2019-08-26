@@ -1,4 +1,5 @@
 <template>
+<div id="wrap">
   <div id="header">
 
     <div>
@@ -45,6 +46,13 @@
       </div>
     </div>
   </div>
+
+  <div id="footer">
+  </div>
+  <div class="pinkButton">
+    <font-awesome-icon icon="sort-up" />
+  </div>
+</div>
 </template>
 
 <script>
@@ -92,25 +100,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 @import url("https://fonts.googleapis.com/css?family=Pangolin&display=swap");
+
 #header {
   position: fixed;
   top: $header_height;
   left: 0;
   width: 100%;
-  height: $header_height;
+
+  @media screen and (max-width: 800px) {
+    height: 80px;
+  }
+
+  @media screen and (min-width: 800px) {
+    height: $header_height;
+  }
+
   background-color: $header_color;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
   z-index: 10;
+
   .centered {
+
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+
     position: absolute;
     top: 13px;
     right: 50px;
+
     .group {
       position: relative;
       width: 100%;
-      height: $searchbar_width/5;
+      height: $searchbar_width / 5;
       overflow: hidden;
+
       label {
         position: absolute;
         left: 0;
@@ -120,6 +146,7 @@ export default {
         cursor: text;
         transition: 0.25s ease;
       }
+
       input {
         display: block;
         width: 100%;
@@ -130,6 +157,7 @@ export default {
         background: $header_color;
         font-size: $searchbar_width/15;
         transition: 0.3s ease;
+
         &:valid {
           ~ label {
             top: 0;
@@ -137,6 +165,7 @@ export default {
             color: #fff;
           }
         }
+
         &:focus {
           outline: none;
           ~ label {
@@ -144,18 +173,22 @@ export default {
             font: 700 $searchbar_width/25 Roboto;
             color: $secondary-color;
           }
+
           ~ .bar {
             background: $secondary-color;
           }
+
           ~ .sch {
             color: $secondary-color;
           }
         }
+
         &:-webkit-autofill {
           -webkit-box-shadow: 0 0 0px 1000px $header_color inset;
           -webkit-text-fill-color: #fff !important;
         }
       }
+
       .bar {
         position: relative;
         content: "";
@@ -164,6 +197,7 @@ export default {
         background: #fff;
         transition: 0.3s ease;
       }
+
       .sch {
         position: absolute;
         width: 40px;
@@ -174,29 +208,49 @@ export default {
         cursor: pointer;
         transition: 0.3s ease;
       }
+
       .sch:hover {
         color: $secondary-color;
       }
     }
   }
+
   .logo {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    top: 10px;
-    left: 50%;
-    transform: translate(-50%, 0);
+
+    @media screen and (max-width: 800px) {
+      width: 70px;
+      height: 70px;
+      top: 5px;
+      right: 20px;
+    }
+
+    @media screen and (min-width: 800px) {
+      width: 80px;
+      height: 80px;
+      top: 10px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
     z-index: 10;
   }
+
   ::selection {
     background: rgba($secondary-color, 0.3);
     transition: 0.3s ease;
   }
+
   #menuButtons {
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+
     position: absolute;
     height: 100%;
     top: 18px;
     left: 0;
+
     .dm {
       position: absolute;
       width: $button_width;
@@ -205,6 +259,7 @@ export default {
       top: 10px;
       color: #fff;
     }
+
     .game {
       position: absolute;
       width: $button_width;
@@ -213,6 +268,7 @@ export default {
       top: 10px;
       color: #fff;
     }
+
     .bell {
       position: absolute;
       width: $button_width;
@@ -221,6 +277,7 @@ export default {
       top: 10px;
       color: #fff;
     }
+
     .notification {
       position: absolute;
       height: 20px;
@@ -239,29 +296,37 @@ export default {
       top: 10px;
       color: #fff;
     }
+
     .dm:hover {
       opacity: 0.5;
     }
+
     .game:hover {
       opacity: 0.5;
     }
+
     .bell:hover {
       opacity: 0.5;
     }
+
     .notification:hover .bell {
       opacity: 0.5;
     }
+
     .home:hover {
       opacity: 0.5;
     }
+
     .global:hover {
       opacity: 0.5;
     }
   }
 }
+
 #header {
   top: 0px;
 }
+
 .logoSentence2 {
   position: absolute;
   font-family: "Pangolin", cursive;
@@ -274,4 +339,49 @@ export default {
   text-shadow: 2px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
     -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
+#footer {
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
+
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+
+  background-color: $header_color;
+
+  z-index: 1000;
+}
+
+@media screen and (max-width: 800px) {
+  .pinkButton {
+    position: fixed;
+
+    bottom: 40px;
+    right: 20px;
+
+    width: 60px;
+    height: 60px;
+
+    line-height: 75px;
+
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
+
+    border-radius: 50%;
+
+    background-color: $accent_color;
+
+    z-index: 1001;
+
+    cursor: pointer;
+  }
+}
+
 </style>
