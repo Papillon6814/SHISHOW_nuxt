@@ -69,7 +69,6 @@ let lastMsgDate = [];
 
 let privateDM, globalDM;
 let privateTab, globalTab;
-let gameBan, dmBan;
 let leftArea;
 
 export default {
@@ -154,27 +153,22 @@ export default {
     click_f: function(friend, N) {
       this.$parent.idFromLeftArea = friend;
 
-      if (this.id) {
-        dmBan.style.background = "#FFF"
-      }
-
+      let dmBan = document.getElementsByClassName("dmBanner")[this.id]
+      dmBan.style.background = "#FFF"
       this.id = N;
-      dmBan = document.getElementsByClassName("dmBanner")[this.id]
+      dmBan = document.getElementsByClassName("dmBanner")[N]
       dmBan.style.background = "red"
-
       this.$parent.isGame = false;
     },
 
     click_g: function(game, N) {
       this.$parent.idFromLeftArea = game;
 
-      if (this.id != 0) {
-        gameBan.style.background = "#FFF";
-      }
-      
+      let dmgameBan = document.getElementsByClassName("dmGameBanner")[this.id]
+      dmgameBan.style.background = "#FFF"
       this.id = N;
-      gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
-      gameBan.style.background = "red";
+      dmgameBan = document.getElementsByClassName("dmGameBanner")[N]
+      dmgameBan.style.background = "red"
 
       this.$parent.isGame = true;
     },
@@ -242,8 +236,6 @@ export default {
     privateTab = document.getElementsByClassName("private");
     globalTab = document.getElementsByClassName("global");
 
-    gameBan = document.getElementsByClassName("dmGameBanner")[this.id];
-    dmBan = document.getElementsByClassName("dmBanner")[this.id];
 
     leftArea = document.getElementById('leftArea')
   }
