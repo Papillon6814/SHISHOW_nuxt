@@ -6,53 +6,52 @@
         <navi @search="getSearchWord"></navi>
       </header>
 
-
-        <transition appear name="v">
-          <div id="myBannerPosition">
-            <myBanner
-              v-if="userStatus"
-              :loginedUser="getCurrentUserName"
-              @callEditBanner="showEditBanner()"
-              :user='signuser'
-              :shishow='shishow'
-              :deshi='deshi'>
-            </myBanner>
-          </div>
-        </transition>
-
-        <div id="moving">
-
-          <transition appear name="v3">
-
-          <div id="gameBannerPosition">
-            <div v-for="N in games.length"
-              :key="N" v-bind:class="'g'+N">
-              <div @click="showGBModal(games[N-1])">
-                <gameBanner
-                  :game="games[N-1]"
-                  :signuser="user"
-                  :count="N-1">
-                </gameBanner>
-              </div>
-            </div>
-          </div>
-          </transition>
-
-          <transition appear name="v2">
-            <div class="normalBannerPosition">
-              <div v-for="(userinfo, N) in filteredUser"
-                :key="N" v-bind:class="'n'+N">
-                <normalBanner
-                  :user="filteredUser[N]"
-                  :signuser="signuser"
-                  :relations="relation[N]"
-                  @clickNB="NBclick(userinfo)"
-                  @clickReqButton="RBclick(userinfo,N)"
-                  ref="normal">
-                </normalBanner>
-              </div>
+          <transition appear name="v">
+            <div id="myBannerPosition">
+              <myBanner
+                v-if="userStatus"
+                :loginedUser="getCurrentUserName"
+                @callEditBanner="showEditBanner()"
+                :user='signuser'
+                :shishow='shishow'
+                :deshi='deshi'>
+              </myBanner>
             </div>
           </transition>
+
+          <div id="moving">
+
+            <transition appear name="v3">
+
+            <div id="gameBannerPosition">
+              <div v-for="N in games.length"
+                :key="N" v-bind:class="'g'+N">
+                <div @click="showGBModal(games[N-1])">
+                  <gameBanner
+                    :game="games[N-1]"
+                    :signuser="user"
+                    :count="N-1">
+                  </gameBanner>
+                </div>
+              </div>
+            </div>
+            </transition>
+
+            <transition appear name="v2">
+              <div class="normalBannerPosition">
+                <div v-for="(userinfo, N) in filteredUser"
+                  :key="N" v-bind:class="'n'+N">
+                  <normalBanner
+                    :user="filteredUser[N]"
+                    :signuser="signuser"
+                    :relations="relation[N]"
+                    @clickNB="NBclick(userinfo)"
+                    @clickReqButton="RBclick(userinfo,N)"
+                    ref="normal">
+                  </normalBanner>
+                </div>
+              </div>
+            </transition>
 
           <div class="adPosition">
           </div>
@@ -435,7 +434,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .modal {
   display: none;
   position: fixed;
@@ -444,7 +443,6 @@ export default {
   top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
 
   .cropperPosition {
@@ -491,12 +489,8 @@ export default {
 body {
   padding: 0;
   margin: 0;
-  width: 100%;
 
   background-color: $dark_color;
-
-  overflow-x: hidden;
-  overflow-y: scroll;
 }
 
 #myBannerPosition {
@@ -526,18 +520,21 @@ body {
   @media screen and (max-width: 800px) {
     top: 400px;
     left: 7.5vw;
+
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   @media screen and (min-width: 800px) {
     top: -30px;
     left: 27%;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   width: 100%;
   height: 100%;
-
-  overflow-x: hidden;
-  overflow-y: scroll;
 
   $g: 1;
 

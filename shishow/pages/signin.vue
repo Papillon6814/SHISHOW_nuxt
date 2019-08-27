@@ -1,6 +1,14 @@
 <template>
   <div class="signin">
-    <navi></navi>
+    <div class="res">
+      <navi></navi>
+    </div>
+    <div class="nres">
+      <nuxt-link to="/">
+        <img src="../assets/image/logoShishow.png"
+          class="logo"/>
+      </nuxt-link>
+    </div>
     <div id="signinBannerPosition">
       <signinBanner></signinBanner>
     </div>
@@ -27,27 +35,79 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 body {
   padding: 0;
   margin: 0;
 
-  width: 100%;
-
   overflow: hidden;
 
-  background-color: $dark_color;
+  .signin {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    overflow: hidden;
+
+    @media screen and (max-width: 800px) {
+      background-color: $dark_primary_color;
+    }
+
+    @media screen and (min-width: 800px) {
+      background-color: $dark_color;
+    }
+
+    .res {
+      @media screen and (max-width: 800px) {
+        display: none;
+      }
+
+      overflow-y: hidden;
+    }
+
+    .nres {
+      @media screen and (min-width: 800px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+
+  height: 110px;
+  width: 110px;
+
+  top: 50px;
+  left: 50%;
+
+  transform: translate(-50%, 0);
 }
 
 #signinBannerPosition {
   position: absolute;
 
   width: 100%;
+  height: calc(100% - 180px);
 
   //temporary top
   top: 180px;
-  left: 26%;
+
+  @media screen and (max-width: 800px) {
+    left: 15%;
+  }
+
+  @media screen and (min-width: 800px) {
+    left: 26%;
+  }
+
+  overflow-y: hidden;
 }
 
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <span style="top:1000px">aaaaaa</span>
     <nuxt />
   </div>
 </template>

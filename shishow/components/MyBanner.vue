@@ -113,12 +113,15 @@ export default {
 
   border: solid;
   border-width: 5px;
-  border-radius: 3px;
   border-color: $banner_color;
 
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 
   transition: 0.3s;
+
+  @media screen and (max-width: 800px) {
+    border-radius: 0 0 15px 15px;
+  }
 
 
   /*

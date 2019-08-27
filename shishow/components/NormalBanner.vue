@@ -327,8 +327,6 @@ export default {
   width: $user_width;
   height: $n_user_height;
 
-  background-color: #fff;
-
   font: "メイリオ";
   font-size: 22px;
 }
@@ -337,7 +335,7 @@ export default {
   position: absolute;
 
   top: 30px;
-  left: 140px;
+  left: 11vw;
   right: 0px;
 }
 
