@@ -102,7 +102,6 @@
     <div class="GBModal">
       <div class="modalPosition">
         <popupGameBanner
-         :gameInfo="popupGame"
          @callFade="fadeOut()">
         </popupGameBanner>
       </div>
