@@ -1,6 +1,5 @@
 <template>
   <div>
-    <span style="top:1000px">aaaaaa</span>
     <nuxt />
   </div>
 </template>
@@ -14,6 +13,8 @@ export default {
       { hid: 'description', name: 'description', content: '自分の師匠を見つけましょう.' },
     ],
   },
+
+  
 }
 </script>
 

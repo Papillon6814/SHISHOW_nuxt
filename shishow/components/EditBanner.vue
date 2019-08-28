@@ -27,7 +27,7 @@
       v-model="enumGames" readonly="readonly" />
 
     <div class="bioPosition">
-      <textarea v-model="userBio" :rows="userBio.split('\n').length > 3 ? 3 : userBio.split('\n').length"
+      <textarea v-model="userBio" :rows="rows"
         maxlength="50"></textarea>
     </div>
 

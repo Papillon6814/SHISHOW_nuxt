@@ -133,7 +133,6 @@
       <div class="editBannerPosition">
         <editBanner @close="fadeOut()"
         ref="EBanner"
-        @filechange="prepare"
         :roundimg='croppedimg'
         :user='signuser'>
         </editBanner>
@@ -412,7 +411,7 @@ export default {
 
           }
         })
-    }
+    },
   },
 
   created:function(){
@@ -430,7 +429,11 @@ export default {
     selectModal = document.getElementsByClassName("selectModal");
     editModal = document.getElementsByClassName("editModal");
   },
-
+  fetch({store,redirect}){
+    if(store.state.init && store.state.user.user.email == null){
+      redirect("/")
+    }
+  }
 };
 
 </script>
