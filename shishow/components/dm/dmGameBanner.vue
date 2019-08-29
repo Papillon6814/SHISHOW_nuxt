@@ -61,7 +61,7 @@ export default {
   cursor: pointer;
 
   .iconPosition {
-    display: none;
+    //display: none;
 
     position: absolute;
 

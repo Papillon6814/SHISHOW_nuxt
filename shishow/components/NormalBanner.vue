@@ -415,6 +415,8 @@ export default {
   }
 
   left: 7%;
+
+  border-radius: 50%;
 }
 
 </style>
