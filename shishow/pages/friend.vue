@@ -208,6 +208,12 @@ export default {
     tab4 = document.getElementsByClassName("tab4");
 
     whiteLine = document.getElementsByClassName("whiteLine");
+  },
+
+  fetch({store,redirect}){
+    if(store.state.init && store.state.user.user.email == null){
+      redirect("/")
+    }
   }
 };
 </script>

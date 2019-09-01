@@ -10,7 +10,6 @@ export const state = () => ({
   })
   
   export const mutations = {
-      
       onAuthStateChanged(state, user) {
         state.user = user;
         state.status = true;

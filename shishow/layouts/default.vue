@@ -13,6 +13,8 @@ export default {
       { hid: 'description', name: 'description', content: '自分の師匠を見つけましょう.' },
     ],
   },
+
+  
 }
 </script>
 

@@ -101,7 +101,6 @@
     <div class="GBModal">
       <div class="modalPosition">
         <popupGameBanner
-         :gameInfo="popupGame"
          @callFade="fadeOut()">
         </popupGameBanner>
       </div>
@@ -411,7 +410,7 @@ export default {
 
           }
         })
-    }
+    },
   },
 
   created:function(){
@@ -429,7 +428,11 @@ export default {
     selectModal = document.getElementsByClassName("selectModal");
     editModal = document.getElementsByClassName("editModal");
   },
-
+  fetch({store,redirect}){
+    if(store.state.init && store.state.user.user.email == null){
+      redirect("/")
+    }
+  }
 };
 
 </script>

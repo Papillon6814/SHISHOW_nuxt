@@ -1,5 +1,8 @@
+import { Store } from "vuex";
+
 export const state = () => ({
   searchWord: "",
+  init:true,
 })
 
 export const mutations = {
@@ -7,7 +10,9 @@ export const mutations = {
       state.searchWord = word
     },
     
-
+    changeInit(state){
+      state.init = false;
+    },
 }
 
 export const getters = {
@@ -24,6 +29,7 @@ export const actions = {
       const name = sessionStorage.getItem("shishow_user_name")
       const uid = sessionStorage.getItem("shishow_user_uid")
       commit("user/onAuthStateChanged",{email:email,username:name,uid:uid});
+      state.init = false;
     }else{
       commit("user/onUserLogout");
     }
