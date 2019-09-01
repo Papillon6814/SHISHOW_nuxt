@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import firebase from "../plugins/firestore";
+import firebase from "~/plugins/firestore";
 import "@firebase/auth";
 import "firebase/firestore";
 
@@ -60,20 +60,10 @@ export default {
 
   props: [
     "loginedUser",
-    "user"
+    "user",
+    "shishow",
+    "deshi"
   ],
-
-  data: function() {
-    return {
-      isA: true,
-      isB: false,
-      isC: false,
-      sign: " ",
-      friendDocID: " ",
-      shishow: " ",
-      deshi: " "
-    };
-  },
 
   watch: {
     loginedUser: function() {
@@ -93,7 +83,7 @@ export default {
           sessionStorage.removeItem("shishow_user_email")
           sessionStorage.removeItem("shishow_user_name")
           sessionStorage.removeItem("shishow_user_uid")
-          
+
           $nuxt.$router.push("/")
         })
         .catch(() => {
@@ -104,38 +94,6 @@ export default {
       this.$emit("callEditBanner");
     }
   },
-
-  created:function(){
-    var email = this.$store.state.user.user.email;
-    var shishowBox = 0;
-    var deshiBox = 0;
-    console.log(this.$store.state.user.user.email)
-        db.collection("USER")
-          .doc(email)
-          .collection("friends")
-          .get()
-          .then(querySnapshot => {
-              querySnapshot.forEach(doc =>{
-                  // doc.data() is never undefined for query doc snapshots
-                  console.log(doc.id, " => ", doc.data());
-                  if(doc.data()["isSHISHOW"] === true){
-                    shishowBox += 1;
-                    console.log(shishowBox);
-                  }
-                  else if(doc.data()["isSHISHOW"] === false){
-                    deshiBox += 1;
-                    console.log(deshiBox);
-                  }
-              });
-              this.shishow = shishowBox;
-              this.deshi = deshiBox;
-          })
-          .catch(function(error) {
-              console.log("Error getting documents: ", error);
-          });
-
-
-  }
 };
 
 </script>
@@ -155,12 +113,15 @@ export default {
 
   border: solid;
   border-width: 5px;
-  border-radius: 3px;
   border-color: $banner_color;
 
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 
   transition: 0.3s;
+
+  @media screen and (max-width: 800px) {
+    border-radius: 0 0 15px 15px;
+  }
 
 
   /*
@@ -198,6 +159,10 @@ export default {
       // temporary color
       background-color: #fff;
       border-radius: 50%;
+
+      #image {
+        border-radius: 50%;
+      }
     }
   }
 
@@ -289,6 +254,11 @@ export default {
   }
 
   .profilePosition {
+
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+
     position: absolute;
 
     width: 88%;

@@ -1,6 +1,7 @@
 <template>
 
   <div class="dmBanner">
+    <div>
     <img :src="iconPic" class="dmBannerIconPosition" />
     <div class="dmBannerName">
       {{ dmBannerUsername }}
@@ -10,6 +11,8 @@
     <div class="dmMsgArea">
       {{ dmMsg }}
     </div>
+    </div>
+    <div class="dmCover"></div>
   </div>
 
 </template>
@@ -83,6 +86,12 @@ export default {
     height: 60px;
 
     font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  .dmCover{
+    position:absolute;
+    width: 88%;
+    height: 120px;
   }
 }
 

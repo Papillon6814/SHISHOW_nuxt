@@ -35,6 +35,7 @@
             <dmGameBanner
               :gameDocId="game">
             </dmGameBanner>
+            </div>
           </div>
         </div>
       </div>
@@ -69,7 +70,12 @@ let lastMsgDate = [];
 
 let privateDM, globalDM;
 let privateTab, globalTab;
+<<<<<<< HEAD
 let LastMsg;
+=======
+let leftArea;
+
+>>>>>>> master
 export default {
 
   name: 'LeftArea',
@@ -82,7 +88,7 @@ export default {
       dmImages: [],
       isPrivate: true,
       target:[],
-      id:0,
+      id: 0,
       games: []
     }
   },
@@ -108,8 +114,6 @@ export default {
           this.dmImages.unshift(icon);
           this.target.unshift(true);
         }
-
-
     }
   },
 
@@ -140,8 +144,8 @@ export default {
               .orderBy('date')
               .limit(1)
               .get()
-              .then(contentsSnapshot => {
-                contentsSnapshot.forEach(doc2 => {
+              .then(contentSnapshot => {
+                contentSnapshot.forEach(doc2 => {
                   this.lastMsg.push(doc2.data().msg);
                   lastMsgDate.push(doc2.data().date);
                 })
@@ -151,26 +155,25 @@ export default {
     },
 
 
-    click_f: function(friend,N) {
+    click_f: function(friend, N) {
       this.$parent.idFromLeftArea = friend;
 
-      let dmBan = document.getElementsByClassName("dmBanner")[this.id]
-      dmBan.style.background = "#FFF"
+      let dmBan = document.getElementsByClassName("dmCover")[this.id]
+      dmBan.style.background = "rgba(255, 0, 0, 0)"
       this.id = N;
-      dmBan = document.getElementsByClassName("dmBanner")[N]
-      dmBan.style.background = "red"
-
+      dmBan = document.getElementsByClassName("dmCover")[N]
+      dmBan.style.background = "rgba(255, 0, 0, 0.5)"
       this.$parent.isGame = false;
     },
 
-    click_g: function(game,N) {
+    click_g: function(game, N) {
       this.$parent.idFromLeftArea = game;
 
-      let gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
-      gameBan.style.background = "#FFF"
+      let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
+      dmgameBan.style.background = "rgba(255, 0, 0, 0)"
       this.id = N;
-      gameBan = document.getElementsByClassName("dmGameBanner")[N]
-      gameBan.style.background = "red";
+      dmgameBan = document.getElementsByClassName("gameCover")[N]
+      dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
 
       this.$parent.isGame = true;
     },
@@ -182,8 +185,11 @@ export default {
       privateTab[0].style.background = "#b2ebf2";
       globalTab[0].style.background = "#fff";
 
-      let dmBan = document.getElementsByClassName("dmBanner")[this.id]
-      dmBan.style.background = "#FFF"
+      if(this.games.length != 0){
+        let dmBan = document.getElementsByClassName("dmGameBanner")[this.id];
+        dmBan.style.background = "#FFF";
+      }
+      this.id = 0;
     },
 
     switchGlobal: function() {
@@ -193,8 +199,11 @@ export default {
       privateTab[0].style.background = "#fff";
       globalTab[0].style.background = "#b2ebf2"
 
-      let gameBan = document.getElementsByClassName("dmGameBanner")[this.id]
-      gameBan.style.background = "#FFF"
+      if(this.friendsDocID.length != 0){
+        let gameBan = document.getElementsByClassName("dmBanner")[this.id];
+        gameBan.style.background = "#FFF";
+      }
+      this.id = 0;
     },
 
     showPopup: function() {
@@ -222,6 +231,7 @@ export default {
           querySnapshot.forEach(doc1 => {
             this.games.push(doc1.id);
           })
+          leftArea.style.display = 'block';
         })
   },
 
@@ -230,6 +240,9 @@ export default {
     globalDM = document.getElementsByClassName("globalDM");
     privateTab = document.getElementsByClassName("private");
     globalTab = document.getElementsByClassName("global");
+
+
+    leftArea = document.getElementById('leftArea')
   }
 }
 
@@ -246,6 +259,8 @@ export default {
     width: 40%;
 
     background-color: #b2ebf2;
+
+    display: none;
 
     .switchTab {
       .private {
@@ -316,6 +331,7 @@ export default {
             top: 140px * $i;
 
             width: 100%;
+
           }
           $i: $i + 1;
         }

@@ -13,9 +13,20 @@ import dmField from '../components/dm/DirectMessageField.vue'
 
 export default {
   name: 'directMessage',
+
+  head:{
+    title:"message",
+  },
+
   components: {
     navi,
     dmField
+  },
+
+  fetch({store,redirect}){
+    if(store.state.init && store.state.user.user.email == null){
+      redirect("/")
+    }
   }
 }
 

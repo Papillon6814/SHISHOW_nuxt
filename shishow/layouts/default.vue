@@ -6,7 +6,15 @@
 
 <script>
 export default {
-  middleware:"auth"
+  middleware:"auth",
+  head:{
+    titleTemplate:"shishow %s",
+    meta: [
+      { hid: 'description', name: 'description', content: '自分の師匠を見つけましょう.' },
+    ],
+  },
+
+  
 }
 </script>
 

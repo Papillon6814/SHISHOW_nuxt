@@ -5,6 +5,9 @@
     <div class="drawnSpace">
     </div>
 
+    <div class="grayLine">
+    </div>
+
     <div class="usernamePosition">
       <input class="username" type="text" placeholder="E-mail" v-model="e_mail" />
     </div>
@@ -28,6 +31,10 @@
     <div class="signin_button" @click="login">
       Sign in
     </div>
+
+    <div class="separetor1"></div>
+    <div class="or">or</div>
+    <div class="separetor2"></div>
   </div>
 </template>
 
@@ -71,7 +78,7 @@ export default {
           req.user.getIdToken().then(token=>{
             console.log(token.toString())
           })
-          
+
           alert("Signed in.");
           $nuxt.$router.push("/home");
         })
@@ -90,99 +97,272 @@ export default {
 <style lang="scss" scoped>
 .signinBanner {
   position: absolute;
-  width: 48%;
-  height: 480px;
-  background-color: #fff;
-  border-radius: 3px;
+
   transition: .3s;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
   z-index: 2;
+
+  @media screen and (max-width: 800px) {
+    width: 70%;
+    height: 400px;
+
+    background-color: $light_primary_color;
+
+    border-radius: 7px;
+
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (min-width: 800px) {
+    width: 48%;
+    height: 480px;
+
+    background-color: #fff;
+
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+  }
+
   .LoginTitle {
     padding: auto;
     color: #fff;
     background-color: $light_primary_color;
     height: 60px;
     text-align: center;
+    border-radius: 7px 7px 0 0;
   }
-  .drawnSpace {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    height: 140px;
-    background-color: #fafafa;
+
+  @media screen and (min-width: 800px) {
+    .drawnSpace {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: 140px;
+      background-color: #fafafa;
+    }
+
+    .divideLine {
+      position: absolute;
+      top: 268px;
+      left: 10%;
+      width: 80%;
+      height: 4px;
+      background-color: #fafafa;
+    }
   }
+
   .usernamePosition {
     position: absolute;
-    top: 210px;
+
+    @media screen and (max-width: 800px) {
+      top: 80px;
+      width: 85%;
+    }
+
+    @media screen and (min-width: 800px) {
+      top: 210px;
+      width: 65%;
+    }
+
     left: 50%;
-    width: 65%;
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
+
     .username {
       width:  100%; //$user_width
-      height: 35px; //$user_height
+
+      @media screen and (max-width: 800px) {
+        height: 45px;
+
+        border-radius: 7px;
+        outline: none;
+      }
+
+      @media screen and (min-width: 800px) {
+        height: 35px;
+      }
     }
   }
   .passwordPosition {
     position: absolute;
-    top: 290px;
+
+    @media screen and (max-width: 800px) {
+      top: 155px;
+      width: 85%;
+    }
+
+    @media screen and (min-width: 800px) {
+      top: 290px;
+      width: 65%;
+    }
+
     left: 50%;
-    width: 65%;
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
+
     .password {
       width: 100%; //$id_width
-      height: 35px; //$id_height
+
+      @media screen and (max-width: 800px) {
+        height: 45px;
+
+        border-radius: 7px;
+        outline: none;
+      }
+
+      @media screen and (min-width: 800px) {
+        height: 35px; //$id_height
+      }
     }
   }
+
   .signin_button {
     position: absolute;
-    top: 350px;
+
+    @media screen and (max-width: 800px) {
+      top: 240px;
+
+      background: $accent_color;
+
+      width: 40%;
+
+      padding: 0.5em 1em;
+
+      border-radius: 15px;
+    }
+
+    @media screen and (min-width: 800px) {
+      top: 350px;
+
+      background: #fff;
+
+      width: 30%;
+
+      padding: 0.3em 1em;
+      text-decoration: none;
+      color: $primary_text;
+      border: solid 2px $light_primary_color;
+      border-radius: 3px;
+    }
+
     left: 50%;
-    background: #fff;
-    width: 30%;
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
     display: inline-block;
-    padding: 0.3em 1em;
-    text-decoration: none;
-    color: $primary_text;
-    border: solid 2px $light_primary_color;
-    border-radius: 3px;
+
     transition: .4s;
     text-align: center;
     cursor: pointer;
   }
+
   .signin_button:hover{
-    background: $light_primary_color;
-    color: #fff;
+
+    @media screen and (max-width: 800px) {
+      // TODO: ホバーのとき
+    }
+
+    @media screen and (min-width: 800px) {
+      background: $light_primary_color;
+      color: #fff;
+    }
+
   }
-  .divideLine {
-    position: absolute;
-    top: 268px;
-    left: 10%;
-    width: 80%;
-    height: 4px;
-    background-color: #fafafa;
-  }
+
   .signupArea {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #fafafa;
-    color: $primary_text;
-    line-height: 55px;
-    text-align: center;
-    cursor: pointer;
+
+    @media screen and (max-width: 800px) {
+      top: 330px;
+
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      -moz-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+
+      width: 40%;
+
+      background: $secondary_text;
+
+      padding: 0.5em 1em;
+
+      border-radius: 15px;
+
+      text-align: center;
+
+    }
+
+    @media screen and (min-width: 800px) {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #fafafa;
+      color: $primary_text;
+      line-height: 55px;
+      text-align: center;
+      cursor: pointer;
+    }
+
   }
 }
+
 .signinBanner:hover {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
+
+@media screen and (max-width: 800px) {
+  .grayLine {
+    height: 1px;
+    background-color: $divider_color;
+
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .separetor1 {
+    position: absolute;
+
+    top: 300px;
+    left: 3%;
+
+    height: 1px;
+    width: 30%;
+
+    background-color: $divider_color;
+  }
+
+  .separetor2 {
+    position: absolute;
+
+    top: 300px;
+    right: 3%;
+
+    height: 1px;
+    width: 30%;
+
+    background-color: $divider_color;
+  }
+
+  .or {
+    position: absolute;
+    width: 60%;
+    height: 30px;
+
+    top: 280px;
+    left: 50%;
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+
+    font-size: 30px;
+    color: $secondary_text;
+
+    text-align: center;
+  }
+}
+
 </style>

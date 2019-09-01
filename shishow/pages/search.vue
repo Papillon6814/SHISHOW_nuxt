@@ -67,6 +67,10 @@ let selectModal;
 export default {
   name: "search",
 
+  head:{
+    title:"search",
+  },
+
   components: {
     navi,
     normalBanner,
@@ -204,6 +208,12 @@ export default {
 
     NBModal = document.getElementsByClassName("NBModal");
     selectModal = document.getElementsByClassName("selectModal");
+  },
+
+  fetch({store,redirect}){
+    if(store.state.init && store.state.user.user.email == null){
+      redirect("/")
+    }
   }
 };
 </script>

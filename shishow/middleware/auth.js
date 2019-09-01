@@ -2,8 +2,9 @@ import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
 
-export default ({store}) => {
+export default ({store,redirect}) => {
   if(!store.state.user.status){
+    
     firebase.auth().onAuthStateChanged(user => {
       if(user){
         store.commit("user/onAuthStateChanged", {email:user.email,username:user.displayName,uid:user.uid});
@@ -14,9 +15,14 @@ export default ({store}) => {
 
         }
       }else{
+        //if(location.tostring!="/signin")
+         // redirect("/");
         store.commit("user/onUserLogout");
       }
     });
+    }
+    else{
+      store.commit("changeInit")
     }
 }
   

@@ -30,6 +30,11 @@ const db = firebase.firestore();
 
 export default {
   name: 'home',
+
+  head:{
+    title:"notification",
+  },
+
   components: {
     navi,
     notificationBanner
@@ -59,6 +64,11 @@ export default {
     })
 
   },
+  fetch({store,redirect}){
+    if(store.state.init && store.state.user.user.email == null){
+      redirect("/")
+    }
+  }
 }
 </script>
 

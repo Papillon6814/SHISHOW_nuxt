@@ -3,11 +3,11 @@
     <div class="logo">
       SHISHOW
     </div>
-
-
-      <div class="enterButton" @click="checkUser()">
-      アカウントを作成
+    <nuxt-link to="/home">
+      <div class="enterButton" @click.prevent="checkUser()">
+      はじめる
       </div>
+    </nuxt-link>
 
     <nuxt-link to="/signin">
       <div class="loginButton">
@@ -26,11 +26,15 @@ import "@firebase/auth";
 
 
 export default {
-  
+
+  head:{
+    title:"top",
+  },
   name: 'prehome',
   data:function(){
     return{
-      users:{},
+      aaa:"",
+
     }
   },
   methods:{
@@ -40,11 +44,18 @@ export default {
       }else{
         $nuxt.$router.push("/signin")
       }
+      console.log(firebase.auth().currentUser)
     },
   },
   created:function(){
-    console.log(this.$store.state.user.status)
-    //console.log(sessionStorage.getItem("shishow_user_email"))
+    this.$store.commit("user/onUserLogout")
+    console.log(this.aaa.email == null)
+  },
+
+  asyncData({req,store}){
+    return{
+      aaa:store.state.user.user
+    }
   }
 }
 </script>
