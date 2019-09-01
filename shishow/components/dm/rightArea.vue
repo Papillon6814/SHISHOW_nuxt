@@ -14,6 +14,7 @@
       </div>
 
       <div v-show="isHis(msgList[N-1])" class="hisChatBalloonPosition">
+        <img :src="iconList[N-1]" class="hisIcon" />
         <div class="hisChatBalloon">
           {{ msgList[N-1].msg }}
         </div>
@@ -32,7 +33,6 @@ import firebase from "../../plugins/firestore";
 import 'firebase/firestore'
 import '@firebase/auth'
 
-
 const db = firebase.firestore();
 let currentUserEmail;
 let chatID;
@@ -43,7 +43,8 @@ export default {
 
   data() {
     return {
-      msgList: []
+      msgList: [],
+      iconList: []
     }
   },
 
@@ -63,6 +64,7 @@ export default {
     },
 
     chatScroll: function() {
+      console.log('scroll')
       let scrollArea = document.getElementsByClassName('rightArea');
       scrollArea[0].scrollTo(0, 300000000);
     }
@@ -82,10 +84,18 @@ export default {
           .orderBy('date')
           .onSnapshot(querySnapshot => {
             this.msgList = [];
+            this.iconList = [];
 
             querySnapshot.forEach(doc1 => {
               this.msgList.push(doc1.data());
+              db.collection("USER")
+                .doc(doc1.data().sender)
+                .get()
+                .then(doc2 => {
+                  this.iconList.push(doc2.data().image);
+                })
             })
+            this.chatScroll();
           })
 
       } else {
@@ -108,6 +118,8 @@ export default {
                 querySnapshot.forEach(doc2 => {
                   this.msgList.push(doc2.data());
                 })
+
+                this.chatScroll();
               })
           })
       }
@@ -121,10 +133,6 @@ export default {
     }
 
     currentUserEmail = currentUser.email
-  },
-
-  mounted: function() {
-    this.chatScroll();
   }
 };
 
@@ -203,6 +211,21 @@ export default {
   overflow-x: hidden;
 
   text-align: left;
+
+  .hisIcon {
+    display: inline-block;
+
+    position: relative;
+
+    left: 20px;
+
+    height: 40px;
+    width: 40px;
+
+    top: 5px;
+
+    border-radius: 50%;
+  }
 
   .hisChatBalloon {
     display: inline-block;

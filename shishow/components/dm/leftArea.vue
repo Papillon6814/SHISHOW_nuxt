@@ -14,7 +14,7 @@
     <div class="privateDM">
       <div class="dmbannerPosition">
         <div v-for="(friend, N) in friendsDocID"
-             :key="N" v-bind:class="'b' + N">
+          :key="N" v-bind:class="'b' + N">
           <div @click="click_f(friend, N)">
             <dmBanner
               :dmBannerUsername="usernames[N]"
@@ -58,7 +58,6 @@ import dmGameBanner from "./dmGameBanner.vue";
 import firebase from '../../plugins/firestore';
 import 'firebase/firestore'
 import '@firebase/auth'
-
 
 import draggable from 'vuedraggable';
 

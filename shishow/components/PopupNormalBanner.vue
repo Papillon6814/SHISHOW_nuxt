@@ -67,7 +67,7 @@ export default {
         .get()
         .then(querySnapshot => {
           querySnapshot.forEach(doc1 => {
-            if (this.enumGames.length > 20) {
+            if (this.enumGames.length > 12) {
               // do nothing
             } else {
               this.enumGames += doc1.data().gamename + ' / ';
@@ -75,7 +75,7 @@ export default {
           })
           this.enumGames = this.enumGames.slice(0, -2);
 
-          if (this.enumGames.length > 20) {
+          if (this.enumGames.length > 12) {
             this.enumGames += '/...';
           }
         })
