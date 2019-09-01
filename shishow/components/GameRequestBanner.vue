@@ -90,7 +90,7 @@ export default{
         reader.onload = (event) => {
           this.$parent.uploadedImage = event.target.result;
         };
-
+        
         reader.readAsDataURL(file);
 
       } else {
@@ -99,7 +99,7 @@ export default{
     },
 
    gameCollection: function(){
-     if(this.Gamename == ""){
+    if(this.Gamename == ""){
        alert('Fill in your Display Gamename!');
     } else {
       this.addToDatabase(this.Gamename, this.croppedimg);
