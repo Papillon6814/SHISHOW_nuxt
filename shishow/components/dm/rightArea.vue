@@ -14,7 +14,7 @@
       </div>
 
       <div v-show="isHis(msgList[N-1])" class="hisChatBalloonPosition">
-        <img :src="iconList[N-1]" class="hisIcon" />
+        <img :src="iconList[N-1]" class="hisIcon" @click="clickUser(userInfoList[N-1])"/>
         <div class="hisChatBalloon">
           {{ msgList[N-1].msg }}
         </div>
@@ -44,6 +44,7 @@ export default {
   data() {
     return {
       msgList: [],
+      userInfoList: [],
       iconList: []
     }
   },
@@ -54,6 +55,10 @@ export default {
   ],
 
   methods: {
+    clickUser: function(usr) {
+      this.$parent.clickedUser = usr;
+      this.$parent.showImage();
+    },
 
     isMine: function(msg) {
       return (msg.sender == currentUserEmail);
@@ -74,6 +79,7 @@ export default {
     friendDocID: function(newval) {
       if(newval){
       this.msgList = [];
+      this.userInfoList = [];
       currentUserEmail = firebase.auth().currentUser.email;
 
       if(this.isGame) {
@@ -84,7 +90,6 @@ export default {
           .orderBy('date')
           .onSnapshot(querySnapshot => {
             this.msgList = [];
-            this.iconList = [];
 
             querySnapshot.forEach(doc1 => {
               this.msgList.push(doc1.data());
@@ -92,7 +97,8 @@ export default {
                 .doc(doc1.data().sender)
                 .get()
                 .then(doc2 => {
-                  this.iconList.push(doc2.data().image);
+                  this.userInfoList.push(doc2.data());
+                  this.iconList.push(doc2.data().image)
                 })
             })
             this.chatScroll();
@@ -117,6 +123,14 @@ export default {
 
                 querySnapshot.forEach(doc2 => {
                   this.msgList.push(doc2.data());
+
+                  db.collection("USER")
+                    .doc(doc2.data().sender)
+                    .get()
+                    .then(doc3 => {
+                      this.userInfoList.push(doc3.data());
+                      this.iconList.push(doc3.data().image)
+                    })
                 })
 
                 this.chatScroll();

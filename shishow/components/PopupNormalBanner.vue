@@ -62,7 +62,7 @@ export default {
 
     loadGames: function() {
       db.collection("USER")
-        .doc(this.userInfo.email)
+        .doc(""+this.userInfo.email)
         .collection("GAMES")
         .get()
         .then(querySnapshot => {
