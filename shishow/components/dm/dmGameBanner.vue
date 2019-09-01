@@ -1,11 +1,14 @@
 <template>
   <div class="dmGameBanner">
+    <div>
     <img :src="iconPic" class="iconPosition" />
     <div class="dmGameName">
       {{ gamename }}
     </div>
     <div class="globalMsgArea">
     </div>
+    </div>
+    <div class="gameCover"></div>
   </div>
 </template>
 
@@ -67,6 +70,16 @@ export default {
 
     width: 100%;
     height: 100%;
+  }
+
+  .dmGameName{
+    position: absolute;
+  }
+
+  .gameCover{
+    position:absolute;
+    width: 100%;
+    height: 120px;
   }
 }
 

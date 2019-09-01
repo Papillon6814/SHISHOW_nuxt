@@ -4,7 +4,7 @@ import cookie from 'cookie'
 
 export default ({ store, req}) => {
   createPersistedState({
-    key: 'your-application-name',
+    key: 'shishow',
     paths: [
         "user"
     ],

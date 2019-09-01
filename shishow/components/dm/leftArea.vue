@@ -35,6 +35,7 @@
             <dmGameBanner
               :gameDocId="game">
             </dmGameBanner>
+            </div>
           </div>
         </div>
       </div>
@@ -153,22 +154,22 @@ export default {
     click_f: function(friend, N) {
       this.$parent.idFromLeftArea = friend;
 
-      let dmBan = document.getElementsByClassName("dmBanner")[this.id]
-      dmBan.style.background = "#FFF"
+      let dmBan = document.getElementsByClassName("dmCover")[this.id]
+      dmBan.style.background = "rgba(255, 0, 0, 0)"
       this.id = N;
-      dmBan = document.getElementsByClassName("dmBanner")[N]
-      dmBan.style.background = "red"
+      dmBan = document.getElementsByClassName("dmCover")[N]
+      dmBan.style.background = "rgba(255, 0, 0, 0.5)"
       this.$parent.isGame = false;
     },
 
     click_g: function(game, N) {
       this.$parent.idFromLeftArea = game;
 
-      let dmgameBan = document.getElementsByClassName("dmGameBanner")[this.id]
-      dmgameBan.style.background = "#FFF"
+      let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
+      dmgameBan.style.background = "rgba(255, 0, 0, 0)"
       this.id = N;
-      dmgameBan = document.getElementsByClassName("dmGameBanner")[N]
-      dmgameBan.style.background = "red"
+      dmgameBan = document.getElementsByClassName("gameCover")[N]
+      dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
 
       this.$parent.isGame = true;
     },
@@ -326,6 +327,7 @@ export default {
             top: 140px * $i;
 
             width: 100%;
+
           }
           $i: $i + 1;
         }
