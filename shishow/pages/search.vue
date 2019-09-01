@@ -67,6 +67,10 @@ let selectModal;
 export default {
   name: "search",
 
+  head:{
+    title:"search",
+  },
+
   components: {
     navi,
     normalBanner,

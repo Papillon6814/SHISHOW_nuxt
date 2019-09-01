@@ -13,6 +13,11 @@ import navi from '~/components/NavigationBar.vue'
 import signupBanner from '~/components/SignupBanner.vue'
 export default {
   name: 'signup',
+
+  head:{
+    title:"signout",
+  },
+
   components: {
     navi,
     signupBanner
@@ -20,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body {
   padding: 0;
   margin: 0;

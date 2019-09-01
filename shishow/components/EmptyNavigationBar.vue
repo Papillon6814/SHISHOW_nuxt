@@ -1,6 +1,8 @@
 <template>
   <div id="header">
-    <img class="logo" src="../assets/image/logoShishow.png" />
+    <nuxt-link to="/home">
+      <img class="logo" src="../assets/image/logoShishow.png" />
+    </nuxt-link>
   </div>
 </template>
 

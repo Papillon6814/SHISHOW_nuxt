@@ -5,7 +5,8 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title:"SHISHOW",
+    titleTemplate:"shishow %s",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -15,6 +16,11 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
+  router: {
+    base: '/',
+  },
+
   /*
   ** Customize the progress-bar color
   */
@@ -63,7 +69,17 @@ module.exports = {
 }
 
 module.exports = {
-  plugins: [{ src: '~/plugins/nuxt-client-init.js', ssr: false }],
+  plugins: [
+    {
+      src: '~/plugins/vue-cropper.js',
+      ssr: false
+    },
+    {
+     src: '~/plugins/nuxt-client-init.js',
+     ssr: false
+   }
+  ],
+  
   modules: [
     '@nuxtjs/style-resources',
     'nuxt-fontawesome'

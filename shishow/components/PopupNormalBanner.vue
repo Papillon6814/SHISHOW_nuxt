@@ -1,7 +1,7 @@
 <template>
   <div class="popupNormalBanner">
     <div class="closeBtn" @click="fade()">
-      <i class="fas fa-times"></i>
+      <font-awesome-icon icon="times" />
     </div>
 
     <span class="iconPicPosition">
@@ -38,7 +38,7 @@ export default {
 
   data: function() {
     return {
-      enumGames: ' ',
+      enumGames: '',
       maxChar:16
     }
   },
@@ -48,7 +48,7 @@ export default {
   ],
 
   watch: {
-    userInfo: function(newval) {
+    userInfo: function(newval){
       console.log(newval);
       this.enumGames = '';
       this.loadGames();
@@ -67,9 +67,17 @@ export default {
         .get()
         .then(querySnapshot => {
           querySnapshot.forEach(doc1 => {
-            this.enumGames += doc1.data().gamename + ' / ';
+            if (this.enumGames.length > 20) {
+              // do nothing
+            } else {
+              this.enumGames += doc1.data().gamename + ' / ';
+            }
           })
           this.enumGames = this.enumGames.slice(0, -2);
+
+          if (this.enumGames.length > 20) {
+            this.enumGames += '/...';
+          }
         })
     },
 
@@ -159,12 +167,14 @@ export default {
     font-size: 60px;
 
     text-align: left;
+
+    border-bottom: solid;
+    border-color: $divider_color;
+    border-width: 2px;
   }
 
   .profilePosition {
     position: absolute;
-
-
 
     top: 115px;
     left: calc(7% + 170px);
@@ -174,12 +184,15 @@ export default {
 
     padding:5px;
 
-    border: solid;
+    /*
+    border-top: solid;
     border-width: 2px;
-    border-color: #000000;
+    border-color: $divider_color;
     border-radius: 15px;
+    */
 
     .bioText{
+      width: 100%;
       font-size:40px;
       padding-bottom: 5px;
     }
