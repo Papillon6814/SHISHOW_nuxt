@@ -1,15 +1,16 @@
 <template>
   <div class="gamebanner">
-
     <span class="iconPicPosition">
       <img class="iconPic" :src="game.data().image" />
     </span>
 
-    <div class="gamenamePosition">
-      <div class="gamename">
-        {{ game.data().gamename }}
+    <!--
+      <div class="gamenamePosition">
+        <div class="gamename">
+          {{ game.data().gamename }}
+        </div>
       </div>
-    </div>
+    -->
 
     <div v-if="isSubscribed" class="subscribeButton" @click="remove()">登録済み</div>
     <div v-else class="subscribeButton" @click="subscribe()">登録</div>
@@ -29,7 +30,6 @@ export default {
 
   data: function() {
     return {
-      gamename: "",
       isSubscribed: false
     }
   },
@@ -50,8 +50,6 @@ export default {
 */
 
   methods: {
-    
-
     subscribe: function() {
 
         db.collection("USER")
@@ -62,7 +60,6 @@ export default {
             gamename: this.game.data().gamename
           })
         this.isSubscribed = true;
-
     },
 
     remove: function() {
@@ -95,10 +92,6 @@ export default {
     }
   },
 
-  created: function() {
-
-  },
-
   mounted: function() {
     subscribeButton = document.getElementsByClassName("subscribeButton");
     this.checkSubscription();
@@ -111,24 +104,32 @@ export default {
   .gamebanner {
     position: absolute;
 
-    width: $n_banner_width;
-    height: $n_banner_height;
+    @media screen and (max-width: 800px) {
+      width: 85vw;
+      height: calc(85vw / 4);
+    }
+
+    @media screen and (min-width: 801px) {
+      width: $n_banner_width;
+      height: $n_banner_height;
+    }
+
     background-color: #fff;
 
     transition: 0.3s;
 
-    border-radius: 3px;
+    border-radius: 15px;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 
     .iconPicPosition {
       position: absolute;
 
-      width: $n_icon_width;
-      height: $n_icon_height;
+      width: 100%;
+      height: 100%;
 
-      top: 10px;
-      left: 20px;
+      top: 0;
+      left: 0;
 
       .iconPic {
         width: 100%;
@@ -146,8 +147,12 @@ export default {
     .gamenamePosition{
       position: absolute;
 
+      width: $user_width;
+      height: $user_height;
+
       top: 30px;
       left: 140px;
+      width:100%;
 
       .gamename{
         position: absolute;

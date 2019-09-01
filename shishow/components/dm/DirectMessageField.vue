@@ -2,12 +2,26 @@
   <div id="r">
 
     <div id="modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img id="image" v-show="uploadedImage" :src="uploadedImage">
-          <button id ="button" type="button">Confirm</button>
-          <input type="button" id="closeBtn" value="close">
-        </div>
+      <div class="cropperPosition">
+        <vue-cropper
+            ref='cropper'
+            :guides="true"
+            :view-mode="2"
+            drag-mode="crop"
+            :aspectRatio="4 / 1"
+            :auto-crop-area="0.5"
+            :min-container-width="250"
+            :min-container-height="180"
+            :background="true"
+            :rotatable="true"
+            :src="uploadedImage"
+            alt="Source Image"
+            :img-style="{ 'width': '672px', 'height': '450px' }">
+        </vue-cropper>
+      </div>
+
+      <div class="cropBtn" @click="cropImage()">
+        Crop
       </div>
     </div>
 
@@ -41,8 +55,7 @@
       <div class="GameRequestBannerPosition">
         <GameRequestBanner
         @callFade="fadeOut()"
-        :cropped = "croppedimg"
-        @filechange="prepare">
+        ref="RGBanner">
       </GameRequestBanner>
       </div>
     </div>
@@ -63,14 +76,15 @@ import firebase from "../../plugins/firestore";
 import 'firebase/firestore'
 import '@firebase/auth'
 
-
+import VueCropper from 'vue-cropperjs';
+import 'cropperjs/dist/cropper.css';
 
 let db = firebase.firestore();
 
 let currentUser;
 let friendsDocID = [];
 
-let entireBox,modal;
+let entireBox, modal;
 
 export default {
 
@@ -94,7 +108,8 @@ export default {
     leftArea,
     rightArea,
     inputArea,
-    GameRequestBanner
+    GameRequestBanner,
+    VueCropper
   },
 
   watch: {
@@ -129,83 +144,20 @@ export default {
 
         }
       }
+    },
+
+    uploadedImage: function(newval) {
+      modal.style.display = 'block';
+      this.$refs.cropper.replace(newval);
+      console.log('watch image')
     }
   },
 
   methods: {
-    prepare(img){
-
-      this.uploadedImage = img;
-      modal.style.display = "block";
-      setTimeout(this.crop,1);
-
-    },
-
-    crop(){
-      //変数定義
-      var root = this;
-      var image = document.getElementById("image");
-      var button = document.getElementById("button");
-      var result = document.getElementById("result");
-      var close = document.getElementById("closeBtn");
-
-      var croppable = false;
-
-      var cropper = new Cropper(image, {
-        aspectRatio: 1,
-        viewMode: 1,
-
-        ready: function() {
-          croppable = true;
-        }
-      });
-      close.onclick = ()=> {
-        modal.style.display = "none";
-        cropper.destroy();
-        this.uploadedImage = "";
-      };
-      button.onclick = ()=> {
-        var croppedCanvas;
-        var roundedImage;
-
-        if (!croppable) {
-          return;
-        }
-        // Crop
-        croppedCanvas = cropper.getCroppedCanvas();
-
-        // Show
-        roundedImage = document.createElement("img");
-
-        var canvas = document.createElement("canvas");
-        var context = canvas.getContext("2d");
-        var width = croppedCanvas.width;
-        var height = croppedCanvas.height;
-        canvas.width = width;
-        canvas.height = height;
-        context.imageSmoothingEnabled = true;
-        context.drawImage(croppedCanvas, 0, 0, width, height);
-        context.globalCompositeOperation = "destination-in";
-        context.beginPath();
-        context.fill();
-
-        roundedImage.src = canvas.toDataURL();
-        roundedImage.width = 140;
-        roundedImage.height = 140;
-        result.innerHTML = "";
-
-        root.croppedimg = roundedImage.src;
-
-        var del = document.getElementById("delete");
-        if (del != null) {
-          del.textContent = null;
-          del.parentNode.removeChild(del);
-        }
-        cropper.destroy();
-        modal.style.display = "none";
-        root.uploadedImage = "";
-        result.appendChild(roundedImage);
-      };
+    cropImage: function() {
+      console.log('cropImage');
+      this.$refs.RGBanner.croppedimg = this.$refs.cropper.getCroppedCanvas().toDataURL();
+      modal.style.display = 'none';
     },
 
     callScroll: function() {
@@ -274,13 +226,47 @@ export default {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+  background-color: rgba(0, 0, 0, 0.7);
 
-.modal-content {
-  background-color: white;
-  width: 500px;
-  margin: 40% auto;
+  .cropperPosition {
+    position: absolute;
+
+    height: auto;
+    width: auto;
+
+    top: 150px;
+    left: 50vw;
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  .cropBtn {
+    position: absolute;
+
+    width: 120px;
+    height: 40px;
+
+    bottom: 10vh;
+    left: 50vw;
+
+    color: $primary_text;
+
+    border-radius: 15px;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    background-color: $accent_color;
+
+    line-height: 40px;
+
+    text-align: center;
+
+    cursor: pointer;
+  }
 }
 
 #directMessageField {
@@ -371,7 +357,7 @@ export default {
   .GameRequestBannerPosition {
     position: absolute;
 
-    width: 675px;
+    width: 672px;
 
     top: 150px;
     left: 50%;

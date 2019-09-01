@@ -61,6 +61,10 @@ let whiteLine;
 export default {
   name: "friend",
 
+  head:{
+    title:"friend",
+  },
+
   data: function() {
     return {
       IOSD: 0,
@@ -209,7 +213,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .friend {
   position: absolute;
 

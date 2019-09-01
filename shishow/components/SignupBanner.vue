@@ -115,7 +115,7 @@ export default {
                       this.roundimg = url;
                     }
                     this.addToDatabase(this.email.toLowerCase(), this.username, this.roundimg);
-                    router.push("/home")
+                    $nuxt.$router.push("/home")
                   });
                 })
                 .catch(error => {
