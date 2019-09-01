@@ -13,6 +13,7 @@
 
     <div class="privateDM">
       <div class="dmbannerPosition">
+
         <div v-for="(friend, N) in friendsDocID"
              :key="N" v-bind:class="'b' + N">
           <div @click="click_f(friend, N)">
@@ -24,7 +25,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="globalDM">
@@ -69,7 +69,7 @@ let lastMsgDate = [];
 
 let privateDM, globalDM;
 let privateTab, globalTab;
-
+let LastMsg;
 export default {
 
   name: 'LeftArea',
@@ -319,6 +319,18 @@ export default {
           }
           $i: $i + 1;
         }
+        // .lastMsg{
+        //   display: inline-block;
+        //
+        //   position: relative;
+        //
+        //   top: 70px;
+        //   left: 6%;
+        //
+        //   width: 100%;
+        //
+        //   float:left;
+        // }
 
         /*.notion{
           border:1px solid #000;
