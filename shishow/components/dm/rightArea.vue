@@ -147,6 +147,12 @@ export default {
     }
 
     currentUserEmail = currentUser.email
+  },
+
+  mounted: function() {
+    this.$nextTick(() => {
+      this.chatScroll();
+    })
   }
 };
 

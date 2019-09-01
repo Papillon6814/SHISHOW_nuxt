@@ -129,9 +129,7 @@ export default {
             favoriteGame: this.favoriteGame
           })
           .then(() => {
-            this.$router.go({
-              path: this.$router.currentRoute.path, force: true
-            });
+            location.reload();
           })
       } else {
         db.collection("USER")
