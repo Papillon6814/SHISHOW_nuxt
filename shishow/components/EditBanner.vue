@@ -183,8 +183,6 @@ export default {
   mounted: function(){
     this.modal = document.getElementById("modal");
     this.loadGames();
-
-
   },
 }
 </script>

@@ -44,9 +44,9 @@
       </rightArea>
       <div class="inputArea">
         <inputArea
-          @scrollRightArea="callScroll()"
-          :friendDocID="idFromLeftArea"
-          :isGame="isGame">
+        @scrollRightArea="callScroll()"
+        :friendDocID="idFromLeftArea"
+        :isGame="isGame">
         </inputArea>
       </div>
     </div>
@@ -60,6 +60,15 @@
       </div>
     </div>
 
+  <div class="userModal">
+    <div class="popupNormalBannerPosition">
+      <popupNormalBanner
+      :userInfo="clickedUser"
+      @callFade="fade()">
+      </popupNormalBanner>
+    </div>
+  </div>
+
   </div>
 
 </template>
@@ -71,6 +80,7 @@ import leftArea from './leftArea.vue'
 import rightArea from './rightArea.vue'
 import inputArea from './InputArea.vue'
 import GameRequestBanner from '../GameRequestBanner.vue'
+import popupNormalBanner from "../PopupNormalBanner.vue";
 
 import firebase from "../../plugins/firestore";
 import 'firebase/firestore'
@@ -84,7 +94,7 @@ let db = firebase.firestore();
 let currentUser;
 let friendsDocID = [];
 
-let entireBox, modal;
+let entireBox, modal, userModal;
 
 export default {
 
@@ -99,7 +109,8 @@ export default {
       usernameFromLeftArea: '',
       croppedimg:"",
       uploadedImage:'',
-      isGame: false
+      isGame: false,
+      clickedUser: ''
     }
   },
 
@@ -109,7 +120,8 @@ export default {
     rightArea,
     inputArea,
     GameRequestBanner,
-    VueCropper
+    VueCropper,
+    popupNormalBanner
   },
 
   watch: {
@@ -154,6 +166,14 @@ export default {
   },
 
   methods: {
+    showImage: function() {
+      userModal[0].style.display = "block";
+    },
+
+    fade: function() {
+      userModal[0].style.display = "none"
+    },
+
     cropImage: function() {
       console.log('cropImage');
       this.$refs.RGBanner.croppedimg = this.$refs.cropper.getCroppedCanvas().toDataURL();
@@ -211,6 +231,8 @@ export default {
   mounted: function() {
     entireBox = document.getElementsByClassName("entireBox");
     modal = document.getElementById("modal");
+
+    userModal = document.getElementsByClassName("userModal");
   }
 }
 
@@ -219,7 +241,7 @@ export default {
 <style lang='scss' scoped>
 .modal {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 20000;
   left: 0;
   top: 0;
@@ -361,6 +383,37 @@ export default {
 
     top: 150px;
     left: 50%;
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
+
+.userModal {
+  display: none;
+
+  position: fixed;
+  z-index: 20000;
+
+  left: 0;
+  top: 0;
+
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  .popupNormalBannerPosition {
+    display: block;
+
+    position: absolute;
+
+    top: 150px;
+    left: 50vw;
+
+    width: 65%;
+    height: 100%;
 
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
