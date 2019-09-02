@@ -33,7 +33,8 @@ export default {
   name: 'prehome',
   data:function(){
     return{
-      users:{},
+      aaa:"",
+
     }
   },
   methods:{
@@ -43,12 +44,18 @@ export default {
       }else{
         $nuxt.$router.push("/signin")
       }
+      console.log(firebase.auth().currentUser)
     },
   },
   created:function(){
-    console.log(this.$store.state.user.status)
     this.$store.commit("user/onUserLogout")
-    //console.log(sessionStorage.getItem("shishow_user_email"))
+    console.log(this.aaa.email == null)
+  },
+
+  asyncData({req,store}){
+    return{
+      aaa:store.state.user.user
+    }
   }
 }
 </script>

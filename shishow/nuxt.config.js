@@ -77,6 +77,9 @@ module.exports = {
     {
      src: '~/plugins/nuxt-client-init.js',
      ssr: false
+   },
+   {
+     src:'~/plugins/cookie-storage.js',
    }
   ],
   

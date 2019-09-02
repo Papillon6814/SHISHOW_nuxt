@@ -21,5 +21,8 @@ export default ({store,redirect}) => {
       }
     });
     }
+    else{
+      store.commit("changeInit")
+    }
 }
   

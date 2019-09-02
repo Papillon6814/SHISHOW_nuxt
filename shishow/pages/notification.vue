@@ -64,6 +64,11 @@ export default {
     })
 
   },
+  fetch({store,redirect}){
+    if(store.state.init && store.state.user.user.email == null){
+      redirect("/")
+    }
+  }
 }
 </script>
 

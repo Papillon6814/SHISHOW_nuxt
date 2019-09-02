@@ -22,7 +22,6 @@ import signinBanner from '~/components/SigninBanner.vue'
 
 export default {
   name: 'signin',
-
   head:{
     title:"signin",
   },
@@ -30,7 +29,10 @@ export default {
   components: {
     navi,
     signinBanner
-  }
+  },
+
+
+
 }
 
 </script>

@@ -41,12 +41,16 @@ export default {
     //メッセージを送る
     sendMsg() {
       var root = this;
+
+      if(this.msg == '') {
+        return;
+      }
+
       if(this.chattable){
         this.chattable = false;
         // 文字が入力されているときにのみ送信
         let msg = this.msg;
         this.msg = "";
-        this.chattable = true;
         msg.replace(/\r?\n/g, '');
         // 現在の日時を取得(文字列型)
         let now = new Date();
@@ -67,6 +71,7 @@ export default {
               lastChatDate: now
             })
             msg = "";
+            this.chattable = true;
           })
         } else {
 
@@ -89,7 +94,6 @@ export default {
                 sender: currentUser.email
               })
               .then(() => {
-
                 db
                 .collection("USER")
                 .doc(currentUser.email)
@@ -102,7 +106,7 @@ export default {
                 root.$emit('scrollRightArea');
                 msg = "";
 
-
+                this.chattable = true;
               })
 
             }
