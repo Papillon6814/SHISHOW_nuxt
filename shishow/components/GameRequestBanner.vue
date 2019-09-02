@@ -90,7 +90,7 @@ export default{
         reader.onload = (event) => {
           this.$parent.uploadedImage = event.target.result;
         };
-        
+
         reader.readAsDataURL(file);
 
       } else {
