@@ -35,20 +35,17 @@
             <dmGameBanner
               :gameDocId="game">
             </dmGameBanner>
-            </div>
           </div>
         </div>
       </div>
 
       <div class="addGamePosition">
-        <div class="textPosition" @click="showPopup()">
-        New Game
-        </div>
+      <div class="textPosition" @click="showPopup()">
+      New Game
       </div>
     </div>
-
+    </div>
   </div>
-
 </template>
 
 <script>
@@ -377,6 +374,8 @@ export default {
 
         height: 60px;
         width: 100%;
+
+        background-color: $accent_color;
 
         .textPosition {
           position: absolute;

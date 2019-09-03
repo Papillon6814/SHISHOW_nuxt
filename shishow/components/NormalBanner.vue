@@ -122,12 +122,12 @@ export default {
                         .doc(this.user.email)
 
       user_db.collection("incoming")
-             .doc(this.signuser.email)
-             .delete()
+              .doc(this.signuser.email)
+              .delete()
 
       sign_db.collection("outgoing")
-             .doc(this.user.email)
-             .delete()
+              .doc(this.user.email)
+              .delete()
 
       db.collection("USER")
         .doc(this.user.email)
@@ -142,8 +142,8 @@ export default {
         .delete()
 
       user_db.collection("notice")
-             .doc(this.signuser.email)
-             .delete();
+              .doc(this.signuser.email)
+              .delete();
 
       this.relation = 0
     },
@@ -164,29 +164,29 @@ export default {
         .then(doc1 => {
 
         sign_db.collection("incoming")
-               .doc(this.user.email)
-               .delete()
-               .then(()=>{
+                .doc(this.user.email)
+                .delete()
+                .then(()=>{
 
-                 sign_db.collection("friends")
-                 .doc(this.user.email)
-                 .set({
-                   username: this.user.username,
-                   email: this.user.email,
-                   chatID: doc1.id,
-                   lastChatDate: now,
-                   isSHISHOW: false
-                 });
-               })
-               .catch(() => {
+                  sign_db.collection("friends")
+                  .doc(this.user.email)
+                  .set({
+                    username: this.user.username,
+                    email: this.user.email,
+                    chatID: doc1.id,
+                    lastChatDate: now,
+                    isSHISHOW: false
+                  });
+                })
+                .catch(() => {
 
-               });
+              });
 
         user_db.collection("outgoing")
-               .doc(this.signuser.email)
-               .delete()
-               .then(() => {
-                 user_db.collection("friends")
+                .doc(this.signuser.email)
+                .delete()
+                .then(() => {
+                  user_db.collection("friends")
                         .doc(this.signuser.email)
                         .set({
                           username: this.signuser.username,
@@ -195,7 +195,7 @@ export default {
                           lastChatDate: now,
                           isSHISHOW: true
                         })
-               })
+                })
 
         db.collection("USER")
           .doc(this.user.email)
@@ -214,22 +214,22 @@ export default {
           })
 
         user_db.collection("notice")
-               .doc(this.signuser.email)
-               .set({
-                 msg: this.signuser.username+"とフレンドになりました。",
-                 date: new Date()
-               })
+                .doc(this.signuser.email)
+                .set({
+                  msg: this.signuser.username+"とフレンドになりました。",
+                  date: new Date()
+                })
 
         sign_db.collection("notice")
-               .doc(this.user.email)
-               .get()
-               .then(doc => {
-                 if(doc.exists){
-                   sign_db.collection("notice")
+                .doc(this.user.email)
+                .get()
+                .then(doc => {
+                  if(doc.exists){
+                    sign_db.collection("notice")
                           .doc(this.user.email)
                           .delete();
-                 }
-               })
+                  }
+                })
         this.relation = 3
       })
     }

@@ -153,6 +153,12 @@ export default {
     this.$nextTick(() => {
       this.chatScroll();
     })
+  },
+
+  updated: function() {
+    this.$nextTick(() => {
+      this.chatScroll();
+    })
   }
 };
 

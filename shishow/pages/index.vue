@@ -1,18 +1,56 @@
 <template>
   <div id="prehome">
-    <img src="~/assets/image/part1.png" class="part1" />
+    <div class="topBar">
+    </div>
 
-    <nuxt-link to="/home">
-      <div class="enterButton" @click.prevent="checkUser()">
-      はじめる
-      </div>
-    </nuxt-link>
+    <div class="page1">
+      <img src="~/assets/image/part1.png" class="part1" />
 
-    <nuxt-link to="/signin">
-      <div class="loginButton">
-        ログイン
+      <div class="phrase1">
+        PHRASE1
       </div>
-    </nuxt-link>
+      <div class="phrase2">
+        PHRASE2
+      </div>
+
+      <div class="clause1">
+        This is a clause.
+      </div>
+
+      <img src="~/assets/image/leaf.png" class="leaf" />
+
+      <nuxt-link to="/home">
+        <div class="enterButton" @click.prevent="checkUser()">
+          はじめる
+        </div>
+      </nuxt-link>
+    </div>
+
+    <div class="page2">
+      <img src="~/assets/image/part2.png" class="part2" />
+
+      <div class="card1 card">
+        <div class="step">STEP1</div>
+        <img src="~/assets/image/step1only.png" class="cardPic" />
+      </div>
+
+      <div class="card2 card">
+        <div class="step">STEP2</div>
+        <img src="~/assets/image/step2only.png" class="cardPic" />
+      </div>
+
+      <div class="card3 card">
+        <div class="step">STEP3</div>
+        <img src="~/assets/image/step3only.png" class="cardPic3" />
+      </div>
+    </div>
+
+    <div class="page3">
+      <div class="aboutus">
+        About us
+      </div>
+      <img src="~/assets/image/part3.png" class="part3"/>
+    </div>
   </div>
 </template>
 
@@ -59,64 +97,192 @@ export default {
 
 <style lang="scss" scoped>
 #prehome {
+  overflow-y: scroll;
 
-  .part1 {
-    position: absolute;
-
-    width: 100%;
-    height: auto;
+  .topBar {
   }
 
-  .enterButton {
-    position: absolute;
+  .page1 {
+    .part1 {
+      position: absolute;
 
-    left: 50%;
-    top: 50%;
+      top: 60px;
+      left: 0;
 
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+      width: 100%;
+      height: auto;
+    }
 
-    width: 60vh;
-    height: 65px;
+    .phrase1 {
+      position: absolute;
 
-    background-color: $primary_color;
+      top: calc(6vh + 60px);
+      left: 11vw;
 
-    text-align: center;
-    color: $primary_text;
-    font-size: 40px;
+      width: 56vw;
+      height: 8vh;
 
-    line-height: 65px;
+      color: #fff;
+      font-size: 40px;
+    }
 
-    cursor: pointer;
+    .phrase2 {
+      position: absolute;
+
+      top: calc(14vh + 60px);
+      left: 11vw;
+
+      width: 56vw;
+      height: 9vh;
+
+      color: #fff;
+      font-size: 45px;
+    }
+
+    .clause1 {
+      position: absolute;
+
+      top: calc(23vh + 60px);
+      left: 11vw;
+
+      width: 56vw;
+      height: 15vh;
+
+      color: #757575;
+      font-size: 20px;
+    }
+
+    .leaf {
+      position: absolute;
+
+      right: 23vw;
+      top: calc(24vh + 6px);
+
+      width: 230px;
+      height: 230px;
+    }
+
+    .enterButton {
+      position: absolute;
+
+      left: 11vw;
+      top: 420px;
+
+      width: 150px;
+      height: 42px;
+
+      text-align: center;
+      color: $primary_text;
+      font-size: 18px;
+
+      color: #fff;
+
+      border-color: #fff;
+      border-style: solid;
+      border-radius: 15px;
+
+      line-height: 37px;
+
+      cursor: pointer;
+    }
   }
 
-  .loginButton {
-    position: absolute;
+  .page2 {
+    .part2 {
+      position: absolute;
 
-    left: 50%;
-    top: 62%;
+      top: 140vh;
+      left: 0;
 
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+      width: 100%;
+    }
 
-    width: 60vh;
-    height: 65px;
+    .card {
+      width: 22vw;
+      height: 29vw;
 
-    background-color: #fff;
+      background-color: #fff;
 
-    text-align: center;
-    color: $primary_text;
-    font-size: 40px;
+      border-radius: 15px;
 
-    line-height: 65px;
+      -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+    }
 
-    border-style: solid;
-    border-width: 1px;
-    border-color: $divider_color;
+    .step {
+      position: absolute;
 
-    cursor: pointer;
+      top: 15px;
+      left: 20px;
+
+      font-size: 20px;
+    }
+
+    .cardPic {
+      position: absolute;
+
+      bottom: 35%;
+      right: 49%;
+
+      transform: translate(50%, 0);
+      -webkit-transform: translate(50%, 0);
+      -ms-transform: translate(50%, 0);
+
+      width: 50%;
+    }
+
+    .card1 {
+      position: absolute;
+
+      left: 10vw;
+      top: 155vh;
+    }
+
+    .card2 {
+      position: absolute;
+
+      left: 40vw;
+      top: 172vh;
+    }
+
+    .card3 {
+      position: absolute;
+
+      left: 70vw;
+      top: 189vh;
+
+      .cardPic3 {
+      position: absolute;
+
+      bottom: 29%;
+      right: 42%;
+
+      transform: translate(50%, 0);
+      -webkit-transform: translate(50%, 0);
+      -ms-transform: translate(50%, 0);
+
+      width: 70%;
+      }
+    }
+  }
+
+  .page3 {
+    .aboutus {
+      position: absolute;
+
+      top: 275vh;
+      left: 3vw;
+
+      font-size: 35px;
+    }
+    .part3 {
+      position: absolute;
+
+      top: 350vh;
+      left: 0;
+
+      width: 100%;
+    }
   }
 }
 </style>
