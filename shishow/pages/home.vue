@@ -355,21 +355,22 @@ export default {
               })
             });
       */
-      var url = "https://us-central1-shishow-7cc37.cloudfunctions.net/home";
+      var url = "https://us-central1-shishow-7cc37.cloudfunctions.net/api/homeData";
 
       axios.get(url, {
         params: {
           email: this.user.email
         }
       })
-          .then(response => {
-            this.users = response.users;
-            this.filteredUser = response.filteredUser;
-            this.relation = response.relation;
-          })
-          .catch(e => {
-            console.log(e);
-          })
+      .then(response => {
+        this.users = response.data.users;
+        this.filteredUser = response.data.filteredUser;
+        this.relation = response.data.relation;
+        console.log(this.filteredUser.length);
+      })
+      .catch(e => {
+        console.log(e);
+      })
     },
 
     getUser() {
