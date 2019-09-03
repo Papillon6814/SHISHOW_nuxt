@@ -2,28 +2,29 @@
   <div class="rightArea">
     <div class="nameSpace"></div>
     <!-- {{ friendDocID }} -->
-    <div v-for="N in msgList.length" v-bind:key="N">
+      <div class="chatSpace">
+        <div v-for="N in msgList.length" v-bind:key="N">
 
-      <div v-show="isMine(msgList[N-1])" class="myChatBalloonPosition">
-        <div class="myChatBalloon">
-          {{ msgList[N-1].msg }}
-        </div>
-        <div class="myDatePosition">
-          {{ msgList[N-1].date.toDate().toLocaleString() }}
+          <div v-show="isMine(msgList[N-1])" class="myChatBalloonPosition">
+            <div class="myChatBalloon">
+              {{ msgList[N-1].msg }}
+            </div>
+            <div class="myDatePosition">
+              {{ msgList[N-1].date.toDate().toLocaleString() }}
+            </div>
+          </div>
+
+          <div v-show="isHis(msgList[N-1])" class="hisChatBalloonPosition">
+            <img :src="iconList[N-1]" class="hisIcon" @click="clickUser(userInfoList[N-1])"/>
+            <div class="hisChatBalloon">
+              {{ msgList[N-1].msg }}
+            </div>
+            <div class="hisDatePosition">
+              {{ msgList[N-1].date.toDate().toLocaleString() }}
+            </div>
+          </div>
         </div>
       </div>
-
-      <div v-show="isHis(msgList[N-1])" class="hisChatBalloonPosition">
-        <img :src="iconList[N-1]" class="hisIcon" @click="clickUser(userInfoList[N-1])"/>
-        <div class="hisChatBalloon">
-          {{ msgList[N-1].msg }}
-        </div>
-        <div class="hisDatePosition">
-          {{ msgList[N-1].date.toDate().toLocaleString() }}
-        </div>
-      </div>
-
-    </div>
     <div class="scrollSpace"></div>
   </div>
 </template>
@@ -36,6 +37,8 @@ import '@firebase/auth'
 const db = firebase.firestore();
 let currentUserEmail;
 let chatID;
+
+let chatSpace;
 
 export default {
 
@@ -80,6 +83,8 @@ export default {
       if(newval){
       this.msgList = [];
       this.userInfoList = [];
+      this.iconList = [];
+      chatSpace[0].style.display = "none";
       currentUserEmail = firebase.auth().currentUser.email;
 
       if(this.isGame) {
@@ -101,7 +106,6 @@ export default {
                   this.iconList.push(doc2.data().image)
                 })
             })
-            this.chatScroll();
           })
 
       } else {
@@ -132,8 +136,6 @@ export default {
                       this.iconList.push(doc3.data().image)
                     })
                 })
-
-                this.chatScroll();
               })
           })
       }
@@ -150,15 +152,14 @@ export default {
   },
 
   mounted: function() {
-    this.$nextTick(() => {
-      this.chatScroll();
-    })
+    chatSpace = document.getElementsByClassName("chatSpace");
   },
 
   updated: function() {
     this.$nextTick(() => {
       this.chatScroll();
     })
+    chatSpace[0].style.display = "block";
   }
 };
 
@@ -180,6 +181,10 @@ export default {
   overflow-x: hidden;
 
   vertical-align: bottom;
+}
+
+.chatSpace {
+  display: none;
 }
 
 .myChatBalloonPosition {

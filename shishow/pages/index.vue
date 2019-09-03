@@ -99,6 +99,8 @@ export default {
 #prehome {
   overflow-y: scroll;
 
+  background-color: #fafafa;
+
   .topBar {
   }
 
