@@ -15,7 +15,7 @@
       <div class="dmbannerPosition">
 
         <div v-for="(friend, N) in friendsDocID"
-             :key="N" v-bind:class="'b' + N">
+          :key="N" v-bind:class="'b' + N">
           <div @click="click_f(friend, N)">
             <dmBanner
               :dmBannerUsername="usernames[N]"
@@ -57,7 +57,6 @@ import dmGameBanner from "./dmGameBanner.vue";
 import firebase from '../../plugins/firestore';
 import 'firebase/firestore'
 import '@firebase/auth'
-
 
 import draggable from 'vuedraggable';
 
@@ -180,7 +179,7 @@ export default {
       globalTab[0].style.background = "#fff";
 
       if(this.games.length != 0){
-        let dmBan = document.getElementsByClassName("dmGameBanner")[this.id];
+        let dmBan = document.getElementsByClassName("gameCover")[this.id];
         dmBan.style.background = "#FFF";
       }
       this.id = 0;
@@ -194,7 +193,7 @@ export default {
       globalTab[0].style.background = "#b2ebf2"
 
       if(this.friendsDocID.length != 0){
-        let gameBan = document.getElementsByClassName("dmBanner")[this.id];
+        let gameBan = document.getElementsByClassName("dmCover")[this.id];
         gameBan.style.background = "#FFF";
       }
       this.id = 0;
