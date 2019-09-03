@@ -101,7 +101,7 @@
     <div class="GBModal">
       <div class="modalPosition">
         <popupGameBanner
-         @callFade="fadeOut()">
+        @callFade="fadeOut()">
         </popupGameBanner>
       </div>
     </div>
@@ -156,6 +156,8 @@ import "firebase/firestore";
 import "@firebase/auth";
 
 const db = firebase.firestore();
+const axios = require("axios");
+
 let NBPosition;
 let NBModal;
 let GBModal;
@@ -322,36 +324,53 @@ export default {
     },
 
     setOtherUser:function(){
+      /*
       const sign_db = db.collection("USER")
                       .doc(""+this.user.email);
 
 
       sign_db.collection("relation")
-           .get()
-           .then(docs_r=>{
-           db.collection("USER")
-             .get()
-             .then(docs_p =>{
-               docs_p.forEach(doc=>{
-                 if(doc.data().email != this.user.email){
-                   this.users.push(doc.data());
-                   this.filteredUser.push(doc.data());
+            .get()
+            .then(docs_r=>{
+            db.collection("USER")
+              .get()
+              .then(docs_p =>{
+                docs_p.forEach(doc=>{
+                  if(doc.data().email != this.user.email){
+                    this.users.push(doc.data());
+                    this.filteredUser.push(doc.data());
 
-                   if(docs_r.docs){
-                     let i;
-                     for(i=0;i<docs_r.docs.length && doc.data().email != docs_r.docs[i].id;i++);
-                     if(i==docs_r.docs.length){
-                       this.relation.push(0)
-                     }else{
-                       this.relation.push(docs_r.docs[i].data().relation);
-                     }
-                   }else{
-                     this.relation.push(0)
-                   }
+                    if(docs_r.docs){
+                      let i;
+                        for(i=0;i<docs_r.docs.length && doc.data().email != docs_r.docs[i].id;i++);
+                          if(i==docs_r.docs.length){
+                            this.relation.push(0)
+                          }else{
+                            this.relation.push(docs_r.docs[i].data().relation);
+                          }
+                    }else{
+                      this.relation.push(0)
+                    }
                   }
-               })
-             })
-           });
+                })
+              })
+            });
+      */
+      var url = "https://us-central1-shishow-7cc37.cloudfunctions.net/home";
+
+      axios.get(url, {
+        params: {
+          email: this.user.email
+        }
+      })
+          .then(response => {
+            this.users = response.users;
+            this.filteredUser = response.filteredUser;
+            this.relation = response.relation;
+          })
+          .catch(e => {
+            console.log(e);
+          })
     },
 
     getUser(){
@@ -363,7 +382,7 @@ export default {
       });
     },
 
-    myBanner_created(){
+    myBanner_created() {
       var email = this.$store.state.user.user.email;
       var shishowBox = 0;
       var deshiBox = 0;
@@ -404,10 +423,8 @@ export default {
             for(j=0;j<i&&this.games[j].id != query.docs[num].id ;j++);
             if(j==i){
               this.games.push(query.docs[num]);
-
               i++
             }
-
           }
         })
     },
@@ -428,7 +445,8 @@ export default {
     selectModal = document.getElementsByClassName("selectModal");
     editModal = document.getElementsByClassName("editModal");
   },
-  fetch({store,redirect}){
+
+  fetch({store,redirect}) {
     if(store.state.init && store.state.user.user.email == null){
       redirect("/")
     }

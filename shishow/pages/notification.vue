@@ -138,9 +138,17 @@ export default {
   }
 
   .no_notification {
-    position: relative;
+    position: absolute;
+
     top:250px;
-    font-size: 130px;
+
+    height: auto;
+    width: 100%;
+
+    font-size: 7vw;
+
+    text-align: center;
+
     color:rgba(122,122,122,122)
   }
 

@@ -2,9 +2,6 @@
   <div class="dmGameBanner">
     <div>
     <img :src="iconPic" class="iconPosition" />
-    <div class="dmGameName">
-      {{ gamename }}
-    </div>
     <div class="globalMsgArea">
     </div>
     </div>

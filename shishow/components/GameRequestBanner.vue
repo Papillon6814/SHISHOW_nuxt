@@ -22,7 +22,8 @@
     <div class="GameCategoryPosition">
       <select v-model="selected">
         <option selected disabled value="">カテゴリ...</option>
-        <option v-for="category in categories" :value="category.type">
+        <option v-for="(category, N) in categories" :value="category.type"
+        :key="N">
           {{ category.name }}
         </option>
       </select>
@@ -90,7 +91,6 @@ export default{
         reader.onload = (event) => {
           this.$parent.uploadedImage = event.target.result;
         };
-
         reader.readAsDataURL(file);
 
       } else {
@@ -98,33 +98,33 @@ export default{
       }
     },
 
-   gameCollection: function(){
-    if(this.Gamename == ""){
-       alert('Fill in your Display Gamename!');
-    } else {
-      this.addToDatabase(this.Gamename, this.croppedimg);
-      alert("Added a game.");
-      this.fade();
+    gameCollection: function(){
+      if(this.Gamename == ""){
+        alert('Fill in your Display Gamename!');
+      } else {
+        this.addToDatabase(this.Gamename, this.croppedimg);
+        alert("Added a game.");
+        this.fade();
+      }
+  　 },
+
+    addToDatabase(Gamename, image){
+      db.collection("GameCollection")
+        .doc()
+        .set({
+          gamename: Gamename,
+          category: this.selected,
+          image: image,
+          lastChatDate: ''
+      })
+      .catch(e => {
+        alert(e)
+      })
+    },
+
+    fade: function() {
+      this.$emit("callFade");
     }
-   },
-
-   addToDatabase(Gamename, image){
-    db.collection("GameCollection")
-      .doc()
-      .set({
-        gamename: Gamename,
-        category: this.selected,
-        image: image,
-        lastChatDate: ''
-     })
-     .catch(e => {
-       alert(e)
-     })
-   },
-
-   fade: function() {
-     this.$emit("callFade");
-   }
   },
 
   mounted: function(){
