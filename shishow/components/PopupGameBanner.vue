@@ -10,7 +10,7 @@
     </div>
 
     <div class="SubscribedPosition">
-        <div class="Subscribed">フォローしている人</div>
+        <div class="Subscribed">フォローしてる人</div>
     </div>
 
     <div class="SubscriberPosition">
@@ -77,23 +77,24 @@ export default {
   .BgPosition{
         position: abusolute;
 
-        width: 60px;
-        height: 120px;
-
-        top: 15px;
-        right: 20px;
+        width: 600px;
+        height: 300px;
     
         .Bg{
-        width: 100%;
-        height: 100%;
+        width: 60%;
+        height: 50%;
+
+        margin: 30px;
+        right: 20px;
+
         }
     }
 
     .GamenamePosition{
         position: absolute;
 
-        top: 20px;
-        left: 20px;
+        top: 30px;
+        left: 200px;
 
         .Gamename{
             position: absolute;
@@ -120,7 +121,7 @@ export default {
         position: absolute;
 
         top: 40px;
-        left: 40px;
+        left: 120px;
 
         .Subscriber{
             position: absolute;
