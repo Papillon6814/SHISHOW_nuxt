@@ -156,6 +156,8 @@ import "firebase/firestore";
 import "@firebase/auth";
 
 const db = firebase.firestore();
+const axios = require("axios");
+
 let NBPosition;
 let NBModal;
 let GBModal;
@@ -322,6 +324,7 @@ export default {
     },
 
     setOtherUser:function(){
+      /*
       const sign_db = db.collection("USER")
                       .doc(""+this.user.email);
 
@@ -352,6 +355,22 @@ export default {
                 })
               })
             });
+      */
+      var url = "https://us-central1-shishow-7cc37.cloudfunctions.net/home";
+
+      axios.get(url, {
+        params: {
+          email: this.user.email
+        }
+      })
+          .then(response => {
+            this.users = response.users;
+            this.filteredUser = response.filteredUser;
+            this.relation = response.relation;
+          })
+          .catch(e => {
+            console.log(e);
+          })
     },
 
     getUser(){
@@ -427,7 +446,7 @@ export default {
     editModal = document.getElementsByClassName("editModal");
   },
 
-  fetch({store,redirect}){
+  fetch({store,redirect}) {
     if(store.state.init && store.state.user.user.email == null){
       redirect("/")
     }
