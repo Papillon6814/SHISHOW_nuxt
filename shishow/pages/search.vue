@@ -5,7 +5,7 @@
       <navi @search="filterUser"></navi>
       <div class="searchBannerPosition">
         <div v-for="(userinfo, N) in searchResults"
-             :key="N" v-bind:class="'n'+N">
+            :key="N" v-bind:class="'n'+N">
 
           <normalBanner
             :user="searchResults[N]"
@@ -200,12 +200,11 @@ export default {
 
     currentUser = firebase.auth().currentUser;
     this.signuser = {"username":this.$store.getters["user/user"].username,
-                     "email":this.$store.getters["user/user"].email}
+                    "email":this.$store.getters["user/user"].email}
 
   },
 
   mounted: function() {
-
     NBModal = document.getElementsByClassName("NBModal");
     selectModal = document.getElementsByClassName("selectModal");
   },
@@ -231,7 +230,7 @@ html {
   top: 100px;
   left: 0;
 
-  width: 100%;
+  width: 100vh;
   height: 100%;
 
   padding-top: 165px;
