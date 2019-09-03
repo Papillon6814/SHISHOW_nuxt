@@ -1,8 +1,7 @@
 <template>
   <div id="prehome">
-    <div class="logo">
-      SHISHOW
-    </div>
+    <img src="~/assets/image/part1.png" class="part1" />
+
     <nuxt-link to="/home">
       <div class="enterButton" @click.prevent="checkUser()">
       はじめる
@@ -14,8 +13,6 @@
         ログイン
       </div>
     </nuxt-link>
-
-    <div class="footer"></div>
   </div>
 </template>
 
@@ -63,18 +60,11 @@ export default {
 <style lang="scss" scoped>
 #prehome {
 
-  .logo {
+  .part1 {
     position: absolute;
 
-    top: 35%;
-    left: 50%;
-
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-
-    color: $primary_text;
-    font-size: 10vh;
+    width: 100%;
+    height: auto;
   }
 
   .enterButton {
@@ -127,18 +117,6 @@ export default {
     border-color: $divider_color;
 
     cursor: pointer;
-  }
-
-  .footer {
-    position: absolute;
-
-    width: 100%;
-    height: 60px;
-
-    background-color: $dark_primary_color;
-
-    bottom: 0;
-    left: 0;
   }
 }
 </style>

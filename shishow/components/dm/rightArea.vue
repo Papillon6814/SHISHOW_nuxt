@@ -147,6 +147,12 @@ export default {
     }
 
     currentUserEmail = currentUser.email
+  },
+
+  mounted: function() {
+    this.$nextTick(() => {
+      this.chatScroll();
+    })
   }
 };
 
@@ -166,10 +172,15 @@ export default {
 
   overflow-y: scroll;
   overflow-x: hidden;
+
+  vertical-align: bottom;
 }
 
 .myChatBalloonPosition {
+  display: inline-block;
   position: relative;
+
+  bottom: 0;
 
   width: 100%;
   height: auto;
@@ -214,11 +225,15 @@ export default {
 }
 
 .hisChatBalloonPosition {
+  display: inline-block;
+
   position: relative;
+
+  bottom: 0;
 
   padding-top: 20px;
 
-  width: auto;
+  width: 100%;
   height: auto;
 
   overflow-y: visible;
@@ -239,6 +254,8 @@ export default {
     top: 5px;
 
     border-radius: 50%;
+
+    cursor: pointer;
   }
 
   .hisChatBalloon {

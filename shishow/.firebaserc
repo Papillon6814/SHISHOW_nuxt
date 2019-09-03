@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "shishow-7cc37"
+    "default": "shishow-7cc37",
+    "shishow": "shishow-7cc37"
   }
 }
