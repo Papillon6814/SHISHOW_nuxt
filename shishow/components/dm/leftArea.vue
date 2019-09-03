@@ -47,8 +47,6 @@
       </div>
     </div>
 
-  </div>
-
 </template>
 
 <script>
@@ -70,12 +68,8 @@ let lastMsgDate = [];
 
 let privateDM, globalDM;
 let privateTab, globalTab;
-<<<<<<< HEAD
-let LastMsg;
-=======
 let leftArea;
 
->>>>>>> master
 export default {
 
   name: 'LeftArea',
