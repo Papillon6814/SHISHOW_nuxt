@@ -44,52 +44,52 @@ export default {
       let now = new Date();
 
       db.collection("PrivateChat")
-             .add({
-               email1: this.signuser.email,
-               email2: this.user.email
-             })
-             .then(doc1 => {
+              .add({
+                email1: this.signuser.email,
+                email2: this.user.email
+              })
+              .then(doc1 => {
 
-                     sign_db.collection("incoming")
+                      sign_db.collection("incoming")
                             .doc(this.user.email)
                             .delete()
                             .then(()=>{
 
                               sign_db.collection("friends")
-                                     .doc(this.user.email)
-                                     .set({
-                                       username: this.user.username,
-                                       email: this.user.email,
-                                       chatID: doc1.id,
-                                       lastChatDate: now,
-                                       isSHISHOW: false
-                                     });
+                                      .doc(this.user.email)
+                                      .set({
+                                        username: this.user.username,
+                                        email: this.user.email,
+                                        chatID: doc1.id,
+                                        lastChatDate: now,
+                                        isSHISHOW: false
+                                      });
 
                               sign_db.collection("incoming")
-                                     .get()
-                                     .then(doc2 =>{
-                                       this.$parent.income = doc2.docs;
-                                     }).catch(()=>{
-                                       this.$parent.income = "";
-                                     })
+                                      .get()
+                                      .then(doc2 =>{
+                                        this.$parent.income = doc2.docs;
+                                      }).catch(()=>{
+                                        this.$parent.income = "";
+                                      })
 
                               sign_db.collection("friends")
-                                     .get()
-                                     .then(doc2 => {
-                                       this.$parent.fri = doc2.docs;
-                                     }).catch(()=>{
-                                       this.$parent.fri = "";
-                                     })
+                                      .get()
+                                      .then(doc2 => {
+                                        this.$parent.fri = doc2.docs;
+                                      }).catch(()=>{
+                                        this.$parent.fri = "";
+                                      })
                             }).catch(() => {
 
                             });
 
                   user_db.collection("outgoing")
-                         .doc(this.signuser.email)
-                         .delete()
-                         .then(()=>{
+                          .doc(this.signuser.email)
+                          .delete()
+                          .then(()=>{
 
-                           user_db.collection("friends")
+                            user_db.collection("friends")
                                   .doc(this.signuser.email)
                                   .set({
                                     username: this.signuser.username,
@@ -98,7 +98,7 @@ export default {
                                     lastChatDate: now,
                                     isSHISHOW: true
                                   })
-                         })
+                          })
 
                   db.collection("USER")
                     .doc(this.user.email)
@@ -117,18 +117,18 @@ export default {
                     })
 
                   user_db.collection("notice")
-                         .doc(this.signuser.email)
-                         .set({
-                           msg:this.signuser.username + "とフレンドになりました。",
-                           date:new Date()
-                         })
+                          .doc(this.signuser.email)
+                          .set({
+                            msg:this.signuser.username + "とフレンドになりました。",
+                            date:new Date()
+                          })
 
                   sign_db.collection("notice")
-                         .doc(this.user.email)
-                         .get()
-                         .then(doc=>{
-                           if(doc.exists){
-                             sign_db.collection("notice")
+                          .doc(this.user.email)
+                          .get()
+                          .then(doc=>{
+                            if(doc.exists){
+                              sign_db.collection("notice")
                                     .doc(this.user.email)
                                     .delete();
                             }
@@ -156,7 +156,7 @@ export default {
 
     transition: 0.3s;
 
-   .iconPic {
+    .iconPic {
       width: $n_icon_width;
       height: $n_icon_height;
 
@@ -218,7 +218,7 @@ export default {
       right: 20px;
       display: inline-block;
       text-decoration: none;
-      background: #ff8181;
+      background: #ffb300;
       color: #fff;
       width: 150px;
       height: 60px;
@@ -228,7 +228,7 @@ export default {
       font-weight: bold;
       overflow: hidden;
       box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-      border-bottom: solid 3px #bd6565;
+      border-bottom: solid 3px #ffb300;
       transition: .4s;
 
       cursor: pointer;

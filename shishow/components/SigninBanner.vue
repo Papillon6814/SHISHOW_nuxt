@@ -101,7 +101,7 @@ export default {
   transition: .3s;
   z-index: 2;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     width: 70%;
     height: 400px;
 
@@ -112,7 +112,7 @@ export default {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     width: 48%;
     height: 480px;
 
@@ -131,7 +131,7 @@ export default {
     border-radius: 7px 7px 0 0;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     .drawnSpace {
       position: absolute;
       top: 60px;
@@ -154,12 +154,12 @@ export default {
   .usernamePosition {
     position: absolute;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       top: 80px;
       width: 85%;
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1300px) {
       top: 210px;
       width: 65%;
     }
@@ -172,14 +172,14 @@ export default {
     .username {
       width:  100%; //$user_width
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 1300px) {
         height: 45px;
 
         border-radius: 7px;
         outline: none;
       }
 
-      @media screen and (min-width: 800px) {
+      @media screen and (min-width: 1300px) {
         height: 35px;
       }
     }
@@ -187,12 +187,12 @@ export default {
   .passwordPosition {
     position: absolute;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       top: 155px;
       width: 85%;
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1300px) {
       top: 290px;
       width: 65%;
     }
@@ -205,14 +205,14 @@ export default {
     .password {
       width: 100%; //$id_width
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 1300px) {
         height: 45px;
 
         border-radius: 7px;
         outline: none;
       }
 
-      @media screen and (min-width: 800px) {
+      @media screen and (min-width: 1300px) {
         height: 35px; //$id_height
       }
     }
@@ -221,7 +221,7 @@ export default {
   .signin_button {
     position: absolute;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       top: 240px;
 
       background: $accent_color;
@@ -233,7 +233,7 @@ export default {
       border-radius: 15px;
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1300px) {
       top: 350px;
 
       background: #fff;
@@ -260,11 +260,11 @@ export default {
 
   .signin_button:hover{
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       // TODO: ホバーのとき
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1300px) {
       background: $light_primary_color;
       color: #fff;
     }
@@ -274,7 +274,7 @@ export default {
   .signupArea {
     position: absolute;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       top: 330px;
 
       left: 50%;
@@ -294,7 +294,7 @@ export default {
 
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1300px) {
       bottom: 0;
       left: 0;
       width: 100%;
@@ -313,7 +313,7 @@ export default {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1300px) {
   .grayLine {
     height: 1px;
     background-color: $divider_color;

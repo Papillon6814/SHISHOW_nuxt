@@ -43,27 +43,27 @@ export default {
                         .doc(this.user.email)
 
       user_db.collection("friends")
-             .doc(this.signuser.email)
-             .delete()
-             .then(() => {
+              .doc(this.signuser.email)
+              .delete()
+              .then(() => {
                //pass
-             })
+              })
 
       sign_db.collection("friends")
-             .doc(this.user.email)
-             .delete()
-             .then(()=>{
-               sign_db.collection("friends")
+              .doc(this.user.email)
+              .delete()
+              .then(()=>{
+                sign_db.collection("friends")
                       .get()
                       .then(doc=>{
                         this.$parent.fri = doc.docs;
                       }).catch(()=>{
                         this.$parent.fri = "";
                       })
-             })
-             .catch(() => {
+              })
+              .catch(() => {
 
-             });
+              });
 
       db.collection("USER")
         .doc(this.user.email)
@@ -78,8 +78,8 @@ export default {
         .delete()
 
       user_db.collection("notice")
-             .doc(this.signuser.email)
-             .delete();
+              .doc(this.signuser.email)
+              .delete();
     },
   }
 }
@@ -147,7 +147,6 @@ export default {
       height: $n_profile_height;
 
       background-color: #fff;
-
     }
 
     .profilePosition{

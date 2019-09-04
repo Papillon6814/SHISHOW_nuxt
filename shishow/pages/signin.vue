@@ -56,16 +56,16 @@ body {
 
     overflow: hidden;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       background-color: $dark_primary_color;
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1300px) {
       background-color: $dark_color;
     }
 
     .res {
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 1300px) {
         display: none;
       }
 
@@ -73,7 +73,7 @@ body {
     }
 
     .nres {
-      @media screen and (min-width: 800px) {
+      @media screen and (min-width: 1300px) {
         display: none;
       }
     }
@@ -101,11 +101,11 @@ body {
   //temporary top
   top: 180px;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     left: 15%;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     left: 26%;
   }
 

@@ -104,7 +104,7 @@ export default {
   .gamebanner {
     position: absolute;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       width: 85vw;
       height: calc(85vw / 4);
     }

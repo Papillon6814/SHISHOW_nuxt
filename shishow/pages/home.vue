@@ -6,62 +6,61 @@
         <navi @search="getSearchWord"></navi>
       </header>
 
-          <transition appear name="v">
-            <div id="myBannerPosition">
-              <myBanner
-                v-if="userStatus"
-                :loginedUser="getCurrentUserName"
-                @callEditBanner="showEditBanner()"
-                :user='signuser'
-                :shishow='shishow'
-                :deshi='deshi'>
-              </myBanner>
-            </div>
-          </transition>
-
-          <div id="moving">
-
-            <transition appear name="v3">
-
-            <div id="gameBannerPosition">
-              <div v-for="N in games.length"
-                :key="N" v-bind:class="'g'+N">
-                <div @click="showGBModal(games[N-1])">
-                  <gameBanner
-                    :game="games[N-1]"
-                    :signuser="user"
-                    :count="N-1">
-                  </gameBanner>
-                </div>
-              </div>
-            </div>
-            </transition>
-
-            <transition appear name="v2">
-              <div class="normalBannerPosition">
-                <div v-for="(userinfo, N) in filteredUser"
-                  :key="N" v-bind:class="'n'+N">
-                  <normalBanner
-                    :user="filteredUser[N]"
-                    :signuser="signuser"
-                    :relations="relation[N]"
-                    @clickNB="NBclick(userinfo)"
-                    @clickReqButton="RBclick(userinfo,N)"
-                    ref="normal">
-                  </normalBanner>
-                </div>
-              </div>
-            </transition>
-
-          <div class="adPosition">
-          </div>
-
+      <transition appear name="v">
+        <div id="myBannerPosition">
+          <myBanner
+            v-if="userStatus"
+            :loginedUser="getCurrentUserName"
+            @callEditBanner="showEditBanner()"
+            :user='signuser'
+            :shishow='shishow'
+            :deshi='deshi'>
+          </myBanner>
         </div>
+      </transition>
+
+      <div id="moving">
+
+        <transition appear name="v3">
+          <div id="gameBannerPosition">
+            <div v-for="N in games.length"
+              :key="N" v-bind:class="'g'+N">
+              <div @click="showGBModal(games[N-1])">
+                <gameBanner
+                  :game="games[N-1]"
+                  :signuser="user"
+                  :count="N-1">
+                </gameBanner>
+              </div>
+            </div>
+          </div>
+        </transition>
+
+        <transition appear name="v2">
+          <div class="normalBannerPosition">
+            <div v-for="(userinfo, N) in filteredUser"
+              :key="N" v-bind:class="'n'+N">
+              <normalBanner
+                :user="filteredUser[N]"
+                :signuser="signuser"
+                :relations="relation[N]"
+                @clickNB="NBclick(userinfo)"
+                @clickReqButton="RBclick(userinfo,N)"
+                ref="normal">
+              </normalBanner>
+            </div>
+          </div>
+        </transition>
+
+        <div class="adPosition">
+        </div>
+
+      </div>
     </tbody>
 
     <!-- cropperのときのmodal -->
 
-    <div id="modal" class="modal">
+    <div class="modal">
       <div class="cropperPosition">
         <vue-cropper
           ref="cropper"
@@ -356,24 +355,25 @@ export default {
               })
             });
       */
-      var url = "https://us-central1-shishow-7cc37.cloudfunctions.net/home";
+      var url = "https://us-central1-shishow-7cc37.cloudfunctions.net/api/homeData";
 
       axios.get(url, {
         params: {
           email: this.user.email
         }
       })
-          .then(response => {
-            this.users = response.users;
-            this.filteredUser = response.filteredUser;
-            this.relation = response.relation;
-          })
-          .catch(e => {
-            console.log(e);
-          })
+      .then(response => {
+        this.users = response.data.users;
+        this.filteredUser = response.data.filteredUser;
+        this.relation = response.data.relation;
+        console.log(this.filteredUser.length);
+      })
+      .catch(e => {
+        console.log(e);
+      })
     },
 
-    getUser(){
+    getUser() {
       db.collection("USER")
       .doc(""+this.user.email)
       .get()
@@ -416,7 +416,7 @@ export default {
           let i=0
           let j;
 
-          while(i<5 && i<query.docs.length){
+          while(i<5 && i<query.docs.length) {
 
             let num = Math.floor(Math.random()*query.docs.length);
 
@@ -430,7 +430,7 @@ export default {
     },
   },
 
-  created:function(){
+  created:function() {
     this.getUser();
     this.setOtherUser();
     this.myBanner_created();
@@ -516,14 +516,14 @@ body {
 
 #myBannerPosition {
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     position: absolute;
     top: 80px;
     width: 100%;
     height: 400px;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     position: fixed;
     top: 100px;
     width: 23%;
@@ -538,23 +538,26 @@ body {
 #moving {
   position: absolute;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     top: 400px;
     left: 7.5vw;
+
+    width: calc(100% - 7.5vw);
 
     overflow-x: hidden;
     overflow-y: visible;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     top: -30px;
-    left: 27%;
+    left: 23%;
+
+    width: calc(100% - 23%);
 
     overflow-x: hidden;
     overflow-y: scroll;
   }
 
-  width: 100%;
   height: 100%;
 
   $g: 1;
@@ -569,15 +572,15 @@ body {
       .g#{$g} {
         position: absolute;
 
-        @media screen and (max-width: 800px){
+        @media screen and (max-width: 1300px){
           top: (85vw / 3.5) * $g;
         }
 
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: 1300px) {
           top: (55vw / 4) * $g;
         }
 
-        left: 0;
+        left: 5%;
 
         width: 100%;
         height: $n_banner_height;
@@ -594,14 +597,14 @@ body {
   .normalBannerPosition {
     position: absolute;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       top: ((85vw / 3.5) * 6);
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1300px) {
       top: ((55vw / 4) * 6);
     }
-    left: 0;
+    left: 5%;
 
     width: 100%;
     height: 100%;
@@ -615,12 +618,12 @@ body {
 
         width: 100%;
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 1300px) {
           top: ((85vw / 4) * $i);
           height: calc(85vw / 4.5);
         }
 
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: 1300px) {
           top: ((55vw / 4) * $i);
           height: $n_banner_height;
         }
@@ -637,11 +640,11 @@ body {
 
       left: 0;
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 1300px) {
         top: ((85vw / 4) * 31);
       }
 
-      @media screen and (min-width: 800px) {
+      @media screen and (min-width: 1300px) {
         top: ((55vw / 4) * 31);
       }
 
