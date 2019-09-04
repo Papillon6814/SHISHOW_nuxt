@@ -153,7 +153,7 @@ export default {
     width: 100vw;
     height: 60px;
 
-    background-color: #fff;
+    background: #fff;
 
     box-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
 
@@ -185,13 +185,15 @@ export default {
 
     top: -120px;
     transition: .3s;
+
+    background: rgba(255, 255, 255, 0.7);
   }
 
   .page1 {
     .part1 {
       position: absolute;
 
-      top: 60px;
+      top: 0;
       left: 0;
 
       width: 100%;
@@ -251,7 +253,7 @@ export default {
       position: absolute;
 
       left: 11vw;
-      top: 420px;
+      top: 360px;
 
       width: 150px;
       height: 42px;
