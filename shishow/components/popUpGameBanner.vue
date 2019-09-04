@@ -6,7 +6,9 @@
     </div>
 
     <div class="GamenamePosition">
-        <div class="Gamename">名前</div>
+        <div class="Gamename">
+          {{ gamename(N) }}
+        </div>
     </div>
 
     <div class="SubscribedPosition">
@@ -14,7 +16,9 @@
     </div>
 
     <div class="SubscriberPosition">
-        <div class="Subscriber">小野優真</div>
+        <div class="Subscriber">
+
+        </div>
     </div>
 
     <div class="FollowerPpsition">
@@ -54,7 +58,12 @@ export default {
     fade: function() {
       this.$emit("callFade");
     }
-  }
+  },
+
+    
+    gamename: function(N){
+      return string()
+    }
 }
 
 </script>
