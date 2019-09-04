@@ -119,7 +119,7 @@ export default {
 
   transition: 0.3s;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     border-radius: 0 0 15px 15px;
   }
 
@@ -255,7 +255,7 @@ export default {
 
   .profilePosition {
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       display: none;
     }
 

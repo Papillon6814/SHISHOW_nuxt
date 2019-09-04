@@ -516,14 +516,14 @@ body {
 
 #myBannerPosition {
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     position: absolute;
     top: 80px;
     width: 100%;
     height: 400px;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     position: fixed;
     top: 100px;
     width: 23%;
@@ -538,7 +538,7 @@ body {
 #moving {
   position: absolute;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     top: 400px;
     left: 7.5vw;
 
@@ -548,7 +548,7 @@ body {
     overflow-y: visible;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     top: -30px;
     left: 23%;
 
@@ -572,11 +572,11 @@ body {
       .g#{$g} {
         position: absolute;
 
-        @media screen and (max-width: 800px){
+        @media screen and (max-width: 1300px){
           top: (85vw / 3.5) * $g;
         }
 
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: 1300px) {
           top: (55vw / 4) * $g;
         }
 
@@ -597,11 +597,11 @@ body {
   .normalBannerPosition {
     position: absolute;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       top: ((85vw / 3.5) * 6);
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1300px) {
       top: ((55vw / 4) * 6);
     }
     left: 5%;
@@ -618,12 +618,12 @@ body {
 
         width: 100%;
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 1300px) {
           top: ((85vw / 4) * $i);
           height: calc(85vw / 4.5);
         }
 
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: 1300px) {
           top: ((55vw / 4) * $i);
           height: $n_banner_height;
         }
@@ -640,11 +640,11 @@ body {
 
       left: 0;
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 1300px) {
         top: ((85vw / 4) * 31);
       }
 
-      @media screen and (min-width: 800px) {
+      @media screen and (min-width: 1300px) {
         top: ((55vw / 4) * 31);
       }
 

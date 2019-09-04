@@ -109,11 +109,11 @@ export default {
   left: 0;
   width: 100%;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     height: 80px;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     height: $header_height;
   }
 
@@ -123,7 +123,7 @@ export default {
 
   .centered {
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       display: none;
     }
 
@@ -218,14 +218,14 @@ export default {
   .logo {
     position: absolute;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       width: 70px;
       height: 70px;
       top: 5px;
       right: 20px;
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1300px) {
       width: 80px;
       height: 80px;
       top: 10px;
@@ -242,7 +242,7 @@ export default {
   }
 
   #menuButtons {
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       display: none;
     }
 
@@ -341,7 +341,7 @@ export default {
 }
 
 #footer {
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     display: none;
   }
 
@@ -358,7 +358,7 @@ export default {
   z-index: 1000;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1300px) {
   .pinkButton {
     position: fixed;
 

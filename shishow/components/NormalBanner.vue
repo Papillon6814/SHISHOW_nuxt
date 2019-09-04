@@ -240,7 +240,7 @@ export default {
 
 <style lang="scss" scoped>
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1300px) {
   .normalBanner {
     position: absolute;
 
@@ -260,7 +260,7 @@ export default {
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1300px) {
   .normalBanner {
     position: absolute;
 
@@ -289,12 +289,12 @@ export default {
 .iconPicPosition {
   position: absolute;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     width: 10vw;
     height: 10vw;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1300px) {
     width: 8vw;
     height: 8vw;
   }
@@ -404,12 +404,12 @@ export default {
 .icon {
   position: absolute;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1300px) {
     width: 10vw;
     height: 10vw;
   }
 
-  @media screen and (min-width: 800px){
+  @media screen and (min-width: 1300px){
     width: 8vw;
     height: 8vw;
   }
