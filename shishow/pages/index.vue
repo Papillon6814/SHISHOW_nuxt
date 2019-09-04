@@ -1,6 +1,19 @@
 <template>
   <div id="prehome">
     <div class="topBar">
+      <nuxt-link to="/signin">
+        <div class="signin">
+          ログイン
+        </div>
+      </nuxt-link>
+    </div>
+
+    <div class="topBar upperBar">
+      <nuxt-link to="/signin">
+      <div class="signin">
+        ログイン
+      </div>
+      </nuxt-link>
     </div>
 
     <div class="page1">
@@ -59,19 +72,39 @@ import firebase from "../plugins/firestore";
 import "firebase/firestore";
 import "@firebase/auth";
 
+let topBar;
 
 export default {
 
   head:{
     title:"top",
   },
+
   name: 'prehome',
+
   data:function(){
     return{
       aaa:"",
-
+      scrollY: 0
     }
   },
+
+  watch: {
+    scrollY: function(newval) {
+      console.log(newval);
+
+      if(newval > 180) {
+        //topBarを上から表示
+        topBar[1].style.top = '0px';
+        topBar[0].style.display = "none";
+      }
+      else {
+        topBar[1].style.top = '-120px';
+        topBar[0].style.display = 'block';
+      }
+    }
+  },
+
   methods:{
     checkUser(){
       if(firebase.auth().currentUser){
@@ -81,27 +114,77 @@ export default {
       }
       console.log(firebase.auth().currentUser)
     },
+
+    handleScroll: function() {
+      console.log('handle')
+      this.scrollY = window.scrollY;
+    }
   },
+
   created:function(){
     this.$store.commit("user/onUserLogout")
-    console.log(this.aaa.email == null)
+    //console.log(this.aaa.email == null)
+  },
+
+  mounted: function() {
+    window.addEventListener('scroll', this.handleScroll);
+    topBar = document.getElementsByClassName('topBar');
   },
 
   asyncData({req,store}){
     return{
       aaa:store.state.user.user
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-#prehome {
-  overflow-y: scroll;
 
+#prehome {
   background-color: #fafafa;
 
   .topBar {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 60px;
+
+    background-color: #fff;
+
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+
+    z-index: 1;
+
+    transition: .3s;
+
+    .signin {
+      position: absolute;
+
+      right: 4vw;
+      top: 50%;
+
+      text-align: center;
+      font-size: 14px;
+
+      color: $primary_text;
+
+      transform: translate(0, -50%);
+      -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+
+      cursor: pointer;
+    }
+  }
+
+  .upperBar {
+    position: fixed !important;
+
+    top: -120px;
+    transition: .3s;
   }
 
   .page1 {

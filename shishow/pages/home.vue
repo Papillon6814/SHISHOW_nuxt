@@ -550,9 +550,9 @@ body {
 
   @media screen and (min-width: 800px) {
     top: -30px;
-    left: 27%;
+    left: 23%;
 
-    width: calc(100% - 27%);
+    width: calc(100% - 23%);
 
     overflow-x: hidden;
     overflow-y: scroll;
@@ -580,7 +580,7 @@ body {
           top: (55vw / 4) * $g;
         }
 
-        left: 0;
+        left: 5%;
 
         width: 100%;
         height: $n_banner_height;
@@ -604,7 +604,7 @@ body {
     @media screen and (min-width: 800px) {
       top: ((55vw / 4) * 6);
     }
-    left: 0;
+    left: 5%;
 
     width: 100%;
     height: 100%;
