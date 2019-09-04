@@ -44,12 +44,8 @@
       New Game
       </div>
     </div>
-<<<<<<< HEAD
-
-=======
     </div>
   </div>
->>>>>>> master
 </template>
 
 <script>
