@@ -109,7 +109,7 @@ export default {
       height: calc(85vw / 4);
     }
 
-    @media screen and (min-width: 801px) {
+    @media screen and (min-width: 1300px) {
       width: $n_banner_width;
       height: $n_banner_height;
     }
