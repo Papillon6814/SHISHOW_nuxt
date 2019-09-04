@@ -735,7 +735,7 @@ footer {
   .modalPosition {
     position: absolute;
 
-    top: 300px;
+    top: 50%;
     left: 50%;
 
     width: 65%;
@@ -765,7 +765,7 @@ footer {
   .modalPosition {
     position: absolute;
 
-    top: 300px;
+    top: 23%;
     left: 50%;
 
     width: 65%;

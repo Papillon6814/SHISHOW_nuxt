@@ -59,7 +59,7 @@ export default {
       querydocs.forEach(docu=>{
         this.notice.push(docu);
 
-        //db.collection("USER").doc(""+this.user.email).collection("notice").doc(docu.id).delete();
+        db.collection("USER").doc(""+this.user.email).collection("notice").doc(docu.id).delete();
       })
     })
 

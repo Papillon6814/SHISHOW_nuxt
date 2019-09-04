@@ -10,7 +10,7 @@
     </div>
 
     <div class="SubscribedPosition">
-        <div class="Subscribed">フォローしてる人</div>
+        <div class="Subscribed">フォローしてる友達</div>
     </div>
 
     <div class="SubscriberPosition">
@@ -76,16 +76,18 @@ export default {
 
   .BgPosition{
         position: abusolute;
-
+        //仮の数値です
         width: 600px;
         height: 300px;
     
         .Bg{
-        width: 60%;
-        height: 50%;
+          position: absolute;
+          width: 70%;
+          height: 70%;
 
-        margin: 30px;
-        right: 20px;
+          margin: 20px;
+          top: 30px;
+          right: 20px;
 
         }
     }
@@ -93,8 +95,8 @@ export default {
     .GamenamePosition{
         position: absolute;
 
-        top: 30px;
-        left: 200px;
+        top: 10%;
+        left: 15%;
 
         .Gamename{
             position: absolute;
@@ -107,8 +109,8 @@ export default {
     .SubscribedPosition{
         position: absolute;
 
-        top: 40px;
-        left: 20px;
+        top: 30%;
+        left: 7%;
     
         .Subscribed{
             width: 100px;
@@ -120,8 +122,8 @@ export default {
     .SubscriberPosition{
         position: absolute;
 
-        top: 40px;
-        left: 120px;
+        top: 30%;
+        left: 30%;
 
         .Subscriber{
             position: absolute;
@@ -134,8 +136,8 @@ export default {
     .FollowerPpsition{
         position: absolute;
 
-        top: 20px;
-        right: 60px;
+        top: 20%;
+        right: 30%;
 
         .Follower{
             position: absolute;
@@ -148,8 +150,8 @@ export default {
     .FollowerNumberPosition{
         position: absolute;
 
-        top: 20px;
-        right: 30px;
+        top: 20%;
+        right: 23%;
 
         .FollowerNumber{
             position: absolute;
@@ -162,14 +164,16 @@ export default {
     .BackButtonPosition{
         position: absolute;
 
-        bottom: 50px;
-        right: 30px;
+        top: 70%;
+        right: 35%;
 
         .BackButton{
             position: absolute;
 
-            width: 100px;
-            height:50px;
+
+            width: 240px;
+            height:20px;
+            background-color: #fff;
         }
     }
   .closeBtn {
