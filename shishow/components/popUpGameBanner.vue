@@ -25,10 +25,6 @@
         <div class="FollowerNumber">人数</div>
     </div>
 
-    <div class="BackButtonPosition">
-        <div class="BackButton">Back</div>
-    </div>
-
     <div class="closeBtn" @click="fade()">
       <font-awesome-icon icon="times" />
     </div>
@@ -161,21 +157,6 @@ export default {
         }
     }
 
-    .BackButtonPosition{
-        position: absolute;
-
-        top: 70%;
-        right: 35%;
-
-        .BackButton{
-            position: absolute;
-
-
-            width: 240px;
-            height:20px;
-            background-color: #fff;
-        }
-    }
   .closeBtn {
     position: absolute;
 
