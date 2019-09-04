@@ -179,7 +179,7 @@ export default {
 
       if(this.games.length != 0){
         let dmBan = document.getElementsByClassName("gameCover")[this.id];
-        dmBan.style.background = "#FFF";
+        dmBan.style.background = "rgba(255, 0, 0, 0)";
       }
       this.id = 0;
     },
@@ -193,7 +193,7 @@ export default {
 
       if(this.friendsDocID.length != 0){
         let gameBan = document.getElementsByClassName("dmCover")[this.id];
-        gameBan.style.background = "#FFF";
+        gameBan.style.background = "rgba(255, 0, 0, 0)";
       }
       this.id = 0;
     },
