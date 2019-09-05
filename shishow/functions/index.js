@@ -47,7 +47,7 @@ app.get('/homeData', (request, response) => {
                                 this.relation.push(0)
                                 }
                                 else {
-                                    relation.push(doc2.docs[i].data().relation);
+                                    relation.push(doc1.docs[i].data().relation);
                                 }
                             }
                         }
