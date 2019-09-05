@@ -23,7 +23,7 @@
           <!-- <img class="sch" src="../assets/search-button.png" @click="onChangeInput"> -->
           <nuxt-link to="/search">
             <font-awesome-icon icon="search"
-             @click="onChangeInput()" class="sch" />
+              @click="onChangeInput()" class="sch" />
           </nuxt-link>
         </div>
       </div>
@@ -49,7 +49,7 @@
 
   <div id="footer">
   </div>
-  <div class="pinkButton">
+  <div class="pinkButton" @click="click()">
     <font-awesome-icon icon="sort-up" />
   </div>
 </div>
@@ -76,10 +76,15 @@ export default {
     onChangeInput() {
       this.commitChange(this.word);
     },
+
     commitChange(newValue) {
       //this.$emit("input", newValue);
       this.$emit("search", newValue);
       this.$store.commit("onSearchWordInput", newValue);
+    },
+
+    click() {
+      this.$parent.scroll2top();
     }
   },
   created: function() {

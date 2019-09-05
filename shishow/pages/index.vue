@@ -1,68 +1,142 @@
 <template>
-  <div id="prehome">
-    <div class="topBar">
-      <nuxt-link to="/signin">
+  <div id="root">
+    <div id="prehome">
+      <div class="topBar">
+        <nuxt-link to="/signin">
+          <div class="signin">
+            ログイン
+          </div>
+        </nuxt-link>
+      </div>
+
+      <div class="topBar upperBar">
+        <nuxt-link to="/signin">
         <div class="signin">
           ログイン
         </div>
-      </nuxt-link>
-    </div>
-
-    <div class="topBar upperBar">
-      <nuxt-link to="/signin">
-      <div class="signin">
-        ログイン
-      </div>
-      </nuxt-link>
-    </div>
-
-    <div class="page1">
-      <img src="~/assets/image/part1.png" class="part1" />
-
-      <div class="phrase1">
-        PHRASE1
-      </div>
-      <div class="phrase2">
-        PHRASE2
+        </nuxt-link>
       </div>
 
-      <div class="clause1">
-        This is a clause.
-      </div>
+      <div class="page1">
+        <img src="~/assets/image/part1.png" class="part1" />
 
-      <img src="~/assets/image/leaf.png" class="leaf" />
-
-      <nuxt-link to="/home">
-        <div class="enterButton" @click.prevent="checkUser()">
-          はじめる
+        <div class="phrase1">
+          SHISHOW
         </div>
-      </nuxt-link>
+        <div class="phrase2">
+          師匠とゲームを上達させる
+        </div>
+
+        <div class="clause1">
+          自分より強いプレイヤーを見つけて<br>
+          切磋琢磨しよう<br>
+          ゲームの世界を広げよう
+        </div>
+
+        <img src="~/assets/image/leaf.png" class="leaf" />
+
+        <nuxt-link to="/home">
+          <div class="enterButton" @click.prevent="checkUser()">
+            はじめる
+          </div>
+        </nuxt-link>
+      </div>
+
+      <div class="page2">
+        <img src="~/assets/image/part2.png" class="part2" />
+
+        <div class="card1 card">
+          <div class="step">STEP1</div>
+          <img src="~/assets/image/step1only.png" class="cardPic" />
+          <div class="cardtext">自分の好きなゲームを登録</div>
+        </div>
+
+        <div class="card2 card">
+          <div class="step">STEP2</div>
+          <img src="~/assets/image/step2only.png" class="cardPic" />
+          <div class="cardtext">強いプレイヤーに弟子入り</div>
+        </div>
+
+        <div class="card3 card">
+          <div class="step">STEP3</div>
+          <img src="~/assets/image/step3only.png" class="cardPic3" />
+          <div class="cardtext">メッセージでやりとり</div>
+        </div>
+      </div>
+
+      <div class="page3">
+        <div class="aboutus">
+          About us
+        </div>
+        <img src="~/assets/image/part3.png" class="part3"/>
+      </div>
     </div>
 
-    <div class="page2">
-      <img src="~/assets/image/part2.png" class="part2" />
-
-      <div class="card1 card">
-        <div class="step">STEP1</div>
-        <img src="~/assets/image/step1only.png" class="cardPic" />
+    <div id="prehome_mobile">
+      <div class="topBar">
+        <div class="signin">ログイン</div>
       </div>
 
-      <div class="card2 card">
-        <div class="step">STEP2</div>
-        <img src="~/assets/image/step2only.png" class="cardPic" />
+      <div class="page1">
+        <img src="~/assets/image/mini1.png" class="mini1" />
+        <img src="~assets/image/mini2.png" class="mini2" />
+
+        <div class="passageBlock1">
+          SHISHOW
+        </div>
+        <div class="passageBlock2">
+          師匠とゲームを上達させる
+        </div>
+        <div class="passageBlock3">
+          自分より強いプレイヤーを見つけて<br>
+          切磋琢磨しよう<br>
+          ゲームの世界を広げよう
+        </div>
       </div>
 
-      <div class="card3 card">
-        <div class="step">STEP3</div>
-        <img src="~/assets/image/step3only.png" class="cardPic3" />
-      </div>
-    </div>
+      <div class="page2">
+        <img src="~/assets/image/mini3.png" class="mini3" />
+        <div class="how2use">
+          はじめかた
+        </div>
+        <div class="card">
+          <div class="section1">
+            <img src="~/assets/image/step1only.png" class="pic" />
+            <div class="clause">
+              <div class="bold">STEP1.</div><br>
+              自分の好きなゲームを登録<br>
+            </div>
+            <div class="goright" @click="go2()"></div>
+          </div>
 
-    <div class="page3">
-      <div class="aboutus">
-        About us
+          <div class="section2">
+            <div class="goleft" @click="go1()"></div>
+            <img src="~/assets/image/step2only.png" class="pic" />
+            <div class="clause">
+              <div class="bold">STEP2.</div><br>
+              強いプレイヤーに弟子入り<br>
+            </div>
+            <div class="goright" @click="go3()"></div>
+          </div>
+
+          <div class="section3">
+            <div class="goleft" @click="go2()"></div>
+            <img src="~/assets/image/step3only.png" class="pic" />
+            <div class="clause">
+              <div class="bold">STEP3.</div><br>
+              メッセージでやりとり<br>
+            </div>
+          </div>
+        </div>
       </div>
-      <img src="~/assets/image/part3.png" class="part3"/>
+
+      <div class="page3">
+        <img src="~/assets/image/mini4.png" class="mini4" />
+        <div class="aboutus">
+          About us
+        </div>
+        <div class="card"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -73,6 +147,7 @@ import "firebase/firestore";
 import "@firebase/auth";
 
 let topBar;
+let section1, section2, section3;
 
 export default {
 
@@ -118,6 +193,24 @@ export default {
     handleScroll: function() {
       console.log('handle')
       this.scrollY = window.scrollY;
+    },
+
+    go1: function() {
+      section1[0].style.left = '0';
+      section2[0].style.left = '100%';
+      section3[0].style.left = '200%';
+    },
+
+    go2: function() {
+      section1[0].style.left = '-100%';
+      section2[0].style.left = '0';
+      section3[0].style.left = '100%';
+    },
+
+    go3: function() {
+      section1[0].style.left = '-200%';
+      section2[0].style.left = '-100%';
+      section3[0].style.left = '0';
     }
   },
 
@@ -129,6 +222,11 @@ export default {
   mounted: function() {
     window.addEventListener('scroll', this.handleScroll);
     topBar = document.getElementsByClassName('topBar');
+
+    //レスポンシブの場合
+    section1 = document.getElementsByClassName('section1');
+    section2 = document.getElementsByClassName('section2');
+    section3 = document.getElementsByClassName('section3');
   },
 
   asyncData({req,store}){
@@ -140,9 +238,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 #prehome {
   background-color: #fafafa;
+
+  @media screen and (max-width: 1300px) {
+    display: none;
+  }
 
   .topBar {
     position: absolute;
@@ -318,6 +419,23 @@ export default {
       width: 50%;
     }
 
+    .cardtext {
+      position: absolute;
+
+      left: 50%;
+      top: 80%;
+
+      height: 30%;
+      width: 94%;
+
+      transform: translate(-50%, 0);
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+
+      text-align: center;
+      font-size: 18px;
+    }
+
     .card1 {
       position: absolute;
 
@@ -339,16 +457,16 @@ export default {
       top: 189vh;
 
       .cardPic3 {
-      position: absolute;
+        position: absolute;
 
-      bottom: 29%;
-      right: 42%;
+        bottom: 29%;
+        right: 42%;
 
-      transform: translate(50%, 0);
-      -webkit-transform: translate(50%, 0);
-      -ms-transform: translate(50%, 0);
+        transform: translate(50%, 0);
+        -webkit-transform: translate(50%, 0);
+        -ms-transform: translate(50%, 0);
 
-      width: 70%;
+        width: 70%;
       }
     }
   }
@@ -371,5 +489,330 @@ export default {
       width: 100%;
     }
   }
+}
+
+#prehome_mobile {
+  background: #fafafa;
+
+  overflow-y: scroll;
+
+  @media screen and (min-width: 1300px) {
+    display: none;
+  }
+
+  .topBar {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 100vw;
+    height: 60px;
+
+    background: #fff;
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+
+    z-index: 2;
+
+    .signin {
+      position: absolute;
+
+      right: 0%;
+      top: 0;
+
+      width: 140px;
+      height: 60px;
+
+      text-align: center;
+      line-height: 60px;
+
+      font-size: 20px;
+    }
+  }
+
+  .page1 {
+      position: absolute;
+
+      width: 100vw;
+      height: 100vh;
+
+      .mini1 {
+        position: absolute;
+
+        right: 0;
+        top: 0;
+
+        width: 30vw;
+
+        z-index: -1;
+      }
+
+      .mini2 {
+        position: absolute;
+
+        left: 0;
+        top: 50vh;
+
+        width: 40vw;
+
+        z-index: -1;
+      }
+
+      .passageBlock1 {
+        position: absolute;
+
+        top: 110px;
+        left: 5vw;
+
+        width: 80vw;
+        height: 10vh;
+
+        font-size: 45px;
+      }
+
+      .passageBlock2 {
+        position: absolute;
+
+        top: 180px;
+        left: 6vw;
+
+        width: 80vw;
+        height: 30vh;
+
+        font-size: 46px;
+      }
+
+      .passageBlock3 {
+        position: absolute;
+
+        top: 260px;
+        left: 6vw;
+
+        width: 80vw;
+        height: 20vh;
+
+        font-size: 25px;
+
+        color: #757575;
+      }
+  }
+
+  .page2 {
+    width: 100vw;
+
+    .mini3 {
+      position: absolute;
+
+      right: 0;
+      top: 170vh;
+
+      width: 40vh;
+    }
+
+    .how2use {
+      position: absolute;
+
+      top: 80vh;
+      left: 50vw;
+
+      transform: translate(-50%, 0);
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+
+      text-align: center;
+      font-size: 45px;
+    }
+  }
+
+  .page3 {
+    .mini4 {
+      position: absolute;
+
+      top: 300vh;
+      left: 0;
+
+      width: 100vw;
+    }
+
+    .aboutus {
+      position: absolute;
+
+      top: 210vh;
+      left: 50%;
+
+      transform: translate(-50%, 0);
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+
+      text-align: center;
+      font-size: 45px;
+    }
+
+    .card {
+      position: absolute;
+
+      top: 225vh;
+      left: 50%;
+
+      transform: translate(-50%, 0);
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+    }
+  }
+
+  .card {
+      position: absolute;
+
+      top: 95vh;
+      left: 50%;
+
+      transform: translate(-50%, 0);
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+
+      height: 400px;
+      width: 60vw;
+
+      background: #fff;
+
+      border-radius: 15px;
+
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+
+      overflow-x: hidden;
+      overflow-y: hidden;
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .goleft {
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 50%;
+        height: 100%;
+
+        cursor: pointer;
+
+        z-index: 2;
+      }
+
+      .goright {
+        position: absolute;
+
+        right: 0;
+        top: 0;
+
+        width: 50%;
+        height: 100%;
+
+        cursor: pointer;
+
+        z-index: 2;
+      }
+
+      .section1 {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        height: 100%;
+        width: 100%;
+
+        transition: .3s;
+
+        .pic {
+          position: absolute;
+
+          top: 24%;
+          left: 7vw;
+
+          width: 200px;
+        }
+
+        .clause {
+          position: absolute;
+
+          left: 30vw;
+          top: 25%;
+
+          width: 45%;
+          height: 365px;
+
+          font-size: 20px;
+        }
+      }
+
+      .section2 {
+        position: absolute;
+
+        top: 0;
+        left: 100%;
+
+        width: 100%;
+        height: 100%;
+
+        transition: .3s;
+
+        .pic {
+          position: absolute;
+
+          top: 24%;
+          left: 7vw;
+
+          width: 200px;
+        }
+
+        .clause {
+          position: absolute;
+
+          left: 30vw;
+          top: 25%;
+
+          width: 45%;
+          height: 365px;
+
+          font-size: 20px;
+        }
+      }
+
+      .section3 {
+        position: absolute;
+
+        left: 200%;
+        top: 0;
+
+        width: 100%;
+        height: 100%;
+
+        transition: .3s;
+
+        .pic {
+          position: absolute;
+
+          top: 24%;
+          left: 7vw;
+
+          width: 200px;
+        }
+
+        .clause {
+          position: absolute;
+
+          left: 30vw;
+          top: 25%;
+
+          width: 45%;
+          height: 365px;
+
+          font-size: 20px;
+        }
+      }
+    }
 }
 </style>
