@@ -138,6 +138,7 @@ export default {
             .get()
             .then(doc1 => {
               this.usernameFromLeftArea = doc1.data().gamename;
+              this.$refs.rightArea.username = this.usernameFromLeftArea;
             })
 
         } else {
@@ -154,6 +155,7 @@ export default {
                 .get()
                 .then(doc2 => {
                   this.usernameFromLeftArea = doc2.data().username;
+                  this.$refs.rightArea.username = this.usernameFromLeftArea;
                 })
             })
 
@@ -215,7 +217,11 @@ export default {
     slideRightArea: function() {
       console.log('slideRightArea');
       this.$refs.rightArea.spawnItself();
-      inputBar[0].style.left = "30%";
+      inputBar[0].style.left = "10%";
+    },
+
+    back: function() {
+      inputBar[0].style.left = "100vw";
     }
   },
 

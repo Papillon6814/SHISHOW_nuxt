@@ -4,6 +4,7 @@
     <div class="chatnavi">
       <font-awesome-icon icon="angle-left"
       class="backarrow" @click="back" />
+      <div class="username">{{username}}</div>
     </div>
     <!-- {{ friendDocID }} -->
       <div class="chatSpace">
@@ -55,7 +56,8 @@ export default {
     return {
       msgList: [],
       userInfoList: [],
-      iconList: []
+      iconList: [],
+      username: ''
     }
   },
 
@@ -95,6 +97,7 @@ export default {
       rightArea[0].style.left = "100vw";
       chatnavi[0].style.left = "100vw";
       chatbar[0].style.left = "100vw";
+      this.$parent.back();
     },
   },
 
@@ -404,6 +407,23 @@ export default {
     color: #fff;
 
     cursor: pointer;
+  }
+
+  .username {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+
+    width: 70%;
+    height: 100%;
+
+    text-align: center;
+    color: #fff;
+    font-size: 60px;
   }
 }
 

@@ -48,6 +48,18 @@
   </div>
 
   <div id="footer">
+    <nuxt-link to="/directMessage">
+      <font-awesome-icon icon="envelope" class="dm" />
+    </nuxt-link>
+    <nuxt-link to="/friend">
+      <font-awesome-icon icon="gamepad" class="game" />
+    </nuxt-link>
+    <nuxt-link to="/notification">
+      <font-awesome-icon icon="bell" class="bell" />
+    </nuxt-link>
+    <nuxt-link to="/home">
+      <font-awesome-icon icon="home" class="home" />
+    </nuxt-link>
   </div>
   <div class="pinkButton" @click="click()">
     <font-awesome-icon icon="sort-up" />
