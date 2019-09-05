@@ -114,7 +114,6 @@ export default {
     }
   },
 
-
   components: {
     leftArea,
     rightArea,
@@ -295,11 +294,19 @@ export default {
   position: absolute;
 
   width: 100%;
-  height: calc(100% - 100px);
+
+  @media screen and (min-width: 1300px) {
+    height: calc(100% - 100px);
+  }
+
+  @media screen and (max-width: 1300px) {
+    height: calc(100% - 80px);
+  }
 
   top: 100px;
 
   overflow-y: hidden;
+  overflow-x: hidden;
 
   // rightAreaの上の方に表示
   .nameTagArea {
@@ -315,6 +322,10 @@ export default {
                 rgba(255,255,255,0.1), #fff, #fff);
 
     z-index: 3;
+
+    @media screen and (max-width: 1300px) {
+      display: none;
+    }
 
     .nameTag {
       position: absolute;
@@ -347,13 +358,23 @@ export default {
 
   // 下部に表示する
   .inputArea {
-    position: fixed;
 
     width: 60%;
     height: 50px;
 
-    right: 0;
-    bottom: 45px;
+    @media screen and (min-width: 1300px) {
+      position: fixed;
+
+      right: 0;
+      bottom: 45px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      position: absolute;
+
+      left: 100vw;
+      bottom: 45px;
+    }
 
     z-index: 3;
   }

@@ -229,6 +229,11 @@ export default {
       $nuxt.$router.push("/home");
     },
 
+    scroll2top: function() {
+      let scrollArea = document.getElementById('moving');
+      scrollArea.scrollTo(0, 0);
+    },
+
     cropImage: function() {
       console.log('cropImage');
       this.$refs.EBanner.croppedimg = this.$refs.cropper.getCroppedCanvas().toDataURL();
