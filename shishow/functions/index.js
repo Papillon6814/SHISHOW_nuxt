@@ -67,18 +67,17 @@ app.get('/homeData', (request, response) => {
         response.send("response failed");
     })
 })
-
+/*
 app.get('/chatData/isGame', (request, response) => {
 
     let friendDocID = request.query.friendDocID;
 
-    /*
     db.collection("GameCollection")
         .doc(friendDocID)
         .collection("GlobalChat")
         .orderBy('date')
-    */
 })
+*/
 
 const api = functions.https.onRequest(app);
 module.exports = { api };
