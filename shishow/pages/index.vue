@@ -74,7 +74,9 @@
 
     <div id="prehome_mobile">
       <div class="topBar">
-        <div class="signin">ログイン</div>
+        <nuxt-link to="/signin">
+          <div class="signin">ログイン</div>
+        </nuxt-link>
       </div>
 
       <div class="page1">
