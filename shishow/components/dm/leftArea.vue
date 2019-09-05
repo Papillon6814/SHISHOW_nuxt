@@ -14,7 +14,7 @@
     <div class="privateDM">
       <div class="dmbannerPosition">
         <div v-for="(friend, N) in friendsDocID"
-          :key="N" v-bind:class="'b' + N">
+          :key="N">
           <div @click="click_f(friend, N)">
             <dmBanner
               :dmBannerUsername="usernames[N]"
@@ -30,7 +30,7 @@
     <div class="globalDM">
       <div class="dmBannerPosition">
         <div v-for="(game, N) in games"
-          :key="N" v-bind:class="'enumGameBanner'+N">
+          :key="N">
           <div @click="click_g(game, N)">
             <dmGameBanner
               :gameDocId="game">
@@ -327,31 +327,12 @@ export default {
       .dmbannerPosition{
         position: absolute;
 
-        $i: 1;
-
         top: 70px;
         left: 6%;
 
         width: 100%;
 
         float:left;
-
-        @while $i <= 30{
-          .b#{$i}{
-            position: absolute;
-
-            top: 140px * $i;
-
-            width: 100%;
-
-          }
-          $i: $i + 1;
-        }
-
-        /*.notion{
-          border:1px solid #000;
-        }*/
-
       }
 
     }

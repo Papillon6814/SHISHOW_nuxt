@@ -297,13 +297,13 @@ export default {
 
   @media screen and (min-width: 1300px) {
     height: calc(100% - 100px);
+    top: 100px;
   }
 
   @media screen and (max-width: 1300px) {
     height: calc(100% - 80px);
+    top: 80px;
   }
-
-  top: 100px;
 
   overflow-y: hidden;
   overflow-x: hidden;
