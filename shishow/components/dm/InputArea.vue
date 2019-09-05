@@ -1,7 +1,7 @@
 <template>
   <div id="inputBar">
     <input v-model="msg" type="text" class="inputText" @keydown.enter="sendMsg" />
-    <div class="checkEmojiPlace">
+    <div class="checkEmojiPlace" @click="sendMsg()">
       <font-awesome-icon icon="check" />
     </div>
   </div>
