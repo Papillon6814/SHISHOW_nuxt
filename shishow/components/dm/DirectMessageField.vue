@@ -30,6 +30,7 @@
       :friendsDocID="leftAreaData"
       @showPopup="popup">
       </leftArea>
+
       <div class="nameTagArea">
         <div class="nameTag">
           {{ usernameFromLeftArea }}
@@ -37,11 +38,13 @@
         <div class="nameBorder">
         </div>
       </div>
+
       <rightArea
       ref="rightArea"
       :friendDocID="idFromLeftArea"
       :isGame="isGame">
       </rightArea>
+
       <div class="inputArea">
         <inputArea
         @scrollRightArea="callScroll()"
@@ -49,6 +52,7 @@
         :isGame="isGame">
         </inputArea>
       </div>
+
     </div>
 
     <div class="entireBox">
@@ -94,7 +98,7 @@ let db = firebase.firestore();
 let currentUser;
 let friendsDocID = [];
 
-let entireBox, modal, userModal;
+let entireBox, modal, userModal, inputBar;
 
 export default {
 
@@ -206,6 +210,12 @@ export default {
 
     fadeOut: function() {
       entireBox[0].style.display = "none";
+    },
+
+    slideRightArea: function() {
+      console.log('slideRightArea');
+      this.$refs.rightArea.spawnItself();
+      inputBar[0].style.left = "30%";
     }
   },
 
@@ -232,6 +242,7 @@ export default {
     modal = document.getElementById("modal");
 
     userModal = document.getElementsByClassName("userModal");
+    inputBar = document.getElementsByClassName("inputArea");
   }
 }
 
@@ -370,13 +381,15 @@ export default {
     }
 
     @media screen and (max-width: 1300px) {
-      position: absolute;
+      position: fixed;
 
       left: 100vw;
-      bottom: 45px;
-    }
+      bottom: 20px;
 
-    z-index: 3;
+      z-index: 9999;
+
+      transition: .3s;
+    }
   }
 }
 

@@ -149,38 +149,34 @@ export default {
 
     click_f: function(friend, N) {
       if(process.browser) {
-        if(window.parent.screen.width > 1300) {
-          this.$parent.idFromLeftArea = friend;
-
-          let dmBan = document.getElementsByClassName("dmCover")[this.id]
-          dmBan.style.background = "rgba(255, 0, 0, 0)"
-          this.id = N;
-          dmBan = document.getElementsByClassName("dmCover")[N]
-          dmBan.style.background = "rgba(255, 0, 0, 0.5)"
-          this.$parent.isGame = false;
+        if(window.innerWidth < 1300) {
+          this.$parent.slideRightArea();
         }
-        else {
+        this.$parent.idFromLeftArea = friend;
 
-        }
+        let dmBan = document.getElementsByClassName("dmCover")[this.id]
+        dmBan.style.background = "rgba(255, 0, 0, 0)"
+        this.id = N;
+        dmBan = document.getElementsByClassName("dmCover")[N]
+        dmBan.style.background = "rgba(255, 0, 0, 0.5)"
+        this.$parent.isGame = false;
       }
     },
 
     click_g: function(game, N) {
       if(process.browser) {
-        if(window.parent.screen.width) {
-          this.$parent.idFromLeftArea = game;
-
-          let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
-          dmgameBan.style.background = "rgba(255, 0, 0, 0)"
-          this.id = N;
-          dmgameBan = document.getElementsByClassName("gameCover")[N]
-          dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
-
-          this.$parent.isGame = true;
+        if(window.innerWidth < 1300) {
+          this.$parent.slideRightArea();
         }
-        else {
+        this.$parent.idFromLeftArea = game;
 
-        }
+        let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
+        dmgameBan.style.background = "rgba(255, 0, 0, 0)"
+        this.id = N;
+        dmgameBan = document.getElementsByClassName("gameCover")[N]
+        dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
+
+        this.$parent.isGame = true;
       }
     },
 
@@ -205,7 +201,7 @@ export default {
       privateTab[0].style.background = "#fff";
       globalTab[0].style.background = "#b2ebf2"
 
-      if(this.friendsDocID.length != 0){
+      if(this.friendsDocID.length != 0) {
         let gameBan = document.getElementsByClassName("dmCover")[this.id];
         gameBan.style.background = "rgba(255, 0, 0, 0)";
       }
@@ -247,7 +243,7 @@ export default {
     privateTab = document.getElementsByClassName("private");
     globalTab = document.getElementsByClassName("global");
 
-    leftArea = document.getElementById('leftArea')
+    leftArea = document.getElementById('leftArea');
   }
 }
 
