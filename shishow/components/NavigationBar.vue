@@ -378,6 +378,70 @@ export default {
   background-color: $header_color;
 
   z-index: 1000;
+
+  .home {
+    position: absolute;
+
+    top: -15px;
+
+    right: 12.5vw;
+    height: 25vw;
+    width: 10vw;
+
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+
+    color: #fff;
+  }
+
+  .bell {
+    position: absolute;
+
+    top: -15px;
+
+    right: 37.5vw;
+    height: 25vw;
+    width: 10vw;
+
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+
+    color: #fff;
+  }
+
+  .game {
+    position: absolute;
+
+    top: -15px;
+
+    left: 37.5vw;
+    height: 25vw;
+    width: 10vw;
+
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+
+    color: #fff;
+  }
+
+  .dm {
+    position: absolute;
+
+    top: -15px;
+
+    left: 12.5vw;
+    height: 25vw;
+    width: 10vw;
+
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+
+    color: #fff;
+  }
 }
 
 @media screen and (max-width: 1300px) {
@@ -391,9 +455,6 @@ export default {
     height: 15vw;
 
     line-height: 0px;
-
-    
-
     border-radius: 50%;
 
     background-color: $accent_color;
@@ -401,18 +462,17 @@ export default {
     z-index: 1001;
 
     cursor: pointer;
-    
+
     box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
-    
+
     .fontPosition{
       margin-top:4.5vw;
       text-align: center;
       font-size: 10vw;
       color: #fff;
     }
-    
+
   }
-  
 }
 
 </style>
