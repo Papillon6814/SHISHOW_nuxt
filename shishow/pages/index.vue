@@ -497,6 +497,7 @@ export default {
   background: #fafafa;
 
   overflow-y: scroll;
+  overflow-x: hidden;
 
   @media screen and (min-width: 1300px) {
     display: none;
@@ -545,7 +546,7 @@ export default {
         right: 0;
         top: 0;
 
-        width: 30vh;
+        width: 40vh;
 
         z-index: -1;
       }
@@ -556,7 +557,7 @@ export default {
         left: 0;
         top: 50vh;
 
-        width: 40vh;
+        width: 50vh;
 
         z-index: -1;
       }
@@ -615,7 +616,7 @@ export default {
     .how2use {
       position: absolute;
 
-      top: 80vh;
+      top: 70vh;
       left: 50vw;
 
       transform: translate(-50%, 0);
@@ -666,7 +667,7 @@ export default {
   .card {
       position: absolute;
 
-      top: 95vh;
+      top: 85vh;
       left: 50%;
 
       transform: translate(-50%, 0);
