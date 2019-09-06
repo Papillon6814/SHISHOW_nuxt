@@ -48,6 +48,18 @@
   </div>
 
   <div id="footer">
+    <nuxt-link to="/directMessage">
+      <font-awesome-icon icon="envelope" class="dm" />
+    </nuxt-link>
+    <nuxt-link to="/friend">
+      <font-awesome-icon icon="gamepad" class="game" />
+    </nuxt-link>
+    <nuxt-link to="/notification">
+      <font-awesome-icon icon="bell" class="bell" />
+    </nuxt-link>
+    <nuxt-link to="/home">
+      <font-awesome-icon icon="home" class="home" />
+    </nuxt-link>
   </div>
   <div class="pinkButton" @click="click()">
     <div class="fontPosition">
@@ -115,6 +127,10 @@ export default {
   top: $header_height;
   left: 0;
   width: 100%;
+  z-index: 10;
+
+  -webkit-transform: translate3d(0, 0, 1px);
+	transform: translate3d(0, 0, 1px);
 
   @media screen and (max-width: 1300px) {
     height: 8.5vh;
@@ -126,7 +142,6 @@ export default {
 
   background-color: $header_color;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-  z-index: 10;
 
   .centered {
 

@@ -1,8 +1,14 @@
 <template>
   <div class="rightArea">
     <div class="nameSpace"></div>
+    <div class="chatnavi">
+      <font-awesome-icon icon="angle-left"
+      class="backarrow" @click="back" />
+      <div class="username">{{username}}</div>
+    </div>
     <!-- {{ friendDocID }} -->
       <div class="chatSpace">
+        <div class="chatheadspace"></div>
         <div v-for="N in msgList.length" v-bind:key="N">
 
           <div v-show="isMine(msgList[N-1])" class="myChatBalloonPosition">
@@ -26,6 +32,7 @@
         </div>
       </div>
     <div class="scrollSpace"></div>
+    <div class="chatbar"></div>
   </div>
 </template>
 
@@ -39,6 +46,7 @@ let currentUserEmail;
 let chatID;
 
 let chatSpace;
+let rightArea, chatnavi, chatbar;
 
 export default {
 
@@ -48,7 +56,8 @@ export default {
     return {
       msgList: [],
       userInfoList: [],
-      iconList: []
+      iconList: [],
+      username: ''
     }
   },
 
@@ -75,7 +84,22 @@ export default {
       console.log('scroll')
       let scrollArea = document.getElementsByClassName('rightArea');
       scrollArea[0].scrollTo(0, 300000000);
-    }
+    },
+
+    spawnItself: function() {
+      console.log('spawnitself')
+      rightArea[0].style.left = "0";
+      chatnavi[0].style.left = "0";
+      chatbar[0].style.left = "0";
+      this.$forceUpdate();
+    },
+
+    back: function() {
+      rightArea[0].style.left = "100vw";
+      chatnavi[0].style.left = "100vw";
+      chatbar[0].style.left = "100vw";
+      this.$parent.back();
+    },
   },
 
   watch:{
@@ -87,64 +111,65 @@ export default {
       chatSpace[0].style.display = "none";
       currentUserEmail = firebase.auth().currentUser.email;
 
-      if(this.isGame) {
+        if(this.isGame) {
 
-        db.collection("GameCollection")
-          .doc(newval)
-          .collection("GlobalChat")
-          .orderBy('date')
-          .onSnapshot(querySnapshot => {
-            this.msgList = [];
+          db.collection("GameCollection")
+            .doc(newval)
+            .collection("GlobalChat")
+            .orderBy('date')
+            .onSnapshot(querySnapshot => {
+              this.msgList = [];
 
-            querySnapshot.forEach(doc1 => {
-              this.msgList.push(doc1.data());
-              db.collection("USER")
-                .doc(doc1.data().sender)
-                .get()
-                .then(doc2 => {
-                  this.userInfoList.push(doc2.data());
-                  this.iconList.push(doc2.data().image)
+              querySnapshot.forEach(doc1 => {
+                this.msgList.push(doc1.data());
+                db.collection("USER")
+                  .doc(doc1.data().sender)
+                  .get()
+                  .then(doc2 => {
+                    this.userInfoList.push(doc2.data());
+                    this.iconList.push(doc2.data().image)
+                  })
+              })
+            })
+
+        } else {
+
+          db.collection("USER")
+            .doc(currentUserEmail)
+            .collection('friends')
+            .doc(newval)
+            .get()
+            .then(doc1 => {
+              chatID = doc1.data()['chatID'];
+
+              db.collection("PrivateChat")
+                .doc(chatID)
+                .collection("contents")
+                .orderBy('date')
+                .onSnapshot(querySnapshot => {
+                  this.msgList = [];
+
+                  querySnapshot.forEach(doc2 => {
+                    this.msgList.push(doc2.data());
+
+                    db.collection("USER")
+                      .doc(doc2.data().sender)
+                      .get()
+                      .then(doc3 => {
+                        this.userInfoList.push(doc3.data());
+                        this.iconList.push(doc3.data().image)
+                      })
+                  })
                 })
             })
-          })
-
-      } else {
-
-        db.collection("USER")
-          .doc(currentUserEmail)
-          .collection('friends')
-          .doc(newval)
-          .get()
-          .then(doc1 => {
-            chatID = doc1.data()['chatID'];
-
-            db.collection("PrivateChat")
-              .doc(chatID)
-              .collection("contents")
-              .orderBy('date')
-              .onSnapshot(querySnapshot => {
-                this.msgList = [];
-
-                querySnapshot.forEach(doc2 => {
-                  this.msgList.push(doc2.data());
-
-                  db.collection("USER")
-                    .doc(doc2.data().sender)
-                    .get()
-                    .then(doc3 => {
-                      this.userInfoList.push(doc3.data());
-                      this.iconList.push(doc3.data().image)
-                    })
-                })
-              })
-          })
+        }
       }
-    }}
+    }
   },
 
   created: function() {
     let currentUser = firebase.auth().currentUser;
-    if(currentUser == null){
+    if(currentUser == null) {
       currentUser = this.$store.getters["user/user"]
     }
 
@@ -153,6 +178,9 @@ export default {
 
   mounted: function() {
     chatSpace = document.getElementsByClassName("chatSpace");
+    rightArea = document.getElementsByClassName('rightArea');
+    chatnavi = document.getElementsByClassName('chatnavi');
+    chatbar = document.getElementsByClassName('chatbar');
   },
 
   updated: function() {
@@ -172,15 +200,22 @@ export default {
   @media screen and (min-width: 1300px) {
     top: 0;
     right: 0;
+    width: 60%;
+    height: 100%;
   }
 
   @media screen and (max-width: 1300px) {
-    top: 0;
+    top: 0px;
     left: 100vw;
-  }
+    width: 100%;
+    height: 100vh;
 
-  width: 60%;
-  height: 100%;
+    border-left-color: #757575;
+    border-left-style: solid;
+    border-left-width: 1px;
+
+    z-index: 9999;
+  }
 
   background-color: #fff;
 
@@ -188,6 +223,8 @@ export default {
   overflow-x: hidden;
 
   vertical-align: bottom;
+
+  transition: .3s;
 }
 
 .chatSpace {
@@ -313,7 +350,13 @@ export default {
 .scrollSpace {
   position: relative;
 
-  height: 120px;
+  @media screen and (min-width: 1300px) {
+    height: 120px;
+  }
+
+  @media screen and (max-width: 1300px) {
+    height: 180px;
+  }
   width: 100%;
 }
 
@@ -322,6 +365,102 @@ export default {
 
   height: 160px;
   width: 100%;
+
+  @media screen and (max-width: 1300px) {
+    display: none;
+  }
+}
+
+.chatnavi {
+  position: fixed;
+
+  left: 100vw;
+  top: 0;
+
+  width: 100vw;
+  height: 80px;
+
+  border-left-color: #757575;
+  border-left-style: solid;
+  border-left-width: 1px;
+
+  z-index: 19999;
+
+  -webkit-transform: translate3d(0, 0, 10px);
+	transform: translate3d(0, 0, 10px);
+
+  transition: .3s;
+
+  background: $header-color;
+
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 1300px) {
+    display: none;
+  }
+
+  .backarrow {
+    position: absolute;
+
+    left: 5px;
+    top: 10px;
+
+    width: 70px;
+    height: 60px;
+
+    color: #fff;
+
+    cursor: pointer;
+  }
+
+  .username {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+
+    width: 70%;
+    height: 100%;
+
+    text-align: center;
+    color: #fff;
+    font-size: 60px;
+  }
+}
+
+.chatbar {
+  position: fixed;
+
+  left: 100vw;
+  bottom: 0px;
+
+  width: 100vw;
+  height: 80px;
+
+  border-left-color: #757575;
+  border-left-style: solid;
+  border-left-width: 1px;
+
+  transition: .3s;
+
+  @media screen and (min-width: 1300px) {
+    display: none;
+  }
+
+  background-color: $header-color;
+}
+
+.chatheadspace {
+  @media screen and (min-width: 1300px) {
+    display: none;
+  }
+
+  position: relative;
+  width: 100%;
+  height: 20px;
 }
 
 </style>

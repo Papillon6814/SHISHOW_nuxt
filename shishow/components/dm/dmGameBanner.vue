@@ -53,7 +53,7 @@ export default {
   width: 100%;
   height: 120px;
 
-  margin-bottom: 20px;
+  margin-top: 20px;
 
   background-color: $dm_banner_color;
   text-align: left;

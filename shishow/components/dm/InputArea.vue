@@ -1,7 +1,7 @@
 <template>
   <div id="inputBar">
     <input v-model="msg" type="text" class="inputText" @keydown.enter="sendMsg" />
-    <div class="checkEmojiPlace">
+    <div class="checkEmojiPlace" @click="sendMsg()">
       <font-awesome-icon icon="check" />
     </div>
   </div>
@@ -130,19 +130,34 @@ export default {
   .inputText {
     position: absolute;
 
-    left: 6%;
     top: 7px;
 
-    width: calc(84% - 40px);
     height: 50px;
 
     font-size: 30px;
+
+    @media screen and (min-width: 1300px) {
+      width: calc(84% - 40px);
+      left: 6%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      width: 100%;
+      left: 0;
+    }
   }
 
   .checkEmojiPlace {
     position: absolute;
 
-    right: 5%;
+    @media screen and (min-width: 1300px) {
+      right: 5%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      right: -15%;
+    }
+
     top: 3px;
 
     font-size: 50px;

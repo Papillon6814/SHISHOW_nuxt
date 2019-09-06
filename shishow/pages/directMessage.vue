@@ -23,6 +23,12 @@ export default {
     dmField
   },
 
+  methods: {
+    scroll2top: function() {
+      //do nothing
+    },
+  },
+
   fetch({store,redirect}){
     if(store.state.init && store.state.user.user.email == null){
       redirect("/")
