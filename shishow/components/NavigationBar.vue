@@ -243,7 +243,12 @@ export default {
     @media screen and (max-width: 1300px) {
       width: 70px;
       height: 70px;
-      top: 5px;
+      top: 50%;
+
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+
       right: 20px;
     }
 

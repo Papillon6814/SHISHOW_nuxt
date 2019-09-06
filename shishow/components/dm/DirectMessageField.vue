@@ -318,8 +318,8 @@ export default {
   }
 
   @media screen and (max-width: 1300px) {
-    height: calc(100% - 80px);
-    top: 80px;
+    height: calc(100% - 8.5vh);
+    top: 8.5vh;
   }
 
   overflow-y: hidden;
