@@ -178,6 +178,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
+        font-size: 4.1vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -212,6 +213,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
+        font-size: 4.1vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -231,6 +233,7 @@ export default {
       width: 40%;
 
       padding: 0.5em 1em;
+      font-size: 2vh;
 
       border-radius: 15px;
     }
@@ -289,8 +292,7 @@ export default {
       background: $secondary_text;
 
       padding: 0.5em 1em;
-
-      font-size: 5%;
+      font-size: 2vh;
 
       border-radius: 15px;
 
