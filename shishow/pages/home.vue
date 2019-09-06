@@ -51,6 +51,9 @@
             </div>
           </div>
         </transition>
+        
+        <div class="voidSpace">
+        </div>
 
         <div class="adPosition">
         </div>
@@ -495,7 +498,7 @@ body {
     position: fixed;
     top: 8.5vh;
     width: 100%;
-    height: 25vh;
+    height: 49vw;
   }
 
   @media screen and (min-width: 1300px) {
@@ -514,7 +517,7 @@ body {
   position: absolute;
 
   @media screen and (max-width: 1300px) {
-    top: 22.5vh;
+    top: 45vw;
     /*left: 7.5vw;*/
 
     width: 100%/*calc(100% - 7.5vw)*/;
@@ -550,7 +553,7 @@ body {
         position: absolute;
 
         @media screen and (max-width: 1300px){
-          top: (/*85vw*/42vh / 3.5) * $g;
+          top: (89vw / 3.5) * $g;
         }
 
         @media screen and (min-width: 1300px) {
@@ -572,16 +575,19 @@ body {
   $i: 0;
 
   .normalBannerPosition {
+    
     position: absolute;
+    
 
     @media screen and (max-width: 1300px) {
-      top: ((42vh / 3.5) * 6);
+      top: ((90vw / 3.5) * 6);
     }
 
     @media screen and (min-width: 1300px) {
       top: ((55vw / 4) * 6);
     }
     left: 1.5vw;
+    
 
     /*width: 100%;*/
     height: 100%;
@@ -596,7 +602,7 @@ body {
         /*width: 100%;*/
 
         @media screen and (max-width: 1300px) {
-          top: ((45vh / 4) * $i);
+          top: ((90vw / 4) * $i);
           /*height: calc(85vw / 4.5);*/
         }
 
@@ -756,7 +762,8 @@ footer {
     transform: translate(-50%, 0);
   }
 }
-
+  
+ 
 .selectModal {
   display: none;
 
