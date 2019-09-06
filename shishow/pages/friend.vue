@@ -228,6 +228,10 @@ export default {
 
   top: 100px;
 
+  @media screen and (max-width: 1300px) {
+    display: none;
+  }
+
   $i: 1;
   @while $i <= 30 {
     .n#{$i} {

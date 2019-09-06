@@ -217,11 +217,11 @@ export default {
     slideRightArea: function() {
       console.log('slideRightArea');
       this.$refs.rightArea.spawnItself();
-      inputBar[0].style.left = "10%";
+      inputBar[0].style.left = "50%";
     },
 
     back: function() {
-      inputBar[0].style.left = "100vw";
+      inputBar[0].style.left = "150vw";
     }
   },
 
@@ -389,7 +389,7 @@ export default {
     @media screen and (max-width: 1300px) {
       position: fixed;
 
-      left: 100vw;
+      left: 150vw;
       bottom: 20px;
 
       z-index: 9999;
