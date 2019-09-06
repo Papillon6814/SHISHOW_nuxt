@@ -177,6 +177,8 @@ export default {
 
       padding: 0.3em 1em;
       text-decoration: none;
+      font-size: 5vw;
+
       color: #abbffb;
       border: solid 2px #abbffb;
       border-radius: 3px;

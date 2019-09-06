@@ -387,11 +387,11 @@ export default {
   .home {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
     right: 12.5vw;
-    height: 25vw;
-    width: 10vw;
+    height: 7vh;
+    width: 5vh;
 
     transform: translateX(50%);
     -webkit-transform: translateX(50%);
@@ -403,11 +403,11 @@ export default {
   .bell {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
     right: 37.5vw;
-    height: 25vw;
-    width: 10vw;
+    height: 7vh;
+    width: 5vh;
 
     transform: translateX(50%);
     -webkit-transform: translateX(50%);
@@ -419,11 +419,11 @@ export default {
   .game {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
     left: 37.5vw;
-    height: 25vw;
-    width: 10vw;
+    height: 7vh;
+    width: 5vh;
 
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
@@ -435,11 +435,11 @@ export default {
   .dm {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
     left: 12.5vw;
-    height: 25vw;
-    width: 10vw;
+    height: 7vh;
+    width: 5vh;
 
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);

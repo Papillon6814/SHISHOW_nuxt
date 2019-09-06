@@ -20,7 +20,7 @@ import 'firebase/firestore'
 const db = firebase.firestore()
 
 export default {
-  
+
   name: 'notBanner',
   props:["user","notice"],
   data:function(){
@@ -74,13 +74,24 @@ export default {
     height: 90px;
 
     background-color: #ddd;
+
+    @media screen and (max-width: 1300px) {
+      display: none;
+    }
   }
 
   .name{
     position: absolute;
 
     top: 23px;
-    left: 120px;
+
+    @media screen and (min-width: 1300px) {
+      left: 120px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      left: 5%;
+    }
 
     font-size: 28px
   }

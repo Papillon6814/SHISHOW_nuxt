@@ -114,8 +114,14 @@ export default {
       tab3[0].style.color = "#757575";
       tab4[0].style.color = "#757575";
 
-      whiteLine[0].style.left = "16%";
-
+      if(process.browser) {
+        if(window.innerWidth < 1300) {
+          whiteLine[0].style.left = "25%";
+        }
+        else {
+          whiteLine[0].style.left = "16%";
+        }
+      }
       this.$forceUpdate();
     },
 
@@ -127,7 +133,14 @@ export default {
       tab3[0].style.color = "#212121";
       tab4[0].style.color = "#757575";
 
-      whiteLine[0].style.left = "32%";
+      if(process.browser) {
+        if(window.innerWidth < 1300) {
+          whiteLine[0].style.left = "50%";
+        }
+        else {
+          whiteLine[0].style.left = "32%";
+        }
+      }
 
       this.$forceUpdate();
     },
@@ -140,7 +153,14 @@ export default {
       tab3[0].style.color = "#757575";
       tab4[0].style.color = "#212121";
 
-      whiteLine[0].style.left = "48%";
+      if(process.browser) {
+        if(window.innerWidth < 1300) {
+          whiteLine[0].style.left = "75%";
+        }
+        else {
+          whiteLine[0].style.left = "48%";
+        }
+      }
 
       this.$forceUpdate();
     },
@@ -220,16 +240,23 @@ export default {
 
 
 <style lang="scss" scoped>
+body {
+  background: #fafafa;
+}
+
 .friend {
   position: absolute;
 
   width: 100%;
-  height: calc(100% - 200px);
 
-  top: 100px;
+  @media screen and (min-width: 1300px) {
+    height: calc(100% - 200px);
+    top: 100px;
+  }
 
   @media screen and (max-width: 1300px) {
-    display: none;
+    height: 80vh;
+    top: 9.5vh;
   }
 
   $i: 1;
@@ -258,7 +285,14 @@ export default {
 
     left: 0;
 
-    width: 16%;
+    @media screen and (min-width: 1300px) {
+      width: 16%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      width: 25%;
+    }
+
     height: 100%;
 
     font-size: 30px;
@@ -274,9 +308,16 @@ export default {
   .tab2 {
     position: absolute;
 
-    left: 16%;
+    @media screen and (min-width: 1300px) {
+      width: 16%;
+      left: 16%;
+    }
 
-    width: 16%;
+    @media screen and (max-width: 1300px) {
+      width: 25%;
+      left: 25%;
+    }
+
     height: 100%;
 
     font-size: 30px;
@@ -292,9 +333,16 @@ export default {
   .tab3 {
     position: absolute;
 
-    left: 32%;
+    @media screen and (min-width: 1300px) {
+      width: 16%;
+      left: 32%;
+    }
 
-    width: 16%;
+    @media screen and (max-width: 1300px) {
+      width: 25%;
+      left: 50%;
+    }
+
     height: 100%;
     float: left;
 
@@ -311,9 +359,16 @@ export default {
   .tab4 {
     position: absolute;
 
-    left: 48%;
+    @media screen and (min-width: 1300px) {
+      width: 16%;
+      left: 48%;
+    }
 
-    width: 16%;
+    @media screen and (max-width: 1300px) {
+      width: 25%;
+      left: 75%;
+    }
+
     height: 100%;
     float: left;
 
@@ -333,6 +388,10 @@ export default {
     right: 0;
     top: 0;
 
+    @media screen and (max-width: 1300px) {
+      display: none;
+    }
+
     width: 36%;
     height: 100%;
 
@@ -345,7 +404,14 @@ export default {
     bottom: 0;
     left: 0;
 
-    width: 16%;
+    @media screen and (min-width: 1300px) {
+      width: 16%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      width: 25%;
+    }
+
     height: 5px;
 
     background-color: #fff;

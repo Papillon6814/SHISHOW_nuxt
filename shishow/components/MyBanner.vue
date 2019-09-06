@@ -198,7 +198,14 @@ export default {
   .username {
     position: absolute;
 
-    top: 25vh;
+    @media screen and (min-width: 1300px) {
+      top: 25vh;
+    }
+
+    @media screen and (max-width: 1300px) {
+      bottom: 5%;
+    }
+
     left: 50%;
 
     -webkit-transform: translate(-50%, 0);
@@ -210,11 +217,6 @@ export default {
 
     font-size: 35px;
     text-align: center;
-
-    @media screen and (max-width: 1300px) {
-      top:17vh;
-    }
-
   }
 
   .shishowPosition {
