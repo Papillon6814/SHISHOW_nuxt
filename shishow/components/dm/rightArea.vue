@@ -91,6 +91,7 @@ export default {
       rightArea[0].style.left = "0";
       chatnavi[0].style.left = "0";
       chatbar[0].style.left = "0";
+      this.$forceUpdate();
     },
 
     back: function() {
@@ -383,7 +384,10 @@ export default {
   border-left-style: solid;
   border-left-width: 1px;
 
-  z-index: 9999;
+  z-index: 19999;
+
+  -webkit-transform: translate3d(0, 0, 10px);
+	transform: translate3d(0, 0, 10px);
 
   transition: .3s;
 

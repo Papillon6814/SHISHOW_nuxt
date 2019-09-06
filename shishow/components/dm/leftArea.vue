@@ -39,11 +39,9 @@
         </div>
       </div>
 
-      <div class="addGamePosition">
-      <div class="textPosition" @click="showPopup()">
-      New Game
+      <div class="addGamePosition" @click="showPopup()">
+        New Game
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -145,7 +143,6 @@ export default {
             })
       })
     },
-
 
     click_f: function(friend, N) {
       if(process.browser) {
@@ -366,32 +363,29 @@ export default {
       .addGamePosition {
         position: fixed;
 
-        bottom: 0;
+        color: $primary_text;
+
+        @media screen and (min-width: 1300px) {
+          bottom: 0px;
+          width: 40%;
+        }
+
+        @media screen and (max-width: 1300px) {
+          bottom: 80px;
+          width: 100%;
+        }
+
         left: 0;
 
         height: 60px;
-        width: 100%;
 
         background-color: $accent_color;
 
-        .textPosition {
-          position: absolute;
+        text-align: center;
 
-          width: 100%;
-          height: 100%;
-
-          top: 0;
-          left: 0;
-
-          font-size: 40px;
-          color: $primary_text;
-
-          background-color: $accent_color;
-
-          text-align: center;
-
-          cursor: pointer;
-        }
+        line-height: 60px;
+        font-size: 50px;
+        cursor: pointer;
       }
     }
   }

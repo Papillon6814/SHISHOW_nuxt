@@ -125,6 +125,10 @@ export default {
   top: $header_height;
   left: 0;
   width: 100%;
+  z-index: 10;
+
+  -webkit-transform: translate3d(0, 0, 1px);
+	transform: translate3d(0, 0, 1px);
 
   @media screen and (max-width: 1300px) {
     height: 80px;
@@ -136,7 +140,6 @@ export default {
 
   background-color: $header_color;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-  z-index: 10;
 
   .centered {
 
