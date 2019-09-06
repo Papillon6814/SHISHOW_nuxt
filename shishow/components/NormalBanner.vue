@@ -245,7 +245,7 @@ export default {
     position: absolute;
 
     width: 97vw;
-    height: calc(45vh / 4.5);
+    height: calc(97vw / 4.5);
 
     background-color: #fff;
 

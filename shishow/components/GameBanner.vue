@@ -106,7 +106,7 @@ export default {
 
     @media screen and (max-width: 1300px) {
       width: 97vw;
-      height: calc(/*85vw*/45vh / 4);
+      height: calc(/*85vw*/97vw / 4);
     }
 
     @media screen and (min-width: 1300px) {
