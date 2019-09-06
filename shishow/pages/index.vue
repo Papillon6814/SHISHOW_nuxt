@@ -545,7 +545,7 @@ export default {
         right: 0;
         top: 0;
 
-        width: 30vw;
+        width: 30vh;
 
         z-index: -1;
       }
@@ -556,7 +556,7 @@ export default {
         left: 0;
         top: 50vh;
 
-        width: 40vw;
+        width: 40vh;
 
         z-index: -1;
       }
