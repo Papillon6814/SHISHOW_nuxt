@@ -50,7 +50,9 @@
   <div id="footer">
   </div>
   <div class="pinkButton" @click="click()">
-    <font-awesome-icon icon="sort-up" />
+    <div class="fontPosition">
+      <font-awesome-icon icon="sort-up" />
+    </div>
   </div>
 </div>
 </template>
@@ -115,7 +117,7 @@ export default {
   width: 100%;
 
   @media screen and (max-width: 1300px) {
-    height: 80px;
+    height: 8.5vh;
   }
 
   @media screen and (min-width: 1300px) {
@@ -356,7 +358,7 @@ export default {
   left: 0;
 
   width: 100%;
-  height: 80px;
+  height: 8.5vh;
 
   background-color: $header_color;
 
@@ -367,17 +369,15 @@ export default {
   .pinkButton {
     position: fixed;
 
-    bottom: 40px;
-    right: 20px;
+    bottom: 5vh;
+    right: 6vw;
 
-    width: 60px;
-    height: 60px;
+    width: 15vw;
+    height: 15vw;
 
-    line-height: 75px;
+    line-height: 0px;
 
-    text-align: center;
-    font-size: 50px;
-    color: #fff;
+    
 
     border-radius: 50%;
 
@@ -386,7 +386,18 @@ export default {
     z-index: 1001;
 
     cursor: pointer;
+    
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
+    
+    .fontPosition{
+      margin-top:4.5vw;
+      text-align: center;
+      font-size: 10vw;
+      color: #fff;
+    }
+    
   }
+  
 }
 
 </style>

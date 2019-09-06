@@ -244,8 +244,8 @@ export default {
   .normalBanner {
     position: absolute;
 
-    width: 85vw;
-    height: calc(85vw / 4.5);
+    width: 97vw;
+    height: calc(45vh / 4.5);
 
     background-color: #fff;
 
@@ -254,6 +254,7 @@ export default {
     z-index: 2;
 
     cursor: pointer;
+    border-radius: 10px;
 
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
     transition: 0.2s;
@@ -290,8 +291,8 @@ export default {
   position: absolute;
 
   @media screen and (max-width: 1300px) {
-    width: 10vw;
-    height: 10vw;
+    width: 70px;
+    height: 70px;
   }
 
   @media screen and (min-width: 1300px) {
@@ -299,8 +300,8 @@ export default {
     height: 8vw;
   }
 
-  top: 15px;
-  left: 20px;
+  top: 10px;
+  left: 10px;
 
   .iconCircle{
     position: relative;
@@ -335,7 +336,7 @@ export default {
   position: absolute;
 
   top: 30px;
-  left: 11vw;
+  left: 100px;
   right: 0px;
 }
 
@@ -405,8 +406,8 @@ export default {
   position: absolute;
 
   @media screen and (max-width: 1300px) {
-    width: 10vw;
-    height: 10vw;
+    width: 75px;
+    height: 75px;
   }
 
   @media screen and (min-width: 1300px){

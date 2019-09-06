@@ -121,6 +121,7 @@ export default {
 
   @media screen and (max-width: 1300px) {
     border-radius: 0 0 15px 15px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
   }
 
 
@@ -142,6 +143,10 @@ export default {
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
+    
+    @media screen and (max-width: 1300px) {
+      top:3vh;
+    }
 
     .iconPic {
       position: absolute;
@@ -159,6 +164,8 @@ export default {
       // temporary color
       background-color: #fff;
       border-radius: 50%;
+      
+      
 
       #image {
         border-radius: 50%;
@@ -181,6 +188,11 @@ export default {
 
     font-size: 35px;
     text-align: center;
+    
+    @media screen and (max-width: 1300px) {
+      top:17vh;
+    }
+    
   }
 
   .shishowPosition {
@@ -340,6 +352,11 @@ export default {
     line-height: 32px;
 
     cursor: pointer;
+    
+    @media screen and (max-width: 1300px) {
+      bottom:3vh;
+    }
+    
   }
 
   .logout {
