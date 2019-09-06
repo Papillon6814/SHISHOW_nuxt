@@ -94,6 +94,9 @@
           切磋琢磨しよう<br>
           ゲームの世界を広げよう
         </div>
+        <nuxt-link to="/home">
+          <div class="enterButton">はじめる</div>
+        </nuxt-link>
       </div>
 
       <div class="page2">
@@ -589,7 +592,7 @@ export default {
       .passageBlock3 {
         position: absolute;
 
-        top: 260px;
+        top: 290px;
         left: 6vw;
 
         width: 80vw;
@@ -598,6 +601,32 @@ export default {
         font-size: 25px;
 
         color: #757575;
+      }
+
+      .enterButton {
+        position: absolute;
+
+        left: 6vw;
+        top: 400px;
+
+        width: 150px;
+        height: 42px;
+
+        text-align: center;
+        color: $primary_text;
+        font-size: 18px;
+
+        color: #fff;
+
+        background: $accent_color;
+
+        //border-color: $header-color;
+        //border-style: solid;
+        border-radius: 15px;
+
+        line-height: 37px;
+
+        cursor: pointer;
       }
   }
 
@@ -608,7 +637,7 @@ export default {
       position: absolute;
 
       right: 0;
-      top: 170vh;
+      top: 110vh;
 
       width: 40vh;
     }
@@ -616,7 +645,7 @@ export default {
     .how2use {
       position: absolute;
 
-      top: 70vh;
+      top: 50vh;
       left: 50vw;
 
       transform: translate(-50%, 0);
@@ -632,7 +661,7 @@ export default {
     .mini4 {
       position: absolute;
 
-      top: 300vh;
+      top: 180vh;
       left: 0;
 
       width: 100vw;
@@ -641,7 +670,7 @@ export default {
     .aboutus {
       position: absolute;
 
-      top: 210vh;
+      top: 125vh;
       left: 50%;
 
       transform: translate(-50%, 0);
@@ -655,7 +684,7 @@ export default {
     .card {
       position: absolute;
 
-      top: 225vh;
+      top: 135vh;
       left: 50%;
 
       transform: translate(-50%, 0);
@@ -667,7 +696,7 @@ export default {
   .card {
       position: absolute;
 
-      top: 85vh;
+      top: 60vh;
       left: 50%;
 
       transform: translate(-50%, 0);
