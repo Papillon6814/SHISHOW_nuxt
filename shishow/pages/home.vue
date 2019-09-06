@@ -727,6 +727,7 @@ footer {
 
   top: 0;
   left: 0;
+  
 
   width: 100%;
   height: 100%;
@@ -738,7 +739,7 @@ footer {
   .modalPosition {
     position: absolute;
 
-    top: 23%;
+    top: 50%; 
     left: 50%;
 
     width: 65%;
@@ -757,6 +758,7 @@ footer {
 
   top: 0;
   left: 0;
+  
 
   width: 100%;
   height: 100%;
@@ -768,7 +770,7 @@ footer {
   .modalPosition {
     position: absolute;
 
-    top: 23%;
+    top: 50%; 
     left: 50%;
 
     width: 65%;

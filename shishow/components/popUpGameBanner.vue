@@ -7,7 +7,7 @@
 
     <div class="GamenamePosition">
         <div class="Gamename">
-          {{ gamename(N) }}
+          
         </div>
     </div>
 
