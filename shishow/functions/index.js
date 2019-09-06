@@ -64,7 +64,7 @@ app.get('/homeData', (request, response) => {
             })
     })
     .catch(e => {
-        response.send("response failed");
+        response.send(e);
     })
 })
 /*
