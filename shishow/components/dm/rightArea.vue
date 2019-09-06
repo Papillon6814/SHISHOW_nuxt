@@ -169,8 +169,15 @@ export default {
 .rightArea {
   position: absolute;
 
-  top: 0;
-  right: 0;
+  @media screen and (min-width: 1300px) {
+    top: 0;
+    right: 0;
+  }
+
+  @media screen and (max-width: 1300px) {
+    top: 0;
+    left: 100vw;
+  }
 
   width: 60%;
   height: 100%;

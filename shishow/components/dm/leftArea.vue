@@ -148,26 +148,40 @@ export default {
 
 
     click_f: function(friend, N) {
-      this.$parent.idFromLeftArea = friend;
+      if(process.browser) {
+        if(window.parent.screen.width > 1300) {
+          this.$parent.idFromLeftArea = friend;
 
-      let dmBan = document.getElementsByClassName("dmCover")[this.id]
-      dmBan.style.background = "rgba(255, 0, 0, 0)"
-      this.id = N;
-      dmBan = document.getElementsByClassName("dmCover")[N]
-      dmBan.style.background = "rgba(255, 0, 0, 0.5)"
-      this.$parent.isGame = false;
+          let dmBan = document.getElementsByClassName("dmCover")[this.id]
+          dmBan.style.background = "rgba(255, 0, 0, 0)"
+          this.id = N;
+          dmBan = document.getElementsByClassName("dmCover")[N]
+          dmBan.style.background = "rgba(255, 0, 0, 0.5)"
+          this.$parent.isGame = false;
+        }
+        else {
+
+        }
+      }
     },
 
     click_g: function(game, N) {
-      this.$parent.idFromLeftArea = game;
+      if(process.browser) {
+        if(window.parent.screen.width) {
+          this.$parent.idFromLeftArea = game;
 
-      let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
-      dmgameBan.style.background = "rgba(255, 0, 0, 0)"
-      this.id = N;
-      dmgameBan = document.getElementsByClassName("gameCover")[N]
-      dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
+          let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
+          dmgameBan.style.background = "rgba(255, 0, 0, 0)"
+          this.id = N;
+          dmgameBan = document.getElementsByClassName("gameCover")[N]
+          dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
 
-      this.$parent.isGame = true;
+          this.$parent.isGame = true;
+        }
+        else {
+
+        }
+      }
     },
 
     switchPrivate: function() {
@@ -179,7 +193,7 @@ export default {
 
       if(this.games.length != 0){
         let dmBan = document.getElementsByClassName("gameCover")[this.id];
-        dmBan.style.background = "#FFF";
+        dmBan.style.background = "rgba(255, 0, 0, 0)";
       }
       this.id = 0;
     },
@@ -193,7 +207,7 @@ export default {
 
       if(this.friendsDocID.length != 0){
         let gameBan = document.getElementsByClassName("dmCover")[this.id];
-        gameBan.style.background = "#FFF";
+        gameBan.style.background = "rgba(255, 0, 0, 0)";
       }
       this.id = 0;
     },
@@ -233,7 +247,6 @@ export default {
     privateTab = document.getElementsByClassName("private");
     globalTab = document.getElementsByClassName("global");
 
-
     leftArea = document.getElementById('leftArea')
   }
 }
@@ -247,8 +260,15 @@ export default {
     top: 0;
     left: 0;
 
-    height: 100%;
-    width: 40%;
+    @media screen and (min-width: 1300px) {
+      height: 100%;
+      width: 40%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      height: 100%;
+      width: 100%;
+    }
 
     background-color: #b2ebf2;
 

@@ -229,6 +229,11 @@ export default {
       $nuxt.$router.push("/home");
     },
 
+    scroll2top: function() {
+      let scrollArea = document.getElementById('moving');
+      scrollArea.scrollTo(0, 0);
+    },
+
     cropImage: function() {
       console.log('cropImage');
       this.$refs.EBanner.croppedimg = this.$refs.cropper.getCroppedCanvas().toDataURL();
@@ -278,9 +283,8 @@ export default {
             let num = Math.floor(Math.random()*query.docs.length);
 
             for(j=0;j<i&&this.games[j].id != query.docs[num].id ;j++);
-            if(j==i){
+            if(j==i) {
               this.games.push(query.docs[num]);
-
               i++
             }
 
@@ -323,38 +327,6 @@ export default {
     },
 
     setOtherUser:function(){
-      /*
-      const sign_db = db.collection("USER")
-                      .doc(""+this.user.email);
-
-
-      sign_db.collection("relation")
-            .get()
-            .then(docs_r=>{
-            db.collection("USER")
-              .get()
-              .then(docs_p =>{
-                docs_p.forEach(doc=>{
-                  if(doc.data().email != this.user.email){
-                    this.users.push(doc.data());
-                    this.filteredUser.push(doc.data());
-
-                    if(docs_r.docs){
-                      let i;
-                        for(i=0;i<docs_r.docs.length && doc.data().email != docs_r.docs[i].id;i++);
-                          if(i==docs_r.docs.length){
-                            this.relation.push(0)
-                          }else{
-                            this.relation.push(docs_r.docs[i].data().relation);
-                          }
-                    }else{
-                      this.relation.push(0)
-                    }
-                  }
-                })
-              })
-            });
-      */
       var url = "https://us-central1-shishow-7cc37.cloudfunctions.net/api/homeData";
 
       axios.get(url, {

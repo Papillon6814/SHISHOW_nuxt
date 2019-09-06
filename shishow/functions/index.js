@@ -47,7 +47,7 @@ app.get('/homeData', (request, response) => {
                                 this.relation.push(0)
                                 }
                                 else {
-                                    relation.push(doc2.docs[i].data().relation);
+                                    relation.push(doc1.docs[i].data().relation);
                                 }
                             }
                         }
@@ -67,6 +67,17 @@ app.get('/homeData', (request, response) => {
         response.send("response failed");
     })
 })
+/*
+app.get('/chatData/isGame', (request, response) => {
+
+    let friendDocID = request.query.friendDocID;
+
+    db.collection("GameCollection")
+        .doc(friendDocID)
+        .collection("GlobalChat")
+        .orderBy('date')
+})
+*/
 
 const api = functions.https.onRequest(app);
 module.exports = { api };

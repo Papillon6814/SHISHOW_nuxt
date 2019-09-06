@@ -92,6 +92,7 @@ export default {
     position:absolute;
     width: 88%;
     height: 120px;
+    background:rgba(255, 0, 0, 0);
   }
 }
 
