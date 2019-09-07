@@ -282,7 +282,7 @@ export default {
     height: auto;
 
     @media screen and (max-width: 1300px) {
-      font-size: 5vh;
+      font-size: 3vh;
     }
   }
 }
@@ -365,7 +365,7 @@ export default {
     height: auto;
 
     @media screen and (max-width: 1300px) {
-      font-size: 5vh;
+      font-size: 3vh;
     }
   }
 }
