@@ -50,13 +50,13 @@
               </normalBanner>
             </div>
           </div>
+          
         </transition>
         
-        <div class="voidSpace">
-        </div>
-
+        
         <div class="adPosition">
         </div>
+        
 
       </div>
       
@@ -538,7 +538,7 @@ body {
     overflow-y: scroll;
   }
 
-  height: 150%;
+  height: 100%;
 
   $g: 1;
 
@@ -560,7 +560,7 @@ body {
           top: (55vw / 4) * $g;
         }
 
-        left: 5%;
+        /*left: 5%;*/
 
         /*width: 100%;*/
         height: $n_banner_height;
@@ -641,11 +641,17 @@ body {
   .adPosition {
     position: absolute;
 
-    right: 2vw;
-    top: 100px;
+    right: 0vw;
+    top: 350vw;
 
     width: 160px;
     height: 600px;
+    
+    @media screen and (max-width: 1300px) {
+        width:100vw;
+        
+      }
+    
   }
 }
 
