@@ -359,7 +359,7 @@ export default {
       position: absolute;
 
       left: 11vw;
-      top: 360px;
+      top: 440px;
 
       width: 150px;
       height: 42px;

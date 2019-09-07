@@ -239,6 +239,16 @@ export default {
     border-right: none;
     outline: none;
     color: $primary_text;
+
+    @media screen and (min-width: 1300px) {
+      height: 40px;
+      font-size: 35px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      height: 8vh;
+      font-size: 4.5vh;
+    }
   }
   textarea {
     border-top: none;
@@ -265,9 +275,7 @@ export default {
     position: absolute;
     top: 10%;
     right: 9%;
-    height: 40px;
     width: 50%;
-    font-size: 35px;
   }
   .username {
     position: absolute;
@@ -276,9 +284,7 @@ export default {
     transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
-    height: 40px;
     width: 80%;
-    font-size: 35px;
   }
   .placeGames {
     position: absolute;
@@ -287,10 +293,8 @@ export default {
     transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
-    height: 40px;
     width: 80%;
     color: $secondary_text;
-    font-size: 35px;
   }
   .applyChangeButton {
     position: absolute;
@@ -320,7 +324,14 @@ export default {
       top: 0;
       width: 100%;
       height: auto;
-      font-size: 35px;
+
+      @media screen and (min-width: 1300px) {
+        font-size: 35px;
+      }
+
+      @media screen and (max-width: 1300px) {
+        font-size: 5vh
+      }
     }
   }
 
