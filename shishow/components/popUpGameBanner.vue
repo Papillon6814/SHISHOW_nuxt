@@ -54,6 +54,13 @@ export default {
     "gameInfo"
   ],
 
+  watch: {
+    gameInfo: function(newval){
+      console.log(newval);
+      
+    }
+  },
+
   methods: {
     fade: function() {
       this.$emit("callFade");
@@ -87,7 +94,7 @@ export default {
     
         .Bg{
           position: absolute;
-          width: 70%;
+          width: 65%;
           height: 70%;
 
           margin: 20px;
@@ -118,8 +125,7 @@ export default {
         left: 7%;
     
         .Subscribed{
-            width: 100px;
-            height: 50px;
+           display: inline;
 
         }
     }

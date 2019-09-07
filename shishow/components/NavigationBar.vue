@@ -83,16 +83,10 @@ export default {
       this.$emit("search", newValue);
       this.$store.commit("onSearchWordInput", newValue);
     },
-<<<<<<< HEAD
-    notdelete(){
-      
-      }
-=======
 
     click() {
       this.$parent.scroll2top();
     }
->>>>>>> master
   },
   created: function() {
     if(this.user != null) {

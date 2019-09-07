@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "shishow-7cc37",
-    "shishow": "shishow-7cc37"
+    "shishow": "shishow-7cc37",
+    "npm install -g firebase-toois": "shishow-7cc37"
   }
 }
