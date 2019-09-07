@@ -343,38 +343,6 @@ export default {
         width: 100%;
 
         float:left;
-<<<<<<< HEAD
-
-        @while $i <= 30{
-          .b#{$i}{
-            position: absolute;
-
-            top: 140px * $i;
-
-            width: 100%;
-
-          }
-          $i: $i + 1;
-        }
-        // .lastMsg{
-        //   display: inline-block;
-        //
-        //   position: relative;
-        //
-        //   top: 70px;
-        //   left: 6%;
-        //
-        //   width: 100%;
-        //
-        //   float:left;
-        // }
-
-        /*.notion{
-          border:1px solid #000;
-        }*/
-
-=======
->>>>>>> master
       }
 
     }
