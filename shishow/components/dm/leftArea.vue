@@ -149,6 +149,13 @@ export default {
         if(window.innerWidth < 1300) {
           this.$parent.slideRightArea();
         }
+        else {
+          let dmBan = document.getElementsByClassName("dmCover")[this.id]
+          dmBan.style.background = "rgba(255, 0, 0, 0)"
+          this.id = N;
+          dmBan = document.getElementsByClassName("dmCover")[N]
+          dmBan.style.background = "rgba(255, 0, 0, 0.5)"
+        }
         this.$parent.idFromLeftArea = friend;
 
         this.$parent.isGame = false;
@@ -159,6 +166,13 @@ export default {
       if(process.browser) {
         if(window.innerWidth < 1300) {
           this.$parent.slideRightArea();
+        }
+        else {
+          let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
+          dmgameBan.style.background = "rgba(255, 0, 0, 0)"
+          this.id = N;
+          dmgameBan = document.getElementsByClassName("gameCover")[N]
+          dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
         }
         this.$parent.idFromLeftArea = game;
 
