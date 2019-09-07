@@ -153,10 +153,10 @@ export default {
         }
         else {
           let dmBan = document.getElementsByClassName("dmCover")[this.id]
-          dmBan.style.background = "rgba(255, 0, 0, 0)"
+          dmBan.style.background = "rgba(255, 255, 255, 0)"
           this.id = N;
           dmBan = document.getElementsByClassName("dmCover")[N]
-          dmBan.style.background = "rgba(255, 0, 0, 0.5)"
+          dmBan.style.background = "rgba(0, 0, 0, 0.36)"
         }
         this.$parent.idFromLeftArea = friend;
 
@@ -171,10 +171,10 @@ export default {
         }
         else {
           let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
-          dmgameBan.style.background = "rgba(255, 0, 0, 0)"
+          dmgameBan.style.background = "rgba(255, 255, 255, 0)"
           this.id = N;
           dmgameBan = document.getElementsByClassName("gameCover")[N]
-          dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
+          dmgameBan.style.background = "rgba(0, 0, 0, 0.36)"
         }
         this.$parent.idFromLeftArea = game;
 

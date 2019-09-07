@@ -16,14 +16,20 @@
     -->
 
     <div class="SignupTitle"></div>
+    <div class="usernamePosition">
+      <input class="username" type="text" placeholder="ユーザー名"
+      v-model="username" maxlength="12" required />
+    </div>
 
-    <input class="username" type="text" placeholder="ユーザー名"
-    v-model="username" maxlength="12" required />
+    <div class="emailPosition">
+      <input class="email" type="text" placeholder="メールアドレス" v-model="email">
+    </div>
 
-    <input class="email" type="text" placeholder="メールアドレス" v-model="email">
+    <div class="passwordPosition">
+      <input class="password" type="password" placeholder="パスワード" v-model="password">
+    </div>
 
-    <input class="password" type="password" placeholder="パスワード" v-model="password">
-
+  <div class="comfirmPosition">
     <input
       class="passwordConfirm"
       type="password"
@@ -31,6 +37,14 @@
       v-model="p_confirm"
       @keydown.enter="signUp"
     >
+  </div>
+
+  <div class="checkPosition">
+      <input class="check" type="checkbox" v-model="accpect">
+  </div>
+  <div class="termsPosition">
+    <nuxt-link to="/Terms">利用規約</nuxt-link>に同意する。
+  </div>
 
     <button @click="signUp" class="signup_button">
       アカウント作成
@@ -57,6 +71,7 @@ export default {
       uploadedImage: "",
       roundimg:"",
       modal: "",
+      check:false,
     };
   },
   mounted:function(){
@@ -149,12 +164,33 @@ export default {
 <style lang="scss" scoped>
 .signupBanner {
   position: absolute;
-  width: 50%;
-  height: 500px;
   background-color: #fff;
   z-index: 2;
   transition: .3s;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+
+  @media screen and (max-width: 1300px) {
+    width: 70%;
+    height: 40vh;
+
+    border-radius: 3px;
+
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+
+    top: 30%;
+    left: -9%;
+  }
+
+  @media screen and (min-width: 1300px) {
+    width: 48%;
+    height: 480px;
+
+    background-color: #fff;
+
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+  }
+
   .SignupTitle {
     position: absolute;
     color: #fff;
@@ -164,49 +200,213 @@ export default {
     top: 0;
     left: 0;
   }
-  .username {
+
+    .usernamePosition {
     position: absolute;
-    left: 50%;
-    top: 110px;
-    -webkit-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
-    width: 65%;
-    height: $su_user_height;
-  }
-  .email {
-    position: absolute;
-    top: 180px;
-    left: 50%;
-    -webkit-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
-    width: 65%;
-    height: $su_user_height;
-  }
-  .password {
-    position: absolute;
-    top: 250px;
+
+    @media screen and (max-width: 1300px) {
+      top: 6vh;
+      width: 85%;
+      height: 7.25%;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 90px;
+      width: 65%;
+    }
+
     left: 50%;
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-    width: 65%;
-    height: $su_pass_height;
+
+    .username {
+      width:  100%; //$user_width
+
+      @media screen and (max-width: 1300px) {
+        height: 100%;
+
+        border-radius: 7px;
+        outline: none;
+        font-size: 2.5vh;
+      }
+
+      @media screen and (min-width: 1300px) {
+        height: 35px;
+      }
+    }
   }
-  .passwordConfirm {
+
+    .emailPosition {
     position: absolute;
-    top: 320px;
+
+    @media screen and (max-width: 1300px) {
+      top: 13vh;
+      width: 85%;
+      height: 7.25%;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 160px;
+      width: 65%;
+    }
+
     left: 50%;
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-    width: 65%;
-    height: $su_pass_height;
+
+    .email {
+      width: 100%; //$id_width
+
+      @media screen and (max-width: 1300px) {
+        height: 100%;
+
+        border-radius: 7px;
+        outline: none;
+        font-size: 2.5vh;
+      }
+
+      @media screen and (min-width: 1300px) {
+        height: 35px; //$id_height
+      }
+    }
   }
+
+      .passwordPosition {
+    position: absolute;
+
+    @media screen and (max-width: 1300px) {
+      top: 20vh;
+      width: 85%;
+      height: 7.25%;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 230px;
+      width: 65%;
+    }
+
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+
+    .password {
+      width: 100%; //$id_width
+
+      @media screen and (max-width: 1300px) {
+        height: 100%;
+
+        border-radius: 7px;
+        outline: none;
+        font-size: 2.5vh;
+      }
+
+      @media screen and (min-width: 1300px) {
+        height: 35px; //$id_height
+      }
+    }
+  }
+
+    .comfirmPosition {
+    position: absolute;
+
+    @media screen and (max-width: 1300px) {
+      top: 27vh;
+      width: 85%;
+      height: 7.25%;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 300px;
+      width: 65%;
+    }
+
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+
+    .passwordConfirm {
+      width: 100%; //$id_width
+
+      @media screen and (max-width: 1300px) {
+        height: 100%;
+
+        border-radius: 7px;
+        outline: none;
+        font-size: 2.5vh;
+      }
+
+      @media screen and (min-width: 1300px) {
+        height: 35px; //$id_height
+      }
+    }
+  }
+
+    .checkPosition {
+    position: absolute;
+
+    @media screen and (max-width: 1300px) {
+      top: 32.3vh;
+      width: 85%;
+      height: 7.25%;
+      left: 10%;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 371px;
+      width: 65%;
+      left: 19%;
+    }
+
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+
+    .check {
+      width: 100%; //$id_width
+
+      @media screen and (max-width: 1300px) {
+        height: 50%;
+        border-radius: 7px;
+      }
+
+      @media screen and (min-width: 1300px) {
+        height: 20px; //$id_height
+      }
+    }
+  }
+
+  .termsPosition{
+    position: absolute;
+
+    @media screen and (max-width: 1300px) {
+      top: 32vh;
+      width: 85%;
+      height: 7.25%;
+      left: 58%;
+      border-radius: 7px;
+      outline: none;
+      font-size: 1.5vh;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 370px;
+      width: 65%;
+      left: 55%;
+    }
+
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+  
   .signup_button {
     position: absolute;
-    top: 410px;
     left: 50%;
     background: #fff;
     -webkit-transform: translate(-50%, 0);
@@ -221,6 +421,14 @@ export default {
     border-radius: 3px;
     transition: .4s;
     cursor: pointer;
+    @media screen and (max-width: 1300px) {
+      top:36vh;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top:425px;
+    }
+
   }
   .signup_button:hover{
     background: $light_primary_color;
