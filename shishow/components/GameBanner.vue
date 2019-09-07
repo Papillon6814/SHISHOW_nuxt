@@ -105,8 +105,8 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      width: 85vw;
-      height: calc(85vw / 4);
+      width: 97vw;
+      height: calc(/*85vw*/97vw / 4);
     }
 
     @media screen and (min-width: 1300px) {
@@ -177,6 +177,11 @@ export default {
 
       padding: 0.3em 1em;
       text-decoration: none;
+
+      @media screen and (max-width: 1300px) {
+        font-size: 5vw;
+      }
+
       color: #abbffb;
       border: solid 2px #abbffb;
       border-radius: 3px;

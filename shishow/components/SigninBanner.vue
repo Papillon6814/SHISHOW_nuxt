@@ -103,7 +103,7 @@ export default {
 
   @media screen and (max-width: 1300px) {
     width: 70%;
-    height: 400px;
+    height: 50vh;
 
     background-color: $light_primary_color;
 
@@ -155,8 +155,9 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 80px;
+      top: 20%;
       width: 85%;
+      height: 11.25%;
     }
 
     @media screen and (min-width: 1300px) {
@@ -173,10 +174,11 @@ export default {
       width:  100%; //$user_width
 
       @media screen and (max-width: 1300px) {
-        height: 45px;
+        height: 100%;
 
         border-radius: 7px;
         outline: none;
+        font-size: 4.1vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -188,8 +190,9 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 155px;
+      top: 38.75%;
       width: 85%;
+      height: 11.25%;
     }
 
     @media screen and (min-width: 1300px) {
@@ -206,10 +209,11 @@ export default {
       width: 100%; //$id_width
 
       @media screen and (max-width: 1300px) {
-        height: 45px;
+        height: 100%;
 
         border-radius: 7px;
         outline: none;
+        font-size: 4.1vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -222,19 +226,20 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 240px;
+      top: 87.5%;
 
       background: $accent_color;
 
       width: 40%;
 
       padding: 0.5em 1em;
+      font-size: 2vh;
 
       border-radius: 15px;
     }
 
     @media screen and (min-width: 1300px) {
-      top: 350px;
+      top:60%;
 
       background: #fff;
 
@@ -275,7 +280,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 330px;
+      top: 82.5%;
 
       left: 50%;
       -webkit-transform: translate(-50%, 0);
@@ -287,6 +292,7 @@ export default {
       background: $secondary_text;
 
       padding: 0.5em 1em;
+      font-size: 2vh;
 
       border-radius: 15px;
 
@@ -325,7 +331,7 @@ export default {
   .separetor1 {
     position: absolute;
 
-    top: 300px;
+    top: 75%;
     left: 3%;
 
     height: 1px;
@@ -337,7 +343,7 @@ export default {
   .separetor2 {
     position: absolute;
 
-    top: 300px;
+    top: 75%;
     right: 3%;
 
     height: 1px;
@@ -351,7 +357,7 @@ export default {
     width: 60%;
     height: 30px;
 
-    top: 280px;
+    top: 70%;
     left: 50%;
 
     -webkit-transform: translate(-50%, 0);

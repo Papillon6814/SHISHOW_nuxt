@@ -49,9 +49,23 @@
   </div>
 
   <div id="footer">
+    <nuxt-link to="/directMessage">
+      <font-awesome-icon icon="envelope" class="dm" />
+    </nuxt-link>
+    <nuxt-link to="/friend">
+      <font-awesome-icon icon="gamepad" class="game" />
+    </nuxt-link>
+    <nuxt-link to="/notification">
+      <font-awesome-icon icon="bell" class="bell" />
+    </nuxt-link>
+    <nuxt-link to="/home">
+      <font-awesome-icon icon="home" class="home" />
+    </nuxt-link>
   </div>
   <div class="pinkButton" @click="click()">
-    <font-awesome-icon icon="sort-up" />
+    <div class="fontPosition">
+      <font-awesome-icon icon="sort-up" />
+    </div>
   </div>
 </div>
 </template>
@@ -114,9 +128,13 @@ export default {
   top: $header_height;
   left: 0;
   width: 100%;
+  z-index: 10;
+
+  -webkit-transform: translate3d(0, 0, 1px);
+	transform: translate3d(0, 0, 1px);
 
   @media screen and (max-width: 1300px) {
-    height: 80px;
+    height: 8.5vh;
   }
 
   @media screen and (min-width: 1300px) {
@@ -125,7 +143,6 @@ export default {
 
   background-color: $header_color;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-  z-index: 10;
 
   .centered {
 
@@ -227,7 +244,12 @@ export default {
     @media screen and (max-width: 1300px) {
       width: 70px;
       height: 70px;
-      top: 5px;
+      top: 50%;
+
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+
       right: 20px;
     }
 
@@ -357,29 +379,88 @@ export default {
   left: 0;
 
   width: 100%;
-  height: 80px;
+  height: 8.5vh;
 
   background-color: $header_color;
 
   z-index: 1000;
+
+  .home {
+    position: absolute;
+
+    top: 1vh;
+
+    right: 12.5vw;
+    height: 7vh;
+    width: 5vh;
+
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+
+    color: #fff;
+  }
+
+  .bell {
+    position: absolute;
+
+    top: 1vh;
+
+    right: 37.5vw;
+    height: 7vh;
+    width: 5vh;
+
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+
+    color: #fff;
+  }
+
+  .game {
+    position: absolute;
+
+    top: 1vh;
+
+    left: 37.5vw;
+    height: 7vh;
+    width: 5vh;
+
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+
+    color: #fff;
+  }
+
+  .dm {
+    position: absolute;
+
+    top: 1vh;
+
+    left: 12.5vw;
+    height: 7vh;
+    width: 5vh;
+
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+
+    color: #fff;
+  }
 }
 
 @media screen and (max-width: 1300px) {
   .pinkButton {
     position: fixed;
 
-    bottom: 40px;
-    right: 20px;
+    bottom: 5vh;
+    right: 6vw;
 
-    width: 60px;
-    height: 60px;
+    width: 15vw;
+    height: 15vw;
 
-    line-height: 75px;
-
-    text-align: center;
-    font-size: 50px;
-    color: #fff;
-
+    line-height: 0px;
     border-radius: 50%;
 
     background-color: $accent_color;
@@ -387,6 +468,16 @@ export default {
     z-index: 1001;
 
     cursor: pointer;
+
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
+
+    .fontPosition{
+      margin-top:4.5vw;
+      text-align: center;
+      font-size: 10vw;
+      color: #fff;
+    }
+
   }
 }
 

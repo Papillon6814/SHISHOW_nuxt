@@ -109,17 +109,38 @@ export default{
   　 },
 
     addToDatabase(Gamename, image){
-      db.collection("GameCollection")
+      if(image != '') {
+        db.collection("GameCollection")
         .doc()
         .set({
           gamename: Gamename,
           category: this.selected,
           image: image,
           lastChatDate: ''
-      })
-      .catch(e => {
-        alert(e)
-      })
+        })
+        .catch(e => {
+          alert(e)
+        })
+      }
+      else {
+        let tmpimg;
+
+        db.collection("Image")
+          .doc('GameSampleImage')
+          .get()
+          .then(doc => {
+            tmpimg = doc.data().image;
+
+            db.collection("GameCollection")
+              .doc()
+              .set({
+                gamename: Gamename,
+                category: this.selected,
+                image: tmpimg,
+                lastChatDate: ''
+              })
+          })
+      }
     },
 
     fade: function() {

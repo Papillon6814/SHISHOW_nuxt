@@ -5,7 +5,7 @@
       <header>
         <navi @search="getSearchWord"></navi>
       </header>
-
+      
       <transition appear name="v">
         <div id="myBannerPosition">
           <myBanner
@@ -50,12 +50,16 @@
               </normalBanner>
             </div>
           </div>
+          
         </transition>
-
+        
+        
         <div class="adPosition">
         </div>
+        
 
       </div>
+      
     </tbody>
 
     <!-- cropperのときのmodal -->
@@ -83,6 +87,7 @@
         Crop
       </div>
     </div>
+    
 
     <!-- normalBannerを表示するときのmodal -->
 
@@ -428,6 +433,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  
 .modal {
   display: none;
   position: fixed;
@@ -487,12 +493,12 @@ body {
 }
 
 #myBannerPosition {
-
+  
   @media screen and (max-width: 1300px) {
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    top: 8.5vh;
     width: 100%;
-    height: 400px;
+    height: 49vw;
   }
 
   @media screen and (min-width: 1300px) {
@@ -504,17 +510,19 @@ body {
 
   left: 0;
 
-  z-index: 1;
+  z-index: 10000;
 }
 
 #moving {
   position: absolute;
 
   @media screen and (max-width: 1300px) {
-    top: 400px;
-    left: 7.5vw;
+    top: 45vw;
+    /*left: 7.5vw;*/
 
-    width: calc(100% - 7.5vw);
+    width: 100%/*calc(100% - 7.5vw)*/;
+    
+    background-color: #bdbdbd;
 
     overflow-x: hidden;
     overflow-y: visible;
@@ -537,24 +545,24 @@ body {
   #gameBannerPosition {
     position: absolute;
 
-    width: 100%;
+    left:1.5vw;
     height: auto;
-
+    
     @while $g <= 5 {
       .g#{$g} {
         position: absolute;
 
         @media screen and (max-width: 1300px){
-          top: (85vw / 3.5) * $g;
+          top: (89vw / 3.5) * $g;
         }
 
         @media screen and (min-width: 1300px) {
           top: (55vw / 4) * $g;
         }
 
-        left: 5%;
+        /*left: 5%;*/
 
-        width: 100%;
+        /*width: 100%;*/
         height: $n_banner_height;
 
         transition: 0.1s;
@@ -567,32 +575,35 @@ body {
   $i: 0;
 
   .normalBannerPosition {
+    
     position: absolute;
+    
 
     @media screen and (max-width: 1300px) {
-      top: ((85vw / 3.5) * 6);
+      top: ((90vw / 3.5) * 6);
     }
 
     @media screen and (min-width: 1300px) {
       top: ((55vw / 4) * 6);
     }
-    left: 5%;
+    left: 1.5vw;
+    
 
-    width: 100%;
+    /*width: 100%;*/
     height: 100%;
 
     @while $i <= 30 {
 
       .n#{$i} {
         position: absolute;
+/*
+        left: 2vw;
 
-        left: 0;
-
-        width: 100%;
+        /*width: 100%;*/
 
         @media screen and (max-width: 1300px) {
-          top: ((85vw / 4) * $i);
-          height: calc(85vw / 4.5);
+          top: ((90vw / 4) * $i);
+          /*height: calc(85vw / 4.5);*/
         }
 
         @media screen and (min-width: 1300px) {
@@ -621,7 +632,7 @@ body {
       }
 
       height: 140px;
-      width: 100%;
+      /*width: 100%;*/
 
       background-color: #000;//rgba(0, 0, 0, 0);
     }
@@ -630,11 +641,17 @@ body {
   .adPosition {
     position: absolute;
 
-    right: 2vw;
-    top: 100px;
+    right: 0vw;
+    top: 350vw;
 
     width: 160px;
     height: 600px;
+    
+    @media screen and (max-width: 1300px) {
+        width:100vw;
+        
+      }
+    
   }
 }
 
@@ -753,7 +770,8 @@ footer {
     transform: translate(-50%, 0);
   }
 }
-
+  
+ 
 .selectModal {
   display: none;
 
@@ -796,10 +814,10 @@ footer {
 
     width: $n_banner_width;
     height: calc(100% - 300px);
-
+/*
     overflow-x: hidden;
     overflow-y: scroll;
-
+*/
     z-index: 10002;
 
     .GameLoops {

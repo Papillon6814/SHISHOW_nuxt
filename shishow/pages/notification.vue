@@ -85,7 +85,14 @@ export default {
   #notificationTitle{
     position: absolute;
 
-    top: $header_height;
+    @media screen and (min-width: 1300px) {
+      top: $header_height;
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 9.5vh;
+    }
+
     left: 15%;
     width: 70%;
     height: $header_height;
@@ -94,7 +101,7 @@ export default {
 
     background-color: #00b7ce;
 
-    .notificationText{
+    .notificationText {
       font-size: 70px;
       color: white;
 
@@ -106,7 +113,13 @@ export default {
   #notificationField {
     position: absolute;
 
-    top: $header_height*2;
+    @media screen and (min-width: 1300px) {
+      top: $header_height*2;
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: calc(9.5vh + 100px);
+    }
     left: 15%;
 
     width: 70%;
