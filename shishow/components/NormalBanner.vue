@@ -383,7 +383,10 @@ export default {
 
   display: inline-block;
   padding: 0.3em 1em;
-  font-size: 5vw;
+
+  @media screen and (max-width: 1300px) {
+    font-size: 5vw;
+  }
 
   text-decoration: none;
   color: #9aa5ef;

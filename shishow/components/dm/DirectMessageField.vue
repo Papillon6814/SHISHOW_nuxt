@@ -377,20 +377,21 @@ export default {
   .inputArea {
 
     width: 60%;
-    height: 50px;
 
     @media screen and (min-width: 1300px) {
       position: fixed;
 
       right: 0;
       bottom: 45px;
+      height: 50px;
     }
 
     @media screen and (max-width: 1300px) {
       position: fixed;
 
       left: 150vw;
-      bottom: 20px;
+      bottom: 2vh;
+      height: 6.5vh;
 
       z-index: 9999;
 
