@@ -21,7 +21,6 @@ app.use((_request, response, next) => {
 
 app.get('/homeData', (request, response) => {
     let users = [];
-    let filteredUser = [];
     let relation = [];
     let content = new Object();
     let i;
@@ -39,17 +38,16 @@ app.get('/homeData', (request, response) => {
                 doc2.forEach(doc3 => {
                     if(doc3.data().email != sign_user) {
                         users.push(doc3.data());
-                        filteredUser.push(doc3.data());
 
-                        if(doc2.docs) {
-                            for(i = 0; i < doc2.docs.length && doc3.data().email != doc2.docs[i].id; i++) {
-                                if(i == doc2.docs.length) {
-                                this.relation.push(0)
-                                }
-                                else {
-                                    relation.push(doc1.docs[i].data().relation);
-                                }
+                        if(doc1.docs) {
+                            for(i = 0; i < doc1.docs.length && doc3.data().email != doc1.docs[i].id; i++);
+                            if(i == doc1.docs.length) {
+                                relation.push(0)
                             }
+                            else {
+                                relation.push(doc1.docs[i].data().relation);
+                            }
+                            
                         }
                         else {
                             relation.push(0)
@@ -57,7 +55,7 @@ app.get('/homeData', (request, response) => {
                     }
                 })
                 content.users = users;
-                content.filteredUser = filteredUser;
+                content.filteredUser = users;
                 content.relation = relation;
 
                 response.json(content);
@@ -78,6 +76,8 @@ app.get('/chatData/isGame', (request, response) => {
         .orderBy('date')
 })
 */
+
+
 
 const api = functions.https.onRequest(app);
 module.exports = { api };
