@@ -257,7 +257,7 @@ export default {
     left: 0;
 
     width: 100vw;
-    height: 60px;
+    height: 6.5vh;
 
     background: #fff;
 

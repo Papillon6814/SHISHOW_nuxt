@@ -50,16 +50,13 @@
               </normalBanner>
             </div>
           </div>
-          
         </transition>
-        
-        
+
         <div class="adPosition">
         </div>
-        
 
       </div>
-      
+
     </tbody>
 
     <!-- cropperのときのmodal -->
@@ -87,7 +84,6 @@
         Crop
       </div>
     </div>
-    
 
     <!-- normalBannerを表示するときのmodal -->
 
@@ -105,6 +101,7 @@
     <div class="GBModal">
       <div class="modalPosition">
         <popupGameBanner
+        ref="popupGB"
         @callFade="fadeOut()">
         </popupGameBanner>
       </div>
@@ -309,6 +306,7 @@ export default {
     showGBModal: function(game) {
       GBModal[0].style.display = "block";
       this.$forceUpdate();
+      this.$refs.popupGB.gamedata = game;
     },
 
     showSelectModal: function() {
@@ -760,10 +758,17 @@ footer {
   .modalPosition {
     position: absolute;
 
-    top: 300px;
+    @media screen and (min-width: 1300px) {
+      top: 300px;
+      width: 65%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 10vh;
+      width: 90%;
+    }
     left: 50%;
 
-    width: 65%;
     height: 100%;
 
     -webkit-transform: translate(-50%, 0);
@@ -805,7 +810,16 @@ footer {
   .selectedBannerPosition {
     position: absolute;
 
-    top: 300px;
+    @media screen and (min-width: 1300px) {
+      top: 20vh;
+      height: calc(100% - 40vh);
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 10vh;
+      height: calc(100% - 20vh);
+    }
+
     left: 50%;
 
     transform: translate(-50%, 0);
@@ -813,7 +827,6 @@ footer {
     -ms-transform: translate(-50%, 0);
 
     width: $n_banner_width;
-    height: calc(100% - 300px);
 /*
     overflow-x: hidden;
     overflow-y: scroll;

@@ -12,7 +12,7 @@ export default {
     meta: [
       { hid: 'description', name: 'description', content: 'SHISHOWはゲームを通じて人との繋がりを築くプラットフォームで，あなたのゲームスキルの成長に役立ちます。' },
       { property: 'og:site_name', content: "SHISHOW"},
-      { property: 'og:image', content: "https://www.shishow.tokyo/assets/logoShishow.png" },
+      { property: 'og:image', content: "https://i.imgur.com/smKCDby.png" },
     ],
   },
 }
