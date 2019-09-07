@@ -8,6 +8,8 @@
       </nuxt-link>
     </div>
 
+    <font-awesome-icon icon="angle-left" class="back" />
+
     <div class="centered">
       <div class="group">
         <div id="get_data">
@@ -156,6 +158,8 @@ export default {
 
       top: 1vh;
       left: 2vw;
+
+      display: none;
     }
 
     .group {
@@ -500,5 +504,24 @@ export default {
 
   }
 }
+
+.back {
+  position: absolute;
+
+  left: 5px;
+  top: 10px;
+
+  width: 6.5vh;
+  height: 6.5vh;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 1300px) {
+    display: none;
+  }
+}
+
 
 </style>
