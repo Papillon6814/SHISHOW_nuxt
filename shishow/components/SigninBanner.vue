@@ -3,14 +3,14 @@
     <div class="LoginTitle"></div>
 
     <div class="drawnSpace">
-    
     </div>
 
     <div class="grayLine">
     </div>
 
     <div class="loginPosition">
-      <img class="logo" src="../assets/image/login.png" />
+      <img class="logo" src="../assets/image/login.png"
+      alt="door"/>
     </div>
 
     <div class="usernamePosition">

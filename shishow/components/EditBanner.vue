@@ -4,7 +4,8 @@
     <span class="iconCirclePosition">
       <label>
         <div class="iconCircle">
-          <img :src="croppedimg" class="gameIcon">
+          <img :src="croppedimg" class="gameIcon"
+          alt="iconImage" />
           <input hidden class="iconFile" type="file"
           @change="setImage" accept="image/*" name="image">
         </div>

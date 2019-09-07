@@ -18,7 +18,8 @@
       </div>
 
       <div class="page1">
-        <img src="~/assets/image/part1.png" class="part1" />
+        <img src="~/assets/image/part1.png" class="part1"
+        alt="blueCircle" />
 
         <div class="phrase1">
           SHISHOW
@@ -33,7 +34,8 @@
           ゲームの世界を広げよう
         </div>
 
-        <img src="~/assets/image/leaf.png" class="leaf" />
+        <img src="~/assets/image/leaf.png" class="leaf"
+          alt="leaf" />
 
         <nuxt-link to="/home">
           <div class="enterButton" @click.prevent="checkUser()">
@@ -43,23 +45,27 @@
       </div>
 
       <div class="page2">
-        <img src="~/assets/image/part2.png" class="part2" />
+        <img src="~/assets/image/part2.png" class="part2"
+        alt="twoCircles" />
 
         <div class="card1 card">
           <div class="step">STEP1</div>
-          <img src="~/assets/image/step1only.png" class="cardPic" />
+          <img src="~/assets/image/step1only.png" class="cardPic"
+          alt="girlWhoPlaysGame" />
           <div class="cardtext">自分の好きなゲームを登録</div>
         </div>
 
         <div class="card2 card">
           <div class="step">STEP2</div>
-          <img src="~/assets/image/step2only.png" class="cardPic" />
+          <img src="~/assets/image/step2only.png" class="cardPic"
+          alt="levelup" />
           <div class="cardtext">強いプレイヤーに弟子入り</div>
         </div>
 
         <div class="card3 card">
           <div class="step">STEP3</div>
-          <img src="~/assets/image/step3only.png" class="cardPic3" />
+          <img src="~/assets/image/step3only.png" class="cardPic3"
+            alt="gameboy" />
           <div class="cardtext">メッセージでやりとり</div>
         </div>
       </div>
@@ -68,7 +74,8 @@
         <div class="aboutus">
           About us
         </div>
-        <img src="~/assets/image/part3.png" class="part3"/>
+        <img src="~/assets/image/part3.png" class="part3"
+        alt="footerImage" />
       </div>
     </div>
 
@@ -80,8 +87,10 @@
       </div>
 
       <div class="page1">
-        <img src="~/assets/image/mini1.png" class="mini1" />
-        <img src="~assets/image/mini2.png" class="mini2" />
+        <img src="~/assets/image/mini1.png" class="mini1"
+        alt="blueCircle"/>
+        <img src="~assets/image/mini2.png" class="mini2"
+        alt="twoCircles"/>
 
         <div class="passageBlock1">
           SHISHOW
@@ -100,13 +109,15 @@
       </div>
 
       <div class="page2">
-        <img src="~/assets/image/mini3.png" class="mini3" />
+        <img src="~/assets/image/mini3.png" class="mini3"
+        alt="redCircle"/>
         <div class="how2use">
           はじめかた
         </div>
         <div class="card">
           <div class="section1">
-            <img src="~/assets/image/step1only.png" class="pic" />
+            <img src="~/assets/image/step1only.png" class="pic"
+            alt="girlWhoPlaysGame"/>
             <div class="clause">
               <div class="bold">STEP1.</div><br>
               自分の好きなゲームを登録<br>
@@ -116,7 +127,8 @@
 
           <div class="section2">
             <div class="goleft" @click="go1()"></div>
-            <img src="~/assets/image/step2only.png" class="pic" />
+            <img src="~/assets/image/step2only.png" class="pic"
+            alt="levelup" />
             <div class="clause">
               <div class="bold">STEP2.</div><br>
               強いプレイヤーに弟子入り<br>
@@ -126,7 +138,8 @@
 
           <div class="section3">
             <div class="goleft" @click="go2()"></div>
-            <img src="~/assets/image/step3only.png" class="pic" />
+            <img src="~/assets/image/step3only.png" class="pic"
+            alt="gameboy"/>
             <div class="clause">
               <div class="bold">STEP3.</div><br>
               メッセージでやりとり<br>
@@ -136,7 +149,8 @@
       </div>
 
       <div class="page3">
-        <img src="~/assets/image/mini4.png" class="mini4" />
+        <img src="~/assets/image/mini4.png" class="mini4" 
+        alt="footerImage"/>
         <div class="aboutus">
           About us
         </div>
@@ -187,7 +201,7 @@ export default {
     }
   },
 
-  methods:{
+  methods: {
     checkUser(){
       if(firebase.auth().currentUser){
         $nuxt.$router.push("/home")

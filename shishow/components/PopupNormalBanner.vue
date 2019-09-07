@@ -5,7 +5,8 @@
     </div>
 
     <span class="iconPicPosition">
-      <img class="icon" :src="userInfo['image']" />
+      <img class="icon" :src="userInfo['image']"
+      alt="hisIcon" />
       <div class="iconCircle"></div>
     </span>
 

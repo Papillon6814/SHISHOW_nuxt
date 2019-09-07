@@ -1,7 +1,8 @@
 <template>
   <div class="gamebanner">
     <span class="iconPicPosition">
-      <img class="iconPic" :src="game.data().image" />
+      <img class="iconPic" :src="game.data().image"
+      alt="gameIcon" />
     </span>
 
     <!--

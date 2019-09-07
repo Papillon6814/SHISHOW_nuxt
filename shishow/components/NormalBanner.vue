@@ -4,7 +4,8 @@
     <div class="nbField" @click="click()">
 
       <span class="iconPicPosition">
-        <img class="icon" :src="user['image']" />
+        <img class="icon" :src="user['image']"
+        alt="userIcon" />
         <div class="iconCircle"></div>
       </span>
       <!-- <div class="achievementPosition1">

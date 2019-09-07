@@ -2,7 +2,8 @@
   <div id = "notificationBanner">
     <div class="userinfo">
       <!-- <i class = "fas fa-user human"></i> -->
-      <img class = "iconPic" :src="notiUser.image">
+      <img class = "iconPic" :src="notiUser.image"
+      alt="hisIcon" />
       <span class="name">{{notiUser.username}}</span>
     </div>
 

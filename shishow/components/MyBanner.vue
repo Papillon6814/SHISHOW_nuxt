@@ -3,7 +3,7 @@
     <span class="iconPicPosition">
       <div class="iconPic">
         <img id="image" v-show="user.image"
-        :src="user.image" />
+        :src="user.image" alt="myIcon"/>
       </div>
     </span>
 
