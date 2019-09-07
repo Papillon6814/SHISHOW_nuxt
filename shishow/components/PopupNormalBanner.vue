@@ -119,7 +119,6 @@ export default {
     top: 10px;
     right: 10px;
 
-    width: 30px;
     @media screen and (min-width: 1300px) {
       width: 30px;
       height: 30px;
