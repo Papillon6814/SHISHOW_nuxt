@@ -145,18 +145,31 @@ export default {
 
   .centered {
 
-    @media screen and (max-width: 1300px) {
-      display: none;
+    @media screen and (min-width: 1300px) {
+      position: absolute;
+      top: 13px;
+      right: 50px;
     }
 
-    position: absolute;
-    top: 13px;
-    right: 50px;
+    @media screen and (max-width: 1300px) {
+      position: absolute;
+
+      top: 1vh;
+      left: 2vw;
+    }
 
     .group {
       position: relative;
       width: 100%;
-      height: $searchbar_width / 5;
+
+      @media screen and (min-width: 1300px) {
+        height: $searchbar_width / 5;
+      }
+
+      @media screen and (max-width: 1300px) {
+        height: 6vh;
+      }
+
       overflow: hidden;
 
       label {
@@ -177,7 +190,15 @@ export default {
         border-radius: 0; // For iOS
         color: #fff;
         background: $header_color;
-        font-size: $searchbar_width/15;
+
+        @media screen and (min-width: 1300px) {
+          font-size: $searchbar_width/15;
+        }
+
+        @media screen and (max-width: 1300px) {
+          font-size: 5vh;
+        }
+
         transition: 0.3s ease;
 
         &:valid {
@@ -241,8 +262,8 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      width: 70px;
-      height: 70px;
+      width: 7.5vh;
+      height: 7.5vh;
       top: 50%;
 
       transform: translateY(-50%);

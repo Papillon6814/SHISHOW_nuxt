@@ -4,7 +4,7 @@
     <div class="chatnavi">
       <font-awesome-icon icon="angle-left"
       class="backarrow" @click="back" />
-      <div class="username">{{username}}</div>
+      <div class="username">{{ username }}</div>
     </div>
     <!-- {{ friendDocID }} -->
       <div class="chatSpace">

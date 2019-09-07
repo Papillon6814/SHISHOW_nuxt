@@ -15,12 +15,12 @@
     </div>
 
     <div class="GamenamePosition">
-      <input class="Gamename" type="text" placeholder="Display Gamename"
+      <input class="Gamename" type="text" placeholder="Gamename"
         v-model="Gamename" required>
     </div>
 
     <div class="GameCategoryPosition">
-      <select v-model="selected">
+      <select v-model="selected" class="category">
         <option selected disabled value="">カテゴリ...</option>
         <option v-for="(category, N) in categories" :value="category.type"
         :key="N">
@@ -176,8 +176,15 @@ select {
 .GameRequestBanner {
   position: absolute;
 
-  width: 100%;
-  height: 450px;
+  @media screen and (min-width: 1300px) {
+    width: 100%;
+    height: 450px;
+  }
+
+  @media screen and (max-width: 1300px) {
+    width: 90vw;
+    height: 80vh;
+  }
 
   background-color: #fff;
 
@@ -192,7 +199,14 @@ select {
     left: 0;
     top: 0;
     width: 100%;
-    height: 168px;
+
+    @media screen and (min-width: 1300px) {
+      height: 168px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      height: 22.5vw;
+    }
 
     .iconCircle {
       width: 100%;
@@ -242,23 +256,44 @@ select {
   .GameCategoryPosition {
     position: absolute;
 
-    top: 220px;
     left: 50%;
 
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
 
-    width: 65%;
+    @media screen and (min-width: 1300px) {
+      top: 220px;
+      width: 65%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 25vh;
+      width: 80%;
+
+      .category {
+        font-size: 7vh;
+        height: 10vh;
+      }
+    }
+
     height: $su_user_height;
 
     .arrow {
       position: absolute;
 
-      top: 5px;
-      right: 3%;
+      @media screen and (min-width: 1300px) {
+        top: 5px;
+        right: 3%;
+        font-size: 25px;
+      }
 
-      font-size: 25px;
+      @media screen and (max-width: 1300px) {
+        top: 1vh;
+        right: 2vw;
+        font-size: 7vh;
+      }
+
       color: $primary_text;
     }
   }
@@ -266,18 +301,33 @@ select {
   .GamenamePosition {
     position: absolute;
 
-    top: 280px;
     left: 50%;
 
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
 
-    width: 65%;
+    @media screen and (min-width: 1300px) {
+      top: 280px;
+      width: 65%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 45vh;
+      width: 80%;
+    }
 
     .Gamename {
       width: 100%;
-      height: $su_user_height;
+
+      @media screen and (min-width: 1300px) {
+        height: $su_user_height;
+      }
+
+      @media screen and (max-width: 1300px) {
+        height: 10vh;
+        font-size: 7vh
+      }
     }
   }
 
@@ -285,12 +335,20 @@ select {
   .create_button {
     position: absolute;
 
-    top: 340px;
+    @media screen and (min-width: 1300px) {
+      top: 340px;
+      width: 30%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      bottom: 13vh;
+      width: 60vw;
+      font-size: 3vh;
+    }
+
     left: 50%;
 
     background: #fff;
-
-    width: 30%;
 
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);

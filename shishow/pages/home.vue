@@ -5,7 +5,7 @@
       <header>
         <navi @search="getSearchWord"></navi>
       </header>
-      
+
       <transition appear name="v">
         <div id="myBannerPosition">
           <myBanner
@@ -433,7 +433,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  
 .modal {
   display: none;
   position: fixed;
@@ -521,11 +520,11 @@ body {
     /*left: 7.5vw;*/
 
     width: 100%/*calc(100% - 7.5vw)*/;
-    
     background-color: #bdbdbd;
 
     overflow-x: hidden;
     overflow-y: visible;
+    height: calc(100% - 45vw);
   }
 
   @media screen and (min-width: 1300px) {
@@ -536,9 +535,8 @@ body {
 
     overflow-x: hidden;
     overflow-y: scroll;
+    height: 100%;
   }
-
-  height: 100%;
 
   $g: 1;
 
@@ -547,7 +545,7 @@ body {
 
     left:1.5vw;
     height: auto;
-    
+
     @while $g <= 5 {
       .g#{$g} {
         position: absolute;
@@ -575,9 +573,7 @@ body {
   $i: 0;
 
   .normalBannerPosition {
-    
     position: absolute;
-    
 
     @media screen and (max-width: 1300px) {
       top: ((90vw / 3.5) * 6);
@@ -587,7 +583,6 @@ body {
       top: ((55vw / 4) * 6);
     }
     left: 1.5vw;
-    
 
     /*width: 100%;*/
     height: 100%;
@@ -727,10 +722,18 @@ footer {
   .modalPosition {
     position: absolute;
 
-    top: 300px;
-    left: 50%;
+    @media screen and (min-width: 1300px) {
+      top: 300px;
+      left: 50%;
+      width: 65%;
+    }
 
-    width: 65%;
+    @media screen and (max-width: 1300px){ 
+      top: 10vh;
+      left: 50%;
+      width: 90%;
+    }
+
     height: 100%;
 
     -webkit-transform: translate(-50%, 0);
@@ -768,8 +771,7 @@ footer {
     transform: translate(-50%, 0);
   }
 }
-  
- 
+
 .selectModal {
   display: none;
 
@@ -847,15 +849,23 @@ footer {
   .editBannerPosition {
     position: absolute;
 
-    top: 110px;
-    left: 50%;
+    @media screen and (min-width: 1300px) {
+      top: 110px;
+      left: 50%;
+      width: 40%;
+      height: calc(92% - 110px);
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 10vh;
+      left: 50%;
+      width: 90vw;
+      height: 80vh;
+    }
 
     transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
-
-    width: 40%;
-    height: calc(92% - 110px);
   }
 }
 </style>

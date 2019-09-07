@@ -23,6 +23,7 @@
             </dmBanner>
           </div>
         </div>
+        <div class="space"></div>
       </div>
 
     </div>
@@ -37,6 +38,7 @@
             </dmGameBanner>
           </div>
         </div>
+        <div class="space"></div>
       </div>
 
       <div class="addGamePosition" @click="showPopup()">
@@ -359,7 +361,7 @@ export default {
       left: 0;
 
       width: 100%;
-      height: calc(100% - 150px);
+      height: calc(100% - 210px);
 
       .dmBannerPosition {
         position: absolute;
@@ -406,5 +408,12 @@ export default {
       }
     }
   }
+
+.space {
+  position: relative;
+
+  height: 10vh;
+  width: 100%;
+}
 
 </style>
