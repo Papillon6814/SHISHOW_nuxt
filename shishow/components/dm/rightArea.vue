@@ -255,7 +255,7 @@ export default {
     right: 20px;
 
     min-width: 10px;
-    max-width: 30%;
+    max-width: 40vw;
     height: auto;
 
     border-radius: 20px;
@@ -264,6 +264,10 @@ export default {
 
     word-break: break-all;
     -ms-word-break: break-all;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 5vh;
+    }
   }
 
   .myDatePosition {
@@ -276,6 +280,10 @@ export default {
 
     width: auto;
     height: auto;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 5vh;
+    }
   }
 }
 
@@ -303,8 +311,15 @@ export default {
 
     left: 20px;
 
-    height: 40px;
-    width: 40px;
+    @media screen and (min-width: 1300px) {
+      height: 40px;
+      width: 40px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      height: 8vh;
+      width: 8vh;
+    }
 
     top: 5px;
 
@@ -332,6 +347,10 @@ export default {
 
     word-break: break-all;
     -ms-word-break: break-all;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 5vh;
+    }
   }
 
   .hisDatePosition {
@@ -344,6 +363,10 @@ export default {
 
     width: auto;
     height: auto;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 5vh;
+    }
   }
 }
 

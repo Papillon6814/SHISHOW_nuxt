@@ -376,22 +376,24 @@ export default {
   // 下部に表示する
   .inputArea {
 
-    width: 60%;
-
     @media screen and (min-width: 1300px) {
       position: fixed;
 
       right: 0;
       bottom: 45px;
       height: 50px;
+
+      width: 60%;
     }
 
     @media screen and (max-width: 1300px) {
       position: fixed;
 
       left: 150vw;
-      bottom: 2vh;
+      bottom: 1vh;
       height: 6.5vh;
+
+      width: 75%;
 
       z-index: 9999;
 
