@@ -3,9 +3,14 @@
     <div class="LoginTitle"></div>
 
     <div class="drawnSpace">
+    
     </div>
 
     <div class="grayLine">
+    </div>
+
+    <div class="loginPosition">
+      <img class="logo" src="../assets/image/login.png" />
     </div>
 
     <div class="usernamePosition">
@@ -107,7 +112,7 @@ export default {
 
     background-color: $light_primary_color;
 
-    border-radius: 7px;
+    border-radius: 3px;
 
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   }
@@ -151,6 +156,21 @@ export default {
     }
   }
 
+  .logo{
+    position: absolute;
+    @media screen and (max-width: 1300px) {
+      display: none;
+    }
+
+    @media screen and (min-width: 1300px) {
+      width: 100px;
+      height: 100px;
+      top: 8vh;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
   .usernamePosition {
     position: absolute;
 
@@ -178,7 +198,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 4.1vh;
+        font-size: 2.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -213,7 +233,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 4.1vh;
+        font-size: 2.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -226,7 +246,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 85.5%;
+      top: 81.5%;
 
       background: $accent_color;
 
