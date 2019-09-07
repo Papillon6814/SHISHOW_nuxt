@@ -217,11 +217,11 @@ export default {
     slideRightArea: function() {
       console.log('slideRightArea');
       this.$refs.rightArea.spawnItself();
-      inputBar[0].style.left = "10%";
+      inputBar[0].style.left = "50%";
     },
 
     back: function() {
-      inputBar[0].style.left = "100vw";
+      inputBar[0].style.left = "150vw";
     }
   },
 
@@ -318,8 +318,8 @@ export default {
   }
 
   @media screen and (max-width: 1300px) {
-    height: calc(100% - 80px);
-    top: 80px;
+    height: calc(100% - 8.5vh);
+    top: 8.5vh;
   }
 
   overflow-y: hidden;
@@ -377,20 +377,21 @@ export default {
   .inputArea {
 
     width: 60%;
-    height: 50px;
 
     @media screen and (min-width: 1300px) {
       position: fixed;
 
       right: 0;
       bottom: 45px;
+      height: 50px;
     }
 
     @media screen and (max-width: 1300px) {
       position: fixed;
 
-      left: 100vw;
-      bottom: 20px;
+      left: 150vw;
+      bottom: 2vh;
+      height: 6.5vh;
 
       z-index: 9999;
 

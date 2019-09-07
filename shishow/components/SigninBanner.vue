@@ -226,7 +226,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 60%;
+      top: 87.5%;
 
       background: $accent_color;
 
@@ -239,7 +239,7 @@ export default {
     }
 
     @media screen and (min-width: 1300px) {
-      top: 87.5%;
+      top:60%;
 
       background: #fff;
 

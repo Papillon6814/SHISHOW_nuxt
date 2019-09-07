@@ -243,7 +243,12 @@ export default {
     @media screen and (max-width: 1300px) {
       width: 70px;
       height: 70px;
-      top: 5px;
+      top: 50%;
+
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+
       right: 20px;
     }
 
@@ -382,11 +387,11 @@ export default {
   .home {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
     right: 12.5vw;
-    height: 25vw;
-    width: 10vw;
+    height: 7vh;
+    width: 5vh;
 
     transform: translateX(50%);
     -webkit-transform: translateX(50%);
@@ -398,11 +403,11 @@ export default {
   .bell {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
     right: 37.5vw;
-    height: 25vw;
-    width: 10vw;
+    height: 7vh;
+    width: 5vh;
 
     transform: translateX(50%);
     -webkit-transform: translateX(50%);
@@ -414,11 +419,11 @@ export default {
   .game {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
     left: 37.5vw;
-    height: 25vw;
-    width: 10vw;
+    height: 7vh;
+    width: 5vh;
 
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
@@ -430,11 +435,11 @@ export default {
   .dm {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
     left: 12.5vw;
-    height: 25vw;
-    width: 10vw;
+    height: 7vh;
+    width: 5vh;
 
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);

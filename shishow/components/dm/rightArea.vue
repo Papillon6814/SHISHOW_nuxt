@@ -378,7 +378,7 @@ export default {
   top: 0;
 
   width: 100vw;
-  height: 80px;
+  height: 8.5vh;
 
   border-left-color: #757575;
   border-left-style: solid;
@@ -405,8 +405,8 @@ export default {
     left: 5px;
     top: 10px;
 
-    width: 70px;
-    height: 60px;
+    width: 6.5vh;
+    height: 6.5vh;
 
     color: #fff;
 
@@ -416,18 +416,19 @@ export default {
   .username {
     position: absolute;
 
-    left: 50%;
+    top: 1.5vh;
+    left: 50vw;
 
     transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
 
-    width: 70%;
-    height: 100%;
+    width: 90vw;
+    height: 5vh;
 
     text-align: center;
     color: #fff;
-    font-size: 60px;
+    font-size: 5vh;
   }
 }
 
@@ -438,7 +439,7 @@ export default {
   bottom: 0px;
 
   width: 100vw;
-  height: 80px;
+  height: 8.5vh;
 
   border-left-color: #757575;
   border-left-style: solid;

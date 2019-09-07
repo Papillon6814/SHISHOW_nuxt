@@ -149,13 +149,15 @@ export default {
         if(window.innerWidth < 1300) {
           this.$parent.slideRightArea();
         }
+        else {
+          let dmBan = document.getElementsByClassName("dmCover")[this.id]
+          dmBan.style.background = "rgba(255, 0, 0, 0)"
+          this.id = N;
+          dmBan = document.getElementsByClassName("dmCover")[N]
+          dmBan.style.background = "rgba(255, 0, 0, 0.5)"
+        }
         this.$parent.idFromLeftArea = friend;
 
-        let dmBan = document.getElementsByClassName("dmCover")[this.id]
-        dmBan.style.background = "rgba(255, 0, 0, 0)"
-        this.id = N;
-        dmBan = document.getElementsByClassName("dmCover")[N]
-        dmBan.style.background = "rgba(255, 0, 0, 0.5)"
         this.$parent.isGame = false;
       }
     },
@@ -165,13 +167,14 @@ export default {
         if(window.innerWidth < 1300) {
           this.$parent.slideRightArea();
         }
+        else {
+          let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
+          dmgameBan.style.background = "rgba(255, 0, 0, 0)"
+          this.id = N;
+          dmgameBan = document.getElementsByClassName("gameCover")[N]
+          dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
+        }
         this.$parent.idFromLeftArea = game;
-
-        let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
-        dmgameBan.style.background = "rgba(255, 0, 0, 0)"
-        this.id = N;
-        dmgameBan = document.getElementsByClassName("gameCover")[N]
-        dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
 
         this.$parent.isGame = true;
       }
@@ -277,7 +280,14 @@ export default {
         width: 50%;
         height: 90px;
 
-        font-size: 2.5vw;
+        @media screen and (min-width: 1300px) {
+          font-size: 2.5vw;
+        }
+
+        @media screen and (max-width: 1300px) {
+          font-size: 6vw;
+        }
+
         line-height: 90px;
 
         text-align: center;
@@ -296,7 +306,14 @@ export default {
 
         right: 0;
 
-        font-size: 2.5vw;
+        @media screen and (min-width: 1300px) {
+          font-size: 2.5vw;
+        }
+
+        @media screen and (max-width: 1300px) {
+          font-size: 6vw;
+        }
+
         line-height: 90px;
 
         text-align: center;
@@ -371,7 +388,7 @@ export default {
         }
 
         @media screen and (max-width: 1300px) {
-          bottom: 80px;
+          bottom: 8.5vh;
           width: 100%;
         }
 
