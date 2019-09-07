@@ -4,7 +4,6 @@
       <div class="iconPic">
         <img id="image" v-show="user.image"
         :src="user.image" />
-
       </div>
     </span>
 
@@ -398,6 +397,10 @@ export default {
       color: #fff;
 
       cursor: pointer;
+
+      @media screen and (min-width: 1300px) {
+        display: none;
+      }
 
       .pen {
         width: 2vh;
