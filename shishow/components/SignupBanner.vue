@@ -39,6 +39,13 @@
     >
   </div>
 
+  <div class="checkPosition">
+      <input class="check" type="checkbox" v-model="accpect">
+  </div>
+  <div class="termsPosition">
+    <nuxt-link to="/Terms">利用規約</nuxt-link>に同意する。
+  </div>
+
     <button @click="signUp" class="signup_button">
       アカウント作成
     </button>
@@ -64,6 +71,7 @@ export default {
       uploadedImage: "",
       roundimg:"",
       modal: "",
+      check:false,
     };
   },
   mounted:function(){
@@ -203,7 +211,7 @@ export default {
     }
 
     @media screen and (min-width: 1300px) {
-      top: 120px;
+      top: 90px;
       width: 65%;
     }
 
@@ -239,7 +247,7 @@ export default {
     }
 
     @media screen and (min-width: 1300px) {
-      top: 190px;
+      top: 160px;
       width: 65%;
     }
 
@@ -275,7 +283,7 @@ export default {
     }
 
     @media screen and (min-width: 1300px) {
-      top: 260px;
+      top: 230px;
       width: 65%;
     }
 
@@ -311,7 +319,7 @@ export default {
     }
 
     @media screen and (min-width: 1300px) {
-      top: 330px;
+      top: 300px;
       width: 65%;
     }
 
@@ -336,6 +344,66 @@ export default {
       }
     }
   }
+
+    .checkPosition {
+    position: absolute;
+
+    @media screen and (max-width: 1300px) {
+      top: 32.3vh;
+      width: 85%;
+      height: 7.25%;
+      left: 10%;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 371px;
+      width: 65%;
+      left: 19%;
+    }
+
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+
+    .check {
+      width: 100%; //$id_width
+
+      @media screen and (max-width: 1300px) {
+        height: 50%;
+        border-radius: 7px;
+      }
+
+      @media screen and (min-width: 1300px) {
+        height: 20px; //$id_height
+      }
+    }
+  }
+
+  .termsPosition{
+    position: absolute;
+
+    @media screen and (max-width: 1300px) {
+      top: 32vh;
+      width: 85%;
+      height: 7.25%;
+      left: 58%;
+      border-radius: 7px;
+      outline: none;
+      font-size: 1.5vh;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 370px;
+      width: 65%;
+      left: 55%;
+    }
+
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
   
   .signup_button {
     position: absolute;
@@ -354,11 +422,11 @@ export default {
     transition: .4s;
     cursor: pointer;
     @media screen and (max-width: 1300px) {
-      top:34vh;
+      top:36vh;
     }
 
     @media screen and (min-width: 1300px) {
-      top:400px;
+      top:425px;
     }
 
   }
