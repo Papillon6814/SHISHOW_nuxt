@@ -14,6 +14,8 @@ export default {
       { property: 'og:site_name', content: "SHISHOW"},
       { property: 'og:image', content: "https://i.imgur.com/smKCDby.png" },
       { name: 'viewport', content: 'width=device-width, initial-scale=0.5'},
+      { property: 'og:description', content: 'SHISHOWはゲームを通じて人との繋がりを築くプラットフォームで，あなたのゲームスキルの成長に役立ちます。' },
+      { property: 'og:url', content: 'https://www.shishow.tokyo/' },
     ],
   },
 }
