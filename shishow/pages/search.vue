@@ -17,6 +17,13 @@
           </normalBanner>
         </div>
 
+      <div v-for="(game,N) in searchGames" :key="N" v-bind:class="'g'+N">
+        <gameBanner 
+          :game="game"
+          :signuser="signuser"
+          :count="N"></gameBanner>
+      </div>
+
       </div>
     </div>
 
@@ -57,6 +64,7 @@ import "@firebase/auth";
 import navi from "../components/NavigationBar.vue";
 import normalBanner from "../components/NormalBanner";
 import popupNormalBanner from "../components/PopupNormalBanner.vue";
+import gameBanner from "~/components/GameBanner.vue"
 
 const db = firebase.firestore();
 let currentUser;
@@ -74,7 +82,8 @@ export default {
   components: {
     navi,
     normalBanner,
-    popupNormalBanner
+    popupNormalBanner,
+    gameBanner
   },
 
   data: function() {
@@ -82,6 +91,7 @@ export default {
       users: [],
       filteredUser: [],
       searchResults: [],
+      searchGames:[],
       relation:[],
       signuser:"",
       games: [],
@@ -93,22 +103,25 @@ export default {
 
   computed: {
     getSearchWordFromStore() {
-      return this.$store.getters["user/getSearchWord"];
+      return this.$store.getters["getSearchWord"];
     }
   },
 
   methods: {
     filterUser(word) {
-
+      
+      let re = new RegExp(word,"i")
+      let game = {}
       let users_i;
       let index = 0;
       let relat;
       if (word) {
         this.searchResults = [];
+        this.searchGames = []
         db.collection("USER").doc(""+this.$store.getters["user/user"].email).collection("relation").get().then(docs=>{
         for (users_i in this.users) {
           //ユーザーネームの走査
-          if (this.users[users_i].data().username.indexOf(word) !== -1) {
+          if (re.test(this.users[users_i].data().username)) {
             this.$set(this.searchResults, index, {
               username: this.users[users_i].data().username,
               bio: this.users[users_i].data().bio,
@@ -136,6 +149,13 @@ export default {
           this.$forceUpdate();
         }
         })
+        
+        
+        for(game of this.games){
+          if(re.test(game.data().gamename)){
+            this.searchGames.push(game)
+          }
+        }
       }
     },
 
@@ -188,14 +208,16 @@ export default {
   },
 
   created() {
+    let i = 0
     db.collection("USER")
       .get()
       .then(doc => {
         this.users = doc.docs;
-        doc.forEach(docs => {
-          this.filteredUser.push(docs.data());
-        });
-        this.filterUser(/*word = */ this.getSearchWordFromStore);
+
+        db.collection("GameCollection").get().then(dgames=>{
+          this.games = dgames.docs
+          this.filterUser(/*word = */ this.getSearchWordFromStore);
+        })
       });
 
     currentUser = firebase.auth().currentUser;
