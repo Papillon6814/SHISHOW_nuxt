@@ -178,7 +178,7 @@ export default {
 
   @media screen and (max-width: 1300px) {
     width: 70%;
-    height: 50vh;
+    height: 65vh;
 
     border-radius: 3px;
 
@@ -212,7 +212,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 6vh;
+      top: 18%;
       width: 85%;
       height: 7.25%;
     }
@@ -235,7 +235,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.4vh;
+        font-size: 1.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -248,7 +248,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 13vh;
+      top: 30%;
       width: 85%;
       height: 7.25%;
     }
@@ -271,7 +271,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.4vh;
+        font-size: 1.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -284,7 +284,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 20vh;
+      top: 41%;
       width: 85%;
       height: 7.25%;
     }
@@ -307,7 +307,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.4vh;
+        font-size: 1.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -320,7 +320,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 27vh;
+      top: 52%;
       width: 85%;
       height: 7.25%;
     }
@@ -343,7 +343,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.4vh;
+        font-size: 1.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -356,7 +356,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 32.3vh;
+      top: 65%;
       width: 85%;
       height: 7.25%;
       left: 10%;
@@ -391,7 +391,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 32vh;
+      top: 65%;
       width: 85%;
       height: 7.25%;
       left: 58%;
@@ -416,7 +416,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 36.3vh;
+      top: 74%;
       width: 85%;
       height: 7.25%;
       left: 10%;
@@ -451,7 +451,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 36.3vh;
+      top:74%;
       width: 85%;
       height: 7.25%;
       left: 58%;
@@ -489,7 +489,7 @@ export default {
     transition: .4s;
     cursor: pointer;
     @media screen and (max-width: 1300px) {
-      top:41vh;
+      top:85%;
     }
 
     @media screen and (min-width: 1300px) {
