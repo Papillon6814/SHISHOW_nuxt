@@ -28,6 +28,7 @@ app.get('/homeData', (request, response) => {
 
     let sign_user = request.query.email;
 
+    /*
     db.collection("USER")
         .doc(sign_user)
         .collection("relation")
@@ -66,6 +67,7 @@ app.get('/homeData', (request, response) => {
     .catch(e => {
         response.send(e);
     })
+    */
 })
 /*
 app.get('/chatData/isGame', (request, response) => {

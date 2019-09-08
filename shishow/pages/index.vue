@@ -215,11 +215,12 @@ export default {
 
   methods: {
     checkUser() {
-      console.log(firebase.auth().currentUser);
-      if(firebase.auth().currentUser == null) {
-        $nuxt.$router.push("/signin");
+      if(firebase.auth().currentUser) {
+        $nuxt.$router.push("/home")
+      }else{
+        $nuxt.$router.push("/signin")
       }
-      $nuxt.$router.push("/home");
+      console.log(firebase.auth().currentUser);
     },
 
     handleScroll: function() {
