@@ -22,11 +22,11 @@
     </div>
 
     <div class="emailPosition">
-      <input class="email" type="text" placeholder="メールアドレス" v-model="email">
+      <input class="email" type="text" placeholder="メールアドレス" v-model="email" />
     </div>
 
     <div class="passwordPosition">
-      <input class="password" type="password" placeholder="パスワード" v-model="password">
+      <input class="password" type="password" placeholder="パスワード" v-model="password" />
     </div>
 
   <div class="comfirmPosition">
@@ -40,14 +40,14 @@
   </div>
 
   <div class="checkPosition">
-      <input class="check" type="checkbox" v-model="accpect">
+      <input class="check" type="checkbox" value="accept">
   </div>
   <div class="termsPosition">
     <nuxt-link to="/Terms">利用規約</nuxt-link>に同意する。
   </div>
 
   <div class="checkPositionPri">
-      <input class="check" type="checkbox" v-model="privacy">
+    <input class="check" type="checkbox" value="privacy" />
   </div>
   <div class="privacyPosition">
     <nuxt-link class="check" to="/Terms">プライバシーポリシー</nuxt-link>
@@ -79,6 +79,8 @@ export default {
       roundimg:"",
       modal: "",
       check:false,
+      accept:false,
+      privacy:false,
     };
   },
   mounted:function(){
@@ -352,26 +354,23 @@ export default {
     }
   }
 
-    .checkPosition {
+  .checkPosition {
     position: absolute;
+
+    // -moz-transform: translate(-50%, 0);
 
     @media screen and (max-width: 1300px) {
       top: 65%;
       width: 85%;
       height: 7.25%;
-      left: 10%;
+      left: -31%;
     }
 
     @media screen and (min-width: 1300px) {
       top: 371px;
       width: 65%;
-      left: 19%;
+      left: -13%;
     }
-
-
-    -webkit-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
 
     .check {
       width: 100%; //$id_width
@@ -411,7 +410,7 @@ export default {
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
-      
+
   .checkPositionPri {
     position: absolute;
 
@@ -419,19 +418,18 @@ export default {
       top: 74%;
       width: 85%;
       height: 7.25%;
-      left: 10%;
+      left: -31%;
     }
 
     @media screen and (min-width: 1300px) {
       top: 411px;
       width: 65%;
-      left: 19%;
+      left: -13%;
     }
 
-
-    -webkit-transform: translate(-50%, 0);
+    //-webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
+    //transform: translate(-50%, 0);
 
     .check {
       width: 100%; //$id_width
@@ -495,8 +493,8 @@ export default {
     @media screen and (min-width: 1300px) {
       top:455px;
     }
-
   }
+
   .signup_button:hover{
     background: $light_primary_color;
     color: #fff;
