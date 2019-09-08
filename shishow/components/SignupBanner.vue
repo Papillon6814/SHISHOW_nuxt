@@ -190,7 +190,7 @@ export default {
 
   @media screen and (min-width: 1300px) {
     width: 48%;
-    height: 480px;
+    height: 510px;
 
     background-color: #fff;
 
@@ -235,7 +235,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 2.5vh;
+        font-size: 1.4vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -271,7 +271,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 2.5vh;
+        font-size: 1.4vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -307,7 +307,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 2.5vh;
+        font-size: 1.4vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -343,7 +343,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 2.5vh;
+        font-size: 1.4vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -411,7 +411,8 @@ export default {
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
-      .checkPositionPri {
+      
+  .checkPositionPri {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
@@ -422,7 +423,7 @@ export default {
     }
 
     @media screen and (min-width: 1300px) {
-      top: 371px;
+      top: 411px;
       width: 65%;
       left: 19%;
     }
@@ -460,7 +461,7 @@ export default {
     }
 
     @media screen and (min-width: 1300px) {
-      top: 370px;
+      top: 410px;
       width: 65%;
       left: 55%;
     }
@@ -492,7 +493,7 @@ export default {
     }
 
     @media screen and (min-width: 1300px) {
-      top:425px;
+      top:455px;
     }
 
   }
