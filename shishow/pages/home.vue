@@ -721,10 +721,6 @@ footer {
   .modalPosition {
     position: absolute;
 
-<<<<<<< HEAD
-    top: 50%; 
-    left: 50%;
-=======
     @media screen and (min-width: 1300px) {
       top: 300px;
       left: 50%;
@@ -736,7 +732,6 @@ footer {
       left: 50%;
       width: 90%;
     }
->>>>>>> master
 
     height: 100%;
 
@@ -765,9 +760,6 @@ footer {
   .modalPosition {
     position: absolute;
 
-<<<<<<< HEAD
-    top: 23%; 
-=======
     @media screen and (min-width: 1300px) {
       top: 300px;
       width: 65%;
@@ -777,7 +769,6 @@ footer {
       top: 10vh;
       width: 90%;
     }
->>>>>>> master
     left: 50%;
 
     height: 100%;
