@@ -134,8 +134,8 @@ export default {
     .usernamePosition{
       position: absolute;
 
-      top: 8px;
-      left: 172px;
+      top: 20px;
+      left: 10%;
       right: 0px;
     }
 

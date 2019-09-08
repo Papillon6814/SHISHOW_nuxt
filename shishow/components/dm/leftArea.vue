@@ -13,6 +13,7 @@
 
     <div class="privateDM">
       <div class="dmbannerPosition">
+
         <div v-for="(friend, N) in friendsDocID"
           :key="N">
           <div @click="click_f(friend, N)">
@@ -25,7 +26,6 @@
         </div>
         <div class="space"></div>
       </div>
-
     </div>
 
     <div class="globalDM">
