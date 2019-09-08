@@ -24,7 +24,11 @@ export default {
   },
 
   mounted: function() {
-    this.$refs.nav.showBackArrow();
+    if(process.browser) {
+      if(window.innerWidth < 1300) {
+        this.$refs.nav.showBackArrow();
+      }
+    }
   },
 
   methods: {
