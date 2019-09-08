@@ -140,6 +140,8 @@ export default {
       top: 10%;
 
       font-size: 3vh;
+
+      z-index: 5;
     }
 
     .png {
@@ -210,7 +212,8 @@ export default {
         font-size: 5vw;
       }
 
-      color: #abbffb;
+      //color: #abbffb;
+      color: #fff;
       border: solid 2px #abbffb;
       border-radius: 3px;
       transition: .4s;

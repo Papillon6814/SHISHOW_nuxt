@@ -81,6 +81,10 @@
         <div class="aboutus">
           About us
         </div>
+        <a href="https://papion-portfolio.firebaseapp.com/">
+          <img src="~/assets/image/logoShishow.png" class="papion"
+            alt="papion" />
+        </a>
         <img src="~/assets/image/part3.png" class="part3"
         alt="footerImage" />
       </div>
@@ -500,6 +504,10 @@ export default {
         -ms-transform: translate(50%, 0);
 
         width: 70%;
+
+        -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+
       }
     }
   }
@@ -513,6 +521,32 @@ export default {
 
       font-size: 35px;
     }
+
+      .papion {
+        position: absolute;
+
+        top: 275vh;
+
+        left: 50%;
+
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+
+        -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+
+        width: 50vw;
+
+        transition: .3s;
+      }
+
+      .papion:hover {
+        -webkit-filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+      }
+    }
+
     .part3 {
       position: absolute;
 
@@ -522,7 +556,7 @@ export default {
       width: 100%;
     }
   }
-}
+
 
 #prehome_mobile {
   background: #fafafa;

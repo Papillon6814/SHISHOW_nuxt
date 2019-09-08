@@ -1,5 +1,7 @@
 <template>
   <div class="GameRequestBanner">
+    <!--
+      TODO: 著作権的な問題
     <span class="iconCirclePosition">
       <label>
         <div class="iconCircle">
@@ -9,6 +11,7 @@
         </div>
       </label>
     </span>
+    -->
 
     <div class="closeBtn" @click="fade()">
       <font-awesome-icon icon="times" />
