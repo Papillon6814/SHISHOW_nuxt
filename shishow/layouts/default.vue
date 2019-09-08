@@ -1,6 +1,8 @@
 <template>
   <div>
     <nuxt />
+    <img src="~/assets/image/Beta.png" class="beta"
+    alt="beta" />
   </div>
 </template>
 
@@ -34,6 +36,16 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+.beta {
+  position: fixed;
+
+  left: 10px;
+  bottom: 10px;
+
+  height: 60px;
+  width: 60px;
 }
 
 *,

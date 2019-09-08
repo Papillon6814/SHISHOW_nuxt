@@ -11,6 +11,9 @@
       {{user.username}}
     </div>
 
+    <img src="~/assets/image/Beta.png" class="beta"
+    alt="beta" />
+
     <div class="shishowPosition">
       <div class="shishowText">
       師匠
@@ -443,6 +446,16 @@ export default {
 
     cursor: pointer;
   }
+}
+
+.beta {
+  position: fixed;
+
+  left: 10px;
+  bottom: 10px;
+
+  height: 60px;
+  width: 60px;
 }
 
 </style>
