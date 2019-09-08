@@ -40,14 +40,14 @@
   </div>
 
   <div class="checkPosition">
-      <input class="check" type="checkbox" v-model="accpect">
+      <input class="check" type="checkbox" value="accpect">
   </div>
   <div class="termsPosition">
     <nuxt-link to="/Terms">利用規約</nuxt-link>に同意する。
   </div>
 
   <div class="checkPositionPri">
-      <input class="check" type="checkbox" v-model="privacy">
+    <input class="check" type="checkbox" value="privacy">
   </div>
   <div class="privacyPosition">
     <nuxt-link class="check" to="/Terms">プライバシーポリシー</nuxt-link>
