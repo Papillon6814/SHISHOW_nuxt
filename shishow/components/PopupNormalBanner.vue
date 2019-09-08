@@ -5,7 +5,8 @@
     </div>
 
     <span class="iconPicPosition">
-      <img class="icon" :src="userInfo['image']" />
+      <img class="icon" :src="userInfo['image']"
+      alt="hisIcon" />
       <div class="iconCircle"></div>
     </span>
 
@@ -100,7 +101,14 @@ export default {
   position: absolute;
 
   width: 100%;
-  height: 400px;
+
+  @media screen and (min-width: 1300px) {
+    height: 400px;
+  }
+
+  @media screen and (max-width: 1300px) {
+    height: 80vh;
+  }
 
   background-color: $dark_color;
 
@@ -112,8 +120,15 @@ export default {
     top: 10px;
     right: 10px;
 
-    width: 30px;
-    height: 30px;
+    @media screen and (min-width: 1300px) {
+      width: 30px;
+      height: 30px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      width: 7vh;
+      height: 7vh;
+    }
 
     font-size: 30px;
 
@@ -129,9 +144,19 @@ export default {
     .icon {
       position: absolute;
 
-      width: 170px;
-      height: 170px;
+      @media screen and (min-width: 1300px) {
+        width: 170px;
+        height: 170px;
+      }
+
+      @media screen and (max-width: 1300px) {
+        width: 30vw;
+        height: 30vw;
+      }
+
       left: 7%;
+
+      border-radius: 50%;
     }
 
     .iconCircle {
@@ -158,13 +183,21 @@ export default {
   .usernamePosition {
     position: absolute;
 
-    top: 25px;
-    left: calc(7% + 170px);
-
     width: calc(86% - 170px);
-    height: 85px;
 
-    font-size: 60px;
+    @media screen and (min-width: 1300px) {
+      left: calc(7% + 170px);
+      font-size: 60px;
+      height: 85px;
+      top: 25px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      left: 40vw;
+      font-size: 8vw;
+      height: auto;
+      top: 50px;
+    }
 
     text-align: left;
 
@@ -176,13 +209,22 @@ export default {
   .profilePosition {
     position: absolute;
 
-    top: 115px;
-    left: calc(7% + 170px);
-
-    width: calc(86% - 170px);
-    height: 200px;
-
     padding:5px;
+
+    @media screen and (min-width: 1300px) {
+      top: 115px;
+      left: calc(7% + 170px);
+      width: calc(86% - 170px);
+      height: 200px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      left: 5vw;
+      top: calc(4vh + 30vw);
+
+      width: 90%;
+      height: 70%;
+    }
 
     /*
     border-top: solid;
@@ -202,15 +244,22 @@ export default {
   .gamesPosition {
     position: absolute;
 
-    width: calc(76% - 170px);
     height: 50px;
-
-    left: calc(7% + 170px);
     bottom: 7px;
 
-    text-align: left;
+    @media screen and (min-width: 1300px) {
+      left: calc(7% + 170px);
+      width: calc(76% - 170px);
+      font-size: 30px;
+    }
 
-    font-size: 30px;
+    @media screen and (max-width: 1300px) {
+      left: 5%;
+      width: 85%;
+      font-size: 8vw;
+    }
+
+    text-align: left;
 
     color: #bdbdbd;
   }

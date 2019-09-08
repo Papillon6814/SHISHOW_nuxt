@@ -18,7 +18,8 @@
       </div>
 
       <div class="page1">
-        <img src="~/assets/image/part1.png" class="part1" />
+        <img src="~/assets/image/part1.png" class="part1"
+        alt="blueCircle" />
 
         <div class="phrase1">
           SHISHOW
@@ -33,34 +34,46 @@
           ゲームの世界を広げよう
         </div>
 
-        <img src="~/assets/image/leaf.png" class="leaf" />
+        <img src="~/assets/image/leaf.png" class="leaf"
+          alt="leaf" />
 
-        <nuxt-link to="/home">
-          <div class="enterButton" @click.prevent="checkUser()">
-            はじめる
-          </div>
-        </nuxt-link>
+        <div class="enterButton" @click="checkUser()">
+          はじめる
+        </div>
       </div>
 
       <div class="page2">
-        <img src="~/assets/image/part2.png" class="part2" />
+        <img src="~/assets/image/part2.png" class="part2"
+        alt="twoCircles" />
 
         <div class="card1 card">
           <div class="step">STEP1</div>
-          <img src="~/assets/image/step1only.png" class="cardPic" />
-          <div class="cardtext">自分の好きなゲームを登録</div>
+          <img src="~/assets/image/step1only.png" class="cardPic"
+          alt="girlWhoPlaysGame" />
+          <div class="cardtext">
+            自分の好きなゲームを登録して<br>
+            チャットを眺める
+          </div>
         </div>
 
         <div class="card2 card">
           <div class="step">STEP2</div>
-          <img src="~/assets/image/step2only.png" class="cardPic" />
-          <div class="cardtext">強いプレイヤーに弟子入り</div>
+          <img src="~/assets/image/step2only.png" class="cardPic"
+          alt="levelup" />
+          <div class="cardtext">
+            強いプレイヤーに弟子入りして<br>
+            色々と教えてもらう
+          </div>
         </div>
 
         <div class="card3 card">
           <div class="step">STEP3</div>
-          <img src="~/assets/image/step3only.png" class="cardPic3" />
-          <div class="cardtext">メッセージでやりとり</div>
+          <img src="~/assets/image/step3only.png" class="cardPic3"
+            alt="gameboy" />
+          <div class="cardtext">
+            メッセージでやりとりして<br>
+            ゲームを教わる，一緒に遊ぶ
+          </div>
         </div>
       </div>
 
@@ -68,18 +81,27 @@
         <div class="aboutus">
           About us
         </div>
-        <img src="~/assets/image/part3.png" class="part3"/>
+        <a href="https://papion-portfolio.firebaseapp.com/">
+          <img src="~/assets/image/logoShishow.png" class="papion"
+            alt="papion" />
+        </a>
+        <img src="~/assets/image/part3.png" class="part3"
+        alt="footerImage" />
       </div>
     </div>
 
     <div id="prehome_mobile">
       <div class="topBar">
-        <div class="signin">ログイン</div>
+        <nuxt-link to="/signin">
+          <div class="signin">ログイン</div>
+        </nuxt-link>
       </div>
 
       <div class="page1">
-        <img src="~/assets/image/mini1.png" class="mini1" />
-        <img src="~assets/image/mini2.png" class="mini2" />
+        <img src="~/assets/image/mini1.png" class="mini1"
+        alt="blueCircle"/>
+        <img src="~assets/image/mini2.png" class="mini2"
+        alt="twoCircles"/>
 
         <div class="passageBlock1">
           SHISHOW
@@ -92,50 +114,65 @@
           切磋琢磨しよう<br>
           ゲームの世界を広げよう
         </div>
+        <nuxt-link to="/home">
+          <div class="enterButton" @click="checkUser()">
+            はじめる
+          </div>
+        </nuxt-link>
       </div>
 
       <div class="page2">
-        <img src="~/assets/image/mini3.png" class="mini3" />
+        <img src="~/assets/image/mini3.png" class="mini3"
+        alt="redCircle"/>
         <div class="how2use">
           はじめかた
         </div>
         <div class="card">
           <div class="section1">
-            <img src="~/assets/image/step1only.png" class="pic" />
+            <img src="~/assets/image/step1only.png" class="pic"
+            alt="girlWhoPlaysGame"/>
             <div class="clause">
               <div class="bold">STEP1.</div><br>
-              自分の好きなゲームを登録<br>
+              自分の好きなゲームを登録して<br>
+              チャットを眺める<br>
             </div>
             <div class="goright" @click="go2()"></div>
           </div>
 
           <div class="section2">
             <div class="goleft" @click="go1()"></div>
-            <img src="~/assets/image/step2only.png" class="pic" />
+            <img src="~/assets/image/step2only.png" class="pic"
+            alt="levelup" />
             <div class="clause">
               <div class="bold">STEP2.</div><br>
-              強いプレイヤーに弟子入り<br>
+              強いプレイヤーに弟子入りして<br>
+              色々と教えてもらう
             </div>
             <div class="goright" @click="go3()"></div>
           </div>
 
           <div class="section3">
             <div class="goleft" @click="go2()"></div>
-            <img src="~/assets/image/step3only.png" class="pic" />
+            <img src="~/assets/image/step3only.png" class="pic"
+            alt="gameboy"/>
             <div class="clause">
               <div class="bold">STEP3.</div><br>
-              メッセージでやりとり<br>
+              メッセージでやりとりして<br>
+              ゲームを教わる，一緒に遊ぶ
             </div>
           </div>
         </div>
       </div>
 
       <div class="page3">
-        <img src="~/assets/image/mini4.png" class="mini4" />
+        <img src="~/assets/image/mini4.png" class="mini4"
+        alt="footerImage"/>
         <div class="aboutus">
           About us
         </div>
-        <div class="card"></div>
+        <a href="https://papion-portfolio.firebaseapp.com/">
+          <div class="card"></div>
+        </a>
       </div>
     </div>
   </div>
@@ -180,14 +217,14 @@ export default {
     }
   },
 
-  methods:{
-    checkUser(){
-      if(firebase.auth().currentUser){
+  methods: {
+    checkUser() {
+      if(firebase.auth().currentUser) {
         $nuxt.$router.push("/home")
       }else{
         $nuxt.$router.push("/signin")
       }
-      console.log(firebase.auth().currentUser)
+      console.log(firebase.auth().currentUser);
     },
 
     handleScroll: function() {
@@ -252,7 +289,7 @@ export default {
     left: 0;
 
     width: 100vw;
-    height: 60px;
+    height: 6.5vh;
 
     background: #fff;
 
@@ -354,7 +391,7 @@ export default {
       position: absolute;
 
       left: 11vw;
-      top: 360px;
+      top: 440px;
 
       width: 150px;
       height: 42px;
@@ -467,6 +504,10 @@ export default {
         -ms-transform: translate(50%, 0);
 
         width: 70%;
+
+        -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+
       }
     }
   }
@@ -480,6 +521,32 @@ export default {
 
       font-size: 35px;
     }
+
+      .papion {
+        position: absolute;
+
+        top: 275vh;
+
+        left: 50%;
+
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+
+        -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+
+        width: 50vw;
+
+        transition: .3s;
+      }
+
+      .papion:hover {
+        -webkit-filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+      }
+    }
+
     .part3 {
       position: absolute;
 
@@ -489,12 +556,13 @@ export default {
       width: 100%;
     }
   }
-}
+
 
 #prehome_mobile {
   background: #fafafa;
 
   overflow-y: scroll;
+  overflow-x: hidden;
 
   @media screen and (min-width: 1300px) {
     display: none;
@@ -543,7 +611,7 @@ export default {
         right: 0;
         top: 0;
 
-        width: 30vw;
+        width: 40vh;
 
         z-index: -1;
       }
@@ -554,7 +622,7 @@ export default {
         left: 0;
         top: 50vh;
 
-        width: 40vw;
+        width: 50vh;
 
         z-index: -1;
       }
@@ -586,7 +654,7 @@ export default {
       .passageBlock3 {
         position: absolute;
 
-        top: 260px;
+        top: 290px;
         left: 6vw;
 
         width: 80vw;
@@ -595,6 +663,32 @@ export default {
         font-size: 25px;
 
         color: #757575;
+      }
+
+      .enterButton {
+        position: absolute;
+
+        left: 6vw;
+        top: 400px;
+
+        width: 150px;
+        height: 42px;
+
+        text-align: center;
+        color: $primary_text;
+        font-size: 18px;
+
+        color: #fff;
+
+        background: $accent_color;
+
+        //border-color: $header-color;
+        //border-style: solid;
+        border-radius: 15px;
+
+        line-height: 37px;
+
+        cursor: pointer;
       }
   }
 
@@ -605,7 +699,7 @@ export default {
       position: absolute;
 
       right: 0;
-      top: 170vh;
+      top: 110vh;
 
       width: 40vh;
     }
@@ -613,7 +707,7 @@ export default {
     .how2use {
       position: absolute;
 
-      top: 80vh;
+      top: 50vh;
       left: 50vw;
 
       transform: translate(-50%, 0);
@@ -629,7 +723,7 @@ export default {
     .mini4 {
       position: absolute;
 
-      top: 300vh;
+      top: 180vh;
       left: 0;
 
       width: 100vw;
@@ -638,7 +732,7 @@ export default {
     .aboutus {
       position: absolute;
 
-      top: 210vh;
+      top: 125vh;
       left: 50%;
 
       transform: translate(-50%, 0);
@@ -652,7 +746,7 @@ export default {
     .card {
       position: absolute;
 
-      top: 225vh;
+      top: 135vh;
       left: 50%;
 
       transform: translate(-50%, 0);
@@ -664,7 +758,7 @@ export default {
   .card {
       position: absolute;
 
-      top: 95vh;
+      top: 60vh;
       left: 50%;
 
       transform: translate(-50%, 0);

@@ -4,7 +4,8 @@
     <div class="nbField" @click="click()">
 
       <span class="iconPicPosition">
-        <img class="icon" :src="user['image']" />
+        <img class="icon" :src="user['image']"
+        alt="userIcon" />
         <div class="iconCircle"></div>
       </span>
       <!-- <div class="achievementPosition1">
@@ -291,8 +292,10 @@ export default {
   position: absolute;
 
   @media screen and (max-width: 1300px) {
-    width: 70px;
-    height: 70px;
+    width: 15vw;
+    height: 15vw;
+    top:3vw;
+    left:2.5vw;
   }
 
   @media screen and (min-width: 1300px) {
@@ -323,6 +326,24 @@ export default {
     z-index: -1;
   }
 }
+  
+.icon {
+  position: absolute;
+
+  @media screen and (max-width: 1300px) {
+    width: 15vw;
+    height: 15vw;
+  }
+
+  @media screen and (min-width: 1300px){
+    width: 8vw;
+    height: 8vw;
+  }
+
+  left: 7%;
+
+  border-radius: 50%;
+}
 
 .username {
   width: $user_width;
@@ -330,6 +351,11 @@ export default {
 
   font: "メイリオ";
   font-size: 22px;
+  
+  @media screen and (max-width: 1300px) {
+    font-size: 3.5vw;
+  }
+  
 }
 
 .usernamePosition {
@@ -338,6 +364,11 @@ export default {
   top: 30px;
   left: 100px;
   right: 0px;
+  
+  @media screen and (max-width: 1300px) {
+    left:23vw;
+  }
+  
 }
 
 .profilePosition {
@@ -383,6 +414,13 @@ export default {
 
   display: inline-block;
   padding: 0.3em 1em;
+
+  @media screen and (max-width: 1300px) {
+    font-size: 3vw;
+    border-radius:2vw;
+    right:4%;
+  }
+
   text-decoration: none;
   color: #9aa5ef;
   border: solid 2px #9aa5ef;
@@ -400,24 +438,6 @@ export default {
 .friendRequest_button:active {
   background-color: #9aa5ef;
   color: white;
-}
-
-.icon {
-  position: absolute;
-
-  @media screen and (max-width: 1300px) {
-    width: 75px;
-    height: 75px;
-  }
-
-  @media screen and (min-width: 1300px){
-    width: 8vw;
-    height: 8vw;
-  }
-
-  left: 7%;
-
-  border-radius: 50%;
 }
 
 </style>

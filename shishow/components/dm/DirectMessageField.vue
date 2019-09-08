@@ -30,6 +30,7 @@
       :friendsDocID="leftAreaData"
       @showPopup="popup">
       </leftArea>
+
       <div class="nameTagArea">
         <div class="nameTag">
           {{ usernameFromLeftArea }}
@@ -37,11 +38,13 @@
         <div class="nameBorder">
         </div>
       </div>
+
       <rightArea
       ref="rightArea"
       :friendDocID="idFromLeftArea"
       :isGame="isGame">
       </rightArea>
+
       <div class="inputArea">
         <inputArea
         @scrollRightArea="callScroll()"
@@ -49,6 +52,7 @@
         :isGame="isGame">
         </inputArea>
       </div>
+
     </div>
 
     <div class="entireBox">
@@ -94,7 +98,7 @@ let db = firebase.firestore();
 let currentUser;
 let friendsDocID = [];
 
-let entireBox, modal, userModal;
+let entireBox, modal, userModal, inputBar;
 
 export default {
 
@@ -134,6 +138,7 @@ export default {
             .get()
             .then(doc1 => {
               this.usernameFromLeftArea = doc1.data().gamename;
+              this.$refs.rightArea.username = this.usernameFromLeftArea;
             })
 
         } else {
@@ -150,6 +155,7 @@ export default {
                 .get()
                 .then(doc2 => {
                   this.usernameFromLeftArea = doc2.data().username;
+                  this.$refs.rightArea.username = this.usernameFromLeftArea;
                 })
             })
 
@@ -206,6 +212,16 @@ export default {
 
     fadeOut: function() {
       entireBox[0].style.display = "none";
+    },
+
+    slideRightArea: function() {
+      console.log('slideRightArea');
+      this.$refs.rightArea.spawnItself();
+      inputBar[0].style.left = "50%";
+    },
+
+    back: function() {
+      inputBar[0].style.left = "150vw";
     }
   },
 
@@ -232,6 +248,7 @@ export default {
     modal = document.getElementById("modal");
 
     userModal = document.getElementsByClassName("userModal");
+    inputBar = document.getElementsByClassName("inputArea");
   }
 }
 
@@ -297,13 +314,13 @@ export default {
 
   @media screen and (min-width: 1300px) {
     height: calc(100% - 100px);
+    top: 100px;
   }
 
   @media screen and (max-width: 1300px) {
-    height: calc(100% - 80px);
+    height: calc(100% - 8.5vh);
+    top: 8.5vh;
   }
-
-  top: 100px;
 
   overflow-y: hidden;
   overflow-x: hidden;
@@ -359,24 +376,29 @@ export default {
   // 下部に表示する
   .inputArea {
 
-    width: 60%;
-    height: 50px;
-
     @media screen and (min-width: 1300px) {
       position: fixed;
 
       right: 0;
       bottom: 45px;
+      height: 50px;
+
+      width: 60%;
     }
 
     @media screen and (max-width: 1300px) {
-      position: absolute;
+      position: fixed;
 
-      left: 100vw;
-      bottom: 45px;
+      left: 150vw;
+      bottom: 1vh;
+      height: 6.5vh;
+
+      width: 75%;
+
+      z-index: 9999;
+
+      transition: .3s;
     }
-
-    z-index: 3;
   }
 }
 
@@ -400,10 +422,17 @@ export default {
   .GameRequestBannerPosition {
     position: absolute;
 
-    width: 672px;
+    @media screen and (min-width: 1300px) {
+      top: 150px;
+      left: 50vw;
+      width: 672px;
+    }
 
-    top: 150px;
-    left: 50%;
+    @media screen and (max-width: 1300px) {
+      top: 10vh;
+      left: 50vw;
+      width: 90%;
+    }
 
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
@@ -430,10 +459,18 @@ export default {
 
     position: absolute;
 
-    top: 150px;
-    left: 50vw;
+    @media screen and (min-width: 1300px) {
+      top: 300px;
+      left: 50%;
+      width: 65%;
+    }
 
-    width: 65%;
+    @media screen and (max-width: 1300px){ 
+      top: 10vh;
+      left: 50%;
+      width: 90%;
+    }
+
     height: 100%;
 
     -webkit-transform: translate(-50%, 0);

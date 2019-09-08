@@ -14,7 +14,7 @@
     <div class="privateDM">
       <div class="dmbannerPosition">
         <div v-for="(friend, N) in friendsDocID"
-          :key="N" v-bind:class="'b' + N">
+          :key="N">
           <div @click="click_f(friend, N)">
             <dmBanner
               :dmBannerUsername="usernames[N]"
@@ -23,6 +23,7 @@
             </dmBanner>
           </div>
         </div>
+        <div class="space"></div>
       </div>
 
     </div>
@@ -30,20 +31,19 @@
     <div class="globalDM">
       <div class="dmBannerPosition">
         <div v-for="(game, N) in games"
-          :key="N" v-bind:class="'enumGameBanner'+N">
+          :key="N">
           <div @click="click_g(game, N)">
             <dmGameBanner
               :gameDocId="game">
             </dmGameBanner>
           </div>
         </div>
+        <div class="space"></div>
       </div>
 
-      <div class="addGamePosition">
-      <div class="textPosition" @click="showPopup()">
-      New Game
+      <div class="addGamePosition" @click="showPopup()">
+        New Game
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -146,41 +146,39 @@ export default {
       })
     },
 
-
     click_f: function(friend, N) {
       if(process.browser) {
-        if(window.parent.screen.width > 1300) {
-          this.$parent.idFromLeftArea = friend;
-
-          let dmBan = document.getElementsByClassName("dmCover")[this.id]
-          dmBan.style.background = "rgba(255, 0, 0, 0)"
-          this.id = N;
-          dmBan = document.getElementsByClassName("dmCover")[N]
-          dmBan.style.background = "rgba(255, 0, 0, 0.5)"
-          this.$parent.isGame = false;
+        if(window.innerWidth < 1300) {
+          this.$parent.slideRightArea();
         }
         else {
-
+          let dmBan = document.getElementsByClassName("dmCover")[this.id]
+          dmBan.style.background = "rgba(255, 255, 255, 0)"
+          this.id = N;
+          dmBan = document.getElementsByClassName("dmCover")[N]
+          dmBan.style.background = "rgba(0, 0, 0, 0.36)"
         }
+        this.$parent.idFromLeftArea = friend;
+
+        this.$parent.isGame = false;
       }
     },
 
     click_g: function(game, N) {
       if(process.browser) {
-        if(window.parent.screen.width) {
-          this.$parent.idFromLeftArea = game;
-
-          let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
-          dmgameBan.style.background = "rgba(255, 0, 0, 0)"
-          this.id = N;
-          dmgameBan = document.getElementsByClassName("gameCover")[N]
-          dmgameBan.style.background = "rgba(255, 0, 0, 0.5)"
-
-          this.$parent.isGame = true;
+        if(window.innerWidth < 1300) {
+          this.$parent.slideRightArea();
         }
         else {
-
+          let dmgameBan = document.getElementsByClassName("gameCover")[this.id]
+          dmgameBan.style.background = "rgba(255, 255, 255, 0)"
+          this.id = N;
+          dmgameBan = document.getElementsByClassName("gameCover")[N]
+          dmgameBan.style.background = "rgba(0, 0, 0, 0.36)"
         }
+        this.$parent.idFromLeftArea = game;
+
+        this.$parent.isGame = true;
       }
     },
 
@@ -205,7 +203,7 @@ export default {
       privateTab[0].style.background = "#fff";
       globalTab[0].style.background = "#b2ebf2"
 
-      if(this.friendsDocID.length != 0){
+      if(this.friendsDocID.length != 0) {
         let gameBan = document.getElementsByClassName("dmCover")[this.id];
         gameBan.style.background = "rgba(255, 0, 0, 0)";
       }
@@ -247,7 +245,7 @@ export default {
     privateTab = document.getElementsByClassName("private");
     globalTab = document.getElementsByClassName("global");
 
-    leftArea = document.getElementById('leftArea')
+    leftArea = document.getElementById('leftArea');
   }
 }
 
@@ -284,7 +282,14 @@ export default {
         width: 50%;
         height: 90px;
 
-        font-size: 2.5vw;
+        @media screen and (min-width: 1300px) {
+          font-size: 2.5vw;
+        }
+
+        @media screen and (max-width: 1300px) {
+          font-size: 6vw;
+        }
+
         line-height: 90px;
 
         text-align: center;
@@ -303,7 +308,14 @@ export default {
 
         right: 0;
 
-        font-size: 2.5vw;
+        @media screen and (min-width: 1300px) {
+          font-size: 2.5vw;
+        }
+
+        @media screen and (max-width: 1300px) {
+          font-size: 6vw;
+        }
+
         line-height: 90px;
 
         text-align: center;
@@ -327,31 +339,12 @@ export default {
       .dmbannerPosition{
         position: absolute;
 
-        $i: 1;
-
         top: 70px;
         left: 6%;
 
         width: 100%;
 
         float:left;
-
-        @while $i <= 30{
-          .b#{$i}{
-            position: absolute;
-
-            top: 140px * $i;
-
-            width: 100%;
-
-          }
-          $i: $i + 1;
-        }
-
-        /*.notion{
-          border:1px solid #000;
-        }*/
-
       }
 
     }
@@ -368,7 +361,7 @@ export default {
       left: 0;
 
       width: 100%;
-      height: calc(100% - 150px);
+      height: calc(100% - 210px);
 
       .dmBannerPosition {
         position: absolute;
@@ -389,34 +382,38 @@ export default {
       .addGamePosition {
         position: fixed;
 
-        bottom: 0;
+        color: $primary_text;
+
+        @media screen and (min-width: 1300px) {
+          bottom: 0px;
+          width: 40%;
+        }
+
+        @media screen and (max-width: 1300px) {
+          bottom: 8.5vh;
+          width: 100%;
+        }
+
         left: 0;
 
         height: 60px;
-        width: 100%;
 
         background-color: $accent_color;
 
-        .textPosition {
-          position: absolute;
+        text-align: center;
 
-          width: 100%;
-          height: 100%;
-
-          top: 0;
-          left: 0;
-
-          font-size: 40px;
-          color: $primary_text;
-
-          background-color: $accent_color;
-
-          text-align: center;
-
-          cursor: pointer;
-        }
+        line-height: 60px;
+        font-size: 50px;
+        cursor: pointer;
       }
     }
   }
+
+.space {
+  position: relative;
+
+  height: 10vh;
+  width: 100%;
+}
 
 </style>

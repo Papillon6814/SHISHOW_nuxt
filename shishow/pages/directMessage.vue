@@ -1,6 +1,6 @@
 <template>
   <div id="DirectMessage">
-    <navi></navi>
+    <navi ref="nav"></navi>
     <div class="dmPosition">
       <dmField></dmField>
     </div>
@@ -23,6 +23,20 @@ export default {
     dmField
   },
 
+  mounted: function() {
+    if(process.browser) {
+      if(window.innerWidth < 1300) {
+        this.$refs.nav.showBackArrow();
+      }
+    }
+  },
+
+  methods: {
+    scroll2top: function() {
+      //do nothing
+    },
+  },
+
   fetch({store,redirect}){
     if(store.state.init && store.state.user.user.email == null){
       redirect("/")
@@ -32,7 +46,7 @@ export default {
 
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 
 body {
   height: 100%;

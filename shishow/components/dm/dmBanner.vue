@@ -34,7 +34,11 @@ export default {
 <style lang="scss" scoped>
 
 .dmBanner {
+  position: relative;
+
   display: block;
+
+  margin-top: 20px;
 
   width: 88%;
   height: 120px;
@@ -90,7 +94,7 @@ export default {
 
   .dmCover{
     position:absolute;
-    width: 88%;
+    width: 100%;
     height: 120px;
     background:rgba(255, 0, 0, 0);
   }
