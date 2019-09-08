@@ -4,7 +4,8 @@
     <span class="iconCirclePosition">
       <label>
         <div class="iconCircle">
-          <img :src="croppedimg" class="gameIcon">
+          <img :src="croppedimg" class="gameIcon"
+          alt="iconImage" />
           <input hidden class="iconFile" type="file"
           @change="setImage" accept="image/*" name="image">
         </div>
@@ -28,7 +29,6 @@
 
     <div class="bioPosition">
       <textarea v-model="userBio" :rows="rows()"
-
         maxlength="50"></textarea>
     </div>
 
@@ -190,8 +190,16 @@ export default {
     position: absolute;
     left: 7%;
     top: 5%;
-    width: 140px;
-    height: 140px;
+
+    @media screen and (min-width: 1300px) {
+      width: 140px;
+      height: 140px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      width: 30vw;
+      height: 30vw;
+    }
 
     .iconCircle {
       width: 100%;
@@ -231,6 +239,16 @@ export default {
     border-right: none;
     outline: none;
     color: $primary_text;
+
+    @media screen and (min-width: 1300px) {
+      height: 40px;
+      font-size: 35px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      height: 8vh;
+      font-size: 4.5vh;
+    }
   }
   textarea {
     border-top: none;
@@ -257,9 +275,7 @@ export default {
     position: absolute;
     top: 10%;
     right: 9%;
-    height: 40px;
     width: 50%;
-    font-size: 35px;
   }
   .username {
     position: absolute;
@@ -268,9 +284,7 @@ export default {
     transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
-    height: 40px;
     width: 80%;
-    font-size: 35px;
   }
   .placeGames {
     position: absolute;
@@ -279,10 +293,8 @@ export default {
     transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
-    height: 40px;
     width: 80%;
     color: $secondary_text;
-    font-size: 35px;
   }
   .applyChangeButton {
     position: absolute;
@@ -312,7 +324,14 @@ export default {
       top: 0;
       width: 100%;
       height: auto;
-      font-size: 35px;
+
+      @media screen and (min-width: 1300px) {
+        font-size: 35px;
+      }
+
+      @media screen and (max-width: 1300px) {
+        font-size: 5vh
+      }
     }
   }
 

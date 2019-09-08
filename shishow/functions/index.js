@@ -1,3 +1,4 @@
+/* eslint-disable no-eq-null */
 /* eslint-disable promise/no-nesting */
 /* eslint-disable eqeqeq */
 /* eslint-disable promise/always-return */
@@ -28,7 +29,12 @@ app.get('/homeData', (request, response) => {
 
     let sign_user = request.query.email;
 
-    db.collection("USER")
+    let rel = db.collection('USER')
+                .doc(sign_user)
+                .collection("relation")
+
+    if(rel != null) {
+        db.collection("USER")
         .doc(sign_user)
         .collection("relation")
         .get()
@@ -44,7 +50,7 @@ app.get('/homeData', (request, response) => {
                         if(doc2.docs) {
                             for(i = 0; i < doc2.docs.length && doc3.data().email != doc2.docs[i].id; i++) {
                                 if(i == doc2.docs.length) {
-                                this.relation.push(0)
+                                    relation.push(0)
                                 }
                                 else {
                                     relation.push(doc1.docs[i].data().relation);
@@ -62,10 +68,29 @@ app.get('/homeData', (request, response) => {
 
                 response.json(content);
             })
-    })
-    .catch(e => {
-        response.send(e);
-    })
+        })
+        .catch(e => {
+            response.send(e);
+        })
+    }
+    else {
+        db.collection("USER")
+            .doc(sign_user)
+            .relation("relation")
+            .get()
+            .then(doc1 => {
+                db.collection("USER")
+                    .get()
+                    .then(doc2=> {
+                        if(sign_user != doc2.id) {
+                            users.push(doc2.data());
+                            filteredUser.push(doc2.data());
+                            relation.push(0);
+                        }
+                    })
+            })
+    }
+
 })
 /*
 app.get('/chatData/isGame', (request, response) => {

@@ -1,8 +1,11 @@
 <template>
   <div class="gamebanner">
-    <span class="iconPicPosition">
-      <img class="iconPic" :src="game.data().image" />
-    </span>
+    <!--
+      <span class="iconPicPosition">
+        <img class="iconPic" :src="game.data().image"
+        alt="gameIcon" />
+      </span>
+    -->
 
     <!--
       <div class="gamenamePosition">
@@ -11,6 +14,12 @@
         </div>
       </div>
     -->
+
+    <div class="gamename">
+      {{ game.data().gamename }}
+    </div>
+
+    <img src="~/assets/image/bg.png" class="png" />
 
     <div v-if="isSubscribed" class="subscribeButton" @click="remove()">登録済み</div>
     <div v-else class="subscribeButton" @click="subscribe()">登録</div>
@@ -122,6 +131,27 @@ export default {
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 
+    overflow: hidden;
+
+    .gamename {
+      position: absolute;
+
+      left: 5%;
+      top: 10%;
+
+      font-size: 3vh;
+
+      z-index: 5;
+    }
+
+    .png {
+      position: absolute;
+
+      left: 30%;
+
+      width: 100%;
+    }
+
     .iconPicPosition {
       position: absolute;
 
@@ -182,7 +212,8 @@ export default {
         font-size: 5vw;
       }
 
-      color: #abbffb;
+      //color: #abbffb;
+      color: #fff;
       border: solid 2px #abbffb;
       border-radius: 3px;
       transition: .4s;

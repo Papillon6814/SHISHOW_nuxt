@@ -2,7 +2,8 @@
   <div id = "notificationBanner">
     <div class="userinfo">
       <!-- <i class = "fas fa-user human"></i> -->
-      <img class = "iconPic" :src="notiUser.image">
+      <img class = "iconPic" :src="notiUser.image"
+      alt="hisIcon" />
       <span class="name">{{notiUser.username}}</span>
     </div>
 
@@ -99,7 +100,14 @@ export default {
   .messageInfo{
     position: absolute;
 
-    width:80%;
+    @media screen and (min-width: 1300px) {
+      width: 80%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      width: 90%;
+    }
+
     height:40%;
 
     right: 5px;
@@ -112,9 +120,19 @@ export default {
   }
 
   .date{
-    position: relative;
-    right: 15px;
-    float: right;
+    @media screen and (min-width: 1300px) {
+      position: relative;
+      right: 15px;
+      float: right;
+    }
+
+    @media screen and (max-width: 1300px) {
+      position: absolute;
+      right: 15px;
+
+      bottom: 3%;
+    }
+
   }
 }
 

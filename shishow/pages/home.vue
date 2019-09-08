@@ -5,7 +5,7 @@
       <header>
         <navi @search="getSearchWord"></navi>
       </header>
-      
+
       <transition appear name="v">
         <div id="myBannerPosition">
           <myBanner
@@ -50,16 +50,13 @@
               </normalBanner>
             </div>
           </div>
-          
         </transition>
-        
-        
+
         <div class="adPosition">
         </div>
-        
 
       </div>
-      
+
     </tbody>
 
     <!-- cropperのときのmodal -->
@@ -87,7 +84,6 @@
         Crop
       </div>
     </div>
-    
 
     <!-- normalBannerを表示するときのmodal -->
 
@@ -105,6 +101,7 @@
     <div class="GBModal">
       <div class="modalPosition">
         <popupGameBanner
+        ref="popupGB"
         @callFade="fadeOut()">
         </popupGameBanner>
       </div>
@@ -207,7 +204,7 @@ export default {
 
   watch: {
     uploadedImage: function(newval) {
-      modal.style.display = 'block';
+      modal[0].style.display = 'block';
       this.$refs.cropper.replace(newval);
       console.log('watch image')
     }
@@ -242,7 +239,7 @@ export default {
     cropImage: function() {
       console.log('cropImage');
       this.$refs.EBanner.croppedimg = this.$refs.cropper.getCroppedCanvas().toDataURL();
-      modal.style.display = 'none';
+      modal[0].style.display = 'none';
     },
 
     NBclick: function(userinfo) {
@@ -309,6 +306,7 @@ export default {
     showGBModal: function(game) {
       GBModal[0].style.display = "block";
       this.$forceUpdate();
+      this.$refs.popupGB.gamedata = game;
     },
 
     showSelectModal: function() {
@@ -415,7 +413,7 @@ export default {
   },
 
   mounted: function() {
-    modal = document.getElementById("modal");
+    modal = document.getElementsByClassName("modal");
 
     NBModal = document.getElementsByClassName("NBModal");
     GBModal = document.getElementsByClassName("GBModal");
@@ -433,7 +431,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  
 .modal {
   display: none;
   position: fixed;
@@ -521,11 +518,11 @@ body {
     /*left: 7.5vw;*/
 
     width: 100%/*calc(100% - 7.5vw)*/;
-    
     background-color: #bdbdbd;
 
     overflow-x: hidden;
     overflow-y: visible;
+    height: calc(100% - 45vw);
   }
 
   @media screen and (min-width: 1300px) {
@@ -536,9 +533,8 @@ body {
 
     overflow-x: hidden;
     overflow-y: scroll;
+    height: 100%;
   }
-
-  height: 100%;
 
   $g: 1;
 
@@ -547,7 +543,7 @@ body {
 
     left:1.5vw;
     height: auto;
-    
+
     @while $g <= 5 {
       .g#{$g} {
         position: absolute;
@@ -575,9 +571,7 @@ body {
   $i: 0;
 
   .normalBannerPosition {
-    
     position: absolute;
-    
 
     @media screen and (max-width: 1300px) {
       top: ((90vw / 3.5) * 6);
@@ -587,7 +581,6 @@ body {
       top: ((55vw / 4) * 6);
     }
     left: 1.5vw;
-    
 
     /*width: 100%;*/
     height: 100%;
@@ -646,12 +639,12 @@ body {
 
     width: 160px;
     height: 600px;
-    
+
     @media screen and (max-width: 1300px) {
         width:100vw;
-        
+        display: none;
       }
-    
+
   }
 }
 
@@ -728,10 +721,23 @@ footer {
   .modalPosition {
     position: absolute;
 
+<<<<<<< HEAD
     top: 50%; 
     left: 50%;
+=======
+    @media screen and (min-width: 1300px) {
+      top: 300px;
+      left: 50%;
+      width: 65%;
+    }
 
-    width: 65%;
+    @media screen and (max-width: 1300px){ 
+      top: 10vh;
+      left: 50%;
+      width: 90%;
+    }
+>>>>>>> master
+
     height: 100%;
 
     -webkit-transform: translate(-50%, 0);
@@ -759,10 +765,21 @@ footer {
   .modalPosition {
     position: absolute;
 
+<<<<<<< HEAD
     top: 23%; 
+=======
+    @media screen and (min-width: 1300px) {
+      top: 300px;
+      width: 65%;
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 10vh;
+      width: 90%;
+    }
+>>>>>>> master
     left: 50%;
 
-    width: 65%;
     height: 100%;
 
     -webkit-transform: translate(-50%, 0);
@@ -770,8 +787,7 @@ footer {
     transform: translate(-50%, 0);
   }
 }
-  
- 
+
 .selectModal {
   display: none;
 
@@ -805,7 +821,16 @@ footer {
   .selectedBannerPosition {
     position: absolute;
 
-    top: 300px;
+    @media screen and (min-width: 1300px) {
+      top: 20vh;
+      height: calc(100% - 40vh);
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 10vh;
+      height: calc(100% - 20vh);
+    }
+
     left: 50%;
 
     transform: translate(-50%, 0);
@@ -813,7 +838,6 @@ footer {
     -ms-transform: translate(-50%, 0);
 
     width: $n_banner_width;
-    height: calc(100% - 300px);
 /*
     overflow-x: hidden;
     overflow-y: scroll;
@@ -849,15 +873,23 @@ footer {
   .editBannerPosition {
     position: absolute;
 
-    top: 110px;
-    left: 50%;
+    @media screen and (min-width: 1300px) {
+      top: 110px;
+      left: 50%;
+      width: 40%;
+      height: calc(92% - 110px);
+    }
+
+    @media screen and (max-width: 1300px) {
+      top: 10vh;
+      left: 50%;
+      width: 90vw;
+      height: 80vh;
+    }
 
     transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
-
-    width: 40%;
-    height: calc(92% - 110px);
   }
 }
 </style>

@@ -4,7 +4,7 @@
     <div class="chatnavi">
       <font-awesome-icon icon="angle-left"
       class="backarrow" @click="back" />
-      <div class="username">{{username}}</div>
+      <div class="username">{{ username }}</div>
     </div>
     <!-- {{ friendDocID }} -->
       <div class="chatSpace">
@@ -173,7 +173,7 @@ export default {
       currentUser = this.$store.getters["user/user"]
     }
 
-    currentUserEmail = currentUser.email
+    currentUserEmail = currentUser.email;
   },
 
   mounted: function() {
@@ -181,6 +181,13 @@ export default {
     rightArea = document.getElementsByClassName('rightArea');
     chatnavi = document.getElementsByClassName('chatnavi');
     chatbar = document.getElementsByClassName('chatbar');
+
+    if(process.browser) {
+      if(window.innerWidth < 1300) {
+        rightArea[0].style.position = 'fixed';
+        rightArea[0].style.top = "8.5vh";
+      }
+    }
   },
 
   updated: function() {
@@ -255,7 +262,7 @@ export default {
     right: 20px;
 
     min-width: 10px;
-    max-width: 30%;
+    max-width: 40vw;
     height: auto;
 
     border-radius: 20px;
@@ -264,6 +271,10 @@ export default {
 
     word-break: break-all;
     -ms-word-break: break-all;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 5vh;
+    }
   }
 
   .myDatePosition {
@@ -276,6 +287,10 @@ export default {
 
     width: auto;
     height: auto;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 3vh;
+    }
   }
 }
 
@@ -303,8 +318,15 @@ export default {
 
     left: 20px;
 
-    height: 40px;
-    width: 40px;
+    @media screen and (min-width: 1300px) {
+      height: 40px;
+      width: 40px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      height: 8vh;
+      width: 8vh;
+    }
 
     top: 5px;
 
@@ -332,6 +354,10 @@ export default {
 
     word-break: break-all;
     -ms-word-break: break-all;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 5vh;
+    }
   }
 
   .hisDatePosition {
@@ -344,6 +370,10 @@ export default {
 
     width: auto;
     height: auto;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 3vh;
+    }
   }
 }
 

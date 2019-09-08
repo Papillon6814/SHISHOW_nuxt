@@ -68,7 +68,7 @@ export default {
   name: "search",
 
   head:{
-    title:"search",
+    title: "search",
   },
 
   components: {

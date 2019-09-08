@@ -30,9 +30,6 @@ export default {
     navi,
     signinBanner
   },
-
-
-
 }
 
 </script>

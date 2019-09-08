@@ -3,7 +3,7 @@
     <span class="iconPicPosition">
       <div class="iconPic">
         <img id="image" v-show="user.image"
-        :src="user.image" />
+        :src="user.image" alt="myIcon"/>
       </div>
     </span>
 
@@ -239,6 +239,9 @@ export default {
 
       font-family: "robot";
       font-size: 30px;
+      @media screen and (max-width: 1300px) {
+        display: none;
+      }
     }
 
     .shishowNumber {
@@ -250,6 +253,9 @@ export default {
       color: $secondary_text;
       font-family: "robot";
       font-size: 30px;
+      @media screen and (max-width: 1300px) {
+        display: none;
+      }
     }
   }
 
@@ -274,6 +280,9 @@ export default {
 
       font-family: "robot";
       font-size: 30px;
+      @media screen and (max-width: 1300px) {
+        display: none;
+      }
     }
 
     .deshiNumber {
@@ -285,6 +294,9 @@ export default {
       color: $secondary_text;
       font-family: "robot";
       font-size: 30px;
+      @media screen and (max-width: 1300px) {
+        display: none;
+      }
     }
   }
 
