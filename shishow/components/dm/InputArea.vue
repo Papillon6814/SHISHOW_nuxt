@@ -124,6 +124,12 @@ export default {
   width: 100%;
   height: 100%;
 
+  @media screen and (max-width: 1300px) {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+  }
+
   background-color: rgba(0, 0, 0, 0);
 
 

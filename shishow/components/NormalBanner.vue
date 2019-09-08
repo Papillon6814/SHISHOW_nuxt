@@ -4,7 +4,8 @@
     <div class="nbField" @click="click()">
 
       <span class="iconPicPosition">
-        <img class="icon" :src="user['image']" />
+        <img class="icon" :src="user['image']"
+        alt="userIcon" />
         <div class="iconCircle"></div>
       </span>
       <!-- <div class="achievementPosition1">
@@ -383,6 +384,11 @@ export default {
 
   display: inline-block;
   padding: 0.3em 1em;
+
+  @media screen and (max-width: 1300px) {
+    font-size: 5vw;
+  }
+
   text-decoration: none;
   color: #9aa5ef;
   border: solid 2px #9aa5ef;

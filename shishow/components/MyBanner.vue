@@ -3,8 +3,7 @@
     <span class="iconPicPosition">
       <div class="iconPic">
         <img id="image" v-show="user.image"
-         :src="user.image"> <!--width="130" height="130"-->
-
+        :src="user.image" alt="myIcon"/>
       </div>
     </span>
 
@@ -40,6 +39,11 @@
     <div class="editButton"
       @click="showEditBanner()">
       編集
+    </div>
+
+    <div class="editIndicator"
+    @click="showEditBanner()">
+      <font-awesome-icon icon="pen" class="pen" />
     </div>
 
     <div class="logout" @click="logout">
@@ -139,12 +143,12 @@ export default {
 
     top: 5vw;
     left: 50%;
-    
+
 
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-    
+
     @media screen and (max-width: 1300px) {
       top:3vh;
     }
@@ -153,33 +157,40 @@ export default {
       position: absolute;
 
       left: 50%;
-      top: 0;
 
       -webkit-transform: translate(-50%, 0);
       -moz-transform: translate(-50%, 0);
       transform: translate(-50%, 0);
-/*
-      width: $icon_width;
-      height: $icon_height;*/
-      
-    @media screen and (max-width: 1300px) {
-      /*width: 5vw;
-      height: 5vw;*/
-    }
+
+      @media screen and (min-width: 1300px) {
+        top: 0;
+        width: $icon_width;
+        height: $icon_height;
+      }
+
+      @media screen and (max-width: 1300px) {
+        top: -15px;
+        width: 30vw;
+        height: 30vw;
+      }
 
       // temporary color
       background-color: #fff;
       border-radius: 50%;
-      
-      
 
       #image {
         border-radius: 50%;
+
+        @media screen and (min-width: 1300px) {
+          width: 130px;
+          height: 130px;
+        }
+
         @media screen and (max-width: 1300px) {
-      width:20vw;
-        height:20vw;
-    }
-        
+          width: 30vw;
+          height: 30vw;
+        }
+
       }
     }
   }
@@ -187,7 +198,14 @@ export default {
   .username {
     position: absolute;
 
-    top: 25vh;
+    @media screen and (min-width: 1300px) {
+      top: 25vh;
+    }
+
+    @media screen and (max-width: 1300px) {
+      bottom: 5%;
+    }
+
     left: 50%;
 
     -webkit-transform: translate(-50%, 0);
@@ -199,11 +217,6 @@ export default {
 
     font-size: 35px;
     text-align: center;
-    
-    @media screen and (max-width: 1300px) {
-      top:17vh;
-    }
-    
   }
 
   .shishowPosition {
@@ -227,6 +240,9 @@ export default {
 
       font-family: "robot";
       font-size: 30px;
+      @media screen and (max-width: 1300px) {
+        display: none;
+      }
     }
 
     .shishowNumber {
@@ -238,6 +254,9 @@ export default {
       color: $secondary_text;
       font-family: "robot";
       font-size: 30px;
+      @media screen and (max-width: 1300px) {
+        display: none;
+      }
     }
   }
 
@@ -262,6 +281,9 @@ export default {
 
       font-family: "robot";
       font-size: 30px;
+      @media screen and (max-width: 1300px) {
+        display: none;
+      }
     }
 
     .deshiNumber {
@@ -273,6 +295,9 @@ export default {
       color: $secondary_text;
       font-family: "robot";
       font-size: 30px;
+      @media screen and (max-width: 1300px) {
+        display: none;
+      }
     }
   }
 
@@ -363,12 +388,38 @@ export default {
     line-height: 32px;
 
     cursor: pointer;
-    
+
     @media screen and (max-width: 1300px) {
-      bottom:3vh;
+      bottom: 3vh;
+      display: none;
     }
-    
+
   }
+
+  .editIndicator {
+      position: absolute;
+
+      left: 2vw;
+      bottom: 3%;
+
+      border-radius: 50%;
+      background: $accent_color;
+
+      padding: 0.5em;
+
+      color: #fff;
+
+      cursor: pointer;
+
+      @media screen and (min-width: 1300px) {
+        display: none;
+      }
+
+      .pen {
+        width: 2vh;
+        height: 2vh;
+      }
+    }
 
   .logout {
     position: absolute;
@@ -376,7 +427,14 @@ export default {
     width: 80px;
     height: 18px;
 
-    bottom: 18px;
+    @media screen and (min-width: 1300px) {
+      bottom: 18px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      bottom: 3%;
+    }
+
     right: 0px;
 
     color: $secondary_text;

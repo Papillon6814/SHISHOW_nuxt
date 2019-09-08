@@ -217,11 +217,11 @@ export default {
     slideRightArea: function() {
       console.log('slideRightArea');
       this.$refs.rightArea.spawnItself();
-      inputBar[0].style.left = "10%";
+      inputBar[0].style.left = "50%";
     },
 
     back: function() {
-      inputBar[0].style.left = "100vw";
+      inputBar[0].style.left = "150vw";
     }
   },
 
@@ -318,8 +318,8 @@ export default {
   }
 
   @media screen and (max-width: 1300px) {
-    height: calc(100% - 80px);
-    top: 80px;
+    height: calc(100% - 8.5vh);
+    top: 8.5vh;
   }
 
   overflow-y: hidden;
@@ -376,21 +376,24 @@ export default {
   // 下部に表示する
   .inputArea {
 
-    width: 60%;
-    height: 50px;
-
     @media screen and (min-width: 1300px) {
       position: fixed;
 
       right: 0;
       bottom: 45px;
+      height: 50px;
+
+      width: 60%;
     }
 
     @media screen and (max-width: 1300px) {
       position: fixed;
 
-      left: 100vw;
-      bottom: 20px;
+      left: 150vw;
+      bottom: 1vh;
+      height: 6.5vh;
+
+      width: 75%;
 
       z-index: 9999;
 
@@ -419,10 +422,17 @@ export default {
   .GameRequestBannerPosition {
     position: absolute;
 
-    width: 672px;
+    @media screen and (min-width: 1300px) {
+      top: 150px;
+      left: 50vw;
+      width: 672px;
+    }
 
-    top: 150px;
-    left: 50%;
+    @media screen and (max-width: 1300px) {
+      top: 10vh;
+      left: 50vw;
+      width: 90%;
+    }
 
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
@@ -449,10 +459,18 @@ export default {
 
     position: absolute;
 
-    top: 150px;
-    left: 50vw;
+    @media screen and (min-width: 1300px) {
+      top: 300px;
+      left: 50%;
+      width: 65%;
+    }
 
-    width: 65%;
+    @media screen and (max-width: 1300px){ 
+      top: 10vh;
+      left: 50%;
+      width: 90%;
+    }
+
     height: 100%;
 
     -webkit-transform: translate(-50%, 0);

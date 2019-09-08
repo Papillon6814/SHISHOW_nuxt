@@ -4,9 +4,12 @@
 
     <div>
       <nuxt-link to="/home">
-        <img class="logo" src="../assets/image/logoShishow.png" />
+        <img class="logo" src="../assets/image/logoShishow.png"
+        alt="logo" />
       </nuxt-link>
     </div>
+
+    <font-awesome-icon icon="angle-left" class="back" />
 
     <div class="centered">
       <div class="group">
@@ -61,11 +64,13 @@
       <font-awesome-icon icon="home" class="home" />
     </nuxt-link>
   </div>
+
   <div class="pinkButton" @click="click()">
     <div class="fontPosition">
       <font-awesome-icon icon="sort-up" />
     </div>
   </div>
+
 </div>
 </template>
 
@@ -99,6 +104,11 @@ export default {
 
     click() {
       this.$parent.scroll2top();
+    },
+
+    showBackArrow() {
+      let ba = document.getElementsByClassName('back');
+      ba[0].style.display = "block";
     }
   },
   created: function() {
@@ -145,18 +155,33 @@ export default {
 
   .centered {
 
-    @media screen and (max-width: 1300px) {
-      display: none;
+    @media screen and (min-width: 1300px) {
+      position: absolute;
+      top: 13px;
+      right: 50px;
     }
 
-    position: absolute;
-    top: 13px;
-    right: 50px;
+    @media screen and (max-width: 1300px) {
+      position: absolute;
+
+      top: 1vh;
+      left: 2vw;
+
+      display: none;
+    }
 
     .group {
       position: relative;
       width: 100%;
-      height: $searchbar_width / 5;
+
+      @media screen and (min-width: 1300px) {
+        height: $searchbar_width / 5;
+      }
+
+      @media screen and (max-width: 1300px) {
+        height: 6vh;
+      }
+
       overflow: hidden;
 
       label {
@@ -177,7 +202,15 @@ export default {
         border-radius: 0; // For iOS
         color: #fff;
         background: $header_color;
-        font-size: $searchbar_width/15;
+
+        @media screen and (min-width: 1300px) {
+          font-size: $searchbar_width/15;
+        }
+
+        @media screen and (max-width: 1300px) {
+          font-size: 5vh;
+        }
+
         transition: 0.3s ease;
 
         &:valid {
@@ -241,9 +274,14 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      width: 70px;
-      height: 70px;
-      top: 5px;
+      width: 7.5vh;
+      height: 7.5vh;
+      top: 50%;
+
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+
       right: 20px;
     }
 
@@ -277,7 +315,7 @@ export default {
       position: absolute;
       width: $button_width;
       height: $button_height;
-      left: 50px;
+      left: 350px;
       top: 10px;
       color: #fff;
     }
@@ -286,7 +324,7 @@ export default {
       position: absolute;
       width: $button_width;
       height: $button_height;
-      left: 150px;
+      left: 250px;
       top: 10px;
       color: #fff;
     }
@@ -295,7 +333,7 @@ export default {
       position: absolute;
       width: $button_width;
       height: $button_height;
-      left: 250px;
+      left: 150px;
       top: 10px;
       color: #fff;
     }
@@ -310,11 +348,12 @@ export default {
       background-color: red;
       z-index: 10;
     }
+
     .home {
       position: absolute;
       width: $button_width;
       height: $button_height;
-      left: 350px;
+      left: 50px;
       top: 10px;
       color: #fff;
     }
@@ -382,15 +421,15 @@ export default {
   .home {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
-    right: 12.5vw;
-    height: 25vw;
-    width: 10vw;
+    left: 12.5vw;
+    height: 7vh;
+    width: 5vh;
 
-    transform: translateX(50%);
-    -webkit-transform: translateX(50%);
-    -moz-transform: translateX(50%);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
 
     color: #fff;
   }
@@ -398,11 +437,27 @@ export default {
   .bell {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
+
+    left: 37.5vw;
+    height: 7vh;
+    width: 5vh;
+
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+
+    color: #fff;
+  }
+
+  .game {
+    position: absolute;
+
+    top: 1vh;
 
     right: 37.5vw;
-    height: 25vw;
-    width: 10vw;
+    height: 7vh;
+    width: 5vh;
 
     transform: translateX(50%);
     -webkit-transform: translateX(50%);
@@ -411,34 +466,18 @@ export default {
     color: #fff;
   }
 
-  .game {
-    position: absolute;
-
-    top: -15px;
-
-    left: 37.5vw;
-    height: 25vw;
-    width: 10vw;
-
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-
-    color: #fff;
-  }
-
   .dm {
     position: absolute;
 
-    top: -15px;
+    top: 1vh;
 
-    left: 12.5vw;
-    height: 25vw;
-    width: 10vw;
+    right: 12.5vw;
+    height: 7vh;
+    width: 5vh;
 
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
 
     color: #fff;
   }
@@ -474,5 +513,22 @@ export default {
 
   }
 }
+
+.back {
+  position: absolute;
+
+  left: 5px;
+  top: 10px;
+
+  width: 6.5vh;
+  height: 6.5vh;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  display: none;
+}
+
 
 </style>

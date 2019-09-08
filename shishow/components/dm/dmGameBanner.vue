@@ -1,9 +1,17 @@
 <template>
   <div class="dmGameBanner">
     <div>
+    <!--
     <img :src="iconPic" class="iconPosition" />
     <div class="globalMsgArea">
     </div>
+    -->
+    <div class="gamename">
+      {{ gamename }}
+    </div>
+
+    <img src="~/assets/image/bg.png" class="png" />
+
     </div>
     <div class="gameCover"></div>
   </div>
@@ -60,6 +68,19 @@ export default {
 
   cursor: pointer;
 
+  overflow: hidden;
+
+  .gamename {
+      position: absolute;
+
+      left: 5%;
+      top: 10%;
+
+      font-size: 3vh;
+
+      z-index: 5;
+    }
+
   .iconPosition {
     //display: none;
 
@@ -79,6 +100,14 @@ export default {
     height: 120px;
     background:rgba(255, 0, 0, 0);
   }
+
+  .png {
+      position: absolute;
+
+      left: 30%;
+
+      width: 100%;
+    }
 }
 
 .dmGameBanner:hover {
