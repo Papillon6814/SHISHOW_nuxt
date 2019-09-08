@@ -45,7 +45,6 @@ app.get('/homeData', (request, response) => {
                     if(doc3.data().email != sign_user) {
                         users.push(doc3.data());
 
-
                         if(doc1.docs) {
                             for(i = 0; i < doc1.docs.length && doc3.data().email != doc1.docs[i].id; i++);
                             if(i == doc1.docs.length) {
