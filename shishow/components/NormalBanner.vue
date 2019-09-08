@@ -294,23 +294,22 @@ export default {
   @media screen and (max-width: 1300px) {
     width: 15vw;
     height: 15vw;
-    top:3vw;
-    left:2.5vw;
+    top:3.25vw;
+    left:1.75vw;
   }
 
   @media screen and (min-width: 1300px) {
     width: 8vw;
     height: 8vw;
+    top: 2vw;
+    left: 1.75vw;
   }
-
-  top: 10px;
-  left: 10px;
 
   .iconCircle{
     position: relative;
 
     top: 0px;
-    left: 6px;
+    left: 2.5vw;
 
     width: 100%;
     height: 100%;
@@ -340,7 +339,7 @@ export default {
     height: 8vw;
   }
 
-  left: 7%;
+  left:2.5vw;
 
   border-radius: 50%;
 }
@@ -350,7 +349,7 @@ export default {
   height: $n_user_height;
 
   font: "メイリオ";
-  font-size: 22px;
+  font-size: 1.6vw;
   
   @media screen and (max-width: 1300px) {
     font-size: 3.5vw;
@@ -362,7 +361,7 @@ export default {
   position: absolute;
 
   top: 30px;
-  left: 100px;
+  left: 12.5vw;
   right: 0px;
   
   @media screen and (max-width: 1300px) {
@@ -409,8 +408,8 @@ export default {
 .friendRequest_button {
   position: absolute;
 
-  top: 25px;
-  right: 5%;
+  top: 1.6vw;
+  right: 1.8vw;
 
   display: inline-block;
   padding: 0.3em 1em;
@@ -420,6 +419,8 @@ export default {
     border-radius:2vw;
     right:4%;
   }
+  
+  font-size: 1.125vw;
 
   text-decoration: none;
   color: #9aa5ef;
