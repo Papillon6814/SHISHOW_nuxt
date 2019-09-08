@@ -3,7 +3,7 @@
     <span class="iconPicPosition">
       <div class="iconPic">
         <img id="image" v-show="user.image"
-         :src="user.image" width="130" height="130">
+         :src="user.image"> <!--width="130" height="130"-->
 
       </div>
     </span>
@@ -137,8 +137,9 @@ export default {
     width: 100%;
     height: 100%;
 
-    top: 6.5vh;
+    top: 5vw;
     left: 50%;
+    
 
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
@@ -157,9 +158,14 @@ export default {
       -webkit-transform: translate(-50%, 0);
       -moz-transform: translate(-50%, 0);
       transform: translate(-50%, 0);
-
+/*
       width: $icon_width;
-      height: $icon_height;
+      height: $icon_height;*/
+      
+    @media screen and (max-width: 1300px) {
+      /*width: 5vw;
+      height: 5vw;*/
+    }
 
       // temporary color
       background-color: #fff;
@@ -169,6 +175,11 @@ export default {
 
       #image {
         border-radius: 50%;
+        @media screen and (max-width: 1300px) {
+      width:20vw;
+        height:20vw;
+    }
+        
       }
     }
   }
