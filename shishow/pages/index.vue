@@ -37,11 +37,9 @@
         <img src="~/assets/image/leaf.png" class="leaf"
           alt="leaf" />
 
-        <nuxt-link to="/home">
-          <div class="enterButton" @click.prevent="checkUser()">
-            はじめる
-          </div>
-        </nuxt-link>
+        <div class="enterButton" @click="checkUser()">
+          はじめる
+        </div>
       </div>
 
       <div class="page2">
@@ -113,7 +111,9 @@
           ゲームの世界を広げよう
         </div>
         <nuxt-link to="/home">
-          <div class="enterButton">はじめる</div>
+          <div class="enterButton" @click="checkUser()">
+            はじめる
+          </div>
         </nuxt-link>
       </div>
 
@@ -161,7 +161,7 @@
       </div>
 
       <div class="page3">
-        <img src="~/assets/image/mini4.png" class="mini4" 
+        <img src="~/assets/image/mini4.png" class="mini4"
         alt="footerImage"/>
         <div class="aboutus">
           About us
@@ -214,13 +214,12 @@ export default {
   },
 
   methods: {
-    checkUser(){
-      if(firebase.auth().currentUser){
-        $nuxt.$router.push("/home")
-      }else{
-        $nuxt.$router.push("/signin")
+    checkUser() {
+      console.log(firebase.auth().currentUser);
+      if(firebase.auth().currentUser == null) {
+        $nuxt.$router.push("/signin");
       }
-      console.log(firebase.auth().currentUser)
+      $nuxt.$router.push("/home");
     },
 
     handleScroll: function() {
