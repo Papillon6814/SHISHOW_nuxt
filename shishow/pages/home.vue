@@ -204,7 +204,7 @@ export default {
 
   watch: {
     uploadedImage: function(newval) {
-      modal.style.display = 'block';
+      modal[0].style.display = 'block';
       this.$refs.cropper.replace(newval);
       console.log('watch image')
     }
@@ -239,7 +239,7 @@ export default {
     cropImage: function() {
       console.log('cropImage');
       this.$refs.EBanner.croppedimg = this.$refs.cropper.getCroppedCanvas().toDataURL();
-      modal.style.display = 'none';
+      modal[0].style.display = 'none';
     },
 
     NBclick: function(userinfo) {
@@ -413,7 +413,7 @@ export default {
   },
 
   mounted: function() {
-    modal = document.getElementById("modal");
+    modal = document.getElementsByClassName("modal");
 
     NBModal = document.getElementsByClassName("NBModal");
     GBModal = document.getElementsByClassName("GBModal");
@@ -639,12 +639,12 @@ body {
 
     width: 160px;
     height: 600px;
-    
+
     @media screen and (max-width: 1300px) {
         width:100vw;
-        
+        display: none;
       }
-    
+
   }
 }
 

@@ -173,7 +173,7 @@ export default {
       currentUser = this.$store.getters["user/user"]
     }
 
-    currentUserEmail = currentUser.email
+    currentUserEmail = currentUser.email;
   },
 
   mounted: function() {
@@ -181,6 +181,13 @@ export default {
     rightArea = document.getElementsByClassName('rightArea');
     chatnavi = document.getElementsByClassName('chatnavi');
     chatbar = document.getElementsByClassName('chatbar');
+
+    if(process.browser) {
+      if(window.innerWidth < 1300) {
+        rightArea[0].style.position = 'fixed';
+        rightArea[0].style.top = "8.5vh";
+      }
+    }
   },
 
   updated: function() {

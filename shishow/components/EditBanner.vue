@@ -29,7 +29,6 @@
 
     <div class="bioPosition">
       <textarea v-model="userBio" :rows="rows()"
-
         maxlength="50"></textarea>
     </div>
 

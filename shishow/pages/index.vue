@@ -52,21 +52,30 @@
           <div class="step">STEP1</div>
           <img src="~/assets/image/step1only.png" class="cardPic"
           alt="girlWhoPlaysGame" />
-          <div class="cardtext">自分の好きなゲームを登録</div>
+          <div class="cardtext">
+            自分の好きなゲームを登録して<br>
+            チャットを眺める
+          </div>
         </div>
 
         <div class="card2 card">
           <div class="step">STEP2</div>
           <img src="~/assets/image/step2only.png" class="cardPic"
           alt="levelup" />
-          <div class="cardtext">強いプレイヤーに弟子入り</div>
+          <div class="cardtext">
+            強いプレイヤーに弟子入りして<br>
+            色々と教えてもらう
+          </div>
         </div>
 
         <div class="card3 card">
           <div class="step">STEP3</div>
           <img src="~/assets/image/step3only.png" class="cardPic3"
             alt="gameboy" />
-          <div class="cardtext">メッセージでやりとり</div>
+          <div class="cardtext">
+            メッセージでやりとりして<br>
+            ゲームを教わる，一緒に遊ぶ
+          </div>
         </div>
       </div>
 
@@ -120,7 +129,8 @@
             alt="girlWhoPlaysGame"/>
             <div class="clause">
               <div class="bold">STEP1.</div><br>
-              自分の好きなゲームを登録<br>
+              自分の好きなゲームを登録して<br>
+              チャットを眺める<br>
             </div>
             <div class="goright" @click="go2()"></div>
           </div>
@@ -131,7 +141,8 @@
             alt="levelup" />
             <div class="clause">
               <div class="bold">STEP2.</div><br>
-              強いプレイヤーに弟子入り<br>
+              強いプレイヤーに弟子入りして<br>
+              色々と教えてもらう
             </div>
             <div class="goright" @click="go3()"></div>
           </div>
@@ -142,7 +153,8 @@
             alt="gameboy"/>
             <div class="clause">
               <div class="bold">STEP3.</div><br>
-              メッセージでやりとり<br>
+              メッセージでやりとりして<br>
+              ゲームを教わる，一緒に遊ぶ
             </div>
           </div>
         </div>
