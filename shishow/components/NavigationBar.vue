@@ -343,7 +343,7 @@ export default {
       position: absolute;
       height: 20px;
       width: 20px;
-      left: 249px;
+      left: 150px;
       color: white;
       border-radius: 20%;
       background-color: red;
