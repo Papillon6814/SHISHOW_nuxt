@@ -1,34 +1,5 @@
 <template>
   <div class="popupGameBanner">
-
-    <div class="BgPosition">
-        <img class="Bg" src="../assets/image/bg.png">
-    </div>
-
-    <div class="GamenamePosition">
-        <div class="Gamename">
-          
-        </div>
-    </div>
-
-    <div class="SubscribedPosition">
-        <div class="Subscribed">フォローしてる友達</div>
-    </div>
-
-    <div class="SubscriberPosition">
-        <div class="Subscriber">
-
-        </div>
-    </div>
-
-    <div class="FollowerPpsition">
-        <div class="Follower">Follwer</div>
-    </div>
-
-    <div class="FollowerNumberPosition">
-        <div class="FollowerNumber">人数</div>
-    </div>
-
     <div class="closeBtn" @click="fade()">
       <font-awesome-icon icon="times" />
     </div>
@@ -77,12 +48,7 @@ export default {
     fade: function() {
       this.$emit("callFade");
     }
-  },
-
-    
-    gamename: function(N){
-      return string()
-    }
+  }
 }
 
 </script>
