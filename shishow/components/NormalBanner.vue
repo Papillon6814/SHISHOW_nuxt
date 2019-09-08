@@ -292,8 +292,10 @@ export default {
   position: absolute;
 
   @media screen and (max-width: 1300px) {
-    width: 70px;
-    height: 70px;
+    width: 15vw;
+    height: 15vw;
+    top:3vw;
+    left:2.5vw;
   }
 
   @media screen and (min-width: 1300px) {
@@ -324,6 +326,24 @@ export default {
     z-index: -1;
   }
 }
+  
+.icon {
+  position: absolute;
+
+  @media screen and (max-width: 1300px) {
+    width: 15vw;
+    height: 15vw;
+  }
+
+  @media screen and (min-width: 1300px){
+    width: 8vw;
+    height: 8vw;
+  }
+
+  left: 7%;
+
+  border-radius: 50%;
+}
 
 .username {
   width: $user_width;
@@ -331,6 +351,11 @@ export default {
 
   font: "メイリオ";
   font-size: 22px;
+  
+  @media screen and (max-width: 1300px) {
+    font-size: 3.5vw;
+  }
+  
 }
 
 .usernamePosition {
@@ -339,6 +364,11 @@ export default {
   top: 30px;
   left: 100px;
   right: 0px;
+  
+  @media screen and (max-width: 1300px) {
+    left:23vw;
+  }
+  
 }
 
 .profilePosition {
@@ -386,7 +416,9 @@ export default {
   padding: 0.3em 1em;
 
   @media screen and (max-width: 1300px) {
-    font-size: 5vw;
+    font-size: 3vw;
+    border-radius:2vw;
+    right:4%;
   }
 
   text-decoration: none;
@@ -406,24 +438,6 @@ export default {
 .friendRequest_button:active {
   background-color: #9aa5ef;
   color: white;
-}
-
-.icon {
-  position: absolute;
-
-  @media screen and (max-width: 1300px) {
-    width: 75px;
-    height: 75px;
-  }
-
-  @media screen and (min-width: 1300px){
-    width: 8vw;
-    height: 8vw;
-  }
-
-  left: 7%;
-
-  border-radius: 50%;
 }
 
 </style>

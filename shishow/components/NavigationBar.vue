@@ -487,8 +487,8 @@ export default {
   .pinkButton {
     position: fixed;
 
-    bottom: 5vh;
-    right: 6vw;
+    bottom: 10.5vh;
+    right: 6.5vw;
 
     width: 15vw;
     height: 15vw;
