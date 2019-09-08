@@ -46,6 +46,13 @@
     <nuxt-link to="/Terms">利用規約</nuxt-link>に同意する。
   </div>
 
+  <div class="checkPositionPri">
+      <input class="check" type="checkbox" v-model="privacy">
+  </div>
+  <div class="privacyPosition">
+    <nuxt-link class="check" to="/Terms">プライバシーポリシー</nuxt-link>
+  </div>
+
     <button @click="signUp" class="signup_button">
       アカウント作成
     </button>
@@ -171,7 +178,7 @@ export default {
 
   @media screen and (max-width: 1300px) {
     width: 70%;
-    height: 40vh;
+    height: 50vh;
 
     border-radius: 3px;
 
@@ -404,6 +411,65 @@ export default {
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
+      .checkPositionPri {
+    position: absolute;
+
+    @media screen and (max-width: 1300px) {
+      top: 36.3vh;
+      width: 85%;
+      height: 7.25%;
+      left: 10%;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 371px;
+      width: 65%;
+      left: 19%;
+    }
+
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+
+    .check {
+      width: 100%; //$id_width
+
+      @media screen and (max-width: 1300px) {
+        height: 50%;
+        border-radius: 7px;
+      }
+
+      @media screen and (min-width: 1300px) {
+        height: 20px; //$id_height
+      }
+    }
+  }
+
+  .privacyPosition{
+    position: absolute;
+
+    @media screen and (max-width: 1300px) {
+      top: 36.3vh;
+      width: 85%;
+      height: 7.25%;
+      left: 58%;
+      border-radius: 7px;
+      outline: none;
+      font-size: 1.5vh;
+    }
+
+    @media screen and (min-width: 1300px) {
+      top: 370px;
+      width: 65%;
+      left: 55%;
+    }
+
+
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
   
   .signup_button {
     position: absolute;
@@ -412,7 +478,7 @@ export default {
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-    width: 40%;
+    width: 50%;
     display: inline-block;
     padding: 0.3em 1em;
     text-decoration: none;
@@ -422,7 +488,7 @@ export default {
     transition: .4s;
     cursor: pointer;
     @media screen and (max-width: 1300px) {
-      top:36vh;
+      top:41vh;
     }
 
     @media screen and (min-width: 1300px) {
