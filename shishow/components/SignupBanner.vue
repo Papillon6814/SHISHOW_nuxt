@@ -118,6 +118,9 @@ export default {
             if(this.p_confirm != this.password) {
               alert('Password does not match!');
             }
+            else if(this.accept == false || this.privacy == false){
+              alert('please check privacy');
+            }
             else if(this.errorIndication());
             else {
               firebase
