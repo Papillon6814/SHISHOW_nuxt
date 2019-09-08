@@ -5,9 +5,6 @@
     <div class="drawnSpace">
     </div>
 
-    <div class="grayLine">
-    </div>
-
     <div class="loginPosition">
       <img class="logo" src="../assets/image/login.png"
       alt="door"/>
@@ -30,16 +27,13 @@
     </div>
 
     <nuxt-link to="/signup">
-      <div class="signupArea">Sign up</div>
+      <div class="signup_button">Sign up</div>
     </nuxt-link>
 
     <div class="signin_button" @click="login">
       Sign in
     </div>
 
-    <div class="separetor1"></div>
-    <div class="or">or</div>
-    <div class="separetor2"></div>
   </div>
 </template>
 
@@ -110,7 +104,7 @@ export default {
     width: 70%;
     height: 50vh;
 
-    background-color: $light_primary_color;
+    background-color: #fff;
 
     border-radius: 3px;
 
@@ -145,15 +139,6 @@ export default {
       height: 140px;
       background-color: #fafafa;
     }
-
-    .divideLine {
-      position: absolute;
-      top: 268px;
-      left: 10%;
-      width: 80%;
-      height: 4px;
-      background-color: #fafafa;
-    }
   }
 
   .logo{
@@ -175,7 +160,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 20%;
+      top: 25%;
       width: 85%;
       height: 11.25%;
     }
@@ -198,7 +183,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 2.5vh;
+        font-size: 1.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -210,7 +195,7 @@ export default {
     position: absolute;
 
     @media screen and (max-width: 1300px) {
-      top: 38.75%;
+      top: 45%;
       width: 85%;
       height: 11.25%;
     }
@@ -233,7 +218,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 2.5vh;
+        font-size: 1.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -244,48 +229,37 @@ export default {
 
   .signin_button {
     position: absolute;
-
-    @media screen and (max-width: 1300px) {
-      top: 81.5%;
-
-      background: $accent_color;
-
-      width: 40%;
-
-      padding: 0.5em 1em;
-      font-size: 2vh;
-
-      border-radius: 15px;
-    }
-
-    @media screen and (min-width: 1300px) {
-      top:76%;
-
-      background: #fff;
-
-      width: 30%;
-
-      padding: 0.3em 1em;
-      text-decoration: none;
-      color: $primary_text;
-      border: solid 2px $light_primary_color;
-      border-radius: 3px;
-    }
-
     left: 50%;
+    background: #fff;
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
     display: inline-block;
-
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: $primary_text;
+    border: solid 2px $light_primary_color;
+    border-radius: 3px;
     transition: .4s;
-    text-align: center;
     cursor: pointer;
+    text-align: center;
+
+    @media screen and (max-width: 1300px) {
+      top: 81.5%;
+      width: 50%
+    }
+
+    @media screen and (min-width: 1300px) {
+      top:74%;
+      width: 35%;
+    }
   }
 
   .signin_button:hover{
 
     @media screen and (max-width: 1300px) {
+      background: $light_primary_color;
+      color: #fff;
       // TODO: ホバーのとき
     }
 
@@ -296,40 +270,45 @@ export default {
 
   }
 
-  .signupArea {
+    .signup_button {
     position: absolute;
+    left: 50%;
+    background: #fff;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: $primary_text;
+    border: solid 2px $light_primary_color;
+    border-radius: 3px;
+    transition: .4s;
+    cursor: pointer;
+    text-align: center;
 
     @media screen and (max-width: 1300px) {
-      top: 56.5%;
-
-      left: 50%;
-      -webkit-transform: translate(-50%, 0);
-      -moz-transform: translate(-50%, 0);
-      transform: translate(-50%, 0);
-
-      width: 40%;
-
-      background: $secondary_text;
-
-      padding: 0.5em 1em;
-      font-size: 2vh;
-
-      border-radius: 15px;
-
-      text-align: center;
-
+      top: 65.5%;
+      width: 50%
     }
 
     @media screen and (min-width: 1300px) {
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      background-color: #fafafa;
-      color: $primary_text;
-      line-height: 55px;
-      text-align: center;
-      cursor: pointer;
+      top:86%;
+      width: 35%;
+    }
+  }
+
+  .signup_button:hover{
+
+    @media screen and (max-width: 1300px) {
+      background: $light_primary_color;
+      color: #fff;
+      // TODO: ホバーのとき
+    }
+
+    @media screen and (min-width: 1300px) {
+      background: $light_primary_color;
+      color: #fff;
     }
 
   }

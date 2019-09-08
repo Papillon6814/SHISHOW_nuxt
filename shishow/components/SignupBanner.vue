@@ -40,7 +40,7 @@
   </div>
 
   <div class="checkPosition">
-      <input class="check" type="checkbox" value="accpect">
+      <input class="check" type="checkbox" value="accept">
   </div>
   <div class="termsPosition">
     <nuxt-link to="/Terms">利用規約</nuxt-link>に同意する。
@@ -79,6 +79,8 @@ export default {
       roundimg:"",
       modal: "",
       check:false,
+      accept:false,
+      privacy:false,
     };
   },
   mounted:function(){
@@ -495,8 +497,8 @@ export default {
     @media screen and (min-width: 1300px) {
       top:455px;
     }
-
   }
+
   .signup_button:hover{
     background: $light_primary_color;
     color: #fff;
