@@ -22,11 +22,11 @@
     </div>
 
     <div class="emailPosition">
-      <input class="email" type="text" placeholder="メールアドレス" v-model="email">
+      <input class="email" type="text" placeholder="メールアドレス" v-model="email" />
     </div>
 
     <div class="passwordPosition">
-      <input class="password" type="password" placeholder="パスワード" v-model="password">
+      <input class="password" type="password" placeholder="パスワード" v-model="password" />
     </div>
 
   <div class="comfirmPosition">
@@ -40,14 +40,14 @@
   </div>
 
   <div class="checkPosition">
-      <input class="check" type="checkbox" value="accpect">
+      <input class="check" type="checkbox" value="accept" />
   </div>
   <div class="termsPosition">
     <nuxt-link to="/Terms">利用規約</nuxt-link>に同意する。
   </div>
 
   <div class="checkPositionPri">
-    <input class="check" type="checkbox" value="privacy">
+    <input class="check" type="checkbox" value="privacy" />
   </div>
   <div class="privacyPosition">
     <nuxt-link class="check" to="/Terms">プライバシーポリシー</nuxt-link>
@@ -352,8 +352,10 @@ export default {
     }
   }
 
-    .checkPosition {
+  .checkPosition {
     position: absolute;
+
+    -moz-transform: translate(-50%, 0);
 
     @media screen and (max-width: 1300px) {
       top: 65%;
@@ -367,11 +369,6 @@ export default {
       width: 65%;
       left: 19%;
     }
-
-
-    -webkit-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
 
     .check {
       width: 100%; //$id_width
@@ -411,7 +408,7 @@ export default {
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
-      
+
   .checkPositionPri {
     position: absolute;
 
@@ -428,10 +425,9 @@ export default {
       left: 19%;
     }
 
-
-    -webkit-transform: translate(-50%, 0);
+    //-webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
+    //transform: translate(-50%, 0);
 
     .check {
       width: 100%; //$id_width
