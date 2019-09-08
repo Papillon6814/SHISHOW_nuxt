@@ -141,8 +141,9 @@ export default {
     width: 100%;
     height: 100%;
 
-    top: 6.5vh;
+    top: 5vw;
     left: 50%;
+
 
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
