@@ -44,7 +44,7 @@ app.get('/homeData', (request, response) => {
                         if(doc2.docs) {
                             for(i = 0; i < doc2.docs.length && doc3.data().email != doc2.docs[i].id; i++) {
                                 if(i == doc2.docs.length) {
-                                this.relation.push(0)
+                                    this.relation.push(0)
                                 }
                                 else {
                                     relation.push(doc1.docs[i].data().relation);

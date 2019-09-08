@@ -1,6 +1,6 @@
 <template>
   <div id="DirectMessage">
-    <navi></navi>
+    <navi ref="nav"></navi>
     <div class="dmPosition">
       <dmField></dmField>
     </div>
@@ -21,6 +21,10 @@ export default {
   components: {
     navi,
     dmField
+  },
+
+  mounted: function() {
+    this.$refs.nav.showBackArrow();
   },
 
   methods: {
