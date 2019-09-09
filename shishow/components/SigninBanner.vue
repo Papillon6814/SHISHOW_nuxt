@@ -183,7 +183,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.5vh;
+        font-size: 2.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -218,7 +218,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.5vh;
+        font-size: 2.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -245,7 +245,7 @@ export default {
     text-align: center;
 
     @media screen and (max-width: 1300px) {
-      top: 81.5%;
+      top: 65.5%;
       width: 50%
     }
 
@@ -288,8 +288,9 @@ export default {
     text-align: center;
 
     @media screen and (max-width: 1300px) {
-      top: 65.5%;
-      width: 50%
+      top: 81.5%;
+      width: 50%;
+      font-size: 2.5vh;
     }
 
     @media screen and (min-width: 1300px) {

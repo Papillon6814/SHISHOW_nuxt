@@ -114,11 +114,9 @@
           切磋琢磨しよう<br>
           ゲームの世界を広げよう
         </div>
-        <nuxt-link to="/home">
-          <div class="enterButton" @click="checkUser()">
-            はじめる
-          </div>
-        </nuxt-link>
+        <div class="enterButton" @click="checkUser()">
+          はじめる
+        </div>
       </div>
 
       <div class="page2">
@@ -170,9 +168,8 @@
         <div class="aboutus">
           About us
         </div>
-        <a href="https://papion-portfolio.firebaseapp.com/">
-          <div class="card"></div>
-        </a>
+        <img src="~/assets/image/logoShishow.png" class="papion"
+            alt="papion" />
       </div>
     </div>
   </div>
@@ -753,6 +750,23 @@ export default {
       -webkit-transform: translate(-50%, 0);
       -ms-transform: translate(-50%, 0);
     }
+
+    .papion {
+        position: absolute;
+
+        top: 135vh;
+
+        left: 50%;
+
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+
+        -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+
+        width: 50vw;
+      }
   }
 
   .card {

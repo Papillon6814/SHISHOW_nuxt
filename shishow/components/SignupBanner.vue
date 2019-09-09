@@ -39,17 +39,13 @@
     >
   </div>
 
-  <div class="checkPosition">
-      <input class="check" type="checkbox" value="accept">
-  </div>
   <div class="termsPosition">
+    <input class="check" type="checkbox" value="accept" />
     <nuxt-link to="/Terms">利用規約</nuxt-link>に同意する。
   </div>
 
-  <div class="checkPositionPri">
-    <input class="check" type="checkbox" value="privacy" />
-  </div>
   <div class="privacyPosition">
+    <input class="check" type="checkbox" value="privacy" />
     <nuxt-link class="check" to="/Terms">プライバシーポリシー</nuxt-link>
   </div>
 
@@ -237,7 +233,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.5vh;
+        font-size: 2.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -273,7 +269,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.5vh;
+        font-size: 2.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -309,7 +305,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.5vh;
+        font-size: 2.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -345,7 +341,7 @@ export default {
 
         border-radius: 7px;
         outline: none;
-        font-size: 1.5vh;
+        font-size: 2.5vh;
       }
 
       @media screen and (min-width: 1300px) {
@@ -357,13 +353,15 @@ export default {
   .checkPosition {
     position: absolute;
 
-    // -moz-transform: translate(-50%, 0);
+    //-webkit-transform: translate(50%, 0);
+    //-moz-transform: translate(50%, 0);
+    //transform: translate(50%, 0);
 
     @media screen and (max-width: 1300px) {
       top: 65%;
       width: 85%;
       height: 7.25%;
-      left: -31%;
+      left: 5%;
     }
 
     @media screen and (min-width: 1300px) {
@@ -372,18 +370,6 @@ export default {
       left: -13%;
     }
 
-    .check {
-      width: 100%; //$id_width
-
-      @media screen and (max-width: 1300px) {
-        height: 50%;
-        border-radius: 7px;
-      }
-
-      @media screen and (min-width: 1300px) {
-        height: 20px; //$id_height
-      }
-    }
   }
 
   .termsPosition{
@@ -391,12 +377,12 @@ export default {
 
     @media screen and (max-width: 1300px) {
       top: 65%;
-      width: 85%;
+      width: 90%;
       height: 7.25%;
       left: 58%;
       border-radius: 7px;
       outline: none;
-      font-size: 1.5vh;
+      font-size: 2.5vh;
     }
 
     @media screen and (min-width: 1300px) {
@@ -405,10 +391,21 @@ export default {
       left: 55%;
     }
 
-
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
+
+    .check {
+      position: relative;
+
+      @media screen and (max-width: 1300px) {
+        border-radius: 7px;
+      }
+
+      @media screen and (min-width: 1300px) {
+        height: 20px; //$id_height
+      }
+    }
   }
 
   .checkPositionPri {
@@ -427,15 +424,15 @@ export default {
       left: -13%;
     }
 
-    //-webkit-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0);
-    //transform: translate(-50%, 0);
+    -webkit-transform: translate(50%, 0);
+    //-moz-transform: translate(-50%, 0);
+    transform: translate(50%, 0);
 
     .check {
       width: 100%; //$id_width
 
       @media screen and (max-width: 1300px) {
-        height: 50%;
+        height: 100%;
         border-radius: 7px;
       }
 
@@ -450,12 +447,12 @@ export default {
 
     @media screen and (max-width: 1300px) {
       top:74%;
-      width: 85%;
+      width: 90%;
       height: 7.25%;
       left: 58%;
       border-radius: 7px;
       outline: none;
-      font-size: 1.5vh;
+      font-size: 2.5vh;
     }
 
     @media screen and (min-width: 1300px) {
@@ -464,12 +461,27 @@ export default {
       left: 55%;
     }
 
-
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
-  
+
+  .privacyPosition:before {
+    .check {
+      position: relative;
+
+      @media screen and (max-width: 1300px) {
+        width: 3vh;
+        height: 3vh;
+        border-radius: 7px;
+      }
+
+      @media screen and (min-width: 1300px) {
+        height: 20px; //$id_height
+      }
+    }
+  }
+
   .signup_button {
     position: absolute;
     left: 50%;
@@ -477,7 +489,6 @@ export default {
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-    width: 50%;
     display: inline-block;
     padding: 0.3em 1em;
     text-decoration: none;
@@ -488,10 +499,11 @@ export default {
     cursor: pointer;
     @media screen and (max-width: 1300px) {
       top:85%;
+      font-size: 2.5vh;
     }
 
     @media screen and (min-width: 1300px) {
-      top:455px;
+      top: 455px;
     }
   }
 
